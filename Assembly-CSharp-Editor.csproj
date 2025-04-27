@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{EF611A82-2E9F-98C6-502F-AE03A93EC153}</ProjectGuid>
+    <ProjectGuid>{2B3FB83A-4A05-17D1-D212-B56555296981}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -1135,15 +1135,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{9B06FA23-F636-4922-FC5E-E6D980F3D2A1}</Project>
+      <Project>{5CAC8FB7-9BBE-DB71-5A16-770A628BB791}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{7F0CCB15-3DFD-61E2-2BCF-9F355B196CD5}</Project>
+      <Project>{6CEABA7C-DDE5-2B2B-DA61-BB93C96C91DE}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.Modules.UnityMathematics.csproj">
-      <Project>{3BC54D1D-A12A-EE98-F0A6-E1E8665E9DC4}</Project>
+      <Project>{2760D5CA-2624-646D-C4A3-F38EEE596E44}</Project>
       <Name>Sirenix.OdinInspector.Modules.UnityMathematics</Name>
     </ProjectReference>
   </ItemGroup>

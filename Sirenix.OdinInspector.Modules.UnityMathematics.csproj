@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{3BC54D1D-A12A-EE98-F0A6-E1E8665E9DC4}</ProjectGuid>
+    <ProjectGuid>{2760D5CA-2624-646D-C4A3-F38EEE596E44}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Sirenix.OdinInspector.Modules.UnityMathematics</AssemblyName>

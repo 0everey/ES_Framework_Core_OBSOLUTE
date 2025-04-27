@@ -1,0 +1,6 @@
+*.log
+*.dylib
+/Temp
+/Library/Bee
+/Library
+/Library
