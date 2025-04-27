@@ -1,8 +1,7 @@
 # This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
-#
-.utmp/
+# Folder
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -10,7 +9,7 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
-*.log
+/[Bb]undles/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -27,6 +26,9 @@
 
 # Visual Studio cache directory
 .vs/
+
+# idea
+.idea/
 
 # Gradle cache directory
 .gradle/
@@ -48,6 +50,7 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
+*.dwlt
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -61,7 +64,6 @@ sysinfo.txt
 *.apk
 *.aab
 *.unitypackage
-*.unitypackage.meta
 *.app
 
 # Crashlytics generated file
@@ -73,5 +75,13 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-/Library
-/Library
+
+UserSettings/
+UserSettings/EditorUserSettings.asset
+/UserSettings/Layouts
+UserSettings/Layouts/default-6000.dwlt
+
+Assets/Plugins/Sirenix/Demos/Custom Attribute Processors.unitypackage.meta
+Assets/Plugins/Sirenix/Demos/Custom Drawers.unitypackage.meta
+Assets/Plugins/Sirenix/Demos/Editor Windows.unitypackage.meta
+Assets/Plugins/Sirenix/Demos/Sample - RPG Editor.unitypackage.meta
