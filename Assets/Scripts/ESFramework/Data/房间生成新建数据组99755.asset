@@ -1,0 +1,956 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5989475735226657828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cfa3b29124da744b9593be273d9c51, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143RoomPref_Boss_M"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: RoomPref_Boss_M
+  roomPreset: {fileID: 11400000, guid: b575bb5043698b44faefd7acf261bd38, type: 2}
+  GridX:
+    rid: 4118737087039799314
+  GridY:
+    rid: 4118737087039799315
+  height: 3
+  getIndexOfDoor:
+    weights:
+    - 1
+    - 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737087039799314
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 7, y: 8}
+    - rid: 4118737087039799315
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 7, y: 8}
+--- !u!114 &-5469743518406279963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cfa3b29124da744b9593be273d9c51, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143RoomPref_Chest_S"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: RoomPref_Chest_S
+  roomPreset: {fileID: 11400000, guid: b07e190726c924a4c80200946c56d8f5, type: 2}
+  GridX:
+    rid: 4118737087039799296
+  GridY:
+    rid: 4118737087039799297
+  height: 1
+  getIndexOfDoor:
+    weights:
+    - 1
+    - 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737087039799296
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 3, y: 3}
+    - rid: 4118737087039799297
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 4, y: 5}
+--- !u!114 &-5062407338769201944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cfa3b29124da744b9593be273d9c51, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143RoomPref_Empty_S"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: RoomPref_Empty_S
+  roomPreset: {fileID: 11400000, guid: bf6d1ae2bc7aaa54881d5de8b5dbe2fa, type: 2}
+  GridX:
+    rid: 4118737087039799322
+  GridY:
+    rid: 4118737087039799323
+  height: 1
+  getIndexOfDoor:
+    weights:
+    - 1
+    - 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737087039799322
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 2, y: 4}
+    - rid: 4118737087039799323
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 2, y: 4}
+--- !u!114 &-4203114624475460972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cfa3b29124da744b9593be273d9c51, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143RoomPref_Trap_M"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: RoomPref_Trap_M
+  roomPreset: {fileID: 11400000, guid: 092473d73c2ffd2489c64d6897b16add, type: 2}
+  GridX:
+    rid: 4118737087039799320
+  GridY:
+    rid: 4118737087039799321
+  height: 2
+  getIndexOfDoor:
+    weights:
+    - 1
+    - 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737087039799320
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 4, y: 6}
+    - rid: 4118737087039799321
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 4, y: 6}
+--- !u!114 &-3996542569451500473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cfa3b29124da744b9593be273d9c51, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143RoomPref_Elite_S"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: RoomPref_Elite_S
+  roomPreset: {fileID: 11400000, guid: fc730858e487e8d4f82e2e76727d07d5, type: 2}
+  GridX:
+    rid: 4118737087039799302
+  GridY:
+    rid: 4118737087039799303
+  height: 3
+  getIndexOfDoor:
+    weights:
+    - 1
+    - 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737087039799302
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 5, y: 5}
+    - rid: 4118737087039799303
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 5, y: 5}
+--- !u!114 &-3380150335171430742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cfa3b29124da744b9593be273d9c51, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143RoomPref_Boss_S"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: RoomPref_Boss_S
+  roomPreset: {fileID: 11400000, guid: b575bb5043698b44faefd7acf261bd38, type: 2}
+  GridX:
+    rid: 4118737087039799312
+  GridY:
+    rid: 4118737087039799313
+  height: 2
+  getIndexOfDoor:
+    weights:
+    - 1
+    - 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737087039799312
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 6, y: 6}
+    - rid: 4118737087039799313
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 6, y: 6}
+--- !u!114 &-3175666764765069793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cfa3b29124da744b9593be273d9c51, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143RoomPref_Elite_L"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: RoomPref_Elite_L
+  roomPreset: {fileID: 11400000, guid: fc730858e487e8d4f82e2e76727d07d5, type: 2}
+  GridX:
+    rid: 4118737087039799306
+  GridY:
+    rid: 4118737087039799307
+  height: 4
+  getIndexOfDoor:
+    weights:
+    - 1
+    - 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737087039799306
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 8, y: 9}
+    - rid: 4118737087039799307
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 8, y: 9}
+--- !u!114 &-1682281623796916118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cfa3b29124da744b9593be273d9c51, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143RoomfPref_Rune Trader_M"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: RoomfPref_Rune Trader_M
+  roomPreset: {fileID: 11400000, guid: 61fe068c257293447bad8bc8728c83ac, type: 2}
+  GridX:
+    rid: 4118737087039799310
+  GridY:
+    rid: 4118737087039799311
+  height: 2
+  getIndexOfDoor:
+    weights:
+    - 1
+    - 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737087039799310
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 5, y: 6}
+    - rid: 4118737087039799311
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 5, y: 6}
+--- !u!114 &-1237720846744029838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cfa3b29124da744b9593be273d9c51, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143RoomPref_Boss_L"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: RoomPref_Boss_L
+  roomPreset: {fileID: 11400000, guid: b575bb5043698b44faefd7acf261bd38, type: 2}
+  GridX:
+    rid: 4118737087039799316
+  GridY:
+    rid: 4118737087039799317
+  height: 4
+  getIndexOfDoor:
+    weights:
+    - 1
+    - 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737087039799316
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 9, y: 12}
+    - rid: 4118737087039799317
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 9, y: 12}
+--- !u!114 &-105295113619635467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cfa3b29124da744b9593be273d9c51, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143RoomPref_Empty_L"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: RoomPref_Empty_L
+  roomPreset: {fileID: 11400000, guid: bf6d1ae2bc7aaa54881d5de8b5dbe2fa, type: 2}
+  GridX:
+    rid: 4118737087039799326
+  GridY:
+    rid: 4118737087039799327
+  height: 2
+  getIndexOfDoor:
+    weights:
+    - 1
+    - 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737087039799326
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 4, y: 6}
+    - rid: 4118737087039799327
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 4, y: 6}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ea52d81f29cc54c9b015722f0ad051, type: 3}
+  m_Name: "\u623F\u95F4\u751F\u6210\u65B0\u5EFA\u6570\u636E\u7EC499755"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: -5469743518406279963}
+    - {fileID: 9068207709310661677}
+    - {fileID: 6963058165757079869}
+    - {fileID: -3996542569451500473}
+    - {fileID: 9204815900433901011}
+    - {fileID: -3175666764765069793}
+    - {fileID: 2337005203013945596}
+    - {fileID: -1682281623796916118}
+    - {fileID: -3380150335171430742}
+    - {fileID: -5989475735226657828}
+    - {fileID: -1237720846744029838}
+    - {fileID: 3155221680728669068}
+    - {fileID: -4203114624475460972}
+    - {fileID: -5062407338769201944}
+    - {fileID: 7338681149614225893}
+    - {fileID: -105295113619635467}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: keyValues
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[ES.RoomGenerateDataInfo,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 16
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: RoomPref_Chest_S
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: RoomPref_Chest_M
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: RoomPref_Chest_L
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: RoomPref_Elite_S
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: RoomPref_Elite_M
+    - Name: $v
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: RoomPref_Elite_L
+    - Name: $v
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: RoomfPref_Rune Trader_S
+    - Name: $v
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: RoomfPref_Rune Trader_M
+    - Name: $v
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: RoomPref_Boss_S
+    - Name: $v
+      Entry: 10
+      Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: RoomPref_Boss_M
+    - Name: $v
+      Entry: 10
+      Data: 9
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: RoomPref_Boss_L
+    - Name: $v
+      Entry: 10
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: RoomPref_Trap_S
+    - Name: $v
+      Entry: 10
+      Data: 11
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: RoomPref_Trap_M
+    - Name: $v
+      Entry: 10
+      Data: 12
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: RoomPref_Empty_S
+    - Name: $v
+      Entry: 10
+      Data: 13
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: RoomPref_Empty_M
+    - Name: $v
+      Entry: 10
+      Data: 14
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: RoomPref_Empty_L
+    - Name: $v
+      Entry: 10
+      Data: 15
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  name__: "\u6570\u636E\u7EC4"
+--- !u!114 &2337005203013945596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cfa3b29124da744b9593be273d9c51, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143RoomfPref_Rune Trader_S"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: RoomfPref_Rune Trader_S
+  roomPreset: {fileID: 11400000, guid: 61fe068c257293447bad8bc8728c83ac, type: 2}
+  GridX:
+    rid: 4118737087039799308
+  GridY:
+    rid: 4118737087039799309
+  height: 1
+  getIndexOfDoor:
+    weights:
+    - 1
+    - 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737087039799308
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 4, y: 4}
+    - rid: 4118737087039799309
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 4, y: 4}
+--- !u!114 &3155221680728669068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cfa3b29124da744b9593be273d9c51, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143RoomPref_Trap_S"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: RoomPref_Trap_S
+  roomPreset: {fileID: 11400000, guid: 092473d73c2ffd2489c64d6897b16add, type: 2}
+  GridX:
+    rid: 4118737087039799318
+  GridY:
+    rid: 4118737087039799319
+  height: 2
+  getIndexOfDoor:
+    weights:
+    - 1
+    - 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737087039799318
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 3, y: 3}
+    - rid: 4118737087039799319
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 3, y: 3}
+--- !u!114 &6963058165757079869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cfa3b29124da744b9593be273d9c51, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143RoomPref_Chest_L"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: RoomPref_Chest_L
+  roomPreset: {fileID: 11400000, guid: b07e190726c924a4c80200946c56d8f5, type: 2}
+  GridX:
+    rid: 4118737087039799300
+  GridY:
+    rid: 4118737087039799301
+  height: 2
+  getIndexOfDoor:
+    weights:
+    - 1
+    - 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737087039799300
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 7, y: 7}
+    - rid: 4118737087039799301
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 7, y: 7}
+--- !u!114 &7338681149614225893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cfa3b29124da744b9593be273d9c51, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143RoomPref_Empty_M"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: RoomPref_Empty_M
+  roomPreset: {fileID: 11400000, guid: bf6d1ae2bc7aaa54881d5de8b5dbe2fa, type: 2}
+  GridX:
+    rid: 4118737087039799324
+  GridY:
+    rid: 4118737087039799325
+  height: 2
+  getIndexOfDoor:
+    weights:
+    - 1
+    - 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737087039799324
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 3, y: 5}
+    - rid: 4118737087039799325
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 3, y: 5}
+--- !u!114 &9068207709310661677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cfa3b29124da744b9593be273d9c51, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143RoomPref_Chest_M"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: RoomPref_Chest_M
+  roomPreset: {fileID: 11400000, guid: b07e190726c924a4c80200946c56d8f5, type: 2}
+  GridX:
+    rid: 4118737087039799298
+  GridY:
+    rid: 4118737087039799299
+  height: 2
+  getIndexOfDoor:
+    weights:
+    - 1
+    - 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737087039799298
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 4, y: 6}
+    - rid: 4118737087039799299
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 5, y: 6}
+--- !u!114 &9204815900433901011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cfa3b29124da744b9593be273d9c51, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143RoomPref_Elite_M"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: RoomPref_Elite_M
+  roomPreset: {fileID: 11400000, guid: fc730858e487e8d4f82e2e76727d07d5, type: 2}
+  GridX:
+    rid: 4118737087039799304
+  GridY:
+    rid: 4118737087039799305
+  height: 3
+  getIndexOfDoor:
+    weights:
+    - 1
+    - 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737087039799304
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 6, y: 7}
+    - rid: 4118737087039799305
+      type: {class: PointerForInt_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        int_range: {x: 6, y: 7}

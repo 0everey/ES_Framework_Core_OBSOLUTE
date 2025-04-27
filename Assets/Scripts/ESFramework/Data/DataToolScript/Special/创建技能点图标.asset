@@ -1,0 +1,288 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7de875c6188a9d4c9c0d120ccd66db3, type: 3}
+  m_Name: "\u521B\u5EFA\u6280\u80FD\u70B9\u56FE\u6807"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 21300000, guid: 6e2f2760e35bda24ab25335ceb4372b8, type: 3}
+    - {fileID: 21300000, guid: 46bc627ea297ab54d9b5a240d9d46217, type: 3}
+    - {fileID: 21300000, guid: 1489346999c10c4488d9394076fc0341, type: 3}
+    - {fileID: 21300000, guid: 6d3140f2473e25341997b6a21184415b, type: 3}
+    - {fileID: 21300000, guid: 4e392075c06bff0498416701f5c542b1, type: 3}
+    - {fileID: 21300000, guid: 8d13136fcbb8c1342b2a0b839a500605, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: defaultSpritesForSkillPoint
+      Entry: 7
+      Data: 0|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+        Assembly-CSharp
+    - Name: b
+      Entry: 5
+      Data: false
+    - Name: keyValues
+      Entry: 7
+      Data: 1|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 2|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 3|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 10
+      Data: 0
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.245282888
+    - Name: 
+      Entry: 4
+      Data: 0.245282888
+    - Name: 
+      Entry: 4
+      Data: 0.245282888
+    - Name: 
+      Entry: 4
+      Data: 0.23137255
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 10
+      Data: 1
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 0.917894959
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 5|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 10
+      Data: 2
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 6|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 10
+      Data: 3
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0.6361227
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 7|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 10
+      Data: 4
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0.8088198
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 7
+      Data: 8|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 10
+      Data: 5
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 0.7159045
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

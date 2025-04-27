@@ -1,0 +1,232 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3217885779951911064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6522b42978bdbd54ca77452705e886c0, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u91D1\u5E01\u6570\u91CF"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: "\u91D1\u5E01\u6570\u91CF"
+  Value:
+    rid: 4118736618336813058
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118736618336813058
+      type: {class: ArchitectureTypeValue_Float, ns: , asm: Assembly-CSharp}
+      data:
+        IOCKey:
+          str_direc: "\u91D1\u5E01\u6570\u91CF"
+        floatValue: 90
+--- !u!114 &-1422953524976438218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6522b42978bdbd54ca77452705e886c0, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u9B54\u6CD5\u6570\u91CF"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: "\u9B54\u6CD5\u6570\u91CF"
+  Value:
+    rid: 4118736618336813059
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118736618336813059
+      type: {class: ArchitectureTypeValue_Float, ns: , asm: Assembly-CSharp}
+      data:
+        IOCKey:
+          str_direc: "\u9B54\u6CD5\u6570\u91CF"
+        floatValue: 10
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a06876ddcbd9cc41a1c007f3630fd61, type: 3}
+  m_Name: "\u539F\u578B\u53C2\u6570\u503C\u65B0\u5EFA\u6570\u636E\u7EC44433"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: -3217885779951911064}
+    - {fileID: -1422953524976438218}
+    - {fileID: 5599471568780156631}
+    - {fileID: 33730654470080524}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: keyValues
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[HellishBattle.ArchitectureDataInfo,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u9B54\u6CD5\u6570\u91CF"
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u953B\u9020\u7B49\u7EA7"
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u57FA\u672C\u5929\u8D4B\u7C7B\u578B"
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  name__: "\u6570\u636E\u7EC4"
+--- !u!114 &33730654470080524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6522b42978bdbd54ca77452705e886c0, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u57FA\u672C\u5929\u8D4B\u7C7B\u578B"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: "\u57FA\u672C\u5929\u8D4B\u7C7B\u578B"
+  Value:
+    rid: 4118736657075404801
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118736657075404801
+      type: {class: ArchitectureTypeValue_Int, ns: , asm: Assembly-CSharp}
+      data:
+        IOCKey:
+          str_direc: "\u57FA\u672C\u5929\u8D4B\u7C7B\u578B"
+        intValue: 0
+--- !u!114 &5599471568780156631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6522b42978bdbd54ca77452705e886c0, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u953B\u9020\u7B49\u7EA7"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: "\u953B\u9020\u7B49\u7EA7"
+  Value:
+    rid: 4118736618336813061
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118736618336813061
+      type: {class: ArchitectureTypeValue_Int, ns: , asm: Assembly-CSharp}
+      data:
+        IOCKey:
+          str_direc: "\u953B\u9020\u7B49\u7EA7"
+        intValue: 10

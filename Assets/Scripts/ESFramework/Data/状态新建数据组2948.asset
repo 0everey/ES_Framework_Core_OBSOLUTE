@@ -1,0 +1,814 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5103703678651064282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9b7ba47d76df64fb4928c9936d91b2, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u5DE6\u624B\u7089\u7BA1"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: BindingSelf
+      Entry: 6
+      Data: 
+  DataKey:
+    str_direc: "\u5DE6\u624B\u7089\u7BA1"
+  asFirstLayer: 1
+  IsSonMachine: 0
+  stateSharedData:
+    rid: 4118737063873085520
+  stateStatus:
+    rid: 4118737063873085521
+  BindingStandState: {fileID: 0}
+  BindingAllStates: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737063873085520
+      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        MergePart_:
+          BeHitWithoutCondition: []
+          HitWithoutCondition: []
+          CanBeHit: 0
+          CanHit: 0
+          logicLayer: 0
+          channel: 2
+          BeHitOrder: 2
+          HitOrder: 0
+    - rid: 4118737063873085521
+      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        hasEnterTime: 0
+        stateStandStatus: 0
+--- !u!114 &-4199297137930135022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9b7ba47d76df64fb4928c9936d91b2, type: 3}
+  m_Name: "\u9759\u6B62\u72B6\u6001\u5355\u5143"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: BindingSelf
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: HellishBattle.InvokeOnly+StandardState_Idle, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u9759\u6B62"
+  asFirstLayer: 1
+  IsSonMachine: 0
+  stateSharedData:
+    rid: 4118737022073438578
+  stateStatus:
+    rid: 4118737022073438577
+  BindingStandState: {fileID: 0}
+  BindingAllStates:
+  - {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737022073438577
+      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        hasEnterTime: 0
+        stateStandStatus: 0
+    - rid: 4118737022073438578
+      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        MergePart_:
+          BeHitWithoutCondition: []
+          HitWithoutCondition: []
+          CanBeHit: 0
+          CanHit: 0
+          logicLayer: 0
+          channel: 63
+          BeHitOrder: 0
+          HitOrder: 0
+--- !u!114 &-3885064651176735477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9b7ba47d76df64fb4928c9936d91b2, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u62FE\u53D6"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: BindingSelf
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: HellishBattle.InvokeOnly+StandardState_Index_Pick, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u62FE\u53D6"
+  asFirstLayer: 0
+  IsSonMachine: 0
+  stateSharedData:
+    rid: 4118737052680585277
+  stateStatus:
+    rid: 4118737052680585278
+  BindingStandState: {fileID: 0}
+  BindingAllStates: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737052680585277
+      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        MergePart_:
+          BeHitWithoutCondition: []
+          HitWithoutCondition: []
+          CanBeHit: 0
+          CanHit: 0
+          logicLayer: 0
+          channel: 63
+          BeHitOrder: 1
+          HitOrder: 0
+    - rid: 4118737052680585278
+      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        hasEnterTime: 0
+        stateStandStatus: 0
+--- !u!114 &-1736118877953595914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9b7ba47d76df64fb4928c9936d91b2, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u6E10\u51BB\u75C7"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: BindingSelf
+      Entry: 6
+      Data: 
+  DataKey:
+    str_direc: "\u6E10\u51BB\u75C7"
+  asFirstLayer: 1
+  IsSonMachine: 0
+  stateSharedData:
+    rid: 4118737063873085530
+  stateStatus:
+    rid: 4118737063873085531
+  BindingStandState: {fileID: 0}
+  BindingAllStates: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737063873085530
+      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        MergePart_:
+          BeHitWithoutCondition: []
+          HitWithoutCondition: []
+          CanBeHit: 0
+          CanHit: 0
+          logicLayer: 4
+          channel: 63
+          BeHitOrder: 3
+          HitOrder: 3
+    - rid: 4118737063873085531
+      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        hasEnterTime: 0
+        stateStandStatus: 0
+--- !u!114 &-900648101668620865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9b7ba47d76df64fb4928c9936d91b2, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u53F3\u624B\u7089\u7BA1"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: BindingSelf
+      Entry: 6
+      Data: 
+  DataKey:
+    str_direc: "\u53F3\u624B\u7089\u7BA1"
+  asFirstLayer: 1
+  IsSonMachine: 0
+  stateSharedData:
+    rid: 4118737063873085522
+  stateStatus:
+    rid: 4118737063873085523
+  BindingStandState: {fileID: 0}
+  BindingAllStates: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737063873085522
+      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        MergePart_:
+          BeHitWithoutCondition: []
+          HitWithoutCondition: []
+          CanBeHit: 0
+          CanHit: 0
+          logicLayer: 0
+          channel: 1
+          BeHitOrder: 2
+          HitOrder: 0
+    - rid: 4118737063873085523
+      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        hasEnterTime: 0
+        stateStandStatus: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b3b745040a35445acb94e6392a723b, type: 3}
+  m_Name: "\u72B6\u6001\u65B0\u5EFA\u6570\u636E\u7EC42948"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: -4199297137930135022}
+    - {fileID: 7049674341585291457}
+    - {fileID: 6714777976555889925}
+    - {fileID: -3885064651176735477}
+    - {fileID: 3335984220515197374}
+    - {fileID: -5103703678651064282}
+    - {fileID: -900648101668620865}
+    - {fileID: 6950600497964286122}
+    - {fileID: 3471548880895970470}
+    - {fileID: 2718719188293294302}
+    - {fileID: -1736118877953595914}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: keyValues
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[HellishBattle.StateDataInfo,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 11
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u9759\u6B62"
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u653B\u51FB"
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u5F00\u95E8"
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u62FE\u53D6"
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u4EA4\u4E92\u5B50\u72B6\u6001"
+    - Name: $v
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u5DE6\u624B\u7089\u7BA1"
+    - Name: $v
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u53F3\u624B\u7089\u7BA1"
+    - Name: $v
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u6447\u82B1\u624B"
+    - Name: $v
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u601D\u8003\u4EBA\u751F"
+    - Name: $v
+      Entry: 10
+      Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u5DE6\u811A\u6B8B\u75BE"
+    - Name: $v
+      Entry: 10
+      Data: 9
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u6E10\u51BB\u75C7"
+    - Name: $v
+      Entry: 10
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  name__: "\u6570\u636E\u7EC4"
+--- !u!114 &2718719188293294302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9b7ba47d76df64fb4928c9936d91b2, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u5DE6\u811A\u6B8B\u75BE"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: BindingSelf
+      Entry: 6
+      Data: 
+  DataKey:
+    str_direc: "\u5DE6\u811A\u6B8B\u75BE"
+  asFirstLayer: 1
+  IsSonMachine: 0
+  stateSharedData:
+    rid: 4118737063873085528
+  stateStatus:
+    rid: 4118737063873085529
+  BindingStandState: {fileID: 0}
+  BindingAllStates: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737063873085528
+      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        MergePart_:
+          BeHitWithoutCondition: []
+          HitWithoutCondition: []
+          CanBeHit: 0
+          CanHit: 0
+          logicLayer: 4
+          channel: 8
+          BeHitOrder: 3
+          HitOrder: 3
+    - rid: 4118737063873085529
+      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        hasEnterTime: 0
+        stateStandStatus: 0
+--- !u!114 &3335984220515197374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9b7ba47d76df64fb4928c9936d91b2, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u4EA4\u4E92\u5B50\u72B6\u6001"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: BindingSelf
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: HellishBattle.BaseMicroStateMachine_StringKey, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u4EA4\u4E92\u5B50\u72B6\u6001"
+  asFirstLayer: 1
+  IsSonMachine: 1
+  stateSharedData:
+    rid: 4118737052680585279
+  stateStatus:
+    rid: 4118737052680585280
+  BindingStandState: {fileID: 0}
+  BindingAllStates:
+  - {fileID: 6714777976555889925}
+  - {fileID: -3885064651176735477}
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737052680585279
+      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        MergePart_:
+          BeHitWithoutCondition: []
+          HitWithoutCondition: []
+          CanBeHit: 0
+          CanHit: 0
+          logicLayer: 0
+          channel: 63
+          BeHitOrder: 1
+          HitOrder: 0
+    - rid: 4118737052680585280
+      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        hasEnterTime: 0
+        stateStandStatus: 0
+--- !u!114 &3471548880895970470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9b7ba47d76df64fb4928c9936d91b2, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u601D\u8003\u4EBA\u751F"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: BindingSelf
+      Entry: 6
+      Data: 
+  DataKey:
+    str_direc: "\u601D\u8003\u4EBA\u751F"
+  asFirstLayer: 1
+  IsSonMachine: 0
+  stateSharedData:
+    rid: 4118737063873085526
+  stateStatus:
+    rid: 4118737063873085527
+  BindingStandState: {fileID: 0}
+  BindingAllStates: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737063873085526
+      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        MergePart_:
+          BeHitWithoutCondition: []
+          HitWithoutCondition: []
+          CanBeHit: 0
+          CanHit: 0
+          logicLayer: 0
+          channel: 64
+          BeHitOrder: 0
+          HitOrder: 0
+    - rid: 4118737063873085527
+      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        hasEnterTime: 0
+        stateStandStatus: 0
+--- !u!114 &6714777976555889925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9b7ba47d76df64fb4928c9936d91b2, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u5F00\u95E8"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: BindingSelf
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: HellishBattle.InvokeOnly+StandardState_Index_OpenDoor, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u5F00\u95E8"
+  asFirstLayer: 0
+  IsSonMachine: 0
+  stateSharedData:
+    rid: 4118737052680585275
+  stateStatus:
+    rid: 4118737052680585276
+  BindingStandState: {fileID: 0}
+  BindingAllStates: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737052680585275
+      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        MergePart_:
+          BeHitWithoutCondition: []
+          HitWithoutCondition: []
+          CanBeHit: 0
+          CanHit: 0
+          logicLayer: 0
+          channel: 63
+          BeHitOrder: 1
+          HitOrder: 0
+    - rid: 4118737052680585276
+      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        hasEnterTime: 0
+        stateStandStatus: 0
+--- !u!114 &6950600497964286122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9b7ba47d76df64fb4928c9936d91b2, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u6447\u82B1\u624B"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: BindingSelf
+      Entry: 6
+      Data: 
+  DataKey:
+    str_direc: "\u6447\u82B1\u624B"
+  asFirstLayer: 1
+  IsSonMachine: 0
+  stateSharedData:
+    rid: 4118737063873085524
+  stateStatus:
+    rid: 4118737063873085525
+  BindingStandState: {fileID: 0}
+  BindingAllStates: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737063873085524
+      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        MergePart_:
+          BeHitWithoutCondition: []
+          HitWithoutCondition: []
+          CanBeHit: 0
+          CanHit: 0
+          logicLayer: 0
+          channel: 3
+          BeHitOrder: 1
+          HitOrder: 0
+    - rid: 4118737063873085525
+      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        hasEnterTime: 0
+        stateStandStatus: 0
+--- !u!114 &7049674341585291457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9b7ba47d76df64fb4928c9936d91b2, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u653B\u51FB"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: BindingSelf
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: HellishBattle.InvokeOnly+StandardState_Attack, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u653B\u51FB"
+  asFirstLayer: 1
+  IsSonMachine: 0
+  stateSharedData:
+    rid: 4118737052680585273
+  stateStatus:
+    rid: 4118737052680585274
+  BindingStandState: {fileID: 0}
+  BindingAllStates: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 4118737052680585273
+      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        MergePart_:
+          BeHitWithoutCondition: []
+          HitWithoutCondition: []
+          CanBeHit: 0
+          CanHit: 0
+          logicLayer: 0
+          channel: 63
+          BeHitOrder: 1
+          HitOrder: 1
+    - rid: 4118737052680585274
+      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        hasEnterTime: 0
+        stateStandStatus: 0

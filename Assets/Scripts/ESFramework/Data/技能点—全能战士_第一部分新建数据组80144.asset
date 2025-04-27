@@ -1,0 +1,5678 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8325040626108528708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314dd0c677c319e42addf2015bd3c159, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u8EAB\u4F53_\u89C6\u529B\u5F3A\u5316"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: allLevel
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+    - Name: displayName
+      Entry: 1
+      Data: "\u8EAB\u4F53_\u89C6\u529B\u5F3A\u53161\u7EA7"
+    - Name: forNone2UnKnownDetail
+      Entry: 7
+      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u8EAB\u4F53_\u4F53\u80FD\u5F3A\u53161\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forUnKnownDetail2CantUnlock
+      Entry: 7
+      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 5|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u8EAB\u4F53_\u8D1F\u91CD\u5F3A\u53161\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCantUnlock2CanUnlockButNotFeet
+      Entry: 7
+      Data: 6|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 7|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u67AA\u652F_\u5FEB\u901F\u7784\u51C6_1\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockButNotFeet2CanUnlockComplete
+      Entry: 7
+      Data: 8|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 9|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: function
+      Entry: 3
+      Data: 5
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: compare
+      Entry: 4
+      Data: 180
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockComplete2Unlock
+      Entry: 7
+      Data: 10|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: false
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenUnlock
+      Entry: 7
+      Data: 11|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+    - Name: intHepler
+      Entry: 3
+      Data: 0
+    - Name: pointers
+      Entry: 7
+      Data: 12|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 13|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
+    - Name: function
+      Entry: 3
+      Data: 2
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: handler
+      Entry: 4
+      Data: 180
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 14|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
+    - Name: key
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenCancel_
+      Entry: 6
+      Data: 
+    - Name: whenApply_
+      Entry: 6
+      Data: 
+    - Name: whenDeApply_
+      Entry: 6
+      Data: 
+    - Name: sprites
+      Entry: 7
+      Data: 15|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+        Assembly-CSharp
+    - Name: b
+      Entry: 5
+      Data: false
+    - Name: keyValues
+      Entry: 7
+      Data: 16|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 17|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 22|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 7
+      Data: 23|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u8EAB\u4F53_\u89C6\u529B\u5F3A\u5316"
+--- !u!114 &-8191703608647244083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314dd0c677c319e42addf2015bd3c159, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u57FA\u672C_\u62A4\u7532\u63D0\u5347"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: allLevel
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+    - Name: displayName
+      Entry: 1
+      Data: "\u57FA\u672C_\u62A4\u7532\u63D0\u53471\u7EA7"
+    - Name: forNone2UnKnownDetail
+      Entry: 7
+      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forUnKnownDetail2CantUnlock
+      Entry: 7
+      Data: 3|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCantUnlock2CanUnlockButNotFeet
+      Entry: 7
+      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 5|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u57FA\u672C_\u901F\u5EA6\u63D0\u53471\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockButNotFeet2CanUnlockComplete
+      Entry: 7
+      Data: 6|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 7|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: function
+      Entry: 3
+      Data: 5
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: compare
+      Entry: 4
+      Data: 200
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockComplete2Unlock
+      Entry: 7
+      Data: 8|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: false
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenUnlock
+      Entry: 7
+      Data: 9|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+    - Name: intHepler
+      Entry: 3
+      Data: 0
+    - Name: pointers
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 11|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
+    - Name: function
+      Entry: 3
+      Data: 2
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: handler
+      Entry: 4
+      Data: 150
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 12|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
+    - Name: key
+      Entry: 1
+      Data: "\u57FA\u672C_\u62A4\u7532\u63D0\u53471\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenCancel_
+      Entry: 6
+      Data: 
+    - Name: whenApply_
+      Entry: 6
+      Data: 
+    - Name: whenDeApply_
+      Entry: 6
+      Data: 
+    - Name: sprites
+      Entry: 7
+      Data: 13|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+        Assembly-CSharp
+    - Name: b
+      Entry: 5
+      Data: false
+    - Name: keyValues
+      Entry: 7
+      Data: 14|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 15|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 16|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 17|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 7
+      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u57FA\u672C_\u62A4\u7532\u63D0\u5347"
+--- !u!114 &-2619550956393433183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314dd0c677c319e42addf2015bd3c159, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u57FA\u672C_\u653B\u51FB\u529B\u63D0\u5347"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: allLevel
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+    - Name: displayName
+      Entry: 1
+      Data: "\u57FA\u672C_\u653B\u51FB\u529B\u63D0\u53471\u7EA7"
+    - Name: forNone2UnKnownDetail
+      Entry: 7
+      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forUnKnownDetail2CantUnlock
+      Entry: 7
+      Data: 3|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCantUnlock2CanUnlockButNotFeet
+      Entry: 7
+      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockButNotFeet2CanUnlockComplete
+      Entry: 7
+      Data: 5|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 6|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: function
+      Entry: 3
+      Data: 5
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: compare
+      Entry: 4
+      Data: 100
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockComplete2Unlock
+      Entry: 7
+      Data: 7|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: false
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenUnlock
+      Entry: 7
+      Data: 8|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+    - Name: intHepler
+      Entry: 3
+      Data: 0
+    - Name: pointers
+      Entry: 7
+      Data: 9|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 10|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
+    - Name: function
+      Entry: 3
+      Data: 2
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: handler
+      Entry: 4
+      Data: 100
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 11|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
+    - Name: key
+      Entry: 1
+      Data: "\u57FA\u672C_\u653B\u51FB\u529B\u63D0\u53471\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenCancel_
+      Entry: 6
+      Data: 
+    - Name: whenApply_
+      Entry: 6
+      Data: 
+    - Name: whenDeApply_
+      Entry: 6
+      Data: 
+    - Name: sprites
+      Entry: 7
+      Data: 12|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+        Assembly-CSharp
+    - Name: b
+      Entry: 5
+      Data: false
+    - Name: keyValues
+      Entry: 7
+      Data: 13|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 14|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 15|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 16|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 17|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 7
+      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u57FA\u672C_\u653B\u51FB\u529B\u63D0\u5347"
+--- !u!114 &-2002161164784053555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314dd0c677c319e42addf2015bd3c159, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u57FA\u672C_\u901F\u5EA6\u63D0\u5347"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: allLevel
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+    - Name: displayName
+      Entry: 1
+      Data: "\u57FA\u672C_\u901F\u5EA6\u63D0\u53471\u7EA7"
+    - Name: forNone2UnKnownDetail
+      Entry: 7
+      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u57FA\u672C_\u653B\u51FB\u529B\u63D0\u53471\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forUnKnownDetail2CantUnlock
+      Entry: 7
+      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCantUnlock2CanUnlockButNotFeet
+      Entry: 7
+      Data: 5|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockButNotFeet2CanUnlockComplete
+      Entry: 7
+      Data: 6|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 7|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: function
+      Entry: 3
+      Data: 5
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: compare
+      Entry: 4
+      Data: 150
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockComplete2Unlock
+      Entry: 7
+      Data: 8|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: false
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenUnlock
+      Entry: 7
+      Data: 9|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+    - Name: intHepler
+      Entry: 3
+      Data: 0
+    - Name: pointers
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 11|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
+    - Name: function
+      Entry: 3
+      Data: 2
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: handler
+      Entry: 4
+      Data: 150
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 12|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
+    - Name: key
+      Entry: 1
+      Data: "\u57FA\u672C_\u901F\u5EA6\u63D0\u53471\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenCancel_
+      Entry: 6
+      Data: 
+    - Name: whenApply_
+      Entry: 6
+      Data: 
+    - Name: whenDeApply_
+      Entry: 6
+      Data: 
+    - Name: sprites
+      Entry: 7
+      Data: 13|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+        Assembly-CSharp
+    - Name: b
+      Entry: 5
+      Data: false
+    - Name: keyValues
+      Entry: 7
+      Data: 14|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 15|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 16|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 17|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 7
+      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u57FA\u672C_\u901F\u5EA6\u63D0\u5347"
+--- !u!114 &-995600057007661694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314dd0c677c319e42addf2015bd3c159, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u67AA\u652F_\u7CBE\u51C6\u7206\u7834"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: allLevel
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+    - Name: displayName
+      Entry: 1
+      Data: "\u67AA\u652F_\u7CBE\u51C6\u7206\u78341\u7EA7"
+    - Name: forNone2UnKnownDetail
+      Entry: 7
+      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u67AA\u652F_\u5FEB\u901F\u7784\u51C6_1\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forUnKnownDetail2CantUnlock
+      Entry: 7
+      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCantUnlock2CanUnlockButNotFeet
+      Entry: 7
+      Data: 5|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 6|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u67AA\u652F_\u5FEB\u901F\u88C5\u5F391\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockButNotFeet2CanUnlockComplete
+      Entry: 7
+      Data: 7|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 8|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: function
+      Entry: 3
+      Data: 5
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: compare
+      Entry: 4
+      Data: 250
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockComplete2Unlock
+      Entry: 7
+      Data: 9|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: false
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenUnlock
+      Entry: 7
+      Data: 10|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+    - Name: intHepler
+      Entry: 3
+      Data: 0
+    - Name: pointers
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 12|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
+    - Name: function
+      Entry: 3
+      Data: 2
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: handler
+      Entry: 4
+      Data: 250
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 13|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
+    - Name: key
+      Entry: 1
+      Data: "\u67AA\u652F_\u7CBE\u51C6\u7206\u78341\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenCancel_
+      Entry: 6
+      Data: 
+    - Name: whenApply_
+      Entry: 6
+      Data: 
+    - Name: whenDeApply_
+      Entry: 6
+      Data: 
+    - Name: sprites
+      Entry: 7
+      Data: 14|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+        Assembly-CSharp
+    - Name: b
+      Entry: 5
+      Data: false
+    - Name: keyValues
+      Entry: 7
+      Data: 15|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 16|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 17|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 7
+      Data: 22|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u67AA\u652F_\u7CBE\u51C6\u7206\u7834"
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a8c50d0368e9ae448fc7a2e0b696204, type: 3}
+  m_Name: "\u6280\u80FD\u70B9\u2014\u5168\u80FD\u6218\u58EB_\u7B2C\u4E00\u90E8\u5206\u65B0\u5EFA\u6570\u636E\u7EC480144"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: -8191703608647244083}
+    - {fileID: -2002161164784053555}
+    - {fileID: -2619550956393433183}
+    - {fileID: 213293363810314181}
+    - {fileID: 7816739315804611757}
+    - {fileID: 6625045930370053693}
+    - {fileID: -995600057007661694}
+    - {fileID: 867458876304581636}
+    - {fileID: 7510811667542570060}
+    - {fileID: -8325040626108528708}
+    - {fileID: 4243603620829502755}
+    - {fileID: 8706156313970617029}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: keyValues
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[HellishBattle.SkillPointDataInfo,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 12
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u57FA\u672C_\u62A4\u7532\u63D0\u5347"
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u57FA\u672C_\u901F\u5EA6\u63D0\u5347"
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u57FA\u672C_\u653B\u51FB\u529B\u63D0\u5347"
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u8FD1\u6218_\u66F4\u957F\u7684\u653B\u51FB\u8DDD\u79BB"
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u8FD1\u6218_\u51FB\u6740\u56DE\u8840"
+    - Name: $v
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u8FD1\u6218_\u66B4\u51FB\u7387"
+    - Name: $v
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u67AA\u652F_\u7CBE\u51C6\u7206\u7834"
+    - Name: $v
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u67AA\u652F_\u5FEB\u901F\u88C5\u5F39"
+    - Name: $v
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u67AA\u652F_\u5FEB\u901F\u7784\u51C6"
+    - Name: $v
+      Entry: 10
+      Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u8EAB\u4F53_\u89C6\u529B\u5F3A\u5316"
+    - Name: $v
+      Entry: 10
+      Data: 9
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u8EAB\u4F53_\u8D1F\u91CD\u5F3A\u5316"
+    - Name: $v
+      Entry: 10
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u8EAB\u4F53_\u4F53\u80FD\u5F3A\u5316"
+    - Name: $v
+      Entry: 10
+      Data: 11
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  name__: "\u6570\u636E\u7EC4"
+--- !u!114 &213293363810314181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314dd0c677c319e42addf2015bd3c159, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u8FD1\u6218_\u66F4\u957F\u7684\u653B\u51FB\u8DDD\u79BB"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: allLevel
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+    - Name: displayName
+      Entry: 1
+      Data: "\u8FD1\u6218_\u66F4\u957F\u7684\u653B\u51FB\u8DDD\u79BB1\u7EA7"
+    - Name: forNone2UnKnownDetail
+      Entry: 7
+      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u8FD1\u6218_\u66B4\u51FB\u73871\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forUnKnownDetail2CantUnlock
+      Entry: 7
+      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCantUnlock2CanUnlockButNotFeet
+      Entry: 7
+      Data: 5|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 6|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u8FD1\u6218_\u51FB\u6740\u56DE\u88401\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockButNotFeet2CanUnlockComplete
+      Entry: 7
+      Data: 7|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 8|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: function
+      Entry: 3
+      Data: 4
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: compare
+      Entry: 4
+      Data: 300
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockComplete2Unlock
+      Entry: 7
+      Data: 9|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: false
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenUnlock
+      Entry: 7
+      Data: 10|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+    - Name: intHepler
+      Entry: 3
+      Data: 0
+    - Name: pointers
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 12|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
+    - Name: function
+      Entry: 3
+      Data: 2
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: handler
+      Entry: 4
+      Data: 300
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 13|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
+    - Name: key
+      Entry: 1
+      Data: "\u8FD1\u6218_\u66F4\u957F\u7684\u653B\u51FB\u8DDD\u79BB1\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenCancel_
+      Entry: 6
+      Data: 
+    - Name: whenApply_
+      Entry: 6
+      Data: 
+    - Name: whenDeApply_
+      Entry: 6
+      Data: 
+    - Name: sprites
+      Entry: 7
+      Data: 14|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+        Assembly-CSharp
+    - Name: b
+      Entry: 5
+      Data: false
+    - Name: keyValues
+      Entry: 7
+      Data: 15|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 16|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 17|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 7
+      Data: 22|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u8FD1\u6218_\u66F4\u957F\u7684\u653B\u51FB\u8DDD\u79BB"
+--- !u!114 &867458876304581636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314dd0c677c319e42addf2015bd3c159, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u67AA\u652F_\u5FEB\u901F\u88C5\u5F39"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: allLevel
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+    - Name: displayName
+      Entry: 1
+      Data: "\u67AA\u652F_\u5FEB\u901F\u88C5\u5F391\u7EA7"
+    - Name: forNone2UnKnownDetail
+      Entry: 7
+      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u67AA\u652F_\u5FEB\u901F\u7784\u51C6_1\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forUnKnownDetail2CantUnlock
+      Entry: 7
+      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCantUnlock2CanUnlockButNotFeet
+      Entry: 7
+      Data: 5|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockButNotFeet2CanUnlockComplete
+      Entry: 7
+      Data: 6|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 7|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: function
+      Entry: 3
+      Data: 5
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: compare
+      Entry: 4
+      Data: 160
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockComplete2Unlock
+      Entry: 7
+      Data: 8|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: false
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenUnlock
+      Entry: 7
+      Data: 9|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+    - Name: intHepler
+      Entry: 3
+      Data: 0
+    - Name: pointers
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 11|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
+    - Name: function
+      Entry: 3
+      Data: 2
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: handler
+      Entry: 4
+      Data: 160
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 12|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
+    - Name: key
+      Entry: 1
+      Data: "\u67AA\u652F_\u5FEB\u901F\u88C5\u5F391\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenCancel_
+      Entry: 6
+      Data: 
+    - Name: whenApply_
+      Entry: 6
+      Data: 
+    - Name: whenDeApply_
+      Entry: 6
+      Data: 
+    - Name: sprites
+      Entry: 7
+      Data: 13|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+        Assembly-CSharp
+    - Name: b
+      Entry: 5
+      Data: false
+    - Name: keyValues
+      Entry: 7
+      Data: 14|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 15|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 16|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 17|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 7
+      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u67AA\u652F_\u5FEB\u901F\u88C5\u5F39"
+--- !u!114 &4243603620829502755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314dd0c677c319e42addf2015bd3c159, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u8EAB\u4F53_\u8D1F\u91CD\u5F3A\u5316"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: allLevel
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+    - Name: displayName
+      Entry: 1
+      Data: "\u8EAB\u4F53_\u8D1F\u91CD\u5F3A\u53161\u7EA7"
+    - Name: forNone2UnKnownDetail
+      Entry: 7
+      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u57FA\u672C_\u62A4\u7532\u63D0\u53471\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forUnKnownDetail2CantUnlock
+      Entry: 7
+      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCantUnlock2CanUnlockButNotFeet
+      Entry: 7
+      Data: 5|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 6|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u8EAB\u4F53_\u4F53\u80FD\u5F3A\u53161\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockButNotFeet2CanUnlockComplete
+      Entry: 7
+      Data: 7|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 8|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: function
+      Entry: 3
+      Data: 5
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: compare
+      Entry: 4
+      Data: 180
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockComplete2Unlock
+      Entry: 7
+      Data: 9|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: false
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenUnlock
+      Entry: 7
+      Data: 10|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+    - Name: intHepler
+      Entry: 3
+      Data: 0
+    - Name: pointers
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 12|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
+    - Name: function
+      Entry: 3
+      Data: 2
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: handler
+      Entry: 4
+      Data: 180
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 13|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
+    - Name: key
+      Entry: 1
+      Data: "\u8EAB\u4F53_\u8D1F\u91CD\u5F3A\u53161\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenCancel_
+      Entry: 6
+      Data: 
+    - Name: whenApply_
+      Entry: 6
+      Data: 
+    - Name: whenDeApply_
+      Entry: 6
+      Data: 
+    - Name: sprites
+      Entry: 7
+      Data: 14|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+        Assembly-CSharp
+    - Name: b
+      Entry: 5
+      Data: false
+    - Name: keyValues
+      Entry: 7
+      Data: 15|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 16|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 17|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 7
+      Data: 22|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u8EAB\u4F53_\u8D1F\u91CD\u5F3A\u5316"
+--- !u!114 &6625045930370053693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314dd0c677c319e42addf2015bd3c159, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u8FD1\u6218_\u66B4\u51FB\u7387"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: allLevel
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+    - Name: displayName
+      Entry: 1
+      Data: "\u8FD1\u6218_\u66B4\u51FB\u73871\u7EA7"
+    - Name: forNone2UnKnownDetail
+      Entry: 7
+      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u57FA\u672C_\u901F\u5EA6\u63D0\u53471\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forUnKnownDetail2CantUnlock
+      Entry: 7
+      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 5|HellishBattle.PointerForBoolByArKVP_IntInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: function
+      Entry: 3
+      Data: 0
+    - Name: key
+      Entry: 1
+      Data: "\u57FA\u672C\u5929\u8D4B\u7C7B\u578B"
+    - Name: compare
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCantUnlock2CanUnlockButNotFeet
+      Entry: 7
+      Data: 6|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 7|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u57FA\u672C_\u62A4\u7532\u63D0\u53471\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockButNotFeet2CanUnlockComplete
+      Entry: 7
+      Data: 8|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 9|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: function
+      Entry: 3
+      Data: 5
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: compare
+      Entry: 4
+      Data: 150
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockComplete2Unlock
+      Entry: 7
+      Data: 10|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: false
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenUnlock
+      Entry: 7
+      Data: 11|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+    - Name: intHepler
+      Entry: 3
+      Data: 0
+    - Name: pointers
+      Entry: 7
+      Data: 12|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 13|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
+    - Name: function
+      Entry: 3
+      Data: 2
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: handler
+      Entry: 4
+      Data: 150
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 14|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
+    - Name: key
+      Entry: 1
+      Data: "\u8FD1\u6218_\u66B4\u51FB\u73871\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenCancel_
+      Entry: 6
+      Data: 
+    - Name: whenApply_
+      Entry: 6
+      Data: 
+    - Name: whenDeApply_
+      Entry: 6
+      Data: 
+    - Name: sprites
+      Entry: 7
+      Data: 15|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+        Assembly-CSharp
+    - Name: b
+      Entry: 5
+      Data: false
+    - Name: keyValues
+      Entry: 7
+      Data: 16|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 17|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 22|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 7
+      Data: 23|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u8FD1\u6218_\u66B4\u51FB\u7387"
+--- !u!114 &7510811667542570060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314dd0c677c319e42addf2015bd3c159, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u67AA\u652F_\u5FEB\u901F\u7784\u51C6"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: allLevel
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+    - Name: displayName
+      Entry: 1
+      Data: "\u67AA\u652F_\u5FEB\u901F\u7784\u51C6_1\u7EA7"
+    - Name: forNone2UnKnownDetail
+      Entry: 7
+      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u57FA\u672C_\u901F\u5EA6\u63D0\u53471\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forUnKnownDetail2CantUnlock
+      Entry: 7
+      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 5|HellishBattle.PointerForBoolByArKVP_IntInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: function
+      Entry: 3
+      Data: 0
+    - Name: key
+      Entry: 1
+      Data: "\u57FA\u672C\u5929\u8D4B\u7C7B\u578B"
+    - Name: compare
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCantUnlock2CanUnlockButNotFeet
+      Entry: 7
+      Data: 6|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 7|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u57FA\u672C_\u62A4\u7532\u63D0\u53471\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockButNotFeet2CanUnlockComplete
+      Entry: 7
+      Data: 8|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 9|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: function
+      Entry: 3
+      Data: 5
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: compare
+      Entry: 4
+      Data: 100
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockComplete2Unlock
+      Entry: 7
+      Data: 10|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: false
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenUnlock
+      Entry: 7
+      Data: 11|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+    - Name: intHepler
+      Entry: 3
+      Data: 0
+    - Name: pointers
+      Entry: 7
+      Data: 12|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 13|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
+    - Name: function
+      Entry: 3
+      Data: 2
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: handler
+      Entry: 4
+      Data: 100
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 14|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
+    - Name: key
+      Entry: 1
+      Data: "\u67AA\u652F_\u5FEB\u901F\u7784\u51C6_1\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenCancel_
+      Entry: 6
+      Data: 
+    - Name: whenApply_
+      Entry: 6
+      Data: 
+    - Name: whenDeApply_
+      Entry: 6
+      Data: 
+    - Name: sprites
+      Entry: 7
+      Data: 15|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+        Assembly-CSharp
+    - Name: b
+      Entry: 5
+      Data: false
+    - Name: keyValues
+      Entry: 7
+      Data: 16|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 17|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 22|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 7
+      Data: 23|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u67AA\u652F_\u5FEB\u901F\u7784\u51C6"
+--- !u!114 &7816739315804611757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314dd0c677c319e42addf2015bd3c159, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u8FD1\u6218_\u51FB\u6740\u56DE\u8840"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: allLevel
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+    - Name: displayName
+      Entry: 1
+      Data: "\u8FD1\u6218_\u51FB\u6740\u56DE\u88401\u7EA7"
+    - Name: forNone2UnKnownDetail
+      Entry: 7
+      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u8FD1\u6218_\u66B4\u51FB\u73871\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forUnKnownDetail2CantUnlock
+      Entry: 7
+      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCantUnlock2CanUnlockButNotFeet
+      Entry: 7
+      Data: 5|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 6|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u57FA\u672C_\u62A4\u7532\u63D0\u53471\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockButNotFeet2CanUnlockComplete
+      Entry: 7
+      Data: 7|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 8|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: function
+      Entry: 3
+      Data: 5
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: compare
+      Entry: 4
+      Data: 250
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockComplete2Unlock
+      Entry: 7
+      Data: 9|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: false
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenUnlock
+      Entry: 7
+      Data: 10|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+    - Name: intHepler
+      Entry: 3
+      Data: 0
+    - Name: pointers
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 12|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
+    - Name: function
+      Entry: 3
+      Data: 2
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: handler
+      Entry: 4
+      Data: 250
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 13|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
+    - Name: key
+      Entry: 1
+      Data: "\u8FD1\u6218_\u51FB\u6740\u56DE\u88401\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenCancel_
+      Entry: 6
+      Data: 
+    - Name: whenApply_
+      Entry: 6
+      Data: 
+    - Name: whenDeApply_
+      Entry: 6
+      Data: 
+    - Name: sprites
+      Entry: 7
+      Data: 14|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+        Assembly-CSharp
+    - Name: b
+      Entry: 5
+      Data: false
+    - Name: keyValues
+      Entry: 7
+      Data: 15|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 16|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 17|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 7
+      Data: 22|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u8FD1\u6218_\u51FB\u6740\u56DE\u8840"
+--- !u!114 &8706156313970617029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314dd0c677c319e42addf2015bd3c159, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u8EAB\u4F53_\u4F53\u80FD\u5F3A\u5316"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: allLevel
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+    - Name: displayName
+      Entry: 1
+      Data: "\u8EAB\u4F53_\u4F53\u80FD\u5F3A\u53161\u7EA7"
+    - Name: forNone2UnKnownDetail
+      Entry: 7
+      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u57FA\u672C_\u653B\u51FB\u529B\u63D0\u53471\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forUnKnownDetail2CantUnlock
+      Entry: 7
+      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCantUnlock2CanUnlockButNotFeet
+      Entry: 7
+      Data: 5|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 6|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: key
+      Entry: 1
+      Data: "\u57FA\u672C_\u901F\u5EA6\u63D0\u53471\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockButNotFeet2CanUnlockComplete
+      Entry: 7
+      Data: 7|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: true
+    - Name: pointer
+      Entry: 7
+      Data: 8|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
+    - Name: defaultIfNull
+      Entry: 5
+      Data: false
+    - Name: function
+      Entry: 3
+      Data: 5
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: compare
+      Entry: 4
+      Data: 50
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: forCanUnlockComplete2Unlock
+      Entry: 7
+      Data: 9|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+        Assembly-CSharp
+    - Name: defaultForNull
+      Entry: 5
+      Data: false
+    - Name: pointer
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenUnlock
+      Entry: 7
+      Data: 10|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+    - Name: intHepler
+      Entry: 3
+      Data: 0
+    - Name: pointers
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 12|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
+    - Name: function
+      Entry: 3
+      Data: 2
+    - Name: key
+      Entry: 1
+      Data: "\u91D1\u5E01\u6570\u91CF"
+    - Name: handler
+      Entry: 4
+      Data: 50
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 13|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
+    - Name: key
+      Entry: 1
+      Data: "\u8EAB\u4F53_\u4F53\u80FD\u5F3A\u53161\u7EA7"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: whenCancel_
+      Entry: 6
+      Data: 
+    - Name: whenApply_
+      Entry: 6
+      Data: 
+    - Name: whenDeApply_
+      Entry: 6
+      Data: 
+    - Name: sprites
+      Entry: 7
+      Data: 14|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+        Assembly-CSharp
+    - Name: b
+      Entry: 5
+      Data: false
+    - Name: keyValues
+      Entry: 7
+      Data: 15|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 16|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 17|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 7
+      Data: 22|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+        Assembly-CSharp
+    - Name: sprite
+      Entry: 6
+      Data: 
+    - Name: color_
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u8EAB\u4F53_\u4F53\u80FD\u5F3A\u5316"

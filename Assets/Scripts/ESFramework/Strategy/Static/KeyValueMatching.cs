@@ -1,0 +1,899 @@
+using ES.EvPointer;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using UnityEngine;
+
+
+using UnityEngine.InputSystem;
+using static EnumCollect;
+using UnityEngine.UIElements;
+using DG.Tweening;
+
+
+namespace ES
+{
+    //Key Value Matching 是一系列键值对映射或者静态处理方法，用于解耦的功能合集
+    public static class KeyValueMatchingUtility
+    {
+        //匹配器
+        public static class Matcher
+        {
+            public static string EnumToString_SkillPointState(EnumCollect.SkillPointOneLevelState state)
+            {
+                switch (state)
+                {
+                    case EnumCollect.SkillPointOneLevelState.None: return "无_不显示";
+                    case EnumCollect.SkillPointOneLevelState.UnknownDetail: return "未知详情-显示为?";
+                    case EnumCollect.SkillPointOneLevelState.CantUnlock: return "不允许解锁";
+                    case EnumCollect.SkillPointOneLevelState.CanUnlockButOptionNotFeet: return "可解锁但条件未达到";
+                    case EnumCollect.SkillPointOneLevelState.CanUnlockComplete: return "条件完全达成";
+                    case EnumCollect.SkillPointOneLevelState.Unlock: return "解锁";
+                }
+                return "空定义";
+            }
+            public static T SystemObjectToT<T>(object from)
+            {
+                Type type = typeof(T);
+                return (T)SystemObjectToT(from, type);
+            }
+            public static object SystemObjectToT(object from, Type type)
+            {
+                if (type == typeof(float))
+                {
+                    return Convert.ChangeType(Convert.ToSingle(from), typeof(float));
+                }
+                else
+                {
+                    return Convert.ChangeType(from, type);
+                }
+
+            }
+        }
+        #region  找键器
+        public static T FindByIKey<T, Key>(IEnumerable<T> ts, Key key) where T : IWithKey<Key> where Key : IKey
+        {
+            if (ts != null)
+            {
+                foreach (var i in ts)
+                {
+                    if (i.key.Equals(key)) return i;
+                }
+            }
+            return default(T);
+        }
+        /* public static T FindByKey<T, TypeSelect_>(IEnumerable<T> ts, TypeSelect_ key) where T : IWithKey<object> where TypeSelect_ : IKey
+         {
+             if (ts != null)
+             {
+                 foreach (var i in ts)
+                 {
+                     if (i.key.Equals(key)) return i;
+                 }
+             }
+             return default(T);
+         }*/
+        public static T FindByAKey<T, Key>(IEnumerable<T> ts, Key key) where T : IWithKey<IKey<Key>>
+        {
+            if (ts != null)
+            {
+                foreach (var i in ts)
+                {
+                    // Debug.Log($"Compare{i},{i.key},{key}");
+                    if (i.key.Equals(key)) return i;
+                }
+            }
+            return default(T);
+        }
+        public static bool ContainsByIKey<T, Key>(IEnumerable<T> ts, Key key) where T : IWithKey<Key> where Key : IKey
+        {
+            if (ts != null)
+            {
+                foreach (var i in ts)
+                {
+                    if (i.key.Equals(key)) return true;
+                }
+            }
+            return false;
+        }
+        public static bool ContainsByAKey<T, Key>(IEnumerable<T> ts, Key key) where T : IWithKey<IKey<Key>>
+        {
+            if (ts != null)
+            {
+                foreach (var i in ts)
+                {
+                    if (i.key.Equals(key)) return true;
+                }
+            }
+            return false;
+        }
+        #endregion
+        //GUI Color 颜色库
+        public static class ColorSelector
+        {
+            public static Color Color_01 = new Color(0.988f, 0.758f, 0.763f, 1);
+            public static Color Color_02 = new Color(0.9988f, 0.958f, 0.163f, 1);
+            public static Color Color_03 = new Color(0.9988f, 0.958f, 0f, 1);//黄色
+            public static Color Color_04 = new Color(0.1588f, 0.958f, 0.9f, 1);//色
+            public static Color Color_05 = new Color(0.7588f, 0.758f, 0.25f, 1);//色
+            static void test()
+            {
+                Color c = KeyValueMatchingUtility.ColorSelector.Color_01;
+            }
+        }
+        //创建器
+        public static class Creator
+        {
+            //深拷贝
+            public static T DeepClone<T>(T obj)
+            {
+                return (T)DeepCloneObject(obj);
+            }
+            //
+            private static object DeepCloneObject(object obj)
+            {
+                if (obj == null)
+                {
+                    return null;
+                }
+
+                Type type = obj.GetType();
+
+                // 如果是值类型或字符串，直接返回（值类型是不可变的，字符串是不可变引用类型）
+                if (type.IsValueType || obj is string)
+                {
+                    return obj;
+                }
+
+                // 如果是数组类型
+                if (type.IsArray)
+                {
+                    Type elementType = Type.GetType(type.FullName.Replace("[]", string.Empty));
+                    var array = obj as Array;
+                    Array copiedArray = Array.CreateInstance(elementType, array.Length);
+                    for (int i = 0; i < array.Length; i++)
+                    {
+                        copiedArray.SetValue(DeepCloneObject(array.GetValue(i)), i);
+                    }
+                    return copiedArray;
+                }
+
+                // 如果是集合类型（如 List、Dictionary 等）
+                if (typeof(IEnumerable).IsAssignableFrom(type))
+                {
+                    var copiedCollection = Activator.CreateInstance(type);
+                    var addMethod = type.GetMethod("Add");
+                    foreach (var item in (IEnumerable)obj)
+                    {
+                        addMethod.Invoke(copiedCollection, new[] { DeepCloneObject(item) });
+                    }
+                    return copiedCollection;
+                }
+
+                // 如果是普通引用类型或结构体
+                var clonedObject = Activator.CreateInstance(type);
+                foreach (var field in type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
+                {
+                    object fieldValue = field.GetValue(obj);
+                    object clonedValue = DeepCloneObject(fieldValue);
+
+                    // 如果是结构体字段，需要特殊处理
+                    if (type.IsValueType && field.FieldType.IsValueType)
+                    {
+                        // 对于结构体字段，直接赋值即可
+                        field.SetValue(clonedObject, clonedValue);
+                    }
+                    else
+                    {
+                        // 对于引用类型字段，递归拷贝
+                        field.SetValue(clonedObject, clonedValue);
+                    }
+                }
+
+                return clonedObject;
+
+            }
+            //创建实时BUff逻辑
+            public static BuffRunTimeLogic CreateBuffRunTime(KeyString use, BuffStatusTest? statusTest = null)
+            {
+
+                BuffSoInfo info = KeyValueMatchingUtility.DataInfoPointer.PickBuffSoInfoByKey(use.Key());
+                if (info == null || info.BindingLogic == null)
+                {
+
+                    return null;
+                }
+
+                BuffRunTimeLogic buffRunTime = Activator.CreateInstance(info.BindingLogic) as BuffRunTimeLogic;
+
+                if (buffRunTime != null)
+                {
+
+                    buffRunTime.buffSoInfo = info;
+                    buffRunTime.buffStatus = statusTest ?? info.defaultStatus;
+
+                    return buffRunTime;
+                }
+                return null;
+            }
+            public static IState CreateStateRunTimeLogicOnlyOne(StateDataInfo info)
+            {
+                if (info == null) return Activator.CreateInstance<BaseWithableStandardStateRunTimeLogic>();
+                var type = info.BindingSelf ?? typeof(BaseWithableStandardStateRunTimeLogic);
+                IState state = Activator.CreateInstance(type) as IState;
+                if (info.IsSonMachine)
+                {
+                    //子状态机 不考虑内容物
+                }
+                else
+                {
+                    //
+                    state.SharedData = info.stateSharedData;
+                    state.Status = DeepClone(info.stateStatus);
+                }
+                return state;
+            }
+            public static IState CreateStateRunTimeLogicComplete(StateDataInfo info)
+            {
+                if (info == null) return null;
+                IState state = Creator.CreateStateRunTimeLogicOnlyOne(info);
+                if (state == null) return null;
+                //是子状态机的话 向下递归注册
+                if (info.IsSonMachine && state is BaseStateMachine sonMachine)
+                {
+                    //状态机也要合并了
+                    sonMachine.AsThis = Creator.CreateStateRunTimeLogicOnlyOne(info.BindingStandState);
+                    state.SharedData = info.stateSharedData;
+                    state.Status = DeepClone(info.stateStatus);
+
+
+                    foreach (var ii in info.BindingAllStates)
+                    {
+                        IState stateii = Creator.CreateStateRunTimeLogicComplete(ii);
+                        if (ii == null) continue;
+                        sonMachine.RegesterNewState(ii.key.Key(), stateii);
+                    }
+                }
+                return state;
+            }
+        }
+        //数据针集合器
+        public static class KeyPointer
+        {
+            //为了性能，分成5种把
+            public static string[] PickBuffAllKeys(SoDataInfoConfiguration configuration = null)
+            {
+                configuration ??= GameCenterManager.Instance.GameCenterArchitecture.configuration;
+                return configuration?.PackForBuff?.allInfo.Keys.ToArray() ?? default;
+            }
+            public static string[] PickSKillAllKeys(SoDataInfoConfiguration configuration = null)
+            {
+                configuration ??= GameCenterManager.Instance.GameCenterArchitecture.configuration;
+                return configuration?.PackForSkill?.allInfo.Keys.ToArray() ?? default;
+            }
+            public static string[] PickActorAllKeys(SoDataInfoConfiguration configuration = null)
+            {
+                configuration ??= GameCenterManager.Instance.GameCenterArchitecture.configuration;
+                return configuration?.PackForActor?.allInfo.Keys.ToArray() ?? default;
+            }
+            public static string[] PickItemAllKeys(SoDataInfoConfiguration configuration = null)
+            {
+                configuration ??= GameCenterManager.Instance.GameCenterArchitecture.configuration;
+                return configuration?.PackForItem?.allInfo.Keys.ToArray() ?? default;
+            }
+            public static string[] PickEventMessageAllKeys(SoDataInfoConfiguration configuration = null)
+            {
+                configuration ??= GameCenterManager.Instance.GameCenterArchitecture.configuration;
+                return configuration?.PackForEventMessage?.allInfo.Keys.ToArray() ?? default;
+            }
+            public static string[] PickPackAllKeys(ISoDataPack pack)
+            {
+                var skeys = pack?.allInfo_?.Keys;
+                int ii = skeys?.Count ?? 0;
+                string[] keys = new string[ii];
+                if (ii > 0)
+                {
+                    for (int i = 0; i < ii; i++)
+                    {
+                        skeys.CopyTo(keys, 0);
+                    }
+                }
+
+                return keys;
+
+            }
+        }
+        //取数据器
+        public static class DataInfoPointer
+        {
+            public static BuffSoInfo PickBuffSoInfoByKey(string key, SoDataInfoConfiguration configuration = null)
+            {
+                configuration ??= GameCenterManager.Instance.GameCenterArchitecture.configuration;
+                if (configuration.PackForBuff.allInfo.ContainsKey(key)) return configuration.PackForBuff.allInfo[key];
+                return default;
+            }
+            public static SkillDataInfo PickSkillSoInfoByKey(string key, SoDataInfoConfiguration configuration = null)
+            {
+                configuration ??= GameCenterManager.Instance.GameCenterArchitecture.configuration;
+                if (configuration.PackForSkill.allInfo.ContainsKey(key)) return configuration.PackForSkill.allInfo[key];
+                return default;
+            }
+            public static ActorDataInfo PickActorSoInfoByKey(string key, SoDataInfoConfiguration configuration = null)
+            {
+                configuration ??= GameCenterManager.Instance.GameCenterArchitecture.configuration;
+                if (configuration.PackForActor.allInfo.ContainsKey(key)) return configuration.PackForActor.allInfo[key];
+                return default;
+            }
+            public static ItemDataInfo PickItemSoInfoByKey(string key, SoDataInfoConfiguration configuration = null)
+            {
+                configuration ??= GameCenterManager.Instance.GameCenterArchitecture.configuration;
+                if (configuration.PackForItem.allInfo.ContainsKey(key)) return configuration.PackForItem.allInfo[key];
+                return default;
+            }
+            public static GameEventMessageDataInfo PickEventMessageSoInfoByKey(string key, SoDataInfoConfiguration configuration = null)
+            {
+                configuration ??= GameCenterManager.Instance.GameCenterArchitecture.configuration;
+                if (configuration.PackForEventMessage.allInfo.ContainsKey(key)) return configuration.PackForEventMessage.allInfo[key];
+                return default;
+            }
+            public static T PickASoInfoByKey<T>(string key, ISoDataPack pack = null) where T : class
+            {
+                var dic = pack?.allInfo_;
+                if (dic != null)
+                {
+
+                    return dic[key] as T;
+                }
+
+                return default;
+            }
+            public static List<T> PickSoInfoListByKey<T>(string[] keys, ISoDataPack pack = null) where T : class
+            {
+                if (keys == null || keys.Length == 0) return new List<T>();
+                var dic = pack?.allInfo_;
+                if (dic != null)
+                {
+                    List<T> ts = new List<T>();
+                    foreach (var i in keys)
+                    {
+                        ts.Add(dic[i] as T);
+                    }
+                    return ts;
+                }
+
+                return new List<T>();
+            }
+        }
+        //变换器
+        public static class TransformSetter
+        {
+            public static void HandleTransformAtParent(Transform t, Transform parent, Vector3 pos = default, bool atWorld = true, bool localRot0 = true, bool localScale0 = true)
+            {
+                if (t == null) return;
+                if (parent != null) t.SetParent(parent);
+                if (pos != null)
+                {
+                    if (atWorld) t.position = pos;
+                    else t.localPosition = pos;
+                }
+                if (localRot0) t.localRotation = Quaternion.identity;
+                if (localScale0) t.localScale = Vector3.one;
+            }
+        }
+        //反射
+        public static class Reflection
+        {
+            public static T EasyGetField<T>(object o, string field)
+            {
+                FieldInfo fieldInfo = o.GetType().GetField(field);
+                if (fieldInfo != null)
+                {
+                    return (T)fieldInfo.GetValue(o);
+                }
+                return default;
+            }
+            public static T EasyGetProperty<T>(object o, string field)
+            {
+                PropertyInfo propertyInfo = o.GetType().GetProperty(field);
+                if (propertyInfo != null)
+                {
+                    return (T)propertyInfo.GetValue(o);
+                }
+                return default;
+            }
+            public static void EasySetField<T>(object o, string field, T t)
+            {
+                FieldInfo fieldInfo = o.GetType().GetField(field);
+                if (fieldInfo != null && fieldInfo.FieldType.IsAssignableFrom(typeof(T)))
+                {
+                    fieldInfo.SetValue(o, t);
+                }
+            }
+            public static void EasyHandleField<T>(object o, string field, T t, EnumCollect.HandleTwoFloatFunction func, Type type = null)
+            {
+                FieldInfo fieldInfo = o.GetType().GetField(field);
+                if (fieldInfo != null)
+                {
+                    //开始处理 
+                    if (t is float f && fieldInfo.FieldType.IsAssignableFrom(typeof(float)))
+                    {
+                        float left = Convert.ToSingle(fieldInfo.GetValue(o));
+                        float right = f;
+                        fieldInfo.SetValue(o, KeyValueMatchingUtility.Function.FunctionForTwoFloat(left, right, func));
+                    }
+                    else if (t is int i && fieldInfo.FieldType.IsAssignableFrom(typeof(int)))
+                    {
+                        int left = (int)Convert.ToSingle(fieldInfo.GetValue(o));
+                        int right = i;
+                        fieldInfo.SetValue(o, (int)KeyValueMatchingUtility.Function.FunctionForTwoFloat(left, right, func));
+                    }
+                    else if (t is int e && typeof(Enum).IsAssignableFrom(fieldInfo.FieldType))
+                    {
+
+                        int left = (int)Convert.ToSingle(fieldInfo.GetValue(o));
+                        int right = e.GetHashCode();
+                        fieldInfo.SetValue(o, (int)KeyValueMatchingUtility.Function.FunctionForTwoFloat(left, right, func));
+                    }
+                    else if (t is int lay && typeof(LayerMask).IsAssignableFrom(fieldInfo.FieldType))
+                    {
+
+                        int left = (LayerMask)fieldInfo.GetValue(o);//LayerMask.GetMask((LayerMask.LayerToName((LayerMask)fieldInfo.GetValue(o))));
+                        int right = lay;
+                        fieldInfo.SetValue(o, (LayerMask)KeyValueMatchingUtility.Function.FunctionForTwoFloat(left, right, func));
+                    }
+
+
+                }
+            }
+            public static void EasySetProperty<T>(object o, string field, T t)
+            {
+                PropertyInfo propertyInfo = o.GetType().GetProperty(field);
+                if (propertyInfo != null && propertyInfo.PropertyType.IsAssignableFrom(typeof(T)))
+                {
+                    propertyInfo.SetValue(o, t);
+                }
+            }
+            public static void EasyHandleProperty<T>(object o, string field, T t, EnumCollect.HandleTwoFloatFunction func)
+            {
+                PropertyInfo propertyInfo = o.GetType().GetProperty(field);
+                if (propertyInfo != null)
+                {
+                    //开始处理 
+                    if (t is float f && propertyInfo.PropertyType.IsAssignableFrom(typeof(float)))
+                    {
+                        float left = (int)Convert.ToSingle(propertyInfo.GetValue(o));
+                        float right = f;
+                        propertyInfo.SetValue(o, KeyValueMatchingUtility.Function.FunctionForTwoFloat(left, right, func));
+                    }
+                    //开始处理 
+                    else if (t is int i && propertyInfo.PropertyType.IsAssignableFrom(typeof(int)))
+                    {
+                        int left = Convert.ToInt32(propertyInfo.GetValue(o));
+                        int right = i;
+                        propertyInfo.SetValue(o, (int)KeyValueMatchingUtility.Function.FunctionForTwoFloat(left, right, func));
+                    }
+                    else if (t is int e && typeof(Enum).IsAssignableFrom(propertyInfo.PropertyType))
+                    {
+                        Debug.Log("Yes");
+                        int left = (int)Convert.ToSingle(propertyInfo.GetValue(o));
+                        int right = e.GetHashCode();
+                        propertyInfo.SetValue(o, (int)KeyValueMatchingUtility.Function.FunctionForTwoFloat(left, right, func));
+                    }
+
+                }
+            }
+            public static T EasyGetMethod<T>(object o, string method) where T : Delegate
+            {
+                MethodInfo methodInfo = o.GetType().GetMethod(method);
+                if (methodInfo != null)
+                {
+                    return (T)methodInfo.CreateDelegate(typeof(T));
+                }
+                return default;
+            }
+            public static void EasyInvokeMethod(object o, string method, params object[] objects)
+            {
+                MethodInfo methodInfo = o.GetType().GetMethod(method);
+                if (methodInfo != null)
+                {
+
+                    methodInfo.Invoke(o, objects);
+                }
+            }
+        }
+        //遍历/递归器
+        public static class Foreach
+        {
+            public static Transform ForeachFindTransform(Transform pa, string name)
+            {
+                if (pa == null || pa.childCount == 0) return default;
+                Transform find = pa.Find(name);
+                if (find != null) return find;
+                int all = pa.childCount;
+                for (int i = 0; i < all; i++)
+                {
+                    find = ForeachFindTransform(pa.GetChild(i), name);
+                    if (find != null)
+                    {
+                        return find;
+                    }
+                }
+                return default;
+            }
+        }
+        //函数器
+        public static class Function
+        {
+            //操作两个FLoat
+            public static float FunctionForTwoFloat(float f1, float f2, EnumCollect.HandleTwoFloatFunction twoFloatFunction)
+            {
+                switch (twoFloatFunction)
+                {
+                    case EnumCollect.HandleTwoFloatFunction.Add: return f1 + f2;
+                    case EnumCollect.HandleTwoFloatFunction.Sub: return f1 - f2;
+                    case EnumCollect.HandleTwoFloatFunction.Muti: return f1 * f2;
+                    case EnumCollect.HandleTwoFloatFunction.Divide: if (f2 == 0) f2 = 1; return f1 / f2;
+                    case EnumCollect.HandleTwoFloatFunction.Model: if (f2 == 0) f2 = 1; return f1 % f2;
+                    case EnumCollect.HandleTwoFloatFunction.Mask_And: return (int)f1 & (int)f2;
+                    case EnumCollect.HandleTwoFloatFunction.Mask_Or: return (int)f1 | (int)f2;
+                    case EnumCollect.HandleTwoFloatFunction.Mask_Xor: return (int)f1 ^ (int)f2;
+                    case EnumCollect.HandleTwoFloatFunction.Mask_And_Not: return (int)f1 & ~(int)f2;
+                    default: return f2;
+                }
+            }
+            //比较两个Float
+            public static bool FunctionForCompareTwoFloat(float left, float right, EnumCollect.CompareTwoFunction useFunction)
+            {
+                switch (useFunction)
+                {
+                    case EnumCollect.CompareTwoFunction.Equal: return left == right;
+                    case EnumCollect.CompareTwoFunction.NotEqual: return left != right;
+                    case EnumCollect.CompareTwoFunction.Less: return left < right;
+                    case EnumCollect.CompareTwoFunction.LessEqual: return left <= right;
+                    case EnumCollect.CompareTwoFunction.Greater: return left > right;
+                    case EnumCollect.CompareTwoFunction.GreaterEqual: return left >= right;
+
+                    case EnumCollect.CompareTwoFunction.Never: return false;
+                    case EnumCollect.CompareTwoFunction.Always: return true;
+                    case EnumCollect.CompareTwoFunction.SameDirect: return left * right > 0;
+                    case EnumCollect.CompareTwoFunction.NotSameDirect: return left * right < 0;
+                    case EnumCollect.CompareTwoFunction.HasZero: return left * right == 0;
+                    case EnumCollect.CompareTwoFunction.NoZero: return (left * right) != 0;
+
+                    case EnumCollect.CompareTwoFunction.ModelMatch:
+                        if (right == 0) return false;
+                        if (left / right == (int)(left / right)) return true;
+                        else return false;
+                    case EnumCollect.CompareTwoFunction.NotModelMatch:
+                        if (right == 0) return false;
+                        if (left / right == (int)(left / right)) return false;
+                        else return true;
+                    case EnumCollect.CompareTwoFunction.Recipprocal: return left * right == 1;
+                    case EnumCollect.CompareTwoFunction.NotRecipprocal: return left * right != 0;
+                    case EnumCollect.CompareTwoFunction.Mask_And_NotZero: return ((int)left & (int)right) != 0;
+                    case EnumCollect.CompareTwoFunction.Mask_ANd_Zero: return ((int)left & (int)right) == 0;
+
+                }
+                return false;
+            }
+            //取出一个
+            public static T GetOne<T>(List<T> values, EnumCollect.PointerSelectOneType selectOneType, ref int lastIndex)
+            {
+                if (values != null)
+                {
+                    if (values.Count > 0)
+                    {
+                        int lastP = lastIndex;
+                        lastIndex = 0;
+                        if (values.Count > 1)
+                        {
+                            switch (selectOneType)
+                            {
+                                case EnumCollect.PointerSelectOneType.NotNullFirst:
+                                    for (int i = 0; i < values.Count; i++)
+                                    {
+                                        if (values[i] != null)
+                                        {
+                                            lastIndex = i;
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                case EnumCollect.PointerSelectOneType.RandomOnly:
+                                    lastIndex = UnityEngine.Random.Range(0, values.Count);
+                                    break;
+                                case EnumCollect.PointerSelectOneType.Next:
+                                    lastIndex = lastP + 1;
+                                    lastIndex %= values.Count;
+                                    break;
+                                case EnumCollect.PointerSelectOneType.Last:
+                                    lastIndex = lastP + values.Count - 1;
+                                    lastIndex %= values.Count;
+                                    break;
+                                case EnumCollect.PointerSelectOneType.TrySort:
+                                    //Do NothingNow
+
+                                    break;
+                                default: break;
+                            }
+                        }
+                    }
+                    if (lastIndex >= 0) return values[lastIndex];
+                }
+                return default;
+            }
+            //取出部分
+            public static List<T> GetSome<T>(List<T> values, EnumCollect.PointerSelectSomeType selectSomeType, ref int lastIndex)
+            {
+                if (values != null)
+                {
+                    if (values.Count > 0)
+                    {
+
+                        if (values.Count > 1)
+                        {
+                            List<T> ps = values.Where(n => n != null).ToList();
+
+                            switch (selectSomeType)
+                            {
+                                case EnumCollect.PointerSelectSomeType.AllNotNull:
+
+                                    break;
+                                case EnumCollect.PointerSelectSomeType.StartSome:
+                                    int removeTimes = ps.Count - lastIndex;
+                                    for (int i = 0; i < removeTimes; i++)
+                                    {
+                                        if (lastIndex < ps.Count) ps.RemoveAt(lastIndex);
+                                    }
+                                    break;
+                                case EnumCollect.PointerSelectSomeType.EndSome:
+                                    int removeTimes2 = ps.Count - lastIndex;
+                                    for (int i = 0; i < removeTimes2; i++)
+                                    {
+                                        if (ps.Count > 1) ps.RemoveAt(0);
+                                    }
+                                    break;
+                                case EnumCollect.PointerSelectSomeType.RandomSome:
+                                    int num = Mathf.Min(ps.Count, lastIndex);
+                                    List<T> ps2 = ps.OrderBy(n => UnityEngine.Random.value).Take(num).ToList();
+                                    ps = ps2;
+                                    break;
+                                case EnumCollect.PointerSelectSomeType.Selector: break;
+                                case EnumCollect.PointerSelectSomeType.TrySort: break;
+                            }
+                            return ps;
+                        }
+                    }
+
+                }
+                return default;
+            }
+            //dotween集成
+            public static Delegate GetCallBackFromTween(Tween use, EnumCollect.CallBackType callBackType)
+            {
+                if (use != null)
+                {
+                    switch (callBackType)
+                    {
+                        case EnumCollect.CallBackType.OnComplete:
+                            return use.onComplete;
+                        case EnumCollect.CallBackType.OnKill:
+                            return use.onKill;
+                        case EnumCollect.CallBackType.OnUpdate:
+                            return use.onUpdate;
+                        case EnumCollect.CallBackType.OnPlay:
+                            return use.onPlay;
+                        case EnumCollect.CallBackType.OnPause:
+                            return use.onPause;
+                        case EnumCollect.CallBackType.OnRewind:
+                            return use.onRewind;
+                        case EnumCollect.CallBackType.OnStepComplete:
+                            return use.onStepComplete;
+                        case EnumCollect.CallBackType.OnWayPointChange:
+                            return use.onWaypointChange;
+                    }
+                }
+                return default;
+            }
+            public static void SetCallBackFromTween(Tween use, EnumCollect.CallBackType callBackType, TweenCallback action)
+            {
+                if (use != null)
+                {
+                    switch (callBackType)
+                    {
+                        case EnumCollect.CallBackType.OnComplete:
+                            use.OnComplete(action);
+                            break;
+                        case EnumCollect.CallBackType.OnKill:
+                            use.OnKill(action);
+                            break;
+                        case EnumCollect.CallBackType.OnUpdate:
+                            use.OnUpdate(action);
+                            break;
+                        case EnumCollect.CallBackType.OnPlay:
+                            use.OnPlay(action);
+                            break;
+                        case EnumCollect.CallBackType.OnPause:
+                            use.OnPause(action);
+                            break;
+                        case EnumCollect.CallBackType.OnRewind:
+                            use.OnRewind(action);
+                            break;
+                        case EnumCollect.CallBackType.OnStepComplete:
+                            use.OnStepComplete(action);
+                            break;
+                        case EnumCollect.CallBackType.OnWayPointChange:
+                            //use_.OnWaypointChange(action);
+                            break;
+                    }
+                }
+                return;
+            }
+        }
+        //排序器
+        public static class Sorter
+        {
+            public static List<Vector3> SortPath(List<Vector3> vectors, EnumCollect.PathSortType sortType, Vector3 pos = default, Transform transform = null)
+            {
+                if (vectors == null) return new List<Vector3>();
+                if (vectors.Count <= 1) return vectors;
+
+                switch (sortType)
+                {
+                    case PathSortType.NoneSort: return vectors;
+                    case PathSortType.StartFromNearToFar:
+                        return vectors.OrderBy((n) => Vector3.Distance(pos, n)).ToList();
+                    case PathSortType.StartFromFarToNear:
+                        return vectors.OrderByDescending((n) => Vector3.Distance(pos, n)).ToList();
+                    case PathSortType.Yup:
+                        return vectors.OrderBy((n) => n.y).ToList();
+                    case PathSortType.Ydown:
+                        return vectors.OrderByDescending((n) => n.y).ToList();
+                    case PathSortType.Xup:
+                        return vectors.OrderBy((n) => n.x).ToList();
+                    case PathSortType.Xdown:
+                        return vectors.OrderByDescending((n) => n.x).ToList();
+                    case PathSortType.Zup:
+                        return vectors.OrderBy((n) => n.z).ToList();
+                    case PathSortType.Zdown:
+                        return vectors.OrderByDescending((n) => n.z).ToList();
+                    case PathSortType.StartForwardZup:
+                        if (transform != null)
+                            return vectors.OrderBy((n) => transform.InverseTransformPoint(n).z).ToList();
+                        else return vectors.OrderBy((n) => n.z).ToList();
+                    case PathSortType.StartForwardZdown:
+                        if (transform != null)
+                            return vectors.OrderByDescending((n) => transform.InverseTransformPoint(n).z).ToList();
+                        else return vectors.OrderByDescending((n) => n.z).ToList();
+                    case PathSortType.Random:
+                        return vectors.OrderBy((n) => UnityEngine.Random.value).ToList();
+                    case PathSortType.AlwaysFirstNear:
+                        return SortForLast_Near(vectors, pos);
+                    case PathSortType.AlwaysFirstFar:
+                        return SortForLast(vectors, pos, (a, b) => -Vector3.Distance(a, b));
+                    case PathSortType.AlwaysForwardZup:
+                        return SortForLast_Three(vectors, pos, (a, b, c) =>
+                        {
+                            if (b != c)
+                            {
+                                return Vector3.Angle(a - b, b - c);
+                            }
+                            return Vector3.Distance(a, b);
+
+                        });
+                    case PathSortType.AlwaysForwardZdown:
+                        return SortForLast_Three(vectors, pos, (a, b, c) =>
+                        {
+                            if (b != c)
+                            {
+                                return -Vector3.Angle(a - b, b - c);
+                            }
+                            return -Vector3.Distance(a, b);
+
+                        });
+                }
+                return vectors;
+            }
+            public static List<Vector3> SortForLast_Near(List<Vector3> vectors, Vector3 pos)
+            {
+                List<Vector3> reSort = new List<Vector3>(vectors);
+
+                for (int i = 0; i < vectors.Count; i++)
+                {
+                    Vector3 last = i == 0 ? pos : reSort[i - 1];
+
+                    float dis = 9999;
+                    int minIndex = i;
+                    for (int j = i; j < vectors.Count; j++)
+                    {
+                        float disN;
+                        if ((disN = Vector3.Distance(reSort[j], last)) < dis)
+                        {
+                            minIndex = j;
+                            dis = disN;
+                        }
+                    }
+                    Vector3 cache = reSort[i];
+                    reSort[i] = reSort[minIndex];
+                    reSort[minIndex] = cache;
+                }
+                return reSort;
+            }
+            public static List<T> SortForLast<T>(List<T> ts, T start, Func<T, T, float> func)
+            {
+                List<T> reSort = new List<T>(ts);
+
+                for (int i = 0; i < ts.Count; i++)
+                {
+                    T last = i == 0 ? start : reSort[i - 1];
+
+                    float dis = 9999;
+                    int minIndex = i;
+                    for (int j = i; j < ts.Count; j++)
+                    {
+                        float disN;
+                        if ((disN = func.Invoke(reSort[j], last)) < dis)
+                        {
+                            minIndex = j;
+                            dis = disN;
+                        }
+                    }
+                    T cache = reSort[i];
+                    reSort[i] = reSort[minIndex];
+                    reSort[minIndex] = cache;
+                }
+                return reSort;
+            }
+            public static List<T> SortForLast_Three<T>(List<T> ts, T start, Func<T, T, T, float> func)
+            {
+                List<T> reSort = new List<T>(ts);
+
+                for (int i = 0; i < ts.Count; i++)
+                {
+                    T last = i == 0 ? start : reSort[i - 1];
+                    T lastLast = i <= 2 ? start : reSort[i - 2];
+                    float dis = 9999;
+                    int minIndex = i;
+                    for (int j = i; j < ts.Count; j++)
+                    {
+                        float disN;
+                        if ((disN = func.Invoke(reSort[j], last, lastLast)) < dis)
+                        {
+                            minIndex = j;
+                            dis = disN;
+                        }
+                    }
+                    T cache = reSort[i];
+                    reSort[i] = reSort[minIndex];
+                    reSort[minIndex] = cache;
+                }
+                return reSort;
+            }
+        }
+        //数据应用器
+        public static class DataApply
+        {
+
+            public static void ApplyStatePackToMachine(StateDataPack pack, BaseStateMachine machine)
+            {
+                if (pack != null && machine != null)
+                {
+                    foreach (var i in pack.allInfo)
+                    {
+                        var use = i.Value;
+                        if (use == null) continue;
+                        //只要第一层的直接注入哈
+                        if (use.asFirstLayer)
+                        {
+                            IState state = Creator.CreateStateRunTimeLogicComplete(use);
+                            if (state == null) continue;
+                            machine.RegesterNewState(i.Key, state);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

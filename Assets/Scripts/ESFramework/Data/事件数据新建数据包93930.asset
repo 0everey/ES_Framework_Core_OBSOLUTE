@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0edbc1682c2e4409771f2230b9b987, type: 3}
+  m_Name: "\u4E8B\u4EF6\u6570\u636E\u65B0\u5EFA\u6570\u636E\u530593930"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 3bd8668d5e450b74298741f4c3cb57fc, type: 2}
+    - {fileID: 11400000, guid: aa599a86cd8ba96458894d511acf9449, type: 2}
+    - {fileID: -2845552479877790124, guid: 3bd8668d5e450b74298741f4c3cb57fc, type: 2}
+    - {fileID: -4298559928546348027, guid: 3bd8668d5e450b74298741f4c3cb57fc, type: 2}
+    - {fileID: -4792865500118164546, guid: 3bd8668d5e450b74298741f4c3cb57fc, type: 2}
+    - {fileID: -8583457716153297187, guid: 3bd8668d5e450b74298741f4c3cb57fc, type: 2}
+    - {fileID: -2845552479877790124, guid: aa599a86cd8ba96458894d511acf9449, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: applyingGroups
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[HellishBattle.ISoDataGroup, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: allInfo
+      Entry: 7
+      Data: 1|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[HellishBattle.GameEventMessageDataInfo,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 2|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "BOSS\u4E8B\u4EF62222"
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u6536\u96C6\u94A5\u5319\u4E8B\u4EF6"
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u5F00\u95E8\u4E8B\u4EF6"
+    - Name: $v
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u8FDC\u5904\u4F20\u6765\u543C\u53EB\u4E8B\u4EF6"
+    - Name: $v
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "BOSS\u4E8B\u4EF6"
+    - Name: $v
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  keyString:
+    str_direc: "\u952E"
