@@ -481,7 +481,7 @@ namespace ES
         
         public void ProactiveInvoke_Refresh(bool add=false)
         {
-           // Sprite orMain = MainIcon.image.sprite;
+           // Sprite orMain = MainIcon.ui.texture;
             MainIcon.SetImage(null);
             foreach (var i in CacheIcons)
             {

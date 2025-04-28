@@ -28,6 +28,48 @@ namespace ES.EvPointer
             return base.Pick(by, yarn, on);
         }
     }
+    [Serializable, TypeRegistryItem("Pick调用_任意针_遍历次数")]
+    public class PointerPickerEveryThing_Times : PointerOnlyAction
+    {
+        [LabelText("要Pick(调用)的针"), SerializeReference] public IPointer pointer1;
+        [LabelText("遍历次数"), SerializeReference] public IPointerForInt_Only times = new PointerForInt_Direct() { int_ = 3 };
+        [Button("Pick该针-可测试")]
+        public override object Pick(object by = null, object yarn = null, object on = null)
+        {
+            int times_ = times?.Pick() ?? 3;
+            for (int i = 0; i < times_; i++)
+            {
+                pointer1?.Pick();
+            }
+            return base.Pick(by, yarn, on);
+        }
+    }
+    [Serializable, TypeRegistryItem("Pick调用_任意针_带冷却间隔调用")]
+    public class PointerPickerEveryThing_CoolDown : PointerOnlyAction,IPointerForFloatCaster
+    {
+        [LabelText("要Pick(调用)的针"), SerializeReference] public IPointer pointer1;
+        [LabelText("冷却时间"),SerializeReference] public IPointerForFloat_Only coolDown = new PointerForFloat_Direct() { float_ = 1 };
+        [LabelText("上次的触发游戏时间")]public float lastTime = 0;
+        [Button("Pick该针-可测试")]
+        public override object Pick(object by = null, object yarn = null, object on = null)
+        {
+            if (Time.time - lastTime <( coolDown?.Pick() ?? 1)) return null;
+            lastTime = Time.time;
+            pointer1?.Pick(); 
+            playerCaster_?.Recieve(lastTime);
+            return base.Pick(by, yarn, on);
+        }
+
+        public float Cast()
+        {
+            return lastTime;
+        }
+
+        public PointerPlayerSystemObjectCaster playerCaster => playerCaster_;
+        [LabelText("发起投射?", SdfIconType.At), GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForCaster")] public bool usePlayerCaster;
+        [LabelText("发送上次触发时间到Caster", SdfIconType.At), ShowIf("usePlayerCaster"), GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForCaster")] public PointerPlayerSystemObjectCaster playerCaster_;
+
+    }
     [Serializable, TypeRegistryItem("Pick调用_如果 bool条件成立 触发针")]
     public class PointerPickerByBool : PointerOnlyAction
     {
@@ -258,8 +300,8 @@ namespace ES.EvPointer
     public class PoinerOnlyAction_Delay : PointerOnlyAction_DependenceOnlyAction, IPointerForCancellationTokenSourceCaster
     {
         [DetailedInfoBox("", "此处需要引用一个PointerPlayerCaster,把自己的值投射给他它", Message = @"@ ""【绑定投射目标备注："" + (playerCaster != null ? playerCaster.des : ""！未绑定"") ", VisibleIf = "@usePlayerCaster")]
-        [LabelText("发起投射?", SdfIconType.At), GUIColor("@KeyValueMatchingUtility.ColorSelector.Color_04")] public bool usePlayerCaster;
-        [LabelText("发送到Caster", SdfIconType.At), ShowIf("usePlayerCaster"), GUIColor("@KeyValueMatchingUtility.ColorSelector.Color_04")] public PointerPlayerSystemObjectCaster playerCaster_;
+        [LabelText("发起投射?", SdfIconType.At), GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForCaster")] public bool usePlayerCaster;
+        [LabelText("发送到Caster", SdfIconType.At), ShowIf("usePlayerCaster"), GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForCaster")] public PointerPlayerSystemObjectCaster playerCaster_;
         public PointerPlayerSystemObjectCaster playerCaster => playerCaster_;
         [LabelText("延迟时间默认1"), SerializeReference]
         public IPointerForFloat_Only delayTime;
@@ -294,8 +336,8 @@ namespace ES.EvPointer
         [LabelText("投射取消源")]
         public bool applyCancellationSource = false;
         [DetailedInfoBox("", "此处需要引用一个PointerPlayerCaster,把自己的值投射给他它", Message = @"@ ""【绑定投射目标备注："" + (playerCaster != null ? playerCaster.des : ""！未绑定"") ", VisibleIf = "@usePlayerCaster")]
-        [LabelText("发起投射?", SdfIconType.At), GUIColor("@KeyValueMatchingUtility.ColorSelector.Color_04")] public bool usePlayerCaster;
-        [LabelText("发送到Caster", SdfIconType.At), ShowIf("usePlayerCaster"), GUIColor("@KeyValueMatchingUtility.ColorSelector.Color_04")] public PointerPlayerSystemObjectCaster playerCaster_;
+        [LabelText("发起投射?", SdfIconType.At), GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForCaster")] public bool usePlayerCaster;
+        [LabelText("发送到Caster", SdfIconType.At), ShowIf("usePlayerCaster"), GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForCaster")] public PointerPlayerSystemObjectCaster playerCaster_;
         public PointerPlayerSystemObjectCaster playerCaster => playerCaster_;
         private CancellationTokenSource cancelSourceToken;
         public CancellationTokenSource Cast()
@@ -329,8 +371,8 @@ namespace ES.EvPointer
         public bool applyCancellationSource = false;
         private CancellationTokenSource cancelSourceToken;
         [DetailedInfoBox("", "此处需要引用一个PointerPlayerCaster,把自己的值投射给他它", Message = @"@ ""【绑定投射目标备注："" + (playerCaster != null ? playerCaster.des : ""！未绑定"") ", VisibleIf = "@usePlayerCaster")]
-        [LabelText("发起投射?", SdfIconType.At), GUIColor("@KeyValueMatchingUtility.ColorSelector.Color_04")] public bool usePlayerCaster;
-        [LabelText("发送到Caster", SdfIconType.At), ShowIf("usePlayerCaster"), GUIColor("@KeyValueMatchingUtility.ColorSelector.Color_04")] public PointerPlayerSystemObjectCaster playerCaster_;
+        [LabelText("发起投射?", SdfIconType.At), GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForCaster")] public bool usePlayerCaster;
+        [LabelText("发送到Caster", SdfIconType.At), ShowIf("usePlayerCaster"), GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForCaster")] public PointerPlayerSystemObjectCaster playerCaster_;
         public PointerPlayerSystemObjectCaster playerCaster => playerCaster_;
         public CancellationTokenSource Cast()
         {
@@ -458,6 +500,31 @@ namespace ES.EvPointer
         [LabelText("使用参数")] public bool usePa;
         [LabelText("参数"), ShowIf("usePa"), SerializeReference] public IPointer systemObject_Only;
     }
+    #endregion
+
+    #region Link支持
+    [TypeRegistryItem("发送Link到游戏核心","Link")]
+    public abstract class SendLink<T> : IPointerNone where T : ILink
+    {
+        [LabelText("发送的Link")]public T link;
+        public virtual object Pick(object by = null, object yarn = null, object on = null)
+        {
+            if (link != null)
+            {
+                GameCenterManager.Instance.SendLink(link);
+                
+            }
+            return null;
+        }
+    }
+    [Serializable,TypeRegistryItem("发送Link 字符串标准事件 到 游戏核心", "Link")]
+    public class SendLink_StringNameEvent: SendLink<Link_StringNameEvent>
+    {
+
+    }
+
+
+
     #endregion
 
 }

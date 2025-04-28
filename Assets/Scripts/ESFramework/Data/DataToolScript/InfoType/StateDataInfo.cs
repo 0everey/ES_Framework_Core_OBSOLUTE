@@ -77,7 +77,7 @@ namespace ES
                  [Serializable, TypeRegistryItem("精灵与颜色")]
                  public class show
                  {
-                     [LabelText("配置精灵")] public Sprite sprite;
+                     [LabelText("配置精灵")] public Sprite texture;
                      [LabelText("配置颜色")] public Color color_ = Color.white;
                  }
              }

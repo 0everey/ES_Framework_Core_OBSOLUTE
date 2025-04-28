@@ -291,6 +291,174 @@ MonoBehaviour:
   ReadMe: "\u9488\u4E0E\u5176\u4ED6\u63D2\u4EF6\u548C\u5DE5\u5177\u96C6\u53EF\u4EE5\u96C6\u6210\uFF0C\n\u66F4\u5FEB\u901F\u5730\u6269\u5C55\u53EF\u7528\u8303\u56F4"
   readMe: "\u9488\u4E0E\u5176\u4ED6\u63D2\u4EF6\u548C\u5DE5\u5177\u96C6\u53EF\u4EE5\u96C6\u6210\uFF0C\n\u66F4\u5FEB\u901F\u5730\u6269\u5C55\u53EF\u7528\u8303\u56F4"
   showColor: {r: 0.992, g: 0.659, b: 0.498, a: 1}
+--- !u!1 &272024102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 272024103}
+  - component: {fileID: 272024106}
+  - component: {fileID: 272024105}
+  - component: {fileID: 272024104}
+  m_Layer: 0
+  m_Name: "ES\u503C"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &272024103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272024102}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1280609982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &272024104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272024102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37745eaa2f5c49349893568b6a6f75eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  des: "\u6D6E\u70B9\u6570ES\u503C"
+  edit: 1
+  ReadMe: "\u7F16\u5199\u63D0\u793A\u6587\u4EF6"
+  readMe: "\u7F16\u5199\u63D0\u793A\u6587\u4EF6"
+  showColor: {r: 1, g: 1, b: 1, a: 1}
+  OnValueChange:
+    rid: 4118737108498645006
+  ESValue: 6
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 4118737108498645006
+      type: {class: PointerPickerEveryThing, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        pointer1:
+          rid: -2
+--- !u!114 &272024105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272024102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 818efe8a5c4ed69418e925aee752ae39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  des: "\u751F\u547D\u5468\u671F"
+  edit: 0
+  ReadMe: "\u5728Update\u91CC\u64CD\u4F5CFloat\u7684ES\u503C"
+  readMe: "\u5728Update\u91CC\u64CD\u4F5CFloat\u7684ES\u503C"
+  showColor: {r: 1, g: 1, b: 1, a: 1}
+  pointerForAwake:
+    rid: 4118737108498645000
+  pointerForStart:
+    rid: 4118737108498645001
+  pointerForUpdate:
+    rid: 4118737108498645002
+  pointerForEnable:
+    rid: 4118737108498645003
+  pointerForDisable:
+    rid: 4118737108498645004
+  pointerForDestroy:
+    rid: 4118737108498645005
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 4118737108498645000
+      type: {class: PointerPickerEveryThing, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        pointer1:
+          rid: -2
+    - rid: 4118737108498645001
+      type: {class: PointerPickerEveryThing, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        pointer1:
+          rid: -2
+    - rid: 4118737108498645002
+      type: {class: PointerPickerEveryThing, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        pointer1:
+          rid: 4118737108498645007
+    - rid: 4118737108498645003
+      type: {class: PointerPickerEveryThing, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        pointer1:
+          rid: -2
+    - rid: 4118737108498645004
+      type: {class: PointerPickerEveryThing, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        pointer1:
+          rid: -2
+    - rid: 4118737108498645005
+      type: {class: PointerPickerEveryThing, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        pointer1:
+          rid: -2
+    - rid: 4118737108498645007
+      type: {class: PointerHandleDirectESValueFromPointerPlayer_Float, ns: ES, asm: Assembly-CSharp}
+      data:
+        withPlayer: {fileID: 272024104}
+        direct: 5
+        function: 1
+--- !u!114 &272024106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272024102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dacd17e72d52a5f43a03334143bf897f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  edit: 0
+  ReadMe: "ES\u503C\u5176\u5B9E\u5C31\u662F\u88AB\u5E7F\u6CDB\u652F\u6301\u7684\u6570\u636E\u7C7B\u578B\u7684\u7EDF\u79F0\n\u7531\u4E8E\u4ED6\u4EEC\u5F88\u591A\u662F\u503C\u7C7B\u578B\uFF0C\u5982\u679C\u4F7F\u7528object\u7684\u8BDD\u5BB9\u6613\u56E0\u4E3A\u88C5\u7BB1\u635F\u5931\u6027\u80FD\uFF0C\u4E8E\u662F\u4E3A\u6240\u6709ES\u503C\u8FDB\u884C\u4E86\u6CDB\u578B\u91CD\u5199\uFF0C\u786E\u4FDD\u8F83\u5C11\u88C5\u7BB1"
+  readMe: "ES\u503C\u5176\u5B9E\u5C31\u662F\u88AB\u5E7F\u6CDB\u652F\u6301\u7684\u6570\u636E\u7C7B\u578B\u7684\u7EDF\u79F0\n\u7531\u4E8E\u4ED6\u4EEC\u5F88\u591A\u662F\u503C\u7C7B\u578B\uFF0C\u5982\u679C\u4F7F\u7528object\u7684\u8BDD\u5BB9\u6613\u56E0\u4E3A\u88C5\u7BB1\u635F\u5931\u6027\u80FD\uFF0C\u4E8E\u662F\u4E3A\u6240\u6709ES\u503C\u8FDB\u884C\u4E86\u6CDB\u578B\u91CD\u5199\uFF0C\u786E\u4FDD\u8F83\u5C11\u88C5\u7BB1"
+  showColor: {r: 0.992, g: 0.659, b: 0.498, a: 1}
 --- !u!1 &450167250
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,6 +1068,10 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   des: "\u5F00\u59CB\u4F7F\u7528ES.EvPointer !!"
+  edit: 1
+  ReadMe: "\u7F16\u5199\u63D0\u793A\u6587\u4EF6"
+  readMe: "\u7F16\u5199\u63D0\u793A\u6587\u4EF6"
+  showColor: {r: 1, g: 1, b: 1, a: 1}
   pointerForAwake:
     rid: 4118737096444477440
   pointerForStart:
@@ -1073,6 +1245,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1120285595}
   - component: {fileID: 1120285596}
+  - component: {fileID: 1120285598}
+  - component: {fileID: 1120285597}
   m_Layer: 0
   m_Name: "\u6295\u5C04\u5668\u548C\u6293\u53D6\u5668"
   m_TagString: Untagged
@@ -1123,6 +1297,122 @@ MonoBehaviour:
     \u6295\u5C04\u5668\u7684 cast\u65B9\u6CD5\uFF0C\u83B7\u5F97\u5B83\u7F13\u5B58\u7684\u6570\u636E\n\n\u9488\u64AD\u653E\u5668
     <b>PointerPlayerSystemObjectCaster </b>\n\u8D77\u5230\u975E\u5E38\u5173\u952E\u7684\u4F5C\u7528"
   showColor: {r: 0.984, g: 0.855, b: 0.725, a: 1}
+--- !u!114 &1120285597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120285594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 818efe8a5c4ed69418e925aee752ae39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  des: "\u5907\u6CE8"
+  edit: 1
+  ReadMe: "\u7F16\u5199\u63D0\u793A\u6587\u4EF6"
+  readMe: "\u7F16\u5199\u63D0\u793A\u6587\u4EF6"
+  showColor: {r: 0.49, g: 0.2353, b: 0.596, a: 1}
+  pointerForAwake:
+    rid: 4118737108498645008
+  pointerForStart:
+    rid: 4118737108498645009
+  pointerForUpdate:
+    rid: 4118737108498645010
+  pointerForEnable:
+    rid: 4118737108498645011
+  pointerForDisable:
+    rid: 4118737108498645012
+  pointerForDestroy:
+    rid: 4118737108498645013
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 4118737108498645008
+      type: {class: PointerPickerEveryThing, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        pointer1:
+          rid: -2
+    - rid: 4118737108498645009
+      type: {class: PointerPickerEveryThing, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        pointer1:
+          rid: -2
+    - rid: 4118737108498645010
+      type: {class: PointerPickerEveryThing, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        pointer1:
+          rid: 4118737108498645014
+    - rid: 4118737108498645011
+      type: {class: PointerPickerEveryThing, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        pointer1:
+          rid: -2
+    - rid: 4118737108498645012
+      type: {class: PointerPickerEveryThing, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        pointer1:
+          rid: -2
+    - rid: 4118737108498645013
+      type: {class: PointerPickerEveryThing, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        pointer1:
+          rid: -2
+    - rid: 4118737108498645014
+      type: {class: PointerForStringCatcher, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        useCatcherPlayer: 0
+        playerCaster_: {fileID: 0}
+        pointerCaster:
+          rid: -2
+--- !u!114 &1120285598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120285594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11baabbf10380e544a3aba5e9617f037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: aObject
+      Entry: 6
+      Data: 
+  des: "\u5907\u6CE8"
+  edit: 1
+  ReadMe: "\u7F16\u5199\u63D0\u793A\u6587\u4EF6"
+  readMe: "\u7F16\u5199\u63D0\u793A\u6587\u4EF6"
+  showColor: {r: 0.49, g: 0.2353, b: 0.596, a: 1}
+  pointerFoSystemObject:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &1218366882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,6 +1547,7 @@ Transform:
   - {fileID: 1719001848}
   - {fileID: 1120285595}
   - {fileID: 559866149}
+  - {fileID: 272024103}
   m_Father: {fileID: 1937682489}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1280609983

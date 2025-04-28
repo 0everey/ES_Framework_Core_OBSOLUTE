@@ -74,7 +74,8 @@ public class LinkRecieveSafeListIOC : TypeSafeListIOC<IReceiveLink>
         List<IReceiveLink> links = FindList<Link>();
         foreach(var i in links)
         {
-            if(i is IReceiveLink<Link> irl)
+            
+            if (i is IReceiveLink<Link> irl)
             {
                 irl.OnLink(link);
             }
@@ -159,7 +160,6 @@ public class TypeSafeListIOC<Element> : SafeListIOC<Type, Element>
     }
     public virtual List<Element> FindList<T>()
     {
-        
         return FindList(typeof(T));
     }
 }
@@ -250,10 +250,13 @@ public abstract class SafeListIOC<Key, Element> : IUpdatableWithHosting<IArchite
 
     public virtual List<Element> FindList(Key k)
     {
+        
         if (IOC.ContainsKey(k))
         {
+            
             return IOC[k].valuesNow_;
         }
+        
         return (IOC[k]=new ListSafeUpdate<Element>()).valuesNow_;
     }
 

@@ -49,10 +49,19 @@ namespace ES.EvPointer
     {
 
     }
+    [Serializable, TypeRegistryItem("Unity物体值_直接引用")]
+    public class PointerForUnityObejct_Direct : IPointerForUnityObject_Only
+    {
+        [LabelText("直接输入Unity物体")]public UnityEngine.Object direct;
+        public UnityEngine.Object Pick(object by = null, object yarn = null, object on = null)
+        {
+            return direct;
+        }
+    }
     #endregion
     #endregion
     #region 脚本部分
-        #region 脚本接口抽象和包
+    #region 脚本接口抽象和包
     public interface IPointerForComponent<By, Yarn, On> : IPointer<Component, By, Yarn, On>
     {
 
