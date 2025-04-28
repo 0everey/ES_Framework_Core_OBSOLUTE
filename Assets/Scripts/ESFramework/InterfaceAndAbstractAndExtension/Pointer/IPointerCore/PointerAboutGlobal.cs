@@ -13,8 +13,17 @@ using UnityEngine.SceneManagement;
 namespace ES.EvPointer
 {
     //核心 Ev针支持 关于 全局功能 部分
-       //一般实现IPoinerNone
+    //一般实现IPoinerNone
     #region 全局功能
+    [Serializable, TypeRegistryItem("全局功能_重新加载当前场景")]
+    public class PointerPicker_LoadCurrentScene : PointerOnlyAction
+    {
+       public override object Pick(object by = null, object yarn = null, object on = null)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            return base.Pick(by, yarn, on);
+        }
+    }
     [Serializable, TypeRegistryItem("全局功能_直接加载场景")]
     public class PointerPicker_LoadScene : PointerOnlyAction
     {

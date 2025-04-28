@@ -245,17 +245,19 @@ namespace ES.EvPointer
             return vector;
         }
     }
-    [Serializable, TypeRegistryItem("Vector3值_引用动态变换的坐标", "单值针/Vector3")]
+    [Serializable, TypeRegistryItem("Vector3值_变换引用的坐标", "单值针/Vector3")]
     public class PointerForVector3_Transform : IPointerForVector3_Only
     {
         [LabelText("使用变换坐标")] public Transform transform;
         [LabelText("变换为空时")] public Vector3 vector3;
         public Vector3 Pick(object by = null, object yarn = null, object on = null)
         {
-            return transform?.position ?? vector3;
+            if (transform != null) return transform.position;
+            return vector3;
         }
     }
-    [Serializable, TypeRegistryItem("Vector3值_初始化锁定一个变换的坐标", "单值针/Vector3")]
+
+    [Serializable, TypeRegistryItem("Vector3值_引用变换的坐标_初始化锁定", "单值针/Vector3")]
     public class PointerForVector3_Transform_Init : IPointerForVector3_Only, IInittable
     {
         [LabelText("使用变换坐标")] public Transform transform;
@@ -290,8 +292,8 @@ namespace ES.EvPointer
         public Vector3 Pick(object by = null, object yarn = null, object on = null)
         {
             Transform tt = transform?.Pick(0);
-
-            return tt?.position ?? default;
+            if (tt != null) return tt.position;
+            return default;
         }
     }
     [Serializable, TypeRegistryItem("Vector3_球体_中心和半径都是针的随机点", "单值针/Vector3针")]
@@ -311,7 +313,8 @@ namespace ES.EvPointer
         [LabelText("半径范围")] public float r;
         public Vector3 Pick(object by = null, object yarn = null, object on = null)
         {
-            return (center.position) + UnityEngine.Random.insideUnitSphere * r;
+            if (center != null) return (center.position) + UnityEngine.Random.insideUnitSphere * r;
+            else return UnityEngine.Random.insideUnitSphere * r;
         }
     }
     [Serializable, TypeRegistryItem("Vector3_球体_中心和半径固定的随机点", "单值针/Vector3针")]
@@ -324,11 +327,22 @@ namespace ES.EvPointer
             return center + UnityEngine.Random.insideUnitSphere * r;
         }
     }
+
+    [Serializable, TypeRegistryItem("Vector3值_引用动态变换的面向方向", "单值针/Vector3")]
+    public class PointerForVector3_TransformFoward : IPointerForVector3_Only
+    {
+        [LabelText("使用变换坐标")] public Transform transform;
+        [LabelText("变换为空时")] public Vector3 vector3;
+        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        {
+            return transform?.forward ?? vector3;
+        }
+    }
     #endregion
     #endregion
 
     #region Vector2部分
-        #region Vector2接口抽象和包
+    #region Vector2接口抽象和包
     public interface IPointerForVector2 : IPointer<Vector2, object, object, object>
     {
 
