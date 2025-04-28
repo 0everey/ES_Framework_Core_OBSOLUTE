@@ -10,9 +10,7 @@ namespace ES
     public class PointerPlayerSystemObjectCaster : PointerPlayer, IPointer, IPointerForSystemObjectCaster
     {
         public override IPointer Pointer => pointerFoSystemObject;
-
         public PointerPlayerSystemObjectCaster playerCaster => this;
-
         [LabelText("投射的物体", SdfIconType.Link45deg), GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForCaster")]
         public object aObject;
         [LabelText("Pick一个物体"), SerializeReference, GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForCaster")] public IPointer pointerFoSystemObject;

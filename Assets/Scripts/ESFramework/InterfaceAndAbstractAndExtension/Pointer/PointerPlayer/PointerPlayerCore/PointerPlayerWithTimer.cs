@@ -28,7 +28,18 @@ namespace ES
             startDelayGet = startDelay?.Pick() ?? 3;
             nextTimerPick = pickTimeDis?.Pick() ?? 3;
         }
-
+        public void ReStart()
+        {
+            timer = 0;
+            hasStart = true;
+            startDelayGet = startDelay?.Pick() ?? 3;
+            nextTimerPick = pickTimeDis?.Pick() ?? 3;
+        }
+        public void Stop()
+        {
+            timer = 0;
+            hasStart = false;
+        }
         // Update is called once per frame
         void Update()
         {

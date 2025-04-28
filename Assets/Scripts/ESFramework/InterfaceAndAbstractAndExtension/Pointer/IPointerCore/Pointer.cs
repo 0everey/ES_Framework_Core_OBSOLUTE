@@ -407,13 +407,19 @@ namespace ES.EvPointer
 
 
     #endregion
-   
-    
-    
-   
-   
+
+
+
+
+
     #region 数据结构LINK
-        #region 完成支持的结构
+    #region 完成支持的结构类型声明
+    [Serializable,TypeRegistryItem("自定义事件名Link")]
+    public struct Link_StringNameEvent : ILink
+    {
+        [LabelText("事件名称")]public string eventName;
+        [LabelText("传输的数据")]public object param;
+    }
     public class Link_BuffHandleChangeHappen : ILink
     {
         public Entity who;

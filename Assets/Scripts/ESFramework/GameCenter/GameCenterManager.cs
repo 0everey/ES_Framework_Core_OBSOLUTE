@@ -10,9 +10,10 @@ using static ES.SkillPointDataInfo.SkillPointLevelAllTransfomor;
 
 namespace ES
 {
-   
+    [TypeRegistryItem("游戏核心管理器")]
     public class GameCenterManager : Singleton<GameCenterManager>,IWithArchitecture
     {
+        [FoldoutGroup("管理器引用"), LabelText("音效管理器")] public ESAudioMaster AudioMaster;
         public class Enemy { }
         public class DamageClass { }
         public class WeaponSwitch { }
@@ -33,7 +34,6 @@ namespace ES
         [FoldoutGroup("数据包/BuffSoInfoList")]
         public List<BuffSoInfo> buffSoInfos = new List<BuffSoInfo>();
 
-
         [LabelText("原型全集IOC")]public ArchutectureTypeMatchSafeListIOC ArchutectureIOC = new ArchutectureTypeMatchSafeListIOC();
 
         [LabelText("游戏核心原型")]
@@ -44,6 +44,8 @@ namespace ES
         [LabelText("引用默认的技能精灵图表")]public SkillPointSpritesReference SkillPointSpritesReference;
         public IArchitecture GetArchitecture => GameCenterArchitecture;
 
+       
+
         protected override void Awake()
         {
             base.Awake();
@@ -52,7 +54,11 @@ namespace ES
             
             
         }
-        
+        [Button("发送任意Link")]
+        public void SendLink<Link>(Link link) where Link:ILink
+        {
+            this.GameCenterArchitecture.SendLink(link);
+        }
         /*[Button("发送Link")]
         public void SendLink()
         {
