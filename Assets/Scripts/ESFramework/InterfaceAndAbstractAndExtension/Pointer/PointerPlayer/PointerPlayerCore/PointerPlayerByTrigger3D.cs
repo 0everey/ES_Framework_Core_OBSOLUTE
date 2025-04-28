@@ -19,6 +19,10 @@ namespace ES
                 v3_ ??= new PointerForVector3Caster();
                 v3_.cast = vv;
             }
+            else
+            {
+                return;
+            }
 
             if ((!boolForColliderEnter?.Pick()) ?? true) return;
 

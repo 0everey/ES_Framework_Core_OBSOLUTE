@@ -70,6 +70,22 @@ namespace ES.EvPointer
         [LabelText("发送上次触发时间到Caster", SdfIconType.At), ShowIf("usePlayerCaster"), GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForCaster")] public PointerPlayerSystemObjectCaster playerCaster_;
 
     }
+    [Serializable, TypeRegistryItem("Pick调用几个_任意针_")]
+    public class PointerPickerEveryThing_Some: PointerOnlyAction
+    {
+        [LabelText("要Pick(调用)的针列表"), SerializeReference] public List<IPointer> ps=new List<IPointer>();
+        
+        [Button("Pick该针-可测试")]
+        public override object Pick(object by = null, object yarn = null, object on = null)
+        {
+            foreach(var i in ps)
+            {
+                if (i == null) continue;
+                i.Pick();
+            }
+            return null;
+        }
+    }
     [Serializable, TypeRegistryItem("Pick调用_如果 bool条件成立 触发针")]
     public class PointerPickerByBool : PointerOnlyAction
     {
@@ -164,7 +180,7 @@ namespace ES.EvPointer
         }
     }
     //循环触发一遍")]
-    [Serializable, TypeRegistryItem("触发针包_完整循环触发全部")]
+    [Serializable, TypeRegistryItem("触发针包_遍历触发全部针")]
     public class PointerPackOnlyAction_LoopOnce : PointerPackerForNone, IPointerOnlyAction
     {
         public override object Pick(object by = null, object yarn = null, object on = null)
@@ -344,7 +360,6 @@ namespace ES.EvPointer
         {
             return cancelSourceToken;
         }
-
         public override object Pick(object by = null, object yarn = null, object on = null)
         {
             GameCenterManager.Instance.StartCoroutine(CoroutineMaker.RepeatConroutine(

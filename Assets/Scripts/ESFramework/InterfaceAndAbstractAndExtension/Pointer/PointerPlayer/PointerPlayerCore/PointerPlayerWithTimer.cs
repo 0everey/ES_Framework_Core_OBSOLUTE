@@ -26,14 +26,14 @@ namespace ES
             timer = 0;
             hasStart = false;
             startDelayGet = startDelay?.Pick() ?? 3;
-            nextTimerPick = pickTimeDis?.Pick() ?? 3;
+            nextTimerPick = 0;
         }
         public void ReStart()
         {
             timer = 0;
             hasStart = true;
             startDelayGet = startDelay?.Pick() ?? 3;
-            nextTimerPick = pickTimeDis?.Pick() ?? 3;
+            nextTimerPick = 0;
         }
         public void Stop()
         {

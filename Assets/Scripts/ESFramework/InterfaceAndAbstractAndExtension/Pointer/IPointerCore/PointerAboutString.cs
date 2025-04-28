@@ -33,7 +33,10 @@ namespace ES.EvPointer
 
     public interface IPointerForStringList : IPointerOnlyBackList<String>
     {
-
+        object IPointer.Pick(object a, object b, object c)
+        {
+            return Pick();
+        }
     }
 
     [Serializable, TypeRegistryItem("字符串针包_选中几个")]
@@ -161,6 +164,7 @@ namespace ES.EvPointer
         public List<string> tagNames = new List<string>();
         public List<string> Pick(object by = null, object yarn = null, object on = null)
         {
+            
             return tagNames;
         }
         public string[] tags()
@@ -171,10 +175,7 @@ namespace ES.EvPointer
 #endif
             return s;
         }
-        object IPointer.Pick(object a, object b, object c)
-        {
-            return (this as IPointerForString_Only)?.Pick();
-        }
+        
     }
     #endregion
 }

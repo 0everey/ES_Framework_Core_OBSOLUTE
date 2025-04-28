@@ -109,11 +109,14 @@ namespace ES
             if (useTagCheck)
             {
                 var ls = tags?.Pick();
+                
                 if (ls == null) return true;
                 else
                 {
+                    
                     foreach (var i in ls)
                     {
+                        
                         if (g.CompareTag(i)) return true;
                     }
                     return false;
