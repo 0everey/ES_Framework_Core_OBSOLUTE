@@ -8,7 +8,6 @@ namespace ES
     public class ReadMeES : MonoBehaviour
     {
         [LabelText("---开始编辑---")]
-       
         public bool edit = true;
         [DisplayAsString(fontSize:20,EnableRichText =true ),ShowIf("@!edit"),GUIColor("showColor"),ShowInInspector,HideLabel]
         public string ReadMe = "编写提示文件"; 

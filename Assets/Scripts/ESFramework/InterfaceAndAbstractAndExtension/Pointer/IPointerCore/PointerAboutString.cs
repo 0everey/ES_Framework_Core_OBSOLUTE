@@ -75,9 +75,9 @@ namespace ES.EvPointer
     {
         [LabelText("链接列"), SerializeReference]
         public List<IPointer> pointers = new List<IPointer>();
-        [LabelText("上次输出"), GUIColor("@KeyValueMatchingUtility.ColorSelector.Color_03")] public string cast;
-        [LabelText("发起投射?", SdfIconType.At), GUIColor("@KeyValueMatchingUtility.ColorSelector.Color_04")] public bool usePlayerCaster;
-        [LabelText("发送到Caster", SdfIconType.At), ShowIf("usePlayerCaster"), GUIColor("@KeyValueMatchingUtility.ColorSelector.Color_04")] public PointerPlayerSystemObjectCaster playerCaster_;
+        [LabelText("上次输出"), GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForCaster")] public string cast;
+        [LabelText("发起投射?", SdfIconType.At), GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForCaster")] public bool usePlayerCaster;
+        [LabelText("发送到Caster", SdfIconType.At), ShowIf("usePlayerCaster"), GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForCaster")] public PointerPlayerSystemObjectCaster playerCaster_;
         public PointerPlayerSystemObjectCaster playerCaster => playerCaster_;
 
         public string Cast()

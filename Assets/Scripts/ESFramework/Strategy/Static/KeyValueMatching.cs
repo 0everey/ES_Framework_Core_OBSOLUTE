@@ -15,7 +15,7 @@ using DG.Tweening;
 
 namespace ES
 {
-    //Key Value Matching 是一系列键值对映射或者静态处理方法，用于解耦的功能合集
+    //Key ESValue Matching 是一系列键值对映射或者静态处理方法，用于解耦的功能合集
     public static class KeyValueMatchingUtility
     {
         //匹配器
@@ -118,6 +118,14 @@ namespace ES
             public static Color Color_03 = new Color(0.9988f, 0.958f, 0f, 1);//黄色
             public static Color Color_04 = new Color(0.1588f, 0.958f, 0.9f, 1);//色
             public static Color Color_05 = new Color(0.7588f, 0.758f, 0.25f, 1);//色
+            public static Color Color_06 = new Color(0.4588f, 0.758f, 0.45f, 1);//色
+
+            public static Color ColorForDes = new Color(0.682f,0.8392f,0.945f);//备注信息  --偏白
+            public static Color ColorForPlayerReadMe = new Color(0.49f, 0.2353f, 0.596f);//播放器注释信息  --偏白
+            public static Color ColorForCaster = new Color(0.365f,0.6784f,0.886f);//投射器 --偏蓝
+            public static Color ColorForCatcher = new Color(0.8314f,0.6745f,0.051f);//抓取器   --偏橙色
+            public static Color ColorForESValue = new Color(0.153f,0.682f,0.376f);//ES值    --偏绿
+            
             static void test()
             {
                 Color c = KeyValueMatchingUtility.ColorSelector.Color_01;
