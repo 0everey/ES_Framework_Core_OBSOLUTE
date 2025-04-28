@@ -37,6 +37,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 4118737063873085520
       type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
       data:
@@ -76,13 +78,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: BindingSelf
-      Entry: 7
-      Data: 0|System.RuntimeType, mscorlib
-    - Name: 
-      Entry: 1
-      Data: HellishBattle.InvokeOnly+StandardState_Idle, Assembly-CSharp
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
   DataKey:
     str_direc: "\u9759\u6B62"
@@ -98,6 +94,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 4118737022073438577
       type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
       data:
@@ -137,13 +135,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: BindingSelf
-      Entry: 7
-      Data: 0|System.RuntimeType, mscorlib
-    - Name: 
-      Entry: 1
-      Data: HellishBattle.InvokeOnly+StandardState_Index_Pick, Assembly-CSharp
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
   DataKey:
     str_direc: "\u62FE\u53D6"
@@ -158,6 +150,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 4118737052680585277
       type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
       data:
@@ -212,6 +206,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 4118737063873085530
       type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
       data:
@@ -266,6 +262,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 4118737063873085522
       type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
       data:
@@ -317,7 +315,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: keyValues
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[HellishBattle.StateDataInfo,
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[ES.StateDataInfo,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
@@ -505,6 +503,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 4118737063873085528
       type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
       data:
@@ -544,13 +544,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: BindingSelf
-      Entry: 7
-      Data: 0|System.RuntimeType, mscorlib
-    - Name: 
-      Entry: 1
-      Data: HellishBattle.BaseMicroStateMachine_StringKey, Assembly-CSharp
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
   DataKey:
     str_direc: "\u4EA4\u4E92\u5B50\u72B6\u6001"
@@ -567,6 +561,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 4118737052680585279
       type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
       data:
@@ -621,6 +617,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 4118737063873085526
       type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
       data:
@@ -660,13 +658,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: BindingSelf
-      Entry: 7
-      Data: 0|System.RuntimeType, mscorlib
-    - Name: 
-      Entry: 1
-      Data: HellishBattle.InvokeOnly+StandardState_Index_OpenDoor, Assembly-CSharp
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
   DataKey:
     str_direc: "\u5F00\u95E8"
@@ -681,6 +673,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 4118737052680585275
       type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
       data:
@@ -735,6 +729,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 4118737063873085524
       type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
       data:
@@ -774,20 +770,14 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: BindingSelf
-      Entry: 7
-      Data: 0|System.RuntimeType, mscorlib
-    - Name: 
-      Entry: 1
-      Data: HellishBattle.InvokeOnly+StandardState_Attack, Assembly-CSharp
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
   DataKey:
     str_direc: "\u653B\u51FB"
   asFirstLayer: 1
-  IsSonMachine: 0
+  IsSonMachine: 1
   stateSharedData:
-    rid: 4118737052680585273
+    rid: 4118737099499503617
   stateStatus:
     rid: 4118737052680585274
   BindingStandState: {fileID: 0}
@@ -795,8 +785,15 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 4118737052680585273
-      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 4118737052680585274
+      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+      data:
+        hasEnterTime: 0
+        stateStandStatus: 0
+    - rid: 4118737099499503617
+      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
       data:
         MergePart_:
           BeHitWithoutCondition: []
@@ -805,10 +802,5 @@ MonoBehaviour:
           CanHit: 0
           logicLayer: 0
           channel: 63
-          BeHitOrder: 1
-          HitOrder: 1
-    - rid: 4118737052680585274
-      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
-      data:
-        hasEnterTime: 0
-        stateStandStatus: 0
+          BeHitOrder: 0
+          HitOrder: 0

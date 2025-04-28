@@ -23,114 +23,72 @@ MonoBehaviour:
     SerializationNodes:
     - Name: allLevel
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+      Data: 0|System.Collections.Generic.List`1[[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+      Data: 1|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
     - Name: displayName
       Entry: 1
       Data: "\u8EAB\u4F53_\u89C6\u529B\u5F3A\u53161\u7EA7"
     - Name: forNone2UnKnownDetail
       Entry: 7
-      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 2|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u8EAB\u4F53_\u4F53\u80FD\u5F3A\u53161\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forUnKnownDetail2CantUnlock
       Entry: 7
-      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 3|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 5|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u8EAB\u4F53_\u8D1F\u91CD\u5F3A\u53161\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCantUnlock2CanUnlockButNotFeet
       Entry: 7
-      Data: 6|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 4|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 7|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u67AA\u652F_\u5FEB\u901F\u7784\u51C6_1\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockButNotFeet2CanUnlockComplete
       Entry: 7
-      Data: 8|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 5|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 9|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: function
-      Entry: 3
-      Data: 5
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: compare
-      Entry: 4
-      Data: 180
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockComplete2Unlock
       Entry: 7
-      Data: 10|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 6|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -143,40 +101,22 @@ MonoBehaviour:
       Data: 
     - Name: whenUnlock
       Entry: 7
-      Data: 11|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+      Data: 7|ES.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
     - Name: intHepler
       Entry: 3
       Data: 0
     - Name: pointers
       Entry: 7
-      Data: 12|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+      Data: 8|System.Collections.Generic.List`1[[ES.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
-      Entry: 7
-      Data: 13|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
-    - Name: function
-      Entry: 3
-      Data: 2
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: handler
-      Entry: 4
-      Data: 180
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 14|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
-    - Name: key
       Entry: 6
       Data: 
     - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 13
@@ -198,19 +138,19 @@ MonoBehaviour:
       Data: 
     - Name: sprites
       Entry: 7
-      Data: 15|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+      Data: 9|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
         Assembly-CSharp
     - Name: b
       Entry: 5
       Data: false
     - Name: keyValues
       Entry: 7
-      Data: 16|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
-        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 10|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 17|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+      Data: 11|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -232,7 +172,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 12|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -269,7 +209,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 13|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -306,7 +246,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 14|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -343,7 +283,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 7
-      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 15|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -380,7 +320,7 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 7
-      Data: 22|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 16|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -417,7 +357,7 @@ MonoBehaviour:
       Data: 5
     - Name: $v
       Entry: 7
-      Data: 23|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 17|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -481,7 +421,8 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 21300000, guid: af4678468def76a47a61384560b08f46, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -489,20 +430,20 @@ MonoBehaviour:
     SerializationNodes:
     - Name: allLevel
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+      Data: 0|System.Collections.Generic.List`1[[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+      Data: 1|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
     - Name: displayName
       Entry: 1
       Data: "\u57FA\u672C_\u62A4\u7532\u63D0\u53471\u7EA7"
     - Name: forNone2UnKnownDetail
       Entry: 7
-      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 2|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -515,7 +456,7 @@ MonoBehaviour:
       Data: 
     - Name: forUnKnownDetail2CantUnlock
       Entry: 7
-      Data: 3|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 3|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -528,57 +469,33 @@ MonoBehaviour:
       Data: 
     - Name: forCantUnlock2CanUnlockButNotFeet
       Entry: 7
-      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 4|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 5|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u57FA\u672C_\u901F\u5EA6\u63D0\u53471\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockButNotFeet2CanUnlockComplete
       Entry: 7
-      Data: 6|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 5|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 7|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: function
-      Entry: 3
-      Data: 5
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: compare
-      Entry: 4
-      Data: 200
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockComplete2Unlock
       Entry: 7
-      Data: 8|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 6|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -591,40 +508,22 @@ MonoBehaviour:
       Data: 
     - Name: whenUnlock
       Entry: 7
-      Data: 9|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+      Data: 7|ES.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
     - Name: intHepler
       Entry: 3
       Data: 0
     - Name: pointers
       Entry: 7
-      Data: 10|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+      Data: 8|System.Collections.Generic.List`1[[ES.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
-      Entry: 7
-      Data: 11|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
-    - Name: function
-      Entry: 3
-      Data: 2
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: handler
-      Entry: 4
-      Data: 150
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
-      Entry: 7
-      Data: 12|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
-    - Name: key
-      Entry: 1
-      Data: "\u57FA\u672C_\u62A4\u7532\u63D0\u53471\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 13
@@ -646,19 +545,19 @@ MonoBehaviour:
       Data: 
     - Name: sprites
       Entry: 7
-      Data: 13|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+      Data: 9|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
         Assembly-CSharp
     - Name: b
       Entry: 5
       Data: false
     - Name: keyValues
       Entry: 7
-      Data: 14|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
-        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 10|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 15|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+      Data: 11|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -680,11 +579,11 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 16|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 12|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0
     - Name: color_
       Entry: 7
       Data: UnityEngine.Color, UnityEngine.CoreModule
@@ -717,7 +616,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 17|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 13|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -754,7 +653,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 14|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -791,7 +690,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 7
-      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 15|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -828,7 +727,7 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 7
-      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 16|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -865,7 +764,7 @@ MonoBehaviour:
       Data: 5
     - Name: $v
       Entry: 7
-      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 17|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -937,20 +836,20 @@ MonoBehaviour:
     SerializationNodes:
     - Name: allLevel
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+      Data: 0|System.Collections.Generic.List`1[[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+      Data: 1|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
     - Name: displayName
       Entry: 1
       Data: "\u57FA\u672C_\u653B\u51FB\u529B\u63D0\u53471\u7EA7"
     - Name: forNone2UnKnownDetail
       Entry: 7
-      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 2|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -963,7 +862,7 @@ MonoBehaviour:
       Data: 
     - Name: forUnKnownDetail2CantUnlock
       Entry: 7
-      Data: 3|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 3|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -976,7 +875,7 @@ MonoBehaviour:
       Data: 
     - Name: forCantUnlock2CanUnlockButNotFeet
       Entry: 7
-      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 4|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -989,35 +888,20 @@ MonoBehaviour:
       Data: 
     - Name: forCanUnlockButNotFeet2CanUnlockComplete
       Entry: 7
-      Data: 5|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 5|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 6|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: function
-      Entry: 3
-      Data: 5
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: compare
-      Entry: 4
-      Data: 100
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockComplete2Unlock
       Entry: 7
-      Data: 7|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 6|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -1030,40 +914,22 @@ MonoBehaviour:
       Data: 
     - Name: whenUnlock
       Entry: 7
-      Data: 8|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+      Data: 7|ES.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
     - Name: intHepler
       Entry: 3
       Data: 0
     - Name: pointers
       Entry: 7
-      Data: 9|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+      Data: 8|System.Collections.Generic.List`1[[ES.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
-      Entry: 7
-      Data: 10|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
-    - Name: function
-      Entry: 3
-      Data: 2
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: handler
-      Entry: 4
-      Data: 100
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
-      Entry: 7
-      Data: 11|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
-    - Name: key
-      Entry: 1
-      Data: "\u57FA\u672C_\u653B\u51FB\u529B\u63D0\u53471\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 13
@@ -1085,19 +951,19 @@ MonoBehaviour:
       Data: 
     - Name: sprites
       Entry: 7
-      Data: 12|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+      Data: 9|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
         Assembly-CSharp
     - Name: b
       Entry: 5
       Data: false
     - Name: keyValues
       Entry: 7
-      Data: 13|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
-        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 10|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 14|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+      Data: 11|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -1119,7 +985,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 15|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 12|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -1156,7 +1022,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 16|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 13|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -1193,7 +1059,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 17|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 14|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -1230,7 +1096,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 7
-      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 15|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -1267,7 +1133,7 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 7
-      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 16|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -1304,7 +1170,7 @@ MonoBehaviour:
       Data: 5
     - Name: $v
       Entry: 7
-      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 17|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -1376,42 +1242,33 @@ MonoBehaviour:
     SerializationNodes:
     - Name: allLevel
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+      Data: 0|System.Collections.Generic.List`1[[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+      Data: 1|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
     - Name: displayName
       Entry: 1
       Data: "\u57FA\u672C_\u901F\u5EA6\u63D0\u53471\u7EA7"
     - Name: forNone2UnKnownDetail
       Entry: 7
-      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 2|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u57FA\u672C_\u653B\u51FB\u529B\u63D0\u53471\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forUnKnownDetail2CantUnlock
       Entry: 7
-      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 3|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -1424,7 +1281,7 @@ MonoBehaviour:
       Data: 
     - Name: forCantUnlock2CanUnlockButNotFeet
       Entry: 7
-      Data: 5|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 4|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -1437,35 +1294,20 @@ MonoBehaviour:
       Data: 
     - Name: forCanUnlockButNotFeet2CanUnlockComplete
       Entry: 7
-      Data: 6|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 5|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 7|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: function
-      Entry: 3
-      Data: 5
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: compare
-      Entry: 4
-      Data: 150
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockComplete2Unlock
       Entry: 7
-      Data: 8|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 6|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -1478,40 +1320,22 @@ MonoBehaviour:
       Data: 
     - Name: whenUnlock
       Entry: 7
-      Data: 9|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+      Data: 7|ES.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
     - Name: intHepler
       Entry: 3
       Data: 0
     - Name: pointers
       Entry: 7
-      Data: 10|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+      Data: 8|System.Collections.Generic.List`1[[ES.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
-      Entry: 7
-      Data: 11|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
-    - Name: function
-      Entry: 3
-      Data: 2
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: handler
-      Entry: 4
-      Data: 150
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
-      Entry: 7
-      Data: 12|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
-    - Name: key
-      Entry: 1
-      Data: "\u57FA\u672C_\u901F\u5EA6\u63D0\u53471\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 13
@@ -1533,19 +1357,19 @@ MonoBehaviour:
       Data: 
     - Name: sprites
       Entry: 7
-      Data: 13|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+      Data: 9|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
         Assembly-CSharp
     - Name: b
       Entry: 5
       Data: false
     - Name: keyValues
       Entry: 7
-      Data: 14|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
-        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 10|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 15|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+      Data: 11|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -1567,7 +1391,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 16|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 12|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -1604,7 +1428,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 17|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 13|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -1641,7 +1465,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 14|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -1678,7 +1502,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 7
-      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 15|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -1715,7 +1539,7 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 7
-      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 16|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -1752,7 +1576,7 @@ MonoBehaviour:
       Data: 5
     - Name: $v
       Entry: 7
-      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 17|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -1824,42 +1648,33 @@ MonoBehaviour:
     SerializationNodes:
     - Name: allLevel
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+      Data: 0|System.Collections.Generic.List`1[[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+      Data: 1|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
     - Name: displayName
       Entry: 1
       Data: "\u67AA\u652F_\u7CBE\u51C6\u7206\u78341\u7EA7"
     - Name: forNone2UnKnownDetail
       Entry: 7
-      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 2|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u67AA\u652F_\u5FEB\u901F\u7784\u51C6_1\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forUnKnownDetail2CantUnlock
       Entry: 7
-      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 3|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -1872,57 +1687,33 @@ MonoBehaviour:
       Data: 
     - Name: forCantUnlock2CanUnlockButNotFeet
       Entry: 7
-      Data: 5|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 4|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 6|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u67AA\u652F_\u5FEB\u901F\u88C5\u5F391\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockButNotFeet2CanUnlockComplete
       Entry: 7
-      Data: 7|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 5|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 8|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: function
-      Entry: 3
-      Data: 5
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: compare
-      Entry: 4
-      Data: 250
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockComplete2Unlock
       Entry: 7
-      Data: 9|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 6|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -1935,40 +1726,22 @@ MonoBehaviour:
       Data: 
     - Name: whenUnlock
       Entry: 7
-      Data: 10|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+      Data: 7|ES.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
     - Name: intHepler
       Entry: 3
       Data: 0
     - Name: pointers
       Entry: 7
-      Data: 11|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+      Data: 8|System.Collections.Generic.List`1[[ES.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
-      Entry: 7
-      Data: 12|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
-    - Name: function
-      Entry: 3
-      Data: 2
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: handler
-      Entry: 4
-      Data: 250
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
-      Entry: 7
-      Data: 13|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
-    - Name: key
-      Entry: 1
-      Data: "\u67AA\u652F_\u7CBE\u51C6\u7206\u78341\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 13
@@ -1990,19 +1763,19 @@ MonoBehaviour:
       Data: 
     - Name: sprites
       Entry: 7
-      Data: 14|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+      Data: 9|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
         Assembly-CSharp
     - Name: b
       Entry: 5
       Data: false
     - Name: keyValues
       Entry: 7
-      Data: 15|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
-        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 10|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 16|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+      Data: 11|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -2024,7 +1797,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 17|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 12|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -2061,7 +1834,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 13|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -2098,7 +1871,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 14|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -2135,7 +1908,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 7
-      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 15|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -2172,7 +1945,7 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 7
-      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 16|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -2209,7 +1982,7 @@ MonoBehaviour:
       Data: 5
     - Name: $v
       Entry: 7
-      Data: 22|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 17|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -2293,7 +2066,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: keyValues
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[HellishBattle.SkillPointDataInfo,
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[ES.SkillPointDataInfo,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
@@ -2479,42 +2252,33 @@ MonoBehaviour:
     SerializationNodes:
     - Name: allLevel
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+      Data: 0|System.Collections.Generic.List`1[[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+      Data: 1|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
     - Name: displayName
       Entry: 1
       Data: "\u8FD1\u6218_\u66F4\u957F\u7684\u653B\u51FB\u8DDD\u79BB1\u7EA7"
     - Name: forNone2UnKnownDetail
       Entry: 7
-      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 2|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u8FD1\u6218_\u66B4\u51FB\u73871\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forUnKnownDetail2CantUnlock
       Entry: 7
-      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 3|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -2527,57 +2291,33 @@ MonoBehaviour:
       Data: 
     - Name: forCantUnlock2CanUnlockButNotFeet
       Entry: 7
-      Data: 5|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 4|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 6|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u8FD1\u6218_\u51FB\u6740\u56DE\u88401\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockButNotFeet2CanUnlockComplete
       Entry: 7
-      Data: 7|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 5|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 8|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: function
-      Entry: 3
-      Data: 4
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: compare
-      Entry: 4
-      Data: 300
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockComplete2Unlock
       Entry: 7
-      Data: 9|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 6|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -2590,40 +2330,22 @@ MonoBehaviour:
       Data: 
     - Name: whenUnlock
       Entry: 7
-      Data: 10|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+      Data: 7|ES.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
     - Name: intHepler
       Entry: 3
       Data: 0
     - Name: pointers
       Entry: 7
-      Data: 11|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+      Data: 8|System.Collections.Generic.List`1[[ES.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
-      Entry: 7
-      Data: 12|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
-    - Name: function
-      Entry: 3
-      Data: 2
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: handler
-      Entry: 4
-      Data: 300
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
-      Entry: 7
-      Data: 13|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
-    - Name: key
-      Entry: 1
-      Data: "\u8FD1\u6218_\u66F4\u957F\u7684\u653B\u51FB\u8DDD\u79BB1\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 13
@@ -2645,19 +2367,19 @@ MonoBehaviour:
       Data: 
     - Name: sprites
       Entry: 7
-      Data: 14|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+      Data: 9|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
         Assembly-CSharp
     - Name: b
       Entry: 5
       Data: false
     - Name: keyValues
       Entry: 7
-      Data: 15|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
-        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 10|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 16|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+      Data: 11|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -2679,7 +2401,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 17|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 12|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -2716,7 +2438,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 13|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -2753,7 +2475,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 14|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -2790,7 +2512,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 7
-      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 15|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -2827,7 +2549,7 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 7
-      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 16|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -2864,7 +2586,7 @@ MonoBehaviour:
       Data: 5
     - Name: $v
       Entry: 7
-      Data: 22|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 17|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -2936,42 +2658,33 @@ MonoBehaviour:
     SerializationNodes:
     - Name: allLevel
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+      Data: 0|System.Collections.Generic.List`1[[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+      Data: 1|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
     - Name: displayName
       Entry: 1
       Data: "\u67AA\u652F_\u5FEB\u901F\u88C5\u5F391\u7EA7"
     - Name: forNone2UnKnownDetail
       Entry: 7
-      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 2|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u67AA\u652F_\u5FEB\u901F\u7784\u51C6_1\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forUnKnownDetail2CantUnlock
       Entry: 7
-      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 3|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -2984,7 +2697,7 @@ MonoBehaviour:
       Data: 
     - Name: forCantUnlock2CanUnlockButNotFeet
       Entry: 7
-      Data: 5|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 4|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -2997,35 +2710,20 @@ MonoBehaviour:
       Data: 
     - Name: forCanUnlockButNotFeet2CanUnlockComplete
       Entry: 7
-      Data: 6|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 5|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 7|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: function
-      Entry: 3
-      Data: 5
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: compare
-      Entry: 4
-      Data: 160
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockComplete2Unlock
       Entry: 7
-      Data: 8|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 6|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -3038,40 +2736,22 @@ MonoBehaviour:
       Data: 
     - Name: whenUnlock
       Entry: 7
-      Data: 9|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+      Data: 7|ES.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
     - Name: intHepler
       Entry: 3
       Data: 0
     - Name: pointers
       Entry: 7
-      Data: 10|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+      Data: 8|System.Collections.Generic.List`1[[ES.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
-      Entry: 7
-      Data: 11|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
-    - Name: function
-      Entry: 3
-      Data: 2
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: handler
-      Entry: 4
-      Data: 160
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
-      Entry: 7
-      Data: 12|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
-    - Name: key
-      Entry: 1
-      Data: "\u67AA\u652F_\u5FEB\u901F\u88C5\u5F391\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 13
@@ -3093,19 +2773,19 @@ MonoBehaviour:
       Data: 
     - Name: sprites
       Entry: 7
-      Data: 13|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+      Data: 9|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
         Assembly-CSharp
     - Name: b
       Entry: 5
       Data: false
     - Name: keyValues
       Entry: 7
-      Data: 14|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
-        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 10|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 15|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+      Data: 11|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -3127,7 +2807,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 16|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 12|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -3164,7 +2844,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 17|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 13|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -3201,7 +2881,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 14|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -3238,7 +2918,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 7
-      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 15|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -3275,7 +2955,7 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 7
-      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 16|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -3312,7 +2992,7 @@ MonoBehaviour:
       Data: 5
     - Name: $v
       Entry: 7
-      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 17|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -3384,42 +3064,33 @@ MonoBehaviour:
     SerializationNodes:
     - Name: allLevel
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+      Data: 0|System.Collections.Generic.List`1[[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+      Data: 1|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
     - Name: displayName
       Entry: 1
       Data: "\u8EAB\u4F53_\u8D1F\u91CD\u5F3A\u53161\u7EA7"
     - Name: forNone2UnKnownDetail
       Entry: 7
-      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 2|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u57FA\u672C_\u62A4\u7532\u63D0\u53471\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forUnKnownDetail2CantUnlock
       Entry: 7
-      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 3|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -3432,57 +3103,33 @@ MonoBehaviour:
       Data: 
     - Name: forCantUnlock2CanUnlockButNotFeet
       Entry: 7
-      Data: 5|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 4|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 6|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u8EAB\u4F53_\u4F53\u80FD\u5F3A\u53161\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockButNotFeet2CanUnlockComplete
       Entry: 7
-      Data: 7|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 5|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 8|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: function
-      Entry: 3
-      Data: 5
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: compare
-      Entry: 4
-      Data: 180
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockComplete2Unlock
       Entry: 7
-      Data: 9|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 6|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -3495,40 +3142,22 @@ MonoBehaviour:
       Data: 
     - Name: whenUnlock
       Entry: 7
-      Data: 10|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+      Data: 7|ES.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
     - Name: intHepler
       Entry: 3
       Data: 0
     - Name: pointers
       Entry: 7
-      Data: 11|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+      Data: 8|System.Collections.Generic.List`1[[ES.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
-      Entry: 7
-      Data: 12|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
-    - Name: function
-      Entry: 3
-      Data: 2
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: handler
-      Entry: 4
-      Data: 180
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
-      Entry: 7
-      Data: 13|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
-    - Name: key
-      Entry: 1
-      Data: "\u8EAB\u4F53_\u8D1F\u91CD\u5F3A\u53161\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 13
@@ -3550,19 +3179,19 @@ MonoBehaviour:
       Data: 
     - Name: sprites
       Entry: 7
-      Data: 14|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+      Data: 9|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
         Assembly-CSharp
     - Name: b
       Entry: 5
       Data: false
     - Name: keyValues
       Entry: 7
-      Data: 15|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
-        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 10|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 16|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+      Data: 11|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -3584,7 +3213,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 17|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 12|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -3621,7 +3250,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 13|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -3658,7 +3287,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 14|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -3695,7 +3324,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 7
-      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 15|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -3732,7 +3361,7 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 7
-      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 16|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -3769,7 +3398,7 @@ MonoBehaviour:
       Data: 5
     - Name: $v
       Entry: 7
-      Data: 22|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 17|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -3841,120 +3470,72 @@ MonoBehaviour:
     SerializationNodes:
     - Name: allLevel
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+      Data: 0|System.Collections.Generic.List`1[[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+      Data: 1|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
     - Name: displayName
       Entry: 1
       Data: "\u8FD1\u6218_\u66B4\u51FB\u73871\u7EA7"
     - Name: forNone2UnKnownDetail
       Entry: 7
-      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 2|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u57FA\u672C_\u901F\u5EA6\u63D0\u53471\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forUnKnownDetail2CantUnlock
       Entry: 7
-      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 3|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 5|HellishBattle.PointerForBoolByArKVP_IntInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: function
-      Entry: 3
-      Data: 0
-    - Name: key
-      Entry: 1
-      Data: "\u57FA\u672C\u5929\u8D4B\u7C7B\u578B"
-    - Name: compare
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCantUnlock2CanUnlockButNotFeet
       Entry: 7
-      Data: 6|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 4|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 7|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u57FA\u672C_\u62A4\u7532\u63D0\u53471\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockButNotFeet2CanUnlockComplete
       Entry: 7
-      Data: 8|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 5|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 9|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: function
-      Entry: 3
-      Data: 5
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: compare
-      Entry: 4
-      Data: 150
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockComplete2Unlock
       Entry: 7
-      Data: 10|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 6|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -3967,40 +3548,22 @@ MonoBehaviour:
       Data: 
     - Name: whenUnlock
       Entry: 7
-      Data: 11|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+      Data: 7|ES.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
     - Name: intHepler
       Entry: 3
       Data: 0
     - Name: pointers
       Entry: 7
-      Data: 12|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+      Data: 8|System.Collections.Generic.List`1[[ES.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
-      Entry: 7
-      Data: 13|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
-    - Name: function
-      Entry: 3
-      Data: 2
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: handler
-      Entry: 4
-      Data: 150
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
-      Entry: 7
-      Data: 14|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
-    - Name: key
-      Entry: 1
-      Data: "\u8FD1\u6218_\u66B4\u51FB\u73871\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 13
@@ -4022,19 +3585,19 @@ MonoBehaviour:
       Data: 
     - Name: sprites
       Entry: 7
-      Data: 15|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+      Data: 9|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
         Assembly-CSharp
     - Name: b
       Entry: 5
       Data: false
     - Name: keyValues
       Entry: 7
-      Data: 16|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
-        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 10|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 17|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+      Data: 11|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -4056,7 +3619,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 12|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -4093,7 +3656,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 13|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -4130,7 +3693,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 14|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -4167,7 +3730,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 7
-      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 15|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -4204,7 +3767,7 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 7
-      Data: 22|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 16|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -4241,7 +3804,7 @@ MonoBehaviour:
       Data: 5
     - Name: $v
       Entry: 7
-      Data: 23|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 17|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -4313,120 +3876,72 @@ MonoBehaviour:
     SerializationNodes:
     - Name: allLevel
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+      Data: 0|System.Collections.Generic.List`1[[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+      Data: 1|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
     - Name: displayName
       Entry: 1
       Data: "\u67AA\u652F_\u5FEB\u901F\u7784\u51C6_1\u7EA7"
     - Name: forNone2UnKnownDetail
       Entry: 7
-      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 2|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u57FA\u672C_\u901F\u5EA6\u63D0\u53471\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forUnKnownDetail2CantUnlock
       Entry: 7
-      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 3|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 5|HellishBattle.PointerForBoolByArKVP_IntInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: function
-      Entry: 3
-      Data: 0
-    - Name: key
-      Entry: 1
-      Data: "\u57FA\u672C\u5929\u8D4B\u7C7B\u578B"
-    - Name: compare
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCantUnlock2CanUnlockButNotFeet
       Entry: 7
-      Data: 6|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 4|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 7|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u57FA\u672C_\u62A4\u7532\u63D0\u53471\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockButNotFeet2CanUnlockComplete
       Entry: 7
-      Data: 8|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 5|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 9|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: function
-      Entry: 3
-      Data: 5
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: compare
-      Entry: 4
-      Data: 100
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockComplete2Unlock
       Entry: 7
-      Data: 10|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 6|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -4439,40 +3954,22 @@ MonoBehaviour:
       Data: 
     - Name: whenUnlock
       Entry: 7
-      Data: 11|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+      Data: 7|ES.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
     - Name: intHepler
       Entry: 3
       Data: 0
     - Name: pointers
       Entry: 7
-      Data: 12|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+      Data: 8|System.Collections.Generic.List`1[[ES.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
-      Entry: 7
-      Data: 13|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
-    - Name: function
-      Entry: 3
-      Data: 2
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: handler
-      Entry: 4
-      Data: 100
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
-      Entry: 7
-      Data: 14|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
-    - Name: key
-      Entry: 1
-      Data: "\u67AA\u652F_\u5FEB\u901F\u7784\u51C6_1\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 13
@@ -4494,19 +3991,19 @@ MonoBehaviour:
       Data: 
     - Name: sprites
       Entry: 7
-      Data: 15|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+      Data: 9|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
         Assembly-CSharp
     - Name: b
       Entry: 5
       Data: false
     - Name: keyValues
       Entry: 7
-      Data: 16|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
-        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 10|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 17|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+      Data: 11|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -4528,7 +4025,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 12|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -4565,7 +4062,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 13|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -4602,7 +4099,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 14|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -4639,7 +4136,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 7
-      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 15|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -4676,7 +4173,7 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 7
-      Data: 22|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 16|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -4713,7 +4210,7 @@ MonoBehaviour:
       Data: 5
     - Name: $v
       Entry: 7
-      Data: 23|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 17|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -4785,42 +4282,33 @@ MonoBehaviour:
     SerializationNodes:
     - Name: allLevel
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+      Data: 0|System.Collections.Generic.List`1[[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+      Data: 1|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
     - Name: displayName
       Entry: 1
       Data: "\u8FD1\u6218_\u51FB\u6740\u56DE\u88401\u7EA7"
     - Name: forNone2UnKnownDetail
       Entry: 7
-      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 2|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u8FD1\u6218_\u66B4\u51FB\u73871\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forUnKnownDetail2CantUnlock
       Entry: 7
-      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 3|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -4833,57 +4321,33 @@ MonoBehaviour:
       Data: 
     - Name: forCantUnlock2CanUnlockButNotFeet
       Entry: 7
-      Data: 5|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 4|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 6|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u57FA\u672C_\u62A4\u7532\u63D0\u53471\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockButNotFeet2CanUnlockComplete
       Entry: 7
-      Data: 7|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 5|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 8|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: function
-      Entry: 3
-      Data: 5
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: compare
-      Entry: 4
-      Data: 250
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockComplete2Unlock
       Entry: 7
-      Data: 9|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 6|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -4896,40 +4360,22 @@ MonoBehaviour:
       Data: 
     - Name: whenUnlock
       Entry: 7
-      Data: 10|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+      Data: 7|ES.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
     - Name: intHepler
       Entry: 3
       Data: 0
     - Name: pointers
       Entry: 7
-      Data: 11|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+      Data: 8|System.Collections.Generic.List`1[[ES.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
-      Entry: 7
-      Data: 12|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
-    - Name: function
-      Entry: 3
-      Data: 2
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: handler
-      Entry: 4
-      Data: 250
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
-      Entry: 7
-      Data: 13|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
-    - Name: key
-      Entry: 1
-      Data: "\u8FD1\u6218_\u51FB\u6740\u56DE\u88401\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 13
@@ -4951,19 +4397,19 @@ MonoBehaviour:
       Data: 
     - Name: sprites
       Entry: 7
-      Data: 14|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+      Data: 9|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
         Assembly-CSharp
     - Name: b
       Entry: 5
       Data: false
     - Name: keyValues
       Entry: 7
-      Data: 15|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
-        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 10|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 16|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+      Data: 11|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -4985,7 +4431,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 17|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 12|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -5022,7 +4468,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 13|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -5059,7 +4505,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 14|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -5096,7 +4542,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 7
-      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 15|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -5133,7 +4579,7 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 7
-      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 16|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -5170,7 +4616,7 @@ MonoBehaviour:
       Data: 5
     - Name: $v
       Entry: 7
-      Data: 22|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 17|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -5242,42 +4688,33 @@ MonoBehaviour:
     SerializationNodes:
     - Name: allLevel
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor,
+      Data: 0|System.Collections.Generic.List`1[[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
+      Data: 1|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor, Assembly-CSharp
     - Name: displayName
       Entry: 1
       Data: "\u8EAB\u4F53_\u4F53\u80FD\u5F3A\u53161\u7EA7"
     - Name: forNone2UnKnownDetail
       Entry: 7
-      Data: 2|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 2|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 3|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u57FA\u672C_\u653B\u51FB\u529B\u63D0\u53471\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forUnKnownDetail2CantUnlock
       Entry: 7
-      Data: 4|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 3|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -5290,57 +4727,33 @@ MonoBehaviour:
       Data: 
     - Name: forCantUnlock2CanUnlockButNotFeet
       Entry: 7
-      Data: 5|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 4|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 6|HellishBattle.PointerForBoolByArKVP_TagInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: key
-      Entry: 1
-      Data: "\u57FA\u672C_\u901F\u5EA6\u63D0\u53471\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockButNotFeet2CanUnlockComplete
       Entry: 7
-      Data: 7|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 5|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
       Data: true
     - Name: pointer
-      Entry: 7
-      Data: 8|HellishBattle.PointerForBoolByArKVP_FloatInPool, Assembly-CSharp
-    - Name: defaultIfNull
-      Entry: 5
-      Data: false
-    - Name: function
-      Entry: 3
-      Data: 5
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: compare
-      Entry: 4
-      Data: 50
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: forCanUnlockComplete2Unlock
       Entry: 7
-      Data: 9|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
+      Data: 6|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+ADefaultBoolAndBoolAKVP,
         Assembly-CSharp
     - Name: defaultForNull
       Entry: 5
@@ -5353,40 +4766,22 @@ MonoBehaviour:
       Data: 
     - Name: whenUnlock
       Entry: 7
-      Data: 10|HellishBattle.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
+      Data: 7|ES.PointerNonePackOnlyActionByArKVP_LoopOnce, Assembly-CSharp
     - Name: intHepler
       Entry: 3
       Data: 0
     - Name: pointers
       Entry: 7
-      Data: 11|System.Collections.Generic.List`1[[HellishBattle.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
+      Data: 8|System.Collections.Generic.List`1[[ES.PointerNoneByArchitectureKeyValuePoolTypeListIOC,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
     - Name: 
-      Entry: 7
-      Data: 12|HellishBattle.PointerNoneByArKVP_FloatInPool, Assembly-CSharp
-    - Name: function
-      Entry: 3
-      Data: 2
-    - Name: key
-      Entry: 1
-      Data: "\u91D1\u5E01\u6570\u91CF"
-    - Name: handler
-      Entry: 4
-      Data: 50
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
-      Entry: 7
-      Data: 13|HellishBattle.PointerNoneByArKVP_AddTagInPool, Assembly-CSharp
-    - Name: key
-      Entry: 1
-      Data: "\u8EAB\u4F53_\u4F53\u80FD\u5F3A\u53161\u7EA7"
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: 
       Entry: 13
@@ -5408,19 +4803,19 @@ MonoBehaviour:
       Data: 
     - Name: sprites
       Entry: 7
-      Data: 14|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
+      Data: 9|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites,
         Assembly-CSharp
     - Name: b
       Entry: 5
       Data: false
     - Name: keyValues
       Entry: 7
-      Data: 15|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
-        Assembly-CSharp],[HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 10|System.Collections.Generic.Dictionary`2[[EnumCollect+SkillPointOneLevelState,
+        Assembly-CSharp],[ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 16|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
+      Data: 11|System.Collections.Generic.EnumEqualityComparer`1[[EnumCollect+SkillPointOneLevelState,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -5442,7 +4837,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 17|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 12|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -5479,7 +4874,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 18|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 13|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -5516,7 +4911,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 19|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 14|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -5553,7 +4948,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 7
-      Data: 20|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 15|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -5590,7 +4985,7 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 7
-      Data: 21|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 16|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
@@ -5627,7 +5022,7 @@ MonoBehaviour:
       Data: 5
     - Name: $v
       Entry: 7
-      Data: 22|HellishBattle.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
+      Data: 17|ES.SkillPointDataInfo+SkillPointLevelAllTransfomor+SkillPointSprites+show,
         Assembly-CSharp
     - Name: sprite
       Entry: 6
