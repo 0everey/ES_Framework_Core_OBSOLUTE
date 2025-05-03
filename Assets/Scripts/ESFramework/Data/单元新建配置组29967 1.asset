@@ -338,7 +338,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: keyValues
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[HellishBattle.GameEventMessageDataInfo,
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[ES.GameEventMessageDataInfo,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7

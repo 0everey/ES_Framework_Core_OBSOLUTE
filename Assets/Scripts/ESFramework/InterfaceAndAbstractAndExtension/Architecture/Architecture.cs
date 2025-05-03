@@ -22,16 +22,14 @@ namespace ES
         }
     }
     [Serializable,TypeRegistryItem("标准原型-拥有事件收发和配置")]
-    public class BaseArchitectureWithLinkAndConfiguration : IArchitecture
+    public class BaseArchitectureWithLinkAndConfiguration :BaseESHosting, IArchitecture
     {
         
         [LabelText("配置")]public SoDataInfoConfiguration configuration;
         [LabelText("Link池")]public LinkRecieveSafeListIOC LinkIOC = new LinkRecieveSafeListIOC();
-        public IEnumerable<IModule> normalBeHosted => throw new System.NotImplementedException();
-
         public string Name_ => description;
+        
 
-        public List<IModule> virtualBeHosted => throw new NotImplementedException();
 
         [LabelText("<<↑原型>>", SdfIconType.CpuFill),GUIColor("descriptionGUIColor_"), ShowInInspector,PropertyOrder(-1)]
         public string description="标准原型";
@@ -48,45 +46,27 @@ namespace ES
         {
             LinkIOC.SendLink(link);
         }
-
-
-
-        public void AddHandle(IModule i, object withKey = null)
-        {
-            
-        }
-
-        public void RemoveHandle(IModule i, object withKey = null)
-        {
-           
-        }
     }
     //一个架构内的Message，具有一组Link，一组针池
     //原型具有一个 Link的IOC 
     [Serializable, TypeRegistryItem("标准原型-键池")]
-    public class BaseArchitectureWithKeyValuePool : IArchitecture,IInittable
+    public class BaseArchitectureWithKeyValuePool :BaseESHosting, IArchitecture,IInittable
     {
         public string Name_ => description;
+        
+
+        
+
         [LabelText("<<↑原型>>", SdfIconType.CpuFill), GUIColor("descriptionGUIColor_"), ShowInInspector, PropertyOrder(-1)]
         public string description = "标准键针池原型";
         [HideInInspector] public Color descriptionGUIColor_ = new Color(1f, 0.588f, 1f, 1);
-        public IEnumerable<IModule> normalBeHosted => throw new NotImplementedException();
-
-        public List<IModule> virtualBeHosted => throw new NotImplementedException();
+       
 
         [LabelText("键值参数池"),SerializeReference]
         public ArchitectureKeyValuePoolTypeListIOC KeyValueParamIOC = new ArchitectureKeyValuePoolTypeListIOC();
         [LabelText("参数初始化数据包")]
         public ArchitectureDataPack applyPack;
-        public void AddHandle(IModule i, object withKey = null)
-        {
-            
-        }
-
-        public void RemoveHandle(IModule i, object withKey = null)
-        {
-            
-        }
+        
         [DetailedInfoBox("为何是预览??","IOC不支持持久序列化，仅支持运行时，所以已经准备好一个数据包，在Start时载入数据来初始化,这样做的话也有利于一套数据多次使用，并且有望实现减少运行时数据量(只存动态标签即可)",InfoMessageType.Warning)]
         [Button("初始化预览")]
         public void Init(params object[] ps)
@@ -147,7 +127,7 @@ namespace ES
 
        
     }
-    public interface IArchitecture : IPrimaryHosting
+    public interface IArchitecture : IESHosting
     {
         public abstract string Name_ { get; }
     }

@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DontDestroy: 1
-  AudioMaster: {fileID: 0}
+  AudioMaster: {fileID: 608958554771707050}
   BaseDomain: {fileID: 0}
   OnSceneLoaded:
     m_PersistentCalls:

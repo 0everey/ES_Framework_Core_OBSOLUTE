@@ -29,18 +29,16 @@ MonoBehaviour:
   asFirstLayer: 1
   IsSonMachine: 0
   stateSharedData:
-    rid: 4118737063873085520
+    rid: 4118737140697792522
   stateStatus:
-    rid: 4118737063873085521
+    rid: 4118737140697792523
   BindingStandState: {fileID: 0}
   BindingAllStates: []
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 4118737063873085520
-      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+    - rid: 4118737140697792522
+      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
       data:
         MergePart_:
           BeHitWithoutCondition: []
@@ -48,11 +46,11 @@ MonoBehaviour:
           CanBeHit: 0
           CanHit: 0
           logicLayer: 0
-          channel: 2
-          BeHitOrder: 2
+          channel: 63
+          BeHitOrder: 0
           HitOrder: 0
-    - rid: 4118737063873085521
-      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+    - rid: 4118737140697792523
+      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
       data:
         hasEnterTime: 0
         stateStandStatus: 0
@@ -78,31 +76,30 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: BindingSelf
-      Entry: 6
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: test, Assembly-CSharp
+    - Name: 
+      Entry: 8
       Data: 
   DataKey:
     str_direc: "\u9759\u6B62"
   asFirstLayer: 1
   IsSonMachine: 0
   stateSharedData:
-    rid: 4118737022073438578
+    rid: 4118737140697792513
   stateStatus:
-    rid: 4118737022073438577
+    rid: 4118737140697792514
   BindingStandState: {fileID: 0}
   BindingAllStates:
   - {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 4118737022073438577
-      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
-      data:
-        hasEnterTime: 0
-        stateStandStatus: 0
-    - rid: 4118737022073438578
-      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+    - rid: 4118737140697792513
+      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
       data:
         MergePart_:
           BeHitWithoutCondition: []
@@ -113,6 +110,11 @@ MonoBehaviour:
           channel: 63
           BeHitOrder: 0
           HitOrder: 0
+    - rid: 4118737140697792514
+      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
+      data:
+        hasEnterTime: 0
+        stateStandStatus: 0
 --- !u!114 &-3885064651176735477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,18 +144,16 @@ MonoBehaviour:
   asFirstLayer: 0
   IsSonMachine: 0
   stateSharedData:
-    rid: 4118737052680585277
+    rid: 4118737140697792518
   stateStatus:
-    rid: 4118737052680585278
+    rid: 4118737140697792519
   BindingStandState: {fileID: 0}
   BindingAllStates: []
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 4118737052680585277
-      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+    - rid: 4118737140697792518
+      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
       data:
         MergePart_:
           BeHitWithoutCondition: []
@@ -162,10 +162,10 @@ MonoBehaviour:
           CanHit: 0
           logicLayer: 0
           channel: 63
-          BeHitOrder: 1
+          BeHitOrder: 0
           HitOrder: 0
-    - rid: 4118737052680585278
-      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+    - rid: 4118737140697792519
+      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
       data:
         hasEnterTime: 0
         stateStandStatus: 0
@@ -198,30 +198,28 @@ MonoBehaviour:
   asFirstLayer: 1
   IsSonMachine: 0
   stateSharedData:
-    rid: 4118737063873085530
+    rid: 4118737140697792532
   stateStatus:
-    rid: 4118737063873085531
+    rid: 4118737140697792533
   BindingStandState: {fileID: 0}
   BindingAllStates: []
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 4118737063873085530
-      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+    - rid: 4118737140697792532
+      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
       data:
         MergePart_:
           BeHitWithoutCondition: []
           HitWithoutCondition: []
           CanBeHit: 0
           CanHit: 0
-          logicLayer: 4
+          logicLayer: 0
           channel: 63
-          BeHitOrder: 3
-          HitOrder: 3
-    - rid: 4118737063873085531
-      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+          BeHitOrder: 0
+          HitOrder: 0
+    - rid: 4118737140697792533
+      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
       data:
         hasEnterTime: 0
         stateStandStatus: 0
@@ -254,18 +252,16 @@ MonoBehaviour:
   asFirstLayer: 1
   IsSonMachine: 0
   stateSharedData:
-    rid: 4118737063873085522
+    rid: 4118737140697792524
   stateStatus:
-    rid: 4118737063873085523
+    rid: 4118737140697792525
   BindingStandState: {fileID: 0}
   BindingAllStates: []
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 4118737063873085522
-      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+    - rid: 4118737140697792524
+      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
       data:
         MergePart_:
           BeHitWithoutCondition: []
@@ -273,11 +269,11 @@ MonoBehaviour:
           CanBeHit: 0
           CanHit: 0
           logicLayer: 0
-          channel: 1
-          BeHitOrder: 2
+          channel: 63
+          BeHitOrder: 0
           HitOrder: 0
-    - rid: 4118737063873085523
-      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+    - rid: 4118737140697792525
+      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
       data:
         hasEnterTime: 0
         stateStandStatus: 0
@@ -495,30 +491,28 @@ MonoBehaviour:
   asFirstLayer: 1
   IsSonMachine: 0
   stateSharedData:
-    rid: 4118737063873085528
+    rid: 4118737140697792530
   stateStatus:
-    rid: 4118737063873085529
+    rid: 4118737140697792531
   BindingStandState: {fileID: 0}
   BindingAllStates: []
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 4118737063873085528
-      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+    - rid: 4118737140697792530
+      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
       data:
         MergePart_:
           BeHitWithoutCondition: []
           HitWithoutCondition: []
           CanBeHit: 0
           CanHit: 0
-          logicLayer: 4
-          channel: 8
-          BeHitOrder: 3
-          HitOrder: 3
-    - rid: 4118737063873085529
-      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+          logicLayer: 0
+          channel: 63
+          BeHitOrder: 0
+          HitOrder: 0
+    - rid: 4118737140697792531
+      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
       data:
         hasEnterTime: 0
         stateStandStatus: 0
@@ -551,9 +545,9 @@ MonoBehaviour:
   asFirstLayer: 1
   IsSonMachine: 1
   stateSharedData:
-    rid: 4118737052680585279
+    rid: 4118737140697792520
   stateStatus:
-    rid: 4118737052680585280
+    rid: 4118737140697792521
   BindingStandState: {fileID: 0}
   BindingAllStates:
   - {fileID: 6714777976555889925}
@@ -561,10 +555,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 4118737052680585279
-      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+    - rid: 4118737140697792520
+      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
       data:
         MergePart_:
           BeHitWithoutCondition: []
@@ -573,10 +565,10 @@ MonoBehaviour:
           CanHit: 0
           logicLayer: 0
           channel: 63
-          BeHitOrder: 1
+          BeHitOrder: 0
           HitOrder: 0
-    - rid: 4118737052680585280
-      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+    - rid: 4118737140697792521
+      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
       data:
         hasEnterTime: 0
         stateStandStatus: 0
@@ -609,18 +601,16 @@ MonoBehaviour:
   asFirstLayer: 1
   IsSonMachine: 0
   stateSharedData:
-    rid: 4118737063873085526
+    rid: 4118737140697792528
   stateStatus:
-    rid: 4118737063873085527
+    rid: 4118737140697792529
   BindingStandState: {fileID: 0}
   BindingAllStates: []
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 4118737063873085526
-      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+    - rid: 4118737140697792528
+      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
       data:
         MergePart_:
           BeHitWithoutCondition: []
@@ -628,11 +618,11 @@ MonoBehaviour:
           CanBeHit: 0
           CanHit: 0
           logicLayer: 0
-          channel: 64
+          channel: 63
           BeHitOrder: 0
           HitOrder: 0
-    - rid: 4118737063873085527
-      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+    - rid: 4118737140697792529
+      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
       data:
         hasEnterTime: 0
         stateStandStatus: 0
@@ -665,18 +655,16 @@ MonoBehaviour:
   asFirstLayer: 0
   IsSonMachine: 0
   stateSharedData:
-    rid: 4118737052680585275
+    rid: 4118737140697792516
   stateStatus:
-    rid: 4118737052680585276
+    rid: 4118737140697792517
   BindingStandState: {fileID: 0}
   BindingAllStates: []
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 4118737052680585275
-      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+    - rid: 4118737140697792516
+      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
       data:
         MergePart_:
           BeHitWithoutCondition: []
@@ -685,10 +673,10 @@ MonoBehaviour:
           CanHit: 0
           logicLayer: 0
           channel: 63
-          BeHitOrder: 1
+          BeHitOrder: 0
           HitOrder: 0
-    - rid: 4118737052680585276
-      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+    - rid: 4118737140697792517
+      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
       data:
         hasEnterTime: 0
         stateStandStatus: 0
@@ -721,18 +709,16 @@ MonoBehaviour:
   asFirstLayer: 1
   IsSonMachine: 0
   stateSharedData:
-    rid: 4118737063873085524
+    rid: 4118737140697792526
   stateStatus:
-    rid: 4118737063873085525
+    rid: 4118737140697792527
   BindingStandState: {fileID: 0}
   BindingAllStates: []
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 4118737063873085524
-      type: {class: StandardStateSharedData, ns: HellishBattle, asm: Assembly-CSharp}
+    - rid: 4118737140697792526
+      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
       data:
         MergePart_:
           BeHitWithoutCondition: []
@@ -740,11 +726,11 @@ MonoBehaviour:
           CanBeHit: 0
           CanHit: 0
           logicLayer: 0
-          channel: 3
-          BeHitOrder: 1
+          channel: 63
+          BeHitOrder: 0
           HitOrder: 0
-    - rid: 4118737063873085525
-      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
+    - rid: 4118737140697792527
+      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
       data:
         hasEnterTime: 0
         stateStandStatus: 0
@@ -770,28 +756,27 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: BindingSelf
-      Entry: 6
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: test, Assembly-CSharp
+    - Name: 
+      Entry: 8
       Data: 
   DataKey:
     str_direc: "\u653B\u51FB"
   asFirstLayer: 1
-  IsSonMachine: 1
+  IsSonMachine: 0
   stateSharedData:
     rid: 4118737099499503617
   stateStatus:
-    rid: 4118737052680585274
+    rid: 4118737140697792515
   BindingStandState: {fileID: 0}
   BindingAllStates: []
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 4118737052680585274
-      type: {class: StandardStateStatus, ns: HellishBattle, asm: Assembly-CSharp}
-      data:
-        hasEnterTime: 0
-        stateStandStatus: 0
     - rid: 4118737099499503617
       type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
       data:
@@ -804,3 +789,8 @@ MonoBehaviour:
           channel: 63
           BeHitOrder: 0
           HitOrder: 0
+    - rid: 4118737140697792515
+      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
+      data:
+        hasEnterTime: 0
+        stateStandStatus: 0

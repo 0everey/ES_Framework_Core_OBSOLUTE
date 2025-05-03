@@ -30,15 +30,126 @@ namespace ES
         }
     }
 }
-[Serializable]
-public class ListSafeUpdate<T> : IUpdatable
+[Serializable, TypeRegistryItem("队列安全脏列表_持久")]
+public class SafeUpdateList_EasyQueue_SeriNot_Dirty<T>
 {
-    public bool b;
-    [LabelText("正在更新",SdfIconType.ArrowRepeat), SerializeReference] public List<T> valuesNow_ = new List<T>(10);
+    [LabelText("正在更新", SdfIconType.ArrowRepeat),SerializeReference, ShowInInspector, GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForUpdating")]
+    public List<T> valuesNow_ = new List<T>(10);
+    [FoldoutGroup("缓冲")]
+    [ShowInInspector, LabelText("缓冲添加队列", SdfIconType.BoxArrowInLeft)]
+    private Queue<T> valuesToAdd = new Queue<T>();
+    [FoldoutGroup("缓冲")]
+    [ShowInInspector, LabelText("缓冲移除队列", SdfIconType.BoxArrowRight)]
+    private Queue<T> valuesToRemove = new Queue<T>();
+    private bool isDirty { get; set; }
+    public void TryAdd(T add)
+    {
+        valuesToAdd.Enqueue(add);
+        isDirty = true;
+    }
+    public void TryRemove(T add)
+    {
+        valuesToRemove.Enqueue(add);
+        isDirty = true;
+    }
+    [Button("强制更新")]
+    [FoldoutGroup("缓冲")]
+    private void ForceUpdate()
+    {
+        Update(true);
+    }
+    public void Update(bool forceUpdate = false)
+    {
+        if (isDirty || forceUpdate)
+        {
+            isDirty = false;
+            while (valuesToAdd.Count > 0)
+            {
+                valuesNow_.Add(valuesToAdd.Dequeue());
+            }
+            while (valuesToRemove.Count > 0)
+            {
+                valuesNow_.Remove(valuesToRemove.Dequeue());
+            }
+        }
+    }
+}
+[Serializable, TypeRegistryItem("队列安全脏集合_不持久")]
+public class SafeUpdateSet_EasyQueue_SeriNot_Dirty<T>
+{
+    [LabelText("正在更新", SdfIconType.ArrowRepeat),ShowInInspector, GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForUpdating")]
+    public HashSet<T> valuesNow_ = new HashSet<T>(10);
+    [FoldoutGroup("缓冲")]
+    [ShowInInspector, LabelText("缓冲添加队列", SdfIconType.BoxArrowInLeft)]
+    private Queue<T> valuesToAdd = new Queue<T>();
+    [FoldoutGroup("缓冲")]
+    [ShowInInspector, LabelText("缓冲移除队列", SdfIconType.BoxArrowRight)]
+    private Queue<T> valuesToRemove = new Queue<T>();
+    private bool isDirty { get; set; }
+    public void TryAdd(T add)
+    {
+        valuesToAdd.Enqueue(add);
+        isDirty = true;
+    }
+    public void TryRemove(T add)
+    {
+        valuesToRemove.Enqueue(add);
+        isDirty = true;
+    }
+    [Button("强制更新")]
+    [FoldoutGroup("缓冲")]
+    private void ForceUpdate()
+    {
+        Update(true);
+    }
+    public void Update(bool forceUpdate=false)
+    {
+        if (isDirty||forceUpdate)
+        {
+            isDirty = false;
+            while (valuesToAdd.Count > 0)
+            {
+                valuesNow_.Add(valuesToAdd.Dequeue());
+            }
+            while (valuesToRemove.Count > 0)
+            {
+                valuesNow_.Remove(valuesToRemove.Dequeue());
+            }
+        }
+    }
+}
+[Serializable,TypeRegistryItem("队列安全集合_不持久")]
+public class SafeUpdateSet_EasyQueue_SeriNot<T>
+{
+
+    [LabelText("正在更新", SdfIconType.ArrowRepeat), GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForUpdating")] 
+    public HashSet<T> valuesNow_ = new HashSet<T>(10);
+    [FoldoutGroup("缓冲")][ShowInInspector,LabelText("缓冲添加队列", SdfIconType.BoxArrowInLeft)] 
+    public Queue<T> valuesToAdd = new Queue<T>();
+    [FoldoutGroup("缓冲")][ShowInInspector, LabelText("缓冲移除队列", SdfIconType.BoxArrowRight)] 
+    public Queue<T> valuesToRemove = new Queue<T>();
+    
+
+    public void Update()
+    {
+        while (valuesToAdd.Count > 0)
+        {
+            valuesNow_.Add(valuesToAdd.Dequeue());
+        }
+        while (valuesToRemove.Count > 0)
+        {
+            valuesNow_.Remove(valuesToRemove.Dequeue());
+        }
+    }
+}
+[Serializable]
+public class SafeUpdateList<T>
+{
+    
+    [LabelText("正在更新",SdfIconType.ArrowRepeat), SerializeReference,GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForUpdating")] public List<T> valuesNow_ = new List<T>(10);
     [FoldoutGroup("缓冲")][LabelText("缓冲添加",SdfIconType.BoxArrowInLeft),SerializeReference] public List<T> valuesToAdd = new List<T>();
     [FoldoutGroup("缓冲")][LabelText("缓冲移除",SdfIconType.BoxArrowRight), SerializeReference] public List<T> valuesToRemove = new List<T>();
     public Action<bool, T> OnChange=(Add,What)=> { };
-    public IUpdatableAndHosting GetHost => default;
 
     public void Update()
     {
@@ -56,12 +167,6 @@ public class ListSafeUpdate<T> : IUpdatable
         }
         valuesToAdd.Clear();
         valuesToRemove.Clear();
-    }
-
-    public bool SubmitUpdateHosting(IUpdatableAndHosting hosting)
-    {
-        //先不用
-        return default;
     }
 }
 
@@ -178,17 +283,15 @@ public class TypeListIOC<Element> : BaseListIOC<Type, Element>
     }
 }
 [Serializable/*安全列表IOC*/]
-public abstract class SafeListIOC<Key, Element> : IUpdatableWithHosting<IArchitecture>
+public abstract class SafeListIOC<Key, Element> :BaseESModule<IArchitecture>
 {
     [SerializeReference]
     [LabelText(@"@  IOCName ",icon:SdfIconType.ListColumnsReverse),GUIColor("IOCColor")]
-    public Dictionary<Key, ListSafeUpdate<Element>> IOC = new Dictionary<Key, ListSafeUpdate<Element>>();
+    public Dictionary<Key, SafeUpdateList<Element>> IOC = new Dictionary<Key, SafeUpdateList<Element>>();
     public Action OnChange=()=> { };
-    public IArchitecture GetHost => throw new NotImplementedException();
     public virtual string IOCName => "标准安全IOC表";
-    public bool HasSubmit { get; set; }
     public virtual Color IOCColor =>Color.yellow;
-    
+    public override IArchitecture GetHost => throw new NotImplementedException();
     public Element AddElementRuntime(Key k, Element e)
     {
         return AddElement(k, e, true);
@@ -197,7 +300,7 @@ public abstract class SafeListIOC<Key, Element> : IUpdatableWithHosting<IArchite
     {
         if (e == null) return default;
         
-        ListSafeUpdate<Element> elements = default;
+        SafeUpdateList<Element> elements = default;
         if (IOC.ContainsKey(k))
         {
             elements = IOC[k];
@@ -206,7 +309,7 @@ public abstract class SafeListIOC<Key, Element> : IUpdatableWithHosting<IArchite
         }
         else
         {
-            elements = new ListSafeUpdate<Element>();
+            elements = new SafeUpdateList<Element>();
             if (isRuntime) elements.valuesToAdd.Add(e);
             else elements.valuesNow_.Add(e);
             IOC.Add(k, elements);
@@ -220,7 +323,7 @@ public abstract class SafeListIOC<Key, Element> : IUpdatableWithHosting<IArchite
     }
     public void RemoveElement(Key k, Element e,bool isRuntime=false)
     {
-        ListSafeUpdate<Element> elements = default;
+        SafeUpdateList<Element> elements = default;
         if (IOC.ContainsKey(k))
         {
             elements = IOC[k];
@@ -257,60 +360,16 @@ public abstract class SafeListIOC<Key, Element> : IUpdatableWithHosting<IArchite
             return IOC[k].valuesNow_;
         }
         
-        return (IOC[k]=new ListSafeUpdate<Element>()).valuesNow_;
+        return (IOC[k]=new SafeUpdateList<Element>()).valuesNow_;
     }
-
-    public bool OnSubmitHosting(IArchitecture hosting, bool asVirtual = false)
-    {
-        throw new NotImplementedException();
-    }
-
-    public bool OnWithDrawHosting(IArchitecture hosting, bool asVirtual = false)
-    {
-        throw new NotImplementedException();
-    }
-
-    public bool TrySubmitHosting(IArchitecture hosting, bool asVirtual = false)
-    {
-        if (HasSubmit) return true;
-        if (asVirtual)
-        {
-            if (hosting.virtualBeHosted != null&&this is IModule )
-            {
-                if (!hosting.virtualBeHosted.Contains(this))
-                    hosting.virtualBeHosted.Add(this);
-                return true;
-            }
-        }
-        return HasSubmit = OnSubmitHosting(hosting, asVirtual);
-    }
-
-    public bool TryWithDrawHosting(IArchitecture hosting, bool asVirtual = false)
-    {
-        if (!HasSubmit) return false;
-        if (asVirtual)
-        {
-            if (hosting.virtualBeHosted != null)
-            {
-                if (hosting.virtualBeHosted.Contains(this))
-                    hosting.virtualBeHosted.Remove(this);
-                HasSubmit = false;
-                return true;
-            }
-        }
-        return HasSubmit = !OnWithDrawHosting(hosting, asVirtual);
-    }
-
-    public virtual void Update() { }
 }
 [Serializable/*基本列表IOC*/]
-public abstract class BaseListIOC<Key, Element> : IWithHosting<IArchitecture>
+public abstract class BaseListIOC<Key, Element> : ES.BaseESModule<IArchitecture>
 {
     [SerializeReference]
     [LabelText(@"@  IOCName ", icon: SdfIconType.ListColumnsReverse), GUIColor("IOCColor")]
     public Dictionary<Key, List<Element>> IOC = new Dictionary<Key, List<Element>>();
-    public bool HasSubmit { get; set; }
-    public IArchitecture GetHost => throw new NotImplementedException();
+    
     public virtual string IOCName => "标准列表IOC表";
     public virtual Color IOCColor => Color.yellow;
    
@@ -386,61 +445,22 @@ public abstract class BaseListIOC<Key, Element> : IWithHosting<IArchitecture>
         return (IOC[k] = new List<Element>());
     }
 
-    public bool OnSubmitHosting(IArchitecture hosting, bool asVirtual = false)
-    {
-        throw new NotImplementedException();
-    }
+    
 
-    public bool OnWithDrawHosting(IArchitecture hosting, bool asVirtual = false)
-    {
-        throw new NotImplementedException();
-    }
-
-    public bool TrySubmitHosting(IArchitecture hosting, bool asVirtual = false)
-    {
-        if (HasSubmit) return true;
-        if (asVirtual)
-        {
-            if (hosting.virtualBeHosted != null && this is IModule)
-            {
-                if (!hosting.virtualBeHosted.Contains(this))
-                    hosting.virtualBeHosted.Add(this);
-                return true;
-            }
-        }
-        return HasSubmit = OnSubmitHosting(hosting, asVirtual);
-    }
-
-    public bool TryWithDrawHosting(IArchitecture hosting, bool asVirtual = false)
-    {
-        if (!HasSubmit) return false;
-        if (asVirtual)
-        {
-            if (hosting.virtualBeHosted != null)
-            {
-                if (hosting.virtualBeHosted.Contains(this))
-                    hosting.virtualBeHosted.Remove(this);
-                HasSubmit = false;
-                return true;
-            }
-        }
-        return HasSubmit = !OnWithDrawHosting(hosting, asVirtual);
-    }
 }
 
 
 
 [Serializable/*基本字典IOC*/]
-public abstract class BaseDicIOC<TypeSelect_,Key, Element> : IWithHosting<IArchitecture>
+public abstract class BaseDicIOC<TypeSelect_,Key, Element> : ES.BaseESModule<IArchitecture>, ES.IESModule<IArchitecture>
 {
     [SerializeReference]
     [LabelText(@"@  IOCName ", icon: SdfIconType.ListColumnsReverse), GUIColor("IOCColor")]
     public Dictionary<TypeSelect_, Dictionary<Key,Element>> IOC = new Dictionary<TypeSelect_, Dictionary<Key,Element>>();
-    public bool HasSubmit { get; set; }
-    public IArchitecture GetHost => throw new NotImplementedException();
+    
     public virtual string IOCName => "标准字典IOC表";
     public virtual Color IOCColor => Color.yellow;
-
+    
     public Element AddElementRuntime(TypeSelect_ t, Key k, Element e)
     {
         return AddElement(t,k, e, true);
@@ -517,36 +537,7 @@ public abstract class BaseDicIOC<TypeSelect_,Key, Element> : IWithHosting<IArchi
         throw new NotImplementedException();
     }
 
-    public bool TrySubmitHosting(IArchitecture hosting, bool asVirtual = false)
-    {
-        if (HasSubmit) return true;
-        if (asVirtual)
-        {
-            if (hosting.virtualBeHosted != null && this is IModule)
-            {
-                if (!hosting.virtualBeHosted.Contains(this))
-                    hosting.virtualBeHosted.Add(this);
-                return HasSubmit=true;
-            }
-        }
-        return HasSubmit = OnSubmitHosting(hosting, asVirtual);
-    }
-
-    public bool TryWithDrawHosting(IArchitecture hosting, bool asVirtual = false)
-    {
-        if (!HasSubmit) return false;
-        if (asVirtual)
-        {
-            if (hosting.virtualBeHosted != null)
-            {
-                if (hosting.virtualBeHosted.Contains(this))
-                    hosting.virtualBeHosted.Remove(this);
-                HasSubmit = false;
-                return true;
-            }
-        }
-        return HasSubmit = !OnWithDrawHosting(hosting, asVirtual);
-    }
+  
 }
 [Serializable/*基本String键字典IOC*/]
 public abstract class BaseDicIOCWithStringKey<TypeSelect_, Element> : BaseDicIOC<TypeSelect_,string, Element> 

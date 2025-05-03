@@ -31,29 +31,17 @@ namespace ES
  
 
     [Serializable]
-    public abstract class BuffRunTimeLogic : UpdatableDelegatableWithHosting<BuffHosting>
+    public abstract class BuffRunTimeLogic :BaseESModule<BuffHosting>
     {
         public override BuffHosting GetHost => host;
         public BuffHosting host;
         public BuffSoInfo buffSoInfo;
         public BuffStatusTest buffStatus;
-        public override void Update()
+        protected override void Update()
         {
             base.Update();
             buffStatus.duration -= Time.deltaTime;
             if(buffStatus.duration<0) host?.RemoveHandle(this);
-        }
-        public override bool OnSubmitHosting(BuffHosting hosting, bool asVirtual = false)
-        {
-            if (HasSubmit) return true;
-            HasSubmit = true;
-            return (host = hosting as BuffHosting) != null;
-        }
-        public override bool OnWithDrawHosting(BuffHosting hosting, bool asVirtual = false)
-        {
-            if (!HasSubmit) return false;
-            HasSubmit = false;
-            return (host =null) != null;
         }
         
     }
@@ -62,12 +50,12 @@ namespace ES
     {        /*
 
 */
-       /* public override void OnEnable()
+       /* protected override void OnEnable()
         {
             GameCenterManager.Instance.BaseDomain.Module_PlayerState.mm_CriticalhitsP += 0.5f;
             base.OnEnable();
         }
-        public override void OnDisable()
+        protected override void OnDisable()
         {
             GameCenterManager.Instance.BaseDomain.Module_PlayerState.mm_CriticalhitsP -= 0.5f;
             base.OnDisable();
@@ -78,12 +66,12 @@ namespace ES
     {        /*
 
 */
-       /* public override void OnEnable()
+       /* protected override void OnEnable()
         {
             GameCenterManager.Instance.BaseDomain.Module_PlayerState.mm_VampirePercent += 0.5f;
             base.OnEnable();
         }
-        public override void OnDisable()
+        protected override void OnDisable()
         {
             GameCenterManager.Instance.BaseDomain.Module_PlayerState.mm_VampirePercent -= 0.5f;
             base.OnDisable();
@@ -94,12 +82,12 @@ namespace ES
     {        /*
 
 */
-      /*  public override void OnEnable()
+      /*  protected override void OnEnable()
         {
             GameCenterManager.Instance.BaseDomain.Module_PlayerState.mm_AttackSpeedMutiLevel += 0.5f;
             base.OnEnable();
         }
-        public override void OnDisable()
+        protected override void OnDisable()
         {
             GameCenterManager.Instance.BaseDomain.Module_PlayerState.mm_AttackSpeedMutiLevel -= 0.5f;
             base.OnDisable();
@@ -108,17 +96,18 @@ namespace ES
     [Serializable]
     public class BuffBTL_UP_AttackDamage : BuffRunTimeLogic
     {        /*
-
+        
 */
-     /*   public override void OnEnable()
-        {
-            GameCenterManager.Instance.BaseDomain.Module_PlayerState.mm_AttackeDamageMutiLevel += 0.5f;
-            base.OnEnable();
-        }
-        public override void OnDisable()
-        {
-            GameCenterManager.Instance.BaseDomain.Module_PlayerState.mm_AttackeDamageMutiLevel -= 0.5f;
-            base.OnDisable();
-        }*/
+       
+        /*   protected override void OnEnable()
+           {
+               GameCenterManager.Instance.BaseDomain.Module_PlayerState.mm_AttackeDamageMutiLevel += 0.5f;
+               base.OnEnable();
+           }
+           protected override void OnDisable()
+           {
+               GameCenterManager.Instance.BaseDomain.Module_PlayerState.mm_AttackeDamageMutiLevel -= 0.5f;
+               base.OnDisable();
+           }*/
     }
 }

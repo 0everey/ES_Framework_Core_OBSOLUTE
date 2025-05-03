@@ -92,3 +92,4 @@ Library/SourceAssetDB
 *.csproj
 /Logs
 /UserSettings
+/obj/Debug

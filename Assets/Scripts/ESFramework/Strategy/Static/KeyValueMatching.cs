@@ -113,6 +113,8 @@ namespace ES
         //GUI Color 颜色库
         public static class ColorSelector
         {
+            //使用方法↓
+            //GUIColor("@KeyValueMatchingUtility.ColorSelector.Color_03")
             public static Color Color_01 = new Color(0.988f, 0.758f, 0.763f, 1);
             public static Color Color_02 = new Color(0.9988f, 0.958f, 0.163f, 1);
             public static Color Color_03 = new Color(0.9988f, 0.958f, 0f, 1);//黄色
@@ -125,7 +127,7 @@ namespace ES
             public static Color ColorForCaster = new Color(0.365f,0.6784f,0.886f);//投射器 --偏蓝
             public static Color ColorForCatcher = new Color(0.8314f,0.6745f,0.051f);//抓取器   --偏橙色
             public static Color ColorForESValue = new Color(0.153f,0.682f,0.376f);//ES值    --偏绿
-            
+            public static Color ColorForUpdating = new Color(0.804f, 0.67843f, 0);//更新中    --偏绿
             static void test()
             {
                 Color c = KeyValueMatchingUtility.ColorSelector.Color_01;

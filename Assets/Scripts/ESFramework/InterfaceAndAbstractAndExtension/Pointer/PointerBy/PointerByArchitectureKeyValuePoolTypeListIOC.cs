@@ -460,7 +460,7 @@ namespace ES
         [LabelText("操作函数")] public EnumCollect.HandleTwoFloatFunction function= EnumCollect.HandleTwoFloatFunction.Sub;
         [LabelText("输入取出键"), SerializeReference] public string key;
         [LabelText("用于操作的整数"), SerializeReference] public int handler;
-        private float memori = 0;
+        
         private ArchitectureKeyValuePoolTypeListIOC use;
         public override object Cancel()
         {
@@ -501,7 +501,6 @@ namespace ES
         
         [LabelText("输入取出键"), SerializeReference] public string key;
         [LabelText("用于设置的布尔值"), SerializeReference] public bool handler;
-        private float memori = 0;
         private ArchitectureKeyValuePoolTypeListIOC use;
         public override object Cancel()
         {
@@ -540,7 +539,6 @@ namespace ES
     {
         [LabelText("输入取出键"), SerializeReference] public string key;
         [LabelText("输入设置字符串"), SerializeReference] public string handler;
-        private float memori = 0;
         private ArchitectureKeyValuePoolTypeListIOC use;
         public override object Cancel()
         {
@@ -580,7 +578,6 @@ namespace ES
        
 
         [LabelText("输入取出键"), SerializeReference] public string key;
-        private float memori = 0;
         private ArchitectureKeyValuePoolTypeListIOC use;
         public override object Cancel()
         {
@@ -624,7 +621,6 @@ namespace ES
         [LabelText("为空时的默认值")] public bool defaultIfNull = false;
 
         [LabelText("输入取出键"), SerializeReference] public string key;
-        private float memori = 0;
         private ArchitectureKeyValuePoolTypeListIOC use;
         public override object Cancel()
         {

@@ -27,7 +27,6 @@ namespace ES
         [NonSerialized] public DCFG_PlayerPick Module_PlayerPick;
         [NonSerialized] public DCFG_PlayerRuneControll Module_RuneControll;
         [NonSerialized] public DCFG_RoomGenerate Module_RoomGenerate;*/
-        
         private void OnGUI()
         {
             return;
@@ -55,7 +54,7 @@ namespace ES
         protected override void CreateLink()
         {
             base.CreateLink();
-            usingCore.BaseDomain = this;
+            core.BaseDomain = this;
         }
        /* public void Onoo(Linkint3 link)
         {
@@ -78,24 +77,76 @@ namespace ES
         #endregion
 
     }
+
     #region 基本切片模范
     [Serializable]
     public abstract class DomainClipForGamecenterManager : DomainClip<GameCenterManager,DomainForGameCenterManager>
     {
         
         public override string Description_ => "游戏管理器切片域";
-        public override bool OnSubmitHosting(DomainBase hosting, bool asVirtual = false)
+        
+        protected override bool OnSubmitHosting(DomainForGameCenterManager hosting)
         {
             domain = hosting as DomainForGameCenterManager;
             //
             if (domain != null) return true;
             return base.OnSubmitHosting(hosting);
         }
-        public override bool OnWithDrawHosting(DomainBase hosting, bool asVirtual = false)
+        protected override bool OnWithDrawHosting(DomainForGameCenterManager hosting)
         {
             throw new NotImplementedException();
         }
 
+    }
+    [Serializable,TypeRegistryItem("模块01")]
+    public class module1 : DomainClipForGamecenterManager
+    {
+        protected override void Update()
+        {
+            
+            base.Update();
+        }
+    }
+    [Serializable, TypeRegistryItem("模块00")]
+    public class module0 : DomainClipForGamecenterManager
+    {
+        protected override void Update()
+        {
+
+            base.Update();
+        }
+    }
+    [Serializable, TypeRegistryItem("模块02")]
+    public class module2 : DomainClipForGamecenterManager
+    {
+        protected override void Update()
+        {
+
+            base.Update();
+        }
+    }
+    [Serializable, TypeRegistryItem("模块03")]
+    public class module3 : DomainClipForGamecenterManager
+    {
+        protected override void Update()
+        {
+
+            base.Update();
+        }
+    }
+    [Serializable, TypeRegistryItem("模块04")]
+    public class module4 : DomainClipForGamecenterManager
+    {
+        protected override bool OnSubmitHosting(DomainForGameCenterManager hosting)
+        {
+            
+            return base.OnSubmitHosting(hosting);
+        }
+        protected override void Update()
+        {
+
+            base.Update();
+        }
     }
     /*
     [Serializable]
@@ -109,7 +160,7 @@ namespace ES
         public override void OnRegester(GameCenterManager c)
         {
             base.OnRegester(c);
-            //c.BaseDomain.Module
+            //c.BaseDomain.BaseESModule
         }
     }
     */
@@ -122,21 +173,21 @@ namespace ES
         public override string Description_ => "玩家搜集掉落物剪影";
 
         
-        public override bool OnSubmitHosting(DomainBase hosting, bool asVirtual = false)
+        public override bool OnSubmitHostingAsNormal(DomainBase hosting, bool asVirtual = false)
         {
-            if (base.OnSubmitHosting(hosting))
+            if (base.OnSubmitHostingAsNormal(hosting))
             {
                 (hosting as DomainForGameCenterManager).Module_PlayerPick = this;
                 return true;
             }
-            return base.OnSubmitHosting(hosting);
+            return base.OnSubmitHostingAsNormal(hosting);
         }
-        public override void OnEnable()
+        protected override void OnEnable()
         {
             base.OnEnable();
           //  GameCenterManager.Instance.GameCenterArchitecture.AddRecieveLink(this);
         }
-        public override void OnDisable()
+        protected override void OnDisable()
         {
             base.OnDisable();
           //  GameCenterManager.Instance.GameCenterArchitecture.RemoveRecieveLink(this);
@@ -213,9 +264,9 @@ namespace ES
 
         #endregion
         public override string Description_ => "玩家状态剪影";
-        public override bool OnSubmitHosting(DomainBase hosting, bool asVirtual = false)
+        public override bool OnSubmitHostingAsNormal(DomainBase hosting, bool asVirtual = false)
         {
-            if (base.OnSubmitHosting(hosting))
+            if (base.OnSubmitHostingAsNormal(hosting))
             {
                 (hosting as DomainForGameCenterManager).Module_PlayerState = this;
 
@@ -225,25 +276,25 @@ namespace ES
 
                 return true;
             }
-            return base.OnSubmitHosting(hosting);
+            return base.OnSubmitHostingAsNormal(hosting);
         }
        
-        public override void OnEnable()
+        protected override void OnEnable()
         {
             base.OnEnable();
             
-            domain.usingCore.OnSceneLoaded.AddListener(PassiveDelegate_SceneLoad);
-            domain.usingCore.OnLevelEndSave.AddListener(PassiveDelegate_LevelEndSave);
-            domain.usingCore.OnWeaponSetup.AddListener(PassiveDelegate_OnWeaponSetup);
+            domain.core.OnSceneLoaded.AddListener(PassiveDelegate_SceneLoad);
+            domain.core.OnLevelEndSave.AddListener(PassiveDelegate_LevelEndSave);
+            domain.core.OnWeaponSetup.AddListener(PassiveDelegate_OnWeaponSetup);
             GameCenterManager.Instance.GameCenterArchitecture.AddRecieveLink<Link_SelfDefine>(this);
             GameCenterManager.Instance.GameCenterArchitecture.AddRecieveLink<Link_BuffHandleChangeHappen>(this);
         }
-        public override void OnDisable()
+        protected override void OnDisable()
         {
             base.OnDisable();
-            domain.usingCore.OnSceneLoaded.RemoveListener(PassiveDelegate_SceneLoad);
-            domain.usingCore.OnLevelEndSave.RemoveListener(PassiveDelegate_LevelEndSave);
-            domain.usingCore.OnWeaponSetup.RemoveListener(PassiveDelegate_OnWeaponSetup);
+            domain.core.OnSceneLoaded.RemoveListener(PassiveDelegate_SceneLoad);
+            domain.core.OnLevelEndSave.RemoveListener(PassiveDelegate_LevelEndSave);
+            domain.core.OnWeaponSetup.RemoveListener(PassiveDelegate_OnWeaponSetup);
             GameCenterManager.Instance.GameCenterArchitecture.RemoveRecieveLink<Link_SelfDefine>(this);
             GameCenterManager.Instance.GameCenterArchitecture.RemoveRecieveLink<Link_BuffHandleChangeHappen>(this);
         }
@@ -469,10 +520,10 @@ namespace ES
             }
         }
         public override string Description_ => "符文功能剪影";
-        public override bool OnSubmitHosting(DomainBase hosting, bool asVirtual = false)
+        public override bool OnSubmitHostingAsNormal(DomainBase hosting, bool asVirtual = false)
         {
 
-            if (base.OnSubmitHosting(hosting)) {
+            if (base.OnSubmitHostingAsNormal(hosting)) {
                 domain.Module_RuneControll = this;
                 return true;
             }
@@ -609,10 +660,10 @@ namespace ES
         private bool hasInit = false;
         private float refreshTimeDisHas = 0;
         
-        public override bool OnSubmitHosting(DomainBase hosting, bool asVirtual = false)
+        public override bool OnSubmitHostingAsNormal(DomainBase hosting, bool asVirtual = false)
         {
           
-            if (base.OnSubmitHosting(hosting))
+            if (base.OnSubmitHostingAsNormal(hosting))
             {
                 domain.Module_RoomGenerate = this;
                 foreach (var i in doorPrefabs)
@@ -632,14 +683,14 @@ namespace ES
                 Method_CreatePreRoomDataList();//初步生成
                 Method_CreateCompleteRoomDataList();//填充完整数据
                 Debug.Log(domain);
-                Debug.Log(domain.usingCore);
-                domain.usingCore.StartCoroutine(StartGenerate());
+                Debug.Log(domain.core);
+                domain.core.StartCoroutine(StartGenerate());
             }
             if (Keyboard.current.numpad1Key.wasPressedThisFrame)
             {
-                domain.usingCore.StopCoroutine("StartGenerate");
-                domain.usingCore.StopCoroutine("InstantiateRoom");
-                domain.usingCore.StopCoroutine("ReGenerateAll");
+                domain.core.StopCoroutine("StartGenerate");
+                domain.core.StopCoroutine("InstantiateRoom");
+                domain.core.StopCoroutine("ReGenerateAll");
                 for (int i = 0; i < birthParent.childCount; i++)
                 {
                     MonoBehaviour.Destroy(birthParent.GetChild(i).gameObject);
@@ -655,8 +706,8 @@ namespace ES
             }
              IEnumerator StartGenerate()
             {
-                yield return domain.usingCore.StartCoroutine(InstantiateRoom());//实例化
-                yield return domain.usingCore.StartCoroutine(ReGenerateAll());//重生成
+                yield return domain.core.StartCoroutine(InstantiateRoom());//实例化
+                yield return domain.core.StartCoroutine(ReGenerateAll());//重生成
                 yield return waitGeneDistance;
                 
                 InitActiveIndex();
@@ -842,7 +893,7 @@ namespace ES
             for (int i = 0; i < CompletedGenerateRooms.Count-1; i++)
             {
                 CompleteRoomData last = CompletedGenerateRooms[i];
-                CompleteRoomData next = CompletedGenerateRooms[i+1];
+                CompleteRoomData timeDis = CompletedGenerateRooms[i+1];
                 if(!BanInsShowCube)
                 {
                     //展示框专属
@@ -925,30 +976,30 @@ namespace ES
                 {
                     currentDistanceForRot = 0;
                     nextDistanceForRot *= UnityEngine.Random.Range(1.5f,2.2f);
-                    dd = next.thenRot;
+                    dd = timeDis.thenRot;
                 }
                 else
                 {
-                    currentDistanceForRot+= next.Grid.y;
+                    currentDistanceForRot+= timeDis.Grid.y;
                 }
                  
                 CurrentTrans.rotation*=Quaternion.LookRotation(dd);
                 bool onZ = UseZAsDirect(CurrentTrans.forward);
                 //下一个整改
 
-                int nextY = next.Grid.y;
-                int nextX = next.Grid.x;
-                if (next.usePrefab != null)
+                int nextY = timeDis.Grid.y;
+                int nextX = timeDis.Grid.x;
+                if (timeDis.usePrefab != null)
                 {
-                    GeneratorValueSetter vs = next.usePrefab.GetComponent<GeneratorValueSetter>();
+                    GeneratorValueSetter vs = timeDis.usePrefab.GetComponent<GeneratorValueSetter>();
                     if (vs != null)
                     {
                         
-                        var use= vs.Apply(next, onZ);
+                        var use= vs.Apply(timeDis, onZ);
                         nextY = onZ? use.grid.y : use.grid.x;
                         nextX= onZ ? use.grid.x : use.grid.y;
-                        //Debug.Log("哈哈"+ next.Grid+"哦"+ use_.grid);
-                        next.Grid = use.grid;
+                        //Debug.Log("哈哈"+ timeDis.Grid+"哦"+ use_.grid);
+                        timeDis.Grid = use.grid;
                     }
                 }
                 int last_ = (onZ ? last.Grid.x : last.Grid.y) % 2;

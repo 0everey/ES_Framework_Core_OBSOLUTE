@@ -8,18 +8,21 @@ namespace ES
     
     public class BaseDomainForEntity : DomainBase<Entity, BaseDomainClipForEntity, BaseDomainForEntity>
     {
-        public override string Description_ => "实体的基本扩展域";
+       
+
+       
+
         protected override void CreateLink()
         {
             base.CreateLink();
-            usingCore.BaseDomain = this;
+            core.BaseDomain = this;
         }
     }
     public abstract class BaseDomainClipForEntity : DomainClipForEntity
     {
 
     }
-    public abstract class DomainClipForEntity : DomainClip<Entity>
+    public abstract class DomainClipForEntity : DomainClip<Entity, BaseDomainForEntity>
     {
 
     }

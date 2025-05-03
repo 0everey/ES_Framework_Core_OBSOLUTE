@@ -50,7 +50,7 @@ namespace ES
         {
             base.Awake();
             ArchutectureIOC.AddElement(GameCenterArchitecture);//装载原型
-
+            SceneManager.sceneUnloaded += (a) => { this.StopAllCoroutines(); };
             
             
         }
@@ -65,9 +65,9 @@ namespace ES
             
             GameCenterArchitecture.SendLink(new Link_DestrolyCollideWall());
         }
-        protected override void BeforeRegester()
+        protected override void BeforeStartRegister()
         {
-            base.BeforeRegester();
+            base.BeforeStartRegister();
             SceneManager.sceneLoaded += PassiveDelagateMethod_OnSceneLoaded;
         }
         

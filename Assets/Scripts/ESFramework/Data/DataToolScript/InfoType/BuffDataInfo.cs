@@ -42,8 +42,8 @@ namespace ES
 #endif
         /*  public virtual GameKeyType[] TypeFilter()
  {        
-     List<GameKeyType> types = typeof(Delegatable).Assembly.GetTypes().ToList();
-     return types.Where(n => n.IsSubclassOf(typeof(Delegatable))&&!n.IsAbstract&&!n.IsInterface).ToArray();
+     List<GameKeyType> types = typeof(BaseESModule).Assembly.GetTypes().ToList();
+     return types.Where(n => n.IsSubclassOf(typeof(BaseESModule))&&!n.IsAbstract&&!n.IsInterface).ToArray();
  }*/
     }
 }

@@ -83,7 +83,7 @@ namespace ES.EvPointer
     [Serializable, TypeRegistryItem("全局功能_暂停游戏(时间缩放=0)")]
     public class PointerPicker_SetTimeScaleTo0_PauseGame : PointerOnlyAction
     {
-        public IPointerForFloat_Only float_only = new PointerForFloat_Direct();
+        
         public override object Pick(object by = null, object yarn = null, object on = null)
         {
             Time.timeScale = 0;
@@ -107,8 +107,6 @@ namespace ES.EvPointer
 
         public override object Pick(object by = null, object yarn = null, object on = null)
         {
-            object o;
-            
             float scale = float_only?.Pick()??1;
             Time.timeScale = scale;
             return null;

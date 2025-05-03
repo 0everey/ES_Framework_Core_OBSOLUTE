@@ -13,9 +13,9 @@ namespace ES
         public AIDomainForEntity AIDomain;
         public BuffDomainForEntity BuffDomain;
 
-        protected override void BeforeRegester()
+        protected override void BeforeStartRegister()
         {
-            base.BeforeRegester();
+            base.BeforeStartRegister();
         }
     }
 }

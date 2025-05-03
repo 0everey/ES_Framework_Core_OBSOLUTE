@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +9,6 @@ namespace ES
     [Serializable]
     public class GameEventMessageDataGroup : SoDataGroup<GameEventMessageDataInfo>
     {
-
+      
     }
 }

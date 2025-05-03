@@ -9,55 +9,54 @@ using UnityEngine;
 namespace ES
 {
     
-    public class BuffDomainForEntity : DomainBase<Entity, BuffDomainClipForDomainForEntity, BuffDomainForEntity>, IDelegatableAndUpdatableAndHosting
+    public class BuffDomainForEntity : DomainBase<Entity, BuffDomainClipForDomainForEntity, BuffDomainForEntity>, IESHosting
     {
         #region 默认的
-        public override string Description_ => "实体携带的Buff处理域s";
         [SerializeField,LabelText("Buff支配者")]
         public BuffHosting buffHosting=new BuffHosting();
-        //public override IEnumerable<IModule> normalBeHosted => buffRTLs.valuesNow_;
+        //public override IEnumerable<BaseESModule> NormalBeHosted => buffRTLs.valuesNow_;
         protected override void CreateLink()
         {
             base.CreateLink();
-            usingCore.BuffDomain = this;
+            core.BuffDomain = this;
             buffHosting.TrySubmitHosting(this);
         }
         public override void UpdateAsHosting()
         {
             base.UpdateAsHosting();
-            buffHosting?.Update();
+            buffHosting?.TryUpdate();
         }
         public override void EnableAsHosting()
         {
             base.EnableAsHosting();
-            buffHosting?.TryEnable();
+            buffHosting?.TryEnableSelf();
         }
         public override void DisableAsHosting()
         {
             base.DisableAsHosting();
-            buffHosting?.OnDisable();
+            buffHosting?.TryDisableSelf();
         }
-        /*        void IUpdatableAndHosting.UpdateAsHosting()
+        /*        void IESHosting.UpdateAsHosting()
                 {
 
                 }
 
-                void IUpdatableAndHosting.AddHandle(IUpdatable i)
+                void IESHosting.AddHandle(BaseESModule i)
                 {
 
                 }
 
-                void IUpdatableAndHosting.RemoveHandle(IUpdatable i)
-                {
-                    throw new System.NotImplementedException();
-                }
-
-                bool IUpdatable.TrySubmitHosting(IUpdatableAndHosting hosting)
+                void IESHosting.RemoveHandle(BaseESModule i)
                 {
                     throw new System.NotImplementedException();
                 }
 
-                void IUpdatable.Update()
+                bool BaseESModule.TrySubmitHosting(IESHosting hosting)
+                {
+                    throw new System.NotImplementedException();
+                }
+
+                void BaseESModule.Update()
                 {
                     throw new System.NotImplementedException();
                 }*/
@@ -71,46 +70,18 @@ namespace ES
   
 }
 [Serializable]
-public class BuffHosting : DelegatableAndUpdatableAndHosting,IWithHosting<BuffDomainForEntity>
+public class BuffHosting : BaseESHostingAndModule<BuffRunTimeLogic, BuffDomainForEntity>
 {
-   
+    
     #region 扩展
     [SerializeField, LabelText("安全Buff列表", SdfIconType.BatteryCharging)]
-    public ListSafeUpdate<BuffRunTimeLogic> buffRTLs = new ListSafeUpdate<BuffRunTimeLogic>();
+    public SafeUpdateList<BuffRunTimeLogic> buffRTLs = new SafeUpdateList<BuffRunTimeLogic>();
     #endregion
     public BuffDomainForEntity buffDomain;
-    public BuffDomainForEntity GetHost => buffDomain;
-    public override IEnumerable<IModule> normalBeHosted => buffRTLs.valuesNow_;
 
-    public bool HasSubmit { get; set; }
 
     //不要默认刷新
-    public override void UpdateAsHosting()
-    {
-       // buffRTLs?.Update();
-        foreach (var i in normalBeHosted)
-        {
-            if (i is IUpdatable iu)
-            {
-                iu.Update();
-            }
-            else
-            {
-                buffRTLs.valuesToRemove.Add(null);
-            }
-        }
-        if (virtualBeHosted != null)
-        {
-            foreach (var i in virtualBeHosted)
-            {
-                if (i is IUpdatable update)
-                {
-                    update.Update();
-                }
-            }
-        }
-    }
-    public bool OnSubmitHosting(BuffDomainForEntity hosting, bool asVirtual = false)
+    protected override bool OnSubmitHostingAsNormal(BuffDomainForEntity hosting)
     {
         if (hosting != null)
         {
@@ -119,7 +90,7 @@ public class BuffHosting : DelegatableAndUpdatableAndHosting,IWithHosting<BuffDo
         }
         return false;
     }
-    public override void AddHandle(IModule i, object withKey = null)
+    public  void AddHandle(IESModule i, object withKey = null)
     {
        // base.AddHandle(i);
         if (i is BuffRunTimeLogic logic)
@@ -132,17 +103,17 @@ public class BuffHosting : DelegatableAndUpdatableAndHosting,IWithHosting<BuffDo
                     return;
                 }
             }
-            if (logic.TrySubmitHosting(this))
+            if ((logic as IESModule).TrySubmitHosting(this,false))
             {
                 buffRTLs.valuesToAdd.Add(logic);
-                logic.OnEnable();
+                logic.TryEnableSelf();
                 Debug.Log("成功接受了logic");
                 GameCenterManager.Instance.GameCenterArchitecture.SendLink(
-                    new Link_BuffHandleChangeHappen() {who=buffDomain.usingCore, info=logic.buffSoInfo,add=true });
+                    new Link_BuffHandleChangeHappen() {who=buffDomain.core, info=logic.buffSoInfo,add=true });
             }
         }
     }
-    public override void RemoveHandle(IModule i,object withKey=null)
+    public  void RemoveHandle(IESModule i,object withKey=null)
     {
        // base.RemoveHandle(i);
         if (i is BuffRunTimeLogic logic)
@@ -150,50 +121,13 @@ public class BuffHosting : DelegatableAndUpdatableAndHosting,IWithHosting<BuffDo
             Debug.Log("成功放弃了logic");
             if (logic.GetHost != null)
             {
-                logic.OnDisable();
+                logic.TryDisableSelf();
                  }
 
             buffRTLs.valuesToRemove.Add(logic);
             GameCenterManager.Instance.GameCenterArchitecture.SendLink(
-                    new Link_BuffHandleChangeHappen() { who = buffDomain.usingCore, info = logic.buffSoInfo, add = false });
+                    new Link_BuffHandleChangeHappen() { who = buffDomain.core, info = logic.buffSoInfo, add = false });
 
         }
-    }
-
-    public bool OnWithDrawHosting(BuffDomainForEntity hosting, bool asVirtual = false)
-    {
-        return true;
-    }
-
-    public bool TrySubmitHosting(BuffDomainForEntity hosting, bool asVirtual = false)
-    {
-
-        if (HasSubmit) return true;
-        if (asVirtual)
-        {
-            if (hosting.virtualBeHosted != null)
-            {
-                if (!hosting.virtualBeHosted.Contains(this))
-                    hosting.virtualBeHosted.Add(this);
-                return true;
-            }
-        }
-        return HasSubmit = OnSubmitHosting(hosting, asVirtual);
-    }
-
-    public bool TryWithDrawHosting(BuffDomainForEntity hosting, bool asVirtual = false)
-    {
-        if (!HasSubmit) return false;
-        if (asVirtual)
-        {
-            if (hosting.virtualBeHosted != null)
-            {
-                if (hosting.virtualBeHosted.Contains(this))
-                    hosting.virtualBeHosted.Remove(this);
-                HasSubmit = false;
-                return true;
-            }
-        }
-        return HasSubmit = !OnWithDrawHosting(hosting, asVirtual);
     }
 }

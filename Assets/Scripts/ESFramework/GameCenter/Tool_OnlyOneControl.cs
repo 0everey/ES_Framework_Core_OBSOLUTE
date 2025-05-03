@@ -18,7 +18,7 @@ namespace ES
             }
             else
             {
-                Destroy(gameObject);
+                DestroyImmediate(gameObject);
 
             }
         }

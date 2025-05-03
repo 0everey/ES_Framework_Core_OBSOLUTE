@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class Ev_PoolManager : MonoBehaviour
 {
@@ -30,15 +31,15 @@ public class Ev_PoolManager : MonoBehaviour
 
     private void Awake()
     {
-        _instance = this;
-
+        if(_instance!=null)_instance = this;
+        SceneManager.sceneUnloaded += (a) => { ClearPool(); };
     }
     public void CreatePool(GameObject key, int? num = null)
     {
         if (m_poolDictionary.ContainsKey(key)) return;
         else m_poolDictionary.Add(key, new Queue<GameObject>(num ?? defaultNum));
         ExpandPool(key, num);
-    }
+    } 
     public void ExpandPool(GameObject key, int? num = null)
     {
         int num_ = num ?? defaultExpandNumOnce;
@@ -70,5 +71,25 @@ public class Ev_PoolManager : MonoBehaviour
         var queue = m_poolDictionary[key];
         queue.Enqueue(who);
         who.SetActive(false);
+    }
+    public void ClearPool()
+    {
+        foreach(var i in m_poolDictionary)
+        {
+            while (i.Value.Count > 0)
+            {
+                var aObject = i.Value.Dequeue();
+                if(aObject!=null)
+                Destroy(aObject);
+            }
+        }
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            var gg = transform.GetChild(i);
+            if (gg != null)
+            {
+                Destroy(gg.gameObject);
+            }
+        }
     }
 }

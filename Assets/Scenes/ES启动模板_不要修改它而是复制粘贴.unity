@@ -924,9 +924,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edit: 0
-  ReadMe: "1.\u6258\u7BA1\u5668\u4E0E\u6A21\u5757\n   \u76EE\u524D\u4E0D\u5EFA\u8BAE\u4F7F\u7528"
-  readMe: "1.\u6258\u7BA1\u5668\u4E0E\u6A21\u5757\n   \u76EE\u524D\u4E0D\u5EFA\u8BAE\u4F7F\u7528"
-  showColor: {r: 1, g: 1, b: 1, a: 1}
+  ReadMe: "1.\u6258\u7BA1\u5668\u4E0E\u6A21\u5757\n   \u6574\u4E2A\u6846\u67B6\u7684\u7EC4\u7EC7\u67B6\u6784\u56F4\u7ED5\u4ED6\u4EEC\u5C55\u5F00\n  
+    \u6258\u7BA1\u5668\u53EF\u4EE5\u63A7\u5236\u6A21\u5757\u7684\u751F\u547D\u5468\u671F\uFF0C\u800C\u6258\u7BA1\u5668\u4E5F\u53EF\u80FD\u662F\u6A21\u5757\uFF0C\u90A3\u4E48\u5F88\u660E\u663E\uFF0C\u4ED6\u662F\u9ED8\u8BA4\u652F\u6301\u65E0\u9650\u5D4C\u5957\u7684\n\n\u5728\u7F16\u5199\u7B80\u5355\u903B\u8F91\u65F6\uFF0C\u53EA\u9700\u8981\u4E00\u53E5TrySubmit\u5C31\u53EF\u4EE5\u5B8C\u6574\u751F\u547D\u5468\u671F\u7684\u6258\u7BA1\uFF0C\u5E76\u4E14\u5F53\u9AD8\u5C42\u7EA7\u5173\u95ED\uFF0C\u65E0\u8BBA\u662F\u6258\u7BA1\u5668\u7684\uFF0C\u8FD8\u662F\u6574\u4E2A\u811A\u672C\u88AB\u5173\u95ED\uFF0C\u90FD\u53EF\u4EE5\u5728\u8FD9\u79CD\u8054\u7CFB\u4E0B\u8FDB\u884C\u5B50\u903B\u8F91\u7684\u5173\u95ED\u3002\u8FD9\u975E\u5E38\u5B89\u5168\uFF01\n\n\u6B64\u5916\u6258\u7BA1\u5668\u7684\u6027\u80FD\u5E76\u4E0D\u5DEE\uFF0C\u4E0D\u4F9D\u8D56\u811A\u672C\u8BA9\u4ED6\u7701\u53BB\u4E86\u5927\u91CF\u591A\u4F59\u5185\u5BB9\uFF0C\u800C\u4F7F\u7528\u95F4\u9694\u5E27\u5219\u53EF\u4EE5\u8BA9\u6027\u80FD\u7B80\u5355\u63D0\u53473\u500D\u4EE5\u4E0A"
+  readMe: "1.\u6258\u7BA1\u5668\u4E0E\u6A21\u5757\n   \u6574\u4E2A\u6846\u67B6\u7684\u7EC4\u7EC7\u67B6\u6784\u56F4\u7ED5\u4ED6\u4EEC\u5C55\u5F00\n  
+    \u6258\u7BA1\u5668\u53EF\u4EE5\u63A7\u5236\u6A21\u5757\u7684\u751F\u547D\u5468\u671F\uFF0C\u800C\u6258\u7BA1\u5668\u4E5F\u53EF\u80FD\u662F\u6A21\u5757\uFF0C\u90A3\u4E48\u5F88\u660E\u663E\uFF0C\u4ED6\u662F\u9ED8\u8BA4\u652F\u6301\u65E0\u9650\u5D4C\u5957\u7684\n\n\u5728\u7F16\u5199\u7B80\u5355\u903B\u8F91\u65F6\uFF0C\u53EA\u9700\u8981\u4E00\u53E5TrySubmit\u5C31\u53EF\u4EE5\u5B8C\u6574\u751F\u547D\u5468\u671F\u7684\u6258\u7BA1\uFF0C\u5E76\u4E14\u5F53\u9AD8\u5C42\u7EA7\u5173\u95ED\uFF0C\u65E0\u8BBA\u662F\u6258\u7BA1\u5668\u7684\uFF0C\u8FD8\u662F\u6574\u4E2A\u811A\u672C\u88AB\u5173\u95ED\uFF0C\u90FD\u53EF\u4EE5\u5728\u8FD9\u79CD\u8054\u7CFB\u4E0B\u8FDB\u884C\u5B50\u903B\u8F91\u7684\u5173\u95ED\u3002\u8FD9\u975E\u5E38\u5B89\u5168\uFF01\n\n\u6B64\u5916\u6258\u7BA1\u5668\u7684\u6027\u80FD\u5E76\u4E0D\u5DEE\uFF0C\u4E0D\u4F9D\u8D56\u811A\u672C\u8BA9\u4ED6\u7701\u53BB\u4E86\u5927\u91CF\u591A\u4F59\u5185\u5BB9\uFF0C\u800C\u4F7F\u7528\u95F4\u9694\u5E27\u5219\u53EF\u4EE5\u8BA9\u6027\u80FD\u7B80\u5355\u63D0\u53473\u500D\u4EE5\u4E0A"
+  showColor: {r: 0.965, g: 0.741, b: 0.871, a: 1}
 --- !u!1 &764628717
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,9 +974,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edit: 0
-  ReadMe: "2.\u6570\u636E\u914D\u7F6E\u529F\u80FD\n  \u76EE\u524D\u4E0D\u5199\u4EF7\u7ECD"
-  readMe: "2.\u6570\u636E\u914D\u7F6E\u529F\u80FD\n  \u76EE\u524D\u4E0D\u5199\u4EF7\u7ECD"
-  showColor: {r: 0.945, g: 0.882, b: 0.69, a: 1}
+  ReadMe: "2.\u6570\u636E\u914D\u7F6E\u529F\u80FD\n  \u6570\u636E\u5DE5\u5177\u5728\u5DE6\u4E0A\u89D2\u6309\u5DE5\u5177\u3001/\u4F9D\u8587\u5C14\u5DE5\u5177\u5373\u53EF\uFF0C\u6709\u51C6\u5907\u628A\u5DE5\u5177\u5355\u5217\u7684\u60F3\u6CD5\n\n\u8FD9\u4E2A\u8FD8\u5728\u4F18\u5316"
+  readMe: "2.\u6570\u636E\u914D\u7F6E\u529F\u80FD\n  \u6570\u636E\u5DE5\u5177\u5728\u5DE6\u4E0A\u89D2\u6309\u5DE5\u5177\u3001/\u4F9D\u8587\u5C14\u5DE5\u5177\u5373\u53EF\uFF0C\u6709\u51C6\u5907\u628A\u5DE5\u5177\u5355\u5217\u7684\u60F3\u6CD5\n\n\u8FD9\u4E2A\u8FD8\u5728\u4F18\u5316"
+  showColor: {r: 0.965, g: 0.741, b: 0.871, a: 1}
 --- !u!1 &946371888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,6 +1028,7 @@ Transform:
   - {fileID: 1275625646}
   - {fileID: 515561105}
   - {fileID: 1937682489}
+  - {fileID: 2119661374}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &960410512
@@ -1568,6 +1571,50 @@ MonoBehaviour:
   readMe: "\u9488\u64AD\u653E\u5668\uFF1A\u8BA9\u9488\u5177\u81EA\u53D1\u7684\u751F\u547D\u5468\u671F\n\n\u6295\u5C04\u5668\u548C\u6293\u53D6\u5668
     : \u8BA9\u9488\u5B9E\u73B0\u6570\u636E\u4EA4\u6D41\n\nLink: \u4E0D\u5FC5\u8981\u548C\u9488\u96C6\u6210\uFF0C\u5728\u4E8B\u4EF6\u6536\u53D1\u4E0A\u5927\u5C55\u5B8F\u56FE"
   showColor: {r: 0.976, g: 0.792, b: 0.729, a: 1}
+--- !u!1 &1340950752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6040059378997878964, guid: 6a26c41f9f0efb342a826a4ce252c17f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6057748839436808053}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1340950756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340950752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212dbdae92c0df84c85c8d0011c324f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  readMe:
+    edit: 1
+    ReadMe: "\u7F16\u5199\u63D0\u793A\u6587\u4EF6"
+    readMe: "\u8FD9\u662F\u4E00\u4E2A\u6269\u5C55\u533A\u57DF"
+    showColor: {r: 1, g: 1, b: 1, a: 1}
+  core: {fileID: 0}
+  Clips:
+    valuesNow_:
+    - rid: 165002684989476740
+    - rid: 165002684989476741
+    - rid: 165002684989476742
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002684989476740
+      type: {class: module0, ns: ES, asm: Assembly-CSharp}
+      data:
+        domain: {fileID: 0}
+    - rid: 165002684989476741
+      type: {class: module1, ns: ES, asm: Assembly-CSharp}
+      data:
+        domain: {fileID: 0}
+    - rid: 165002684989476742
+      type: {class: module4, ns: ES, asm: Assembly-CSharp}
+      data:
+        domain: {fileID: 0}
 --- !u!1 &1419177400
 GameObject:
   m_ObjectHideFlags: 0
@@ -2028,6 +2075,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2119661373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2119661374}
+  - component: {fileID: 2119661375}
+  m_Layer: 0
+  m_Name: "6.\u66F4\u591A\u66F4\u65B0\u8BA1\u5212"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2119661374
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119661373}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 946371890}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2119661375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119661373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dacd17e72d52a5f43a03334143bf897f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  edit: 0
+  ReadMe: "\u4E3A\u4E86\u6210\u4E3A\u4E00\u4E2A\u53EF\u9760\u7684\u6846\u67B6\uFF0C\u8BE5\u6846\u67B6\u4F1A\u52AA\u529B\u5730\u7B80\u5316\u548C\u652F\u6301\u8861\u591A\u529F\u80FD\uFF0C\u4EE5\u4E0B\u4E3A\u66F4\u65B0\u76EE\u6807\n\n1.\u5168\u9762\u652F\u6301\u539F\u7248,AB\u5305,Addreddabe\u7684\u8D44\u6E90\u52A0\u8F7D\u529F\u80FD\n\n2.\u96C6\u6210UniTask\n\n3.UI\u9762\u677F\u7BA1\u7406\u5668\n\n4.\u652F\u6301\u591A\u8BED\u8A00\n\n5.\u5C01\u88C5\u6E38\u620F\u8BBE\u7F6E\u652F\u6301\n\n6.\u5B8C\u6210\u6280\u80FD\u6811\u7B49"
+  readMe: "\u4E3A\u4E86\u6210\u4E3A\u4E00\u4E2A\u53EF\u9760\u7684\u6846\u67B6\uFF0C\u8BE5\u6846\u67B6\u4F1A\u52AA\u529B\u5730\u7B80\u5316\u548C\u652F\u6301\u8861\u591A\u529F\u80FD\uFF0C\u4EE5\u4E0B\u4E3A\u66F4\u65B0\u76EE\u6807\n\n1.\u5168\u9762\u652F\u6301\u539F\u7248,AB\u5305,Addreddabe\u7684\u8D44\u6E90\u52A0\u8F7D\u529F\u80FD\n\n2.\u96C6\u6210UniTask\n\n3.UI\u9762\u677F\u7BA1\u7406\u5668\n\n4.\u652F\u6301\u591A\u8BED\u8A00\n\n5.\u5C01\u88C5\u6E38\u620F\u8BBE\u7F6E\u652F\u6301\n\n6.\u5B8C\u6210\u6280\u80FD\u6811\u7B49"
+  showColor: {r: 0.984, g: 0.855, b: 0.725, a: 1}
 --- !u!1001 &3334646214932273132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2167,7 +2262,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6040059378997878964, guid: 6a26c41f9f0efb342a826a4ce252c17f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1340950756}
   m_SourcePrefab: {fileID: 100100000, guid: 6a26c41f9f0efb342a826a4ce252c17f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
