@@ -9,15 +9,15 @@ using UnityEngine;
 namespace ES
 {
     
-    public class BuffDomainForEntity : DomainBase<Entity, BuffDomainClipForDomainForEntity, BuffDomainForEntity>, IESHosting
+    public class BuffDomainForEntity : BaseDomain<Entity, BuffClipForDomainForEntity>, IESHosting
     {
         #region 默认的
         [SerializeField,LabelText("Buff支配者")]
         public BuffHosting buffHosting=new BuffHosting();
         //public override IEnumerable<BaseESModule> NormalBeHosted => buffRTLs.valuesNow_;
-        protected override void CreateLink()
+        protected override void CreatRelationship()
         {
-            base.CreateLink();
+            base.CreatRelationship();
             core.BuffDomain = this;
             buffHosting.TrySubmitHosting(this);
         }
@@ -63,7 +63,7 @@ namespace ES
         #endregion
 
     }
-    public abstract class BuffDomainClipForDomainForEntity : DomainClipForEntity
+    public abstract class BuffClipForDomainForEntity : Clip<Entity, BuffDomainForEntity>
     {
 
     }

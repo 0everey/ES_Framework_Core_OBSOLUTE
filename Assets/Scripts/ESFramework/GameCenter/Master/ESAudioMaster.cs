@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ESAudioMaster : Singleton<ESAudioMaster>
+public class ESAudioMaster : SingletonAsMono<ESAudioMaster>
 {
 
     [LabelText("主BGM"),Required]public AudioSource MainBGM;

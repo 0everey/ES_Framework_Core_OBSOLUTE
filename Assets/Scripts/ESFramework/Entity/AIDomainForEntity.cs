@@ -5,16 +5,16 @@ using UnityEngine;
 
 namespace ES
 {
-    public class AIDomainForEntity : DomainBase<Entity, AIDomainClipForDomainForEntity, AIDomainForEntity>
+    public class AIDomainForEntity : BaseDomain<Entity, BaseAIClipForDomainForEntity>
     {
         
-        protected override void CreateLink()
+        protected override void CreatRelationship()
         {
-            base.CreateLink();
+            base.CreatRelationship();
             core.AIDomain = this;
         }
     }
-    public abstract class AIDomainClipForDomainForEntity : DomainClipForEntity
+    public abstract class BaseAIClipForDomainForEntity : Clip<Entity, AIDomainForEntity>
     {
 
     }

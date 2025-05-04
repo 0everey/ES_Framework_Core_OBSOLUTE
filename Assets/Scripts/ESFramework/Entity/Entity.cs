@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ES
 {
-    public class Entity : DomainCore
+    public class Entity : BaseCore
     {
         
         public BaseDomainForEntity BaseDomain;
@@ -13,9 +13,9 @@ namespace ES
         public AIDomainForEntity AIDomain;
         public BuffDomainForEntity BuffDomain;
 
-        protected override void BeforeStartRegister()
+        protected override void BeforeAwakeBroadCastRegester()
         {
-            base.BeforeStartRegister();
+            base.BeforeAwakeBroadCastRegester();
         }
     }
 }

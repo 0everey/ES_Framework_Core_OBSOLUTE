@@ -64,7 +64,7 @@ namespace ES
             }
             return default(T);
         }
-        /* public static T FindByKey<T, TypeSelect_>(IEnumerable<T> ts, TypeSelect_ key) where T : IWithKey<object> where TypeSelect_ : IKey
+        /* public static This FindByKey<This, TypeSelect_>(IEnumerable<This> ts, TypeSelect_ key) where This : IWithKey<object> where TypeSelect_ : IKey
          {
              if (ts != null)
              {
@@ -73,7 +73,7 @@ namespace ES
                      if (i.key.Equals(key)) return i;
                  }
              }
-             return default(T);
+             return default(This);
          }*/
         public static T FindByAKey<T, Key>(IEnumerable<T> ts, Key key) where T : IWithKey<IKey<Key>>
         {

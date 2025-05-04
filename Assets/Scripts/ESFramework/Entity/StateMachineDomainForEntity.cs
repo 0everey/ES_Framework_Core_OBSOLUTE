@@ -6,20 +6,16 @@ using UnityEngine;
 
 namespace ES
 {
-    public class StateMachineDomainForEntity : DomainBase<Entity, DomainClipForEntity, StateMachineDomainForEntity>
+    public class StateMachineDomainForEntity : BaseDomain<Entity, StateMachineClipForDomainForEntity>
     {    
-        protected override void CreateLink()
+        protected override void CreatRelationship()
         {
-            base.CreateLink();
+            base.CreatRelationship();
             core.StateMachineDomain = this;
         }
     }
-    public abstract class StateMachineDomainClipForDomainForEntity : DomainClipForEntity
+    public abstract class StateMachineClipForDomainForEntity : Clip<Entity, StateMachineDomainForEntity>
     {
-        void Test()
-        {
-            var i = this as DomainClipForEntity;
-            
-        }
+        
     }
 }

@@ -11,19 +11,17 @@ using static ES.SkillPointDataInfo.SkillPointLevelAllTransfomor;
 namespace ES
 {
     [TypeRegistryItem("游戏核心管理器")]
-    public class GameCenterManager : Singleton<GameCenterManager>,IWithArchitecture
+    public class GameCenterManager : SingletonAsCore<GameCenterManager>,IWithArchitecture
     {
-        [FoldoutGroup("管理器引用"), LabelText("音效管理器")] public ESAudioMaster AudioMaster;
-        public class Enemy { }
-        public class DamageClass { }
-        public class WeaponSwitch { }
+        [FoldoutGroup("工具管理器引用"), LabelText("音效管理器")] public ESAudioMaster AudioMaster;
+        
 
         public DomainForGameCenterManager BaseDomain;
+
+
+
         [FoldoutGroup("事件委托")] public UnityEvent<Scene, LoadSceneMode> OnSceneLoaded;
         [FoldoutGroup("事件委托")] public UnityEvent OnLevelEndSave;
-        [FoldoutGroup("事件委托")] public UnityEvent<Enemy, DamageClass> OnEnemyBeAttack;
-        [FoldoutGroup("事件委托")] public UnityEvent<Enemy, DamageClass> OnPlayerBeEnemyAttack;
-        [FoldoutGroup("事件委托")] public UnityEvent<WeaponSwitch> OnWeaponSetup;
         [FoldoutGroup("事件委托")] public UnityEvent<int> OnSoulCollected;
         [FoldoutGroup("事件委托")] public UnityEvent OnSuccessParriedMeleeATK;
         [FoldoutGroup("事件委托")] public UnityEvent OnSuccessParriedRangeATK;
@@ -31,16 +29,21 @@ namespace ES
         [FoldoutGroup("数据包")]
 
 
-        [FoldoutGroup("数据包/BuffSoInfoList")]
-        public List<BuffSoInfo> buffSoInfos = new List<BuffSoInfo>();
 
-        [LabelText("原型全集IOC")]public ArchutectureTypeMatchSafeListIOC ArchutectureIOC = new ArchutectureTypeMatchSafeListIOC();
+        [FoldoutGroup("游戏原型")]
+        [LabelText("原型全集IOC")]
+        public ArchutectureTypeMatchSafeListIOC ArchutectureIOC = new ArchutectureTypeMatchSafeListIOC();
 
+        [FoldoutGroup("游戏原型")]
         [LabelText("游戏核心原型")]
         public BaseArchitectureWithLinkAndConfiguration GameCenterArchitecture = new BaseArchitectureWithLinkAndConfiguration();
         //GUI 渲染支持
+
+        [FoldoutGroup("编辑器支持"),LabelText("默认GUI Style")]
         public GUIStyle style;
 
+
+        [FoldoutGroup("垃圾场")]
         [LabelText("引用默认的技能精灵图表")]public SkillPointSpritesReference SkillPointSpritesReference;
         public IArchitecture GetArchitecture => GameCenterArchitecture;
 
@@ -65,9 +68,9 @@ namespace ES
             
             GameCenterArchitecture.SendLink(new Link_DestrolyCollideWall());
         }
-        protected override void BeforeStartRegister()
+        protected override void BeforeAwakeBroadCastRegester()
         {
-            base.BeforeStartRegister();
+            base.BeforeAwakeBroadCastRegester();
             SceneManager.sceneLoaded += PassiveDelagateMethod_OnSceneLoaded;
         }
         

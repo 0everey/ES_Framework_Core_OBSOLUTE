@@ -107,6 +107,7 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutString.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithFloat_EValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithEValue.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Domain\Core.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutVector2And3.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\Abstract\SoDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByTrigger2D.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithUnityObject.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerLink\PointerPlayerReceiveLink_StringNameEvent.cs" />
     <Compile Include="Assets\Scripts\TestOnly\HostAndMonoAndListTest.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Domain\Domain.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\Abstract\SoDataInfoConfiguration.cs" />
     <Compile Include="Assets\Scripts\TestOnly\Run.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Tool\GlobalCobtroll\Ev_PoolManager.cs" />
@@ -155,12 +157,12 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerWithLifeTime.cs" />
     <Compile Include="Assets\Scripts\ESFramework\GameCenter\GameCenterManager.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutDelegate_Func_Action.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Singleton\Singleton.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\ArchitectureDataPack.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\ItemDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Entity\AIDomainForEntity.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByMouse.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ModuleAndHosting\HostingPart_Define\ESHostMono.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Domain\Clip.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutTriggerOnly.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\ItemDataGroup.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutPick_Invoke_Debug.cs" />
@@ -172,7 +174,6 @@
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\GameEventMessageDataGroup.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\StateDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\GameEventMessageDataInfo.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Domain\DomainCore.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerTimeWatch\PointerPlayerAsStopWatch.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\SkillDataPack.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithType_EValue.cs" />
@@ -185,6 +186,7 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutFloatAndInt.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithVector3_EValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerSupport\SupportPointerPlayerEValue\PointerXXXEValueFromPointerPlayer.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Singleton\SingletonAsDomainCore.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Skill\SkillController\SkillPointRunTime.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerWithTimer.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Tool\OnlyShow\ESReadMeESMono.cs" />

@@ -50,8 +50,7 @@ public class HostAndMonoAndListTest : ESHostingMono_BaseESModule
 
 
 
-    int last = 0;
-    float timeDis = 0.2f;
+  
     protected override void Update()
     {
 
