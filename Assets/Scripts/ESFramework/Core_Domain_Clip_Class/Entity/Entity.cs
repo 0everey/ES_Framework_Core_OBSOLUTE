@@ -13,6 +13,10 @@ namespace ES
         public AIDomainForEntity AIDomain;
         public BuffDomainForEntity BuffDomain;
 
+        #region 委托事件
+
+
+        #endregion
         protected override void BeforeAwakeBroadCastRegester()
         {
             base.BeforeAwakeBroadCastRegester();

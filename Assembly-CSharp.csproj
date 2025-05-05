@@ -108,6 +108,7 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerTypesOfCompo\PointerSetAudio.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByCollider3D.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\Entity.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Item\Item.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ModuleAndHosting\StandardModule\StandardModuleDefine.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\GameCenterManager\GameCenterManager.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\StateDataPack.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerNone.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByTrigger3D.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerTypesOfCompo\PointerSetRigidBody.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Item\HoldableDomainForItem.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Extension\Extension.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByGetButton.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutString.cs" />

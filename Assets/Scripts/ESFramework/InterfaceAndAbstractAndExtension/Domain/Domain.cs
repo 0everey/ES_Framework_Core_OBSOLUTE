@@ -88,7 +88,7 @@ namespace ES
         #region 常用功能
         public void AddClip(IClip clip, bool selfInvoke = true)
         {
-            if(clip is Clip use)
+            if(clip is Clip use&&!Clips.valuesNow_.Contains(use))
             {
                 Clips.TryAdd(use);
                 if (selfInvoke) clip.TrySubmitHosting(this, false);
@@ -99,6 +99,7 @@ namespace ES
         {
             if (clip is Clip use)
             {
+               /* Clips.TryRemove(use);*/
                 if (selfInvoke) clip.TryWithDrawHosting(this, false);
             }
         }

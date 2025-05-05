@@ -34,7 +34,6 @@ namespace ES
         {
             Domain = hosting;
             CreateRelationship();
-            Domain.AddClip(this,false);
             base.OnSubmitHosting(hosting);
             return true;
         }
