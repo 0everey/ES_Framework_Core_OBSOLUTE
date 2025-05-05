@@ -1,8 +1,10 @@
 using ES;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 
 namespace ES
@@ -16,6 +18,8 @@ namespace ES
     {
         //给Clip抽象定义用
         Core_ Core { get; }
+        public void AddClip(IClip clip, bool selfInvoke = true);
+        public void RemoveClip(IClip clip, bool selfInvoke = true);
     }
     public abstract class BaseDomain<Core_, Clip> : ESHostingMono<Clip>, IDomain<Core_> where Core_ : BaseCore where Clip : class, IClip, IESModule
     {
@@ -25,7 +29,7 @@ namespace ES
         public Core_ Core => core;
         [FoldoutGroup("扩展域原始"), LabelText("域功能解释", icon: SdfIconType.Palette), GUIColor("ColorGetter"), ShowInInspector, PropertyOrder(-100)] public ESReadMeClass readMe = new ESReadMeClass() { readMe = "这是一个扩展区域" };
         [FoldoutGroup("扩展域原始"), LabelText("链接的核", icon: SdfIconType.Water), ReadOnly, GUIColor("ColorGetter")] public Core_ core;
-        [FoldoutGroup("扩展域原始"), LabelText("全部剪影")] public SafeUpdateList_EasyQueue_SeriNot_Dirty<Clip> Clips = new SafeUpdateList_EasyQueue_SeriNot_Dirty<Clip>();
+        [FoldoutGroup("扩展域原始"), LabelText("全部剪影"),OdinSerialize] public SafeUpdateList_EasyQueue_SeriNot_Dirty<Clip> Clips = new SafeUpdateList_EasyQueue_SeriNot_Dirty<Clip>();
         #endregion
 
 
@@ -82,16 +86,27 @@ namespace ES
 
 
         #region 常用功能
-        public void AddClip(Clip clip, bool selfInvoke = true)
+        public void AddClip(IClip clip, bool selfInvoke = true)
         {
-            Clips.TryAdd(clip);
-            if (selfInvoke) clip.TrySubmitHosting(this, false);
+            if(clip is Clip use)
+            {
+                Clips.TryAdd(use);
+                if (selfInvoke) clip.TrySubmitHosting(this, false);
+            }
         }
-        public void RemoveClip(Clip clip, bool selfInvoke = true)
+        
+        public void RemoveClip(IClip clip, bool selfInvoke = true)
         {
-            Clips.TryRemove(clip);
-            if (selfInvoke) clip.TryWithDrawHosting(this, false);
+            if (clip is Clip use)
+            {
+                if (selfInvoke) clip.TryWithDrawHosting(this, false);
+            }
         }
+        public override void TryRemoveModuleAsNormal(Clip use)
+        {
+            Clips.TryRemove(use);
+        }
+        
         public T GetModule<T>()
         {
             foreach (var i in NormalBeHosted)

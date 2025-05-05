@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ES
 {
-    public class SkillPointDataPack : SoDataPack_<SkillPointDataInfo>
+    public class SkillPointDataPack : SoDataPack<SkillPointDataInfo>
     {
 
     }

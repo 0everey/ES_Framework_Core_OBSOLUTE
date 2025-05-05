@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ES
 {
-    public class StateDataPack : SoDataPack_<StateDataInfo>
+    public class StateDataPack : SoDataPack<StateDataInfo>
     {
          
     }

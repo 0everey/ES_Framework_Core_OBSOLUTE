@@ -73,13 +73,11 @@ namespace ES
 
         public void TryEnableSelf()
         {
-           
             if (enabledSelf) return;
             enabledSelf = true;
         }
         public void TryDisableSelf()
         {
-            
             if (enabledSelf)
             {
                 enabledSelf = false;
@@ -106,6 +104,7 @@ namespace ES
         #endregion
 
         #region 关于提交SubMit
+        
         public bool HasSubmit { get; set; }
         public bool TrySubmitHosting(IESHosting hosting, bool asVirtual)
         {
@@ -122,7 +121,6 @@ namespace ES
             if (!HasSubmit) return false;
             if (asVirtual)
             {
-                hosting?.VirtualBeHosted.TryRemove(this);
                 return HasSubmit = false;
             }
             return HasSubmit = _OnWithDrawAsNormal(hosting);
@@ -155,7 +153,6 @@ namespace ES
             if (!HasSubmit) return false;
             if (asVirtual)
             {
-                hosting.VirtualBeHosted.TryRemove(this);
                 return HasSubmit = false;
             }
             return HasSubmit = _OnWithDrawAsNormal(hosting);
@@ -201,7 +198,6 @@ namespace ES
         {
             Action_OnUpdate?.Invoke(this);
             base.Update();
-           
         }
         [Tooltip("规定启用时的事件")]
         public ESModule_WithDelegate WithEnable(Action<ESModule_WithDelegate> func)

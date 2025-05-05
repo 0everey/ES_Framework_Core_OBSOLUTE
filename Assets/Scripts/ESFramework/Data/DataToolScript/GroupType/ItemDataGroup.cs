@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace ES
 {
-    [Serializable]
     public class ItemDataGroup :SoDataGroup<ItemDataInfo>
     {
        

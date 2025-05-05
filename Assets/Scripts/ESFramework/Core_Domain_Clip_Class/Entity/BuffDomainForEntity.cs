@@ -63,6 +63,7 @@ namespace ES
         #endregion
 
     }
+    [Serializable]
     public abstract class BuffClipForDomainForEntity : Clip<Entity, BuffDomainForEntity>
     {
 
@@ -78,6 +79,8 @@ public class BuffHosting : BaseESHostingAndModule<BuffRunTimeLogic, BuffDomainFo
     public SafeUpdateList<BuffRunTimeLogic> buffRTLs = new SafeUpdateList<BuffRunTimeLogic>();
     #endregion
     public BuffDomainForEntity buffDomain;
+
+    public override IEnumerable<BuffRunTimeLogic> NormalBeHosted => buffRTLs.valuesNow_;
 
 
     //不要默认刷新
@@ -129,5 +132,10 @@ public class BuffHosting : BaseESHostingAndModule<BuffRunTimeLogic, BuffDomainFo
                     new Link_BuffHandleChangeHappen() { who = buffDomain.core, info = logic.buffSoInfo, add = false });
 
         }
+    }
+
+    public override void TryRemoveModuleAsNormal(BuffRunTimeLogic use)
+    {
+        //
     }
 }

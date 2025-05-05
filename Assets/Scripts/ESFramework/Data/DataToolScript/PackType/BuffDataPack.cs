@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ES
 {
-    public class BuffDataPack : SoDataPack_<BuffSoInfo>
+    public class BuffDataPack : SoDataPack<BuffSoInfo>
     {
         
     }

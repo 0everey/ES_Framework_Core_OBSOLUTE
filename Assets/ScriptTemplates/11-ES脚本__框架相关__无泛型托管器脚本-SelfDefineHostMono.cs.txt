@@ -1,0 +1,65 @@
+using ES;
+using Sirenix.OdinInspector;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+namespace ES {
+    public class #SCRIPTNAME# : ESHostingMono
+    {
+        private void Start()
+        {
+            /*设置更新帧间隔
+             * this.ResetUpdateIntervalFrameCount(10);*/
+
+            /*      //创建委托模块
+                    ESModule_WithDelegate aModule = new ESModule_WithDelegate().
+                        WithEnable((self) => { }).  //启动时
+                        WithUpdate((self) => { }).  //更新时
+                        WithDisable((self) => { }); //禁用时
+
+                    aModule.TrySubmitHosting(this, true);//注册*/
+            
+            /* 创建继承重写模块
+             * Module_SelfDefine self = new Module_SelfDefine();
+            self.TrySubmitHosting(this, true);*/
+        }
+        protected override void OnEnable()
+        {
+            //编写启用时
+            base.OnEnable();
+        }
+        protected override void OnDisable()
+        {
+            //编写关闭时
+            base.OnDisable();
+        }
+        protected override void Update()
+        {
+            //编写更新时
+            base.Update();
+        }
+    }
+   /* [Serializable,TypeRegistryItem("自定义模块")]
+    public class Module_SelfDefine : BaseESModule
+    {
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            //编写逻辑
+        }
+        protected override void Update()
+        {
+            base.Update();
+            //编写逻辑
+        }
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            //编写逻辑
+        }
+    }*/
+        
+}

@@ -34,13 +34,15 @@ namespace ES
         {
             Domain = hosting;
             CreateRelationship();
+            Domain.AddClip(this,false);
+            base.OnSubmitHosting(hosting);
             return true;
         }
 
         protected override bool OnWithDrawHosting(Domain_ hosting)
         {
             Domain = hosting;
-
+            base.OnWithDrawHosting(hosting);
             return false;
         }
         #endregion

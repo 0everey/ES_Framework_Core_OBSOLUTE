@@ -54,6 +54,7 @@ namespace ES
             }
             base.Update();
         }
+       
     }
     [Serializable, TypeRegistryItem("模块00")]
     public class module0 : ClipForGamecenterManager

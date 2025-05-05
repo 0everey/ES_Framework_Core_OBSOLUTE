@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ES
 {
-    public class RoomGenerateDataPack : SoDataPack_<RoomGenerateDataInfo>
+    public class RoomGenerateDataPack : SoDataPack<RoomGenerateDataInfo>
     {
        
     }

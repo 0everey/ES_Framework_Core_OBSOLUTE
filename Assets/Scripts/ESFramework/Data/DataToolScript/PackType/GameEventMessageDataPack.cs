@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ES
 {
-    public class GameEventMessageDataPack : SoDataPack_<GameEventMessageDataInfo>
+    public class GameEventMessageDataPack : SoDataPack<GameEventMessageDataInfo>
     {
         
     }

@@ -53,8 +53,8 @@ namespace ES
                     return;
                 }
             }
-            virtualBeHostedList.Update();
             UpdateAsHosting();
+            virtualBeHostedList.Update();
         }
         protected virtual void OnEnable()
         {
@@ -140,20 +140,18 @@ namespace ES
             }
         }
         #endregion
-
-
     }
     //以泛型声明
     public interface IESHosting<With> : IESHosting where With : class,IESModule
     {
         
          IEnumerable<With> NormalBeHosted { get; }
-
+         public abstract void TryRemoveModuleAsNormal(With use);
     }
     public abstract class BaseESHosting<With> : BaseESHosting, IESHosting<With> where With : class, IESModule
     {
         #region 对特定类型的托管支持
-        public virtual IEnumerable<With> NormalBeHosted => null;
+        public abstract IEnumerable<With> NormalBeHosted { get; }
         public override void EnableAsHosting()
         {
             if (NormalBeHosted != null)
@@ -186,7 +184,7 @@ namespace ES
                     {
                         i._TryInActiveAndDisable();
                         //已经放弃
-                        virtualBeHostedList.TryRemove(i);
+                        
                         continue;
                     }
                     if (!i.IsActiveAndEnable && i.enabledSelf) i._TryActiveAndEnable();
@@ -197,9 +195,10 @@ namespace ES
             }
             base.UpdateAsHosting();
         }
+
+        public abstract void TryRemoveModuleAsNormal(With use);
         #endregion
     }
-
     public abstract class BaseESHostingAndModule<USE, Host> : BaseESHosting<USE>, IESModule<Host> where Host : class, IESHosting where USE : class, IESModule
     {
         #region 与自己的Host关联
@@ -227,7 +226,6 @@ namespace ES
             if (!HasSubmit) return false;
             if (asVirtual)
             {
-                hosting.VirtualBeHosted.TryRemove(this);
                 return HasSubmit = false;
             }
             return HasSubmit = _OnWithDrawAsNormal(hosting);
@@ -248,7 +246,6 @@ namespace ES
             if (!HasSubmit) return false;
             if (asVirtual)
             {
-                hosting.VirtualBeHosted.TryRemove(this);
                 return HasSubmit = false;
             }
             return HasSubmit = _OnWithDrawAsNormal(hosting);
@@ -324,10 +321,20 @@ namespace ES
 
 
     }
+    [Serializable,TypeRegistryItem("不限制模块类型托管器")]
+    public class ESHostingAndModule_NoNormalModule<Host> : BaseESHostingAndModule<BaseESModule, Host> where Host : class, IESHosting
+    {
+        public override IEnumerable<BaseESModule> NormalBeHosted => null;
 
+        public override void TryRemoveModuleAsNormal(BaseESModule use)
+        {
+           //无事发生
+        }
+    }
     [Serializable, TypeRegistryItem("ES托管器＋模块_带委托的", "模块")]
     public class ESHostingAndModule_WithDelegate : BaseESHostingAndModule<BaseESModule, BaseESHosting> 
     {
+        public override IEnumerable<BaseESModule> NormalBeHosted => null;
         [FoldoutGroup("默认委托")] private Action<ESHostingAndModule_WithDelegate> Action_Enable;
         [FoldoutGroup("默认委托")] private Action<ESHostingAndModule_WithDelegate> Action_Disable;
         [FoldoutGroup("默认委托")] private Action<ESHostingAndModule_WithDelegate> Action_OnUpdate;
@@ -363,6 +370,11 @@ namespace ES
         {
             Action_OnUpdate = func;
             return this;
+        }
+
+        public override void TryRemoveModuleAsNormal(BaseESModule use)
+        {
+            //无事发生
         }
     }
     //初级托管器--IMoudle

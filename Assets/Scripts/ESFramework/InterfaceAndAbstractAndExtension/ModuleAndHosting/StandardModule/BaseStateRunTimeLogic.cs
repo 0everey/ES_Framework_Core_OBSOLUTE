@@ -4,7 +4,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -579,8 +578,11 @@ namespace ES
             host = hosting;
             return true;
         }
-        
-        
+        public override void TryRemoveModuleAsNormal(IState use)
+        {
+            //
+        }
+
     }
     [Serializable, TypeRegistryItem("字符串键微型状态RunTime")]
     public class BaseMicroStateRunTimeLogic_StringKey : BaseMicroStateRunTimeLogic<string, BaseMicroStateMachine_StringKey, BaseMicroStateRunTimeLogic_StringKey>

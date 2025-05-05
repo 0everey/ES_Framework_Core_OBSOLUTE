@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ES
 {
-    public class SkillDataPack : SoDataPack_<SkillDataInfo>
+    public class SkillDataPack : SoDataPack<SkillDataInfo>
     {
         // Start is called before the first frame update
         void Start()

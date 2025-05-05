@@ -1,4 +1,5 @@
 using ES;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -14,6 +15,7 @@ namespace ES
             core.StateMachineDomain = this;
         }
     }
+    [Serializable]
     public abstract class StateMachineClipForDomainForEntity : Clip<Entity, StateMachineDomainForEntity>
     {
         

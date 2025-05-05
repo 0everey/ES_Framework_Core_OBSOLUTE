@@ -6,7 +6,7 @@ using UnityEngine;
 namespace ES
 {
     [Serializable]
-    public class RuneDataPack  : SoDataPack_<RuneDataInfo>
+    public class RuneDataPack  : SoDataPack<RuneDataInfo>
     {
        
     }

@@ -290,6 +290,11 @@ MonoBehaviour:
     readMe: "\u8FD9\u662F\u4E00\u4E2A\u6269\u5C55\u533A\u57DF"
     showColor: {r: 1, g: 1, b: 1, a: 1}
   core: {fileID: 0}
+  Clips:
+    valuesNow_: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &185755908
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +443,8 @@ MonoBehaviour:
     readMe: "\u8FD9\u662F\u4E00\u4E2A\u6269\u5C55\u533A\u57DF"
     showColor: {r: 1, g: 1, b: 1, a: 1}
   core: {fileID: 0}
+  Clips:
+    valuesNow_: []
   buffHosting:
     host: {fileID: 0}
     buffRTLs:
@@ -482,13 +489,13 @@ MonoBehaviour:
     - rid: 165002705591336960
       type: {class: module1, ns: ES, asm: Assembly-CSharp}
       data:
-        Domain: {fileID: 0}
+        Domain: {fileID: 1092176256}
         Preset: "\u9884\u8BBE1"
     - rid: 165002714999947264
       type: {class: module3, ns: ES, asm: Assembly-CSharp}
       data:
-        Domain: {fileID: 0}
-        Preset: "\u9884\u8BBE1"
+        Domain: {fileID: 1092176256}
+        Preset: "\u9884\u8BBE2"
 --- !u!114 &1092176258 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3520061699197729048, guid: 6a26c41f9f0efb342a826a4ce252c17f,
@@ -868,6 +875,11 @@ MonoBehaviour:
     readMe: "\u8FD9\u662F\u4E00\u4E2A\u6269\u5C55\u533A\u57DF"
     showColor: {r: 1, g: 1, b: 1, a: 1}
   core: {fileID: 0}
+  Clips:
+    valuesNow_: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1828535095
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,6 @@ namespace ES
 {
     public class ActorDataInfo : SoDataInfo
     {
-       
+        
     }
 }

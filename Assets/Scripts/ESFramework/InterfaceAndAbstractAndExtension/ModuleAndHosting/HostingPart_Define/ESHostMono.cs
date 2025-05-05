@@ -147,8 +147,8 @@ namespace ES
                     return;
                 }
             }
-            virtualBeHostedList.Update();
             UpdateAsHosting();
+            virtualBeHostedList.Update();
         }
         protected virtual void OnEnable()
         {
@@ -186,7 +186,7 @@ namespace ES
                     {
                         i._TryInActiveAndDisable();
                         //已经放弃
-                        virtualBeHostedList.TryRemove(i);
+                        TryRemoveModuleAsNormal(i);
                         continue;
                     }
                     if (!i.IsActiveAndEnable && i.enabledSelf) i._TryActiveAndEnable();
@@ -196,7 +196,6 @@ namespace ES
             }
             base.UpdateAsHosting();
         }
-
         public override void EnableAsHosting()
         {
 
@@ -220,6 +219,9 @@ namespace ES
             }
             base.DisableAsHosting();
         }
+
+        public abstract void TryRemoveModuleAsNormal(USE_Module use);
+
         #endregion
     }
     [TypeRegistryItem("虚拟的可用托管脚本")]

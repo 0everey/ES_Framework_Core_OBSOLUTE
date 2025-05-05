@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEditor;
 using System;
 using ES;
-using Unity.VisualScripting;
 using Sirenix.Serialization;
 using ES.EvPointer;
 using System.IO;
@@ -585,7 +584,7 @@ namespace ES
 
                     string path = AssetDatabase.GUIDToAssetPath(id);
                     UnityEngine.Object ob = AssetDatabase.LoadAssetAtPath(path, type);
-                    if (ob == null || ob.IsDestroyed()) continue;
+                    if (ob == null) continue;
                     ISoDataGroup dataGroup = ob as ISoDataGroup;
                     if (dataGroup.getSoType() == TargetInfoType(createPackType_))
                     {
@@ -654,7 +653,7 @@ namespace ES
                 {
                     string path = AssetDatabase.GUIDToAssetPath(id);
                     UnityEngine.Object ob = AssetDatabase.LoadAssetAtPath(path, type);
-                    if (ob == null || ob.IsDestroyed()) continue;
+                    if (ob == null) continue;
                     ISoDataGroup dataGroup = ob as ISoDataGroup;
                     if (dataGroup.getSoType() == pack.getSoType())
                     {
@@ -674,7 +673,7 @@ namespace ES
                 Undo.RecordObject(this.pack as ScriptableObject, "this");
                 foreach (var i in soInfos)
                 {
-                    if (i == null || ((i as ScriptableObject)?.IsDestroyed() ?? false)) return;
+                    if (i == null || ((i as ScriptableObject)?? false)) return;
                     if (pack.getSoType() == i.getSoType())
                     {
                         pack.AddGroup(i);
@@ -932,7 +931,7 @@ namespace ES
                 ISoDataInfo so = group.GetOne(i);
                 Debug.Log(so);
                 ScriptableObject so_ = so as ScriptableObject;
-                if (so != null&&so is ScriptableObject&& !so_.IsDestroyed())
+                if (so != null&&so is ScriptableObject)
                 {
                     Debug.Log("apply");
                     if (so.key.str_direc != i)
@@ -1499,7 +1498,7 @@ namespace ES
             if (objects == null) return true;
             foreach(var i in objects)
             {
-                if (i == null || i.IsDestroyed()) return true;
+                if (i == null  ) return true;
             }
             return false;
         }
@@ -1508,7 +1507,7 @@ namespace ES
             if (objects == null) return false;
             foreach (var i in objects)
             {
-                if (i == null || i.IsDestroyed()) return false;
+                if (i == null  ) return false;
             }
             return true;
         }
@@ -1525,7 +1524,7 @@ namespace ES
                 {
                     string path = AssetDatabase.GUIDToAssetPath(id);
                     UnityEngine.Object ob = AssetDatabase.LoadAssetAtPath(path, type);
-                    if (ob == null || ob.IsDestroyed()) continue;
+                    if (ob == null) continue;
                     ISoDataGroup dataGroup = ob as ISoDataGroup;
                     if (dataGroup.getSoType() == infoType)
                     {
@@ -1548,7 +1547,7 @@ namespace ES
                 {
                     string path = AssetDatabase.GUIDToAssetPath(id);
                     UnityEngine.Object ob = AssetDatabase.LoadAssetAtPath(path, type);
-                    if (ob == null || ob.IsDestroyed()) continue;
+                    if (ob == null) continue;
                     ISoDataPack dataPack = ob as ISoDataPack;
                     if (dataPack.getSoType() == infoType)
                     {

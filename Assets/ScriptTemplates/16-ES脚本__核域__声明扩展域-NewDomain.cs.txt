@@ -1,0 +1,41 @@
+using ES;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+namespace ES
+{
+    
+    public class  #SCRIPTNAME# : BaseDomain<TheCore, TheClip>
+    {
+        protected override void CreatRelationship()
+        {
+            base.CreatRelationship();
+            //core.XXXDomain = this; 显性引用
+        }
+    }
+   
+    public abstract class BaseClipForXXX : Clip<TheCore,#SCRIPTNAME#>
+    {
+
+    }
+    /*
+    
+     [Serializable, TypeRegistryItem("Clip名字")]
+    public class TheClip : BaseClipForXXX
+    {
+        
+        protected override void Update()
+        {
+            
+        }
+         protected override void CreateRelationship()
+        {
+            base.CreateRelationship();
+            //Domain.Module_XXX = this;  显性引用
+        }
+    }
+    */
+}

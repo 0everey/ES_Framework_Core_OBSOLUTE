@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ES
 {
-    public class ItemDataPack :SoDataPack_<ItemDataInfo>
+    public class ItemDataPack :SoDataPack<ItemDataInfo>
     {
        
     }

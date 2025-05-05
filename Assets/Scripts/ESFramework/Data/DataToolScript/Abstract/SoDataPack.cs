@@ -18,7 +18,7 @@ namespace ES
         IDictionary allInfo_ { get; }
         
     }
-    public abstract class SoDataPack_<Info> : SerializedScriptableObject, ISoDataPack where Info : ScriptableObject,ISoDataInfo
+    public abstract class SoDataPack<Info> : SerializedScriptableObject, ISoDataPack where Info : ScriptableObject,ISoDataInfo
     {
         [LabelText("包键")] public KeyString_Direct keyString = new KeyString_Direct();
         public KeyString key => keyString;

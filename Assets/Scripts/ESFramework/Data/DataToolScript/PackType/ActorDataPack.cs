@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ES
 {
-    public class ActorDataPack : SoDataPack_<ActorDataInfo>
+    public class ActorDataPack : SoDataPack<ActorDataInfo>
     {
       
     }
