@@ -54,7 +54,8 @@ namespace ES
             Debug.Log(texture);
             usingWindow.titleContent = new GUIContent("依薇尔工具窗口", texture, "使用依薇尔工具完成快速开发");
             usingWindow.minSize = new Vector2(400, 300);
-            usingWindow.maxSize = new Vector2(1600, 1200);
+            usingWindow.maxSize = new Vector2(2500, 1800);
+            usingWindow.maximized = true;
             usingWindow.MenuWidth = 250;
             usingWindow.Show();
 
@@ -985,17 +986,17 @@ namespace ES
             foreach (var i in all)
             {
                 
-                GUID id = default; GUID.TryParse(i, out id);
-                Type info = AssetDatabase.GetMainAssetTypeFromGUID(id);
+                GUID content = default; GUID.TryParse(i, out content);
+                Type info = AssetDatabase.GetMainAssetTypeFromGUID(content);
 
 
-                string path2 = AssetDatabase.GUIDToAssetPath(id);
+                string path2 = AssetDatabase.GUIDToAssetPath(content);
                 Debug.Log(path2);
 
 
                 if (typeof(ISoDataInfo).IsAssignableFrom(info))
                 {
-                    string path = AssetDatabase.GUIDToAssetPath(id);
+                    string path = AssetDatabase.GUIDToAssetPath(content);
                     Debug.Log(path);
                     //是子数据
                     if (path.StartsWith(groupPath))

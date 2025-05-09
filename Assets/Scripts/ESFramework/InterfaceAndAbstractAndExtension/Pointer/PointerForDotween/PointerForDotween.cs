@@ -75,7 +75,7 @@ namespace ES.EvPointer
     public abstract class PointerForTween_PackerSelectOneSameBy<By> : PointerPackForSameByOnlyOne<Tween, By, IPointerForTween>, IPointerForTween
     {
 
-        //public abstract By byFrom { get; }
+        //public abstract ByON byFrom { get; }
         public Tween Pick(object by = null, object yarn = null, object on = null)
         {
             return (this as PointerPackForSameByOnlyOne<Tween, By, IPointerForTween>)?.Pick(byFrom);
@@ -94,7 +94,7 @@ namespace ES.EvPointer
         }
     }
     [Serializable, TypeRegistryItem("Dotween_<链式针包>", "其他插件支持")]
-    public class PointerForTween_PackerChainTween : PointerPackForChain<Tween, IPointerChainForTween>, IPointerForTween
+    public class PointerForTween_PackerChainTween : PointerPackForSimpleChain<Tween, IPointerChainForTween>, IPointerForTween
     {
         [LabelText("链的头部"), SerializeReference, PropertyOrder(-1), GUIColor("@KeyValueMatchingUtility.ColorSelector.Color_03")] public IPointerForTween headGetter;
         public override Tween head => headGetter?.Pick();

@@ -182,7 +182,7 @@ namespace ES.EvPointer
         [LabelText("针对变换"), SerializeReference] public IPointerForTransform_Only tr = new PointerForTransform_Direct() { };
         [LabelText("首次锁定变换不变")] public bool lockTransform = true;
         [LabelText("智能地乘上deltaTime")] public bool useDeltaTimeMutipler = true;
-        [LabelText("标准乘数(建议配合delta)"), SerializeReference] public IPointerForFloat_Only standardMutipler = new PointerForFloat_Direct() { float_ = 1 };
+        [LabelText("标准乘数(建议配合delta)"), SerializeReference] public IPointerForFloat_Only ESStandardMutipler = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("应用值"), SerializeReference] public IPointerForVector3_Only pv3 = new PointerForVector3_Direct() { };
         [Space(10)]
         [LabelText("辅助值"), SerializeReference] public IPointerForVector3_Only pv3_helper_ = new PointerForVector3_Direct() { };
@@ -200,7 +200,7 @@ namespace ES.EvPointer
             Transform tt = lock_;
             Vector3 vector3 = pv3?.Pick() ?? default;
             Vector3 vector3_helper = pv3_helper_?.Pick() ?? default;
-            float mutiDelta = (useDeltaTimeMutipler ? Time.deltaTime : 1) * standardMutipler?.Pick() ?? 1;
+            float mutiDelta = (useDeltaTimeMutipler ? Time.deltaTime : 1) * ESStandardMutipler?.Pick() ?? 1;
             //测试可用
             if (tt != null)
             {
@@ -298,7 +298,7 @@ namespace ES.EvPointer
         [LabelText("针对变换"), SerializeReference] public IPointerForTransform_Only tr = new PointerForTransform_Direct() { };
         [LabelText("首次锁定变换不变")] public bool lockTransform = true;
         [LabelText("智能地乘上deltaTime")] public bool useDeltaTimeMutipler = true;
-        [LabelText("标准乘数(建议配合delta)"), SerializeReference] public IPointerForFloat_Only standardMutipler = new PointerForFloat_Direct() { float_ = 1 };
+        [LabelText("标准乘数(建议配合delta)"), SerializeReference] public IPointerForFloat_Only ESStandardMutipler = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("应用值"), SerializeReference] public IPointerForVector3_Only pv3 = new PointerForVector3_Direct() { };
         [Space(10)]
         [LabelText("辅助值"), SerializeReference] public IPointerForVector3_Only pv3_helper_ = new PointerForVector3_Direct() { };
@@ -322,7 +322,7 @@ namespace ES.EvPointer
 
             Vector3 vector3 = pv3?.Pick() ?? default;
             Vector3 vector3_helper = pv3_helper_?.Pick() ?? default;
-            float mutiDelta = (useDeltaTimeMutipler ? Time.deltaTime : 1) * standardMutipler?.Pick() ?? 1;
+            float mutiDelta = (useDeltaTimeMutipler ? Time.deltaTime : 1) * ESStandardMutipler?.Pick() ?? 1;
             //测试可用
             if (tt != null)
             {
@@ -397,7 +397,7 @@ namespace ES.EvPointer
         [LabelText("针对变换"), SerializeReference] public IPointerForTransform_Only tr = new PointerForTransform_Direct() { };
         [LabelText("首次锁定变换不变")] public bool lockTransform = true;
         [LabelText("智能地乘上deltaTime")] public bool useDeltaTimeMutipler = true;
-        [LabelText("标准乘数(建议配合delta)"), SerializeReference] public IPointerForFloat_Only standardMutipler = new PointerForFloat_Direct() { float_ = 1 };
+        [LabelText("标准乘数(建议配合delta)"), SerializeReference] public IPointerForFloat_Only ESStandardMutipler = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("应用值"), SerializeReference] public IPointerForVector3_Only pv3 = new PointerForVector3_Direct() { };
         [Space(10)]
         [LabelText("辅助值"), SerializeReference] public IPointerForVector3_Only pv3_helper_ = new PointerForVector3_Direct() { };
@@ -417,7 +417,7 @@ namespace ES.EvPointer
             Transform tt = lock_trans;
             Vector3 vector3 = pv3?.Pick() ?? default;
             Vector3 vector3_helper = pv3_helper_?.Pick() ?? default;
-            float mutiDelta = (useDeltaTimeMutipler ? Time.deltaTime : 1) * standardMutipler?.Pick() ?? 1;
+            float mutiDelta = (useDeltaTimeMutipler ? Time.deltaTime : 1) * ESStandardMutipler?.Pick() ?? 1;
             //测试可用
             if (tt != null)
             {
@@ -487,7 +487,7 @@ namespace ES.EvPointer
         [LabelText("针对变换"), SerializeReference] public IPointerForTransform_Only tr = new PointerForTransform_Direct() { };
         [LabelText("首次锁定变换不变")] public bool lockTransform = true;
         [LabelText("智能地乘上deltaTime")] public bool useDeltaTimeMutipler = true;
-        [LabelText("标准乘数(建议配合delta)"), SerializeReference] public IPointerForFloat_Only standardMutipler = new PointerForFloat_Direct() { float_ = 1 };
+        [LabelText("标准乘数(建议配合delta)"), SerializeReference] public IPointerForFloat_Only ESStandardMutipler = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("应用值"), SerializeReference] public IPointerForVector3_Only pv3 = new PointerForVector3_Direct() { };
         [Space(10)]
         [LabelText("锚定值"), SerializeReference] public IPointerForVector3_Only pv3_anchor_ = new PointerForVector3_Direct() { };
@@ -512,7 +512,7 @@ namespace ES.EvPointer
             Vector3 vector3 = pv3?.Pick() ?? default;
             Vector3 vector3_helper = pv3_helper_?.Pick() ?? default;
             Vector3 vector3_anchor = pv3_anchor_?.Pick() ?? default;
-            float mutiDelta = (useDeltaTimeMutipler ? Time.deltaTime : 1) * standardMutipler?.Pick() ?? 1;
+            float mutiDelta = (useDeltaTimeMutipler ? Time.deltaTime : 1) * ESStandardMutipler?.Pick() ?? 1;
             //测试可用
             if (tt != null)
             {
@@ -612,7 +612,7 @@ namespace ES.EvPointer
         [LabelText("针对变换"), SerializeReference] public IPointerForTransform_Only tr = new PointerForTransform_Direct() { };
         [LabelText("首次锁定变换不变")] public bool lockTransform = true;
         [LabelText("智能地乘上deltaTime")] public bool useDeltaTimeMutipler = true;
-        [LabelText("标准乘数(建议配合delta)"), SerializeReference] public IPointerForFloat_Only standardMutipler_ = new PointerForFloat_Direct() { float_ = 90 };
+        [LabelText("标准乘数(建议配合delta)"), SerializeReference] public IPointerForFloat_Only ESStandardMutipler_ = new PointerForFloat_Direct() { float_ = 90 };
         [LabelText("应用值"), SerializeReference] public IPointerForQuaternion_Only pv3 = new PointerForQuaternionFromVector3() { };
         [Space(10)]
         [LabelText("辅助值"), SerializeReference] public IPointerForQuaternion_Only pv3_helper_ = new PointerForQuaternionFromVector3() { };
@@ -630,7 +630,7 @@ namespace ES.EvPointer
             Transform tt = lock_;
             Quaternion p3 = pv3?.Pick() ?? Quaternion.identity;
             Quaternion p3_helper = pv3_helper_?.Pick() ?? Quaternion.identity;
-            float mutiDelta = (useDeltaTimeMutipler ? Time.deltaTime : 1) * standardMutipler_?.Pick() ?? 1;
+            float mutiDelta = (useDeltaTimeMutipler ? Time.deltaTime : 1) * ESStandardMutipler_?.Pick() ?? 1;
             //测试可用
             if (tt != null)
             {
@@ -741,7 +741,7 @@ namespace ES.EvPointer
         [LabelText("针对变换"), SerializeReference] public IPointerForTransform_Only tr = new PointerForTransform_Direct() { };
         [LabelText("首次锁定变换不变")] public bool lockTransform = true;
         [LabelText("智能地乘上deltaTime")] public bool useDeltaTimeMutipler = true;
-        [LabelText("标准乘数(建议配合delta)"), SerializeReference] public IPointerForFloat_Only standardMutipler = new PointerForFloat_Direct() { float_ = 1 };
+        [LabelText("标准乘数(建议配合delta)"), SerializeReference] public IPointerForFloat_Only ESStandardMutipler = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("应用值"), SerializeReference] public IPointerForVector3_Only pv3 = new PointerForVector3_Direct() { };
         [Space(10)]
         [LabelText("辅助值"), SerializeReference] public IPointerForVector3_Only pv3_helper_ = new PointerForVector3_Direct() { };
@@ -759,7 +759,7 @@ namespace ES.EvPointer
             Transform tt = lock_;
             Vector3 vector3 = pv3?.Pick() ?? default;
             Vector3 vector3_helper = pv3_helper_?.Pick() ?? default;
-            float mutiDelta = (useDeltaTimeMutipler ? Time.deltaTime : 1) * standardMutipler?.Pick() ?? 1;
+            float mutiDelta = (useDeltaTimeMutipler ? Time.deltaTime : 1) * ESStandardMutipler?.Pick() ?? 1;
             //测试可用
             if (tt != null)
             {

@@ -45,9 +45,9 @@ namespace ES.EvPointer
 
     }
     //接口
-    public interface IPointer<out Back, in By, in Yarn, in On> : IPointer
+    public interface IPointer<out Back, in ByON, in Yarn, in From> : IPointer
     {
-        Back Pick(By by = default, Yarn yarn = default, On on = default);
+        Back Pick(ByON by = default, Yarn yarn = default, From on = default);
     }
     public interface IPointerOnlyBackList<Single> : IPointerOnlyBackIEnumerable<List<Single>>
     {
@@ -60,7 +60,7 @@ namespace ES.EvPointer
     }
     #endregion
         #region 废案或者还没怎么用的扩展
-    public interface IPointer<Back, in Link> : IPointer where Link : ILink
+    public interface IPointer<Back, in Link,Head> : IPointerChainAny< Back,Link,Head> where Link : ILink
     {
         Back Pick(Link link);
         // Back PickByLink(Link link) { if (link != null) return Pick(link.By_, link.Yarn_, link.On_); return default(Back); }
@@ -292,7 +292,7 @@ namespace ES.EvPointer
         public abstract Back PickOne(USE use);
     }
     //链模式
-    public abstract class PointerPackForChain<Back, USE> : PointerPackerBase<Back, object, object, object, USE>, IPointerOnlyBack<Back> where USE : IPointerChain<Back>
+    public abstract class PointerPackForSimpleChain<Back, USE> : PointerPackerBase<Back, object, object, object, USE>, IPointerOnlyBack<Back> where USE : IPointerChain<Back>
     {
         public abstract Back head { get; }
         public override Back Pick(object by = default, object yarn = null, object on = null)
@@ -311,6 +311,45 @@ namespace ES.EvPointer
             return Pick();
         }
     }
+
+    public abstract class PointerPackForDynamicChain<Back,AtFirst,USE,AtLast> : PointerPackerBase<Back, object, object, object, USE>, IPointerOnlyBack<Back> where USE:IPointerChain,IPointer
+        where AtFirst:IPointer,IPointerChain
+        where AtLast:IPointer, IPointerChain
+    {
+        public abstract AtFirst head { get; }
+        public abstract  AtLast end { get; }
+        public override Back Pick(object launcherEntity = default, object yarn = null, object on = null)
+        {
+            if (head == null || end == null) { Debug.LogError("链条首位不完整"); return default(Back); }
+            object headUse=head?.Pick(launcherEntity);
+            //Debug.Log("筛选的头部"+headUse);
+            return PickAfterHead(headUse, launcherEntity);
+        }
+        public  Back PickAfterHead(object startAsHead, object launcherEntity, object on = null)
+        {
+            object headUse;
+            object current;
+            headUse = current = startAsHead;
+            if (pointers == null || pointers.Count == 0) { }
+            else
+            {
+                for (int i = 0; i < pointers.Count; i++)
+                {
+                    if (pointers[i] == null) { /*Debug.LogError("链条断裂");*/ continue; }
+                    current = pointers[i].Pick(current, headUse);
+                }
+            }
+            //Debug.Log("尾部"+current+headUse+launcherEntity);
+            Back back = KeyValueMatchingUtility.Matcher.SystemObjectToT<Back>(end.Pick(current, launcherEntity));
+            return back;
+
+        }
+        object IPointer.Pick(object a, object b, object c)
+        {
+            return Pick();
+        }
+    }
+
     public abstract class PointerPackerForSelectSome_BackSelfDefine<Back, BackForUse, Use> : PointerPackerBase<Back, object, object, object, Use>, IPointerOnlyBack<Back> where Use : IPointer<BackForUse, object, object, object>
     {
         public override string intName => "预期长度";
@@ -383,7 +422,17 @@ namespace ES.EvPointer
     #endregion
 
     #region 重要扩展接口-链
-    public interface IPointerChain<T> : IPointer<T, T, object, object>
+    public interface IPointerChain:IPointer { }
+
+    public interface IPointerChain<T> : IPointer<T, T, object, object>, IPointerChain
+    {
+
+    }
+    public interface IPointerChainAny<Next,in Last, Head> : IPointer<Next, Last, Head, object>, IPointerChain
+    {
+
+    }
+    public interface IPointerChainLink<Next,in Last> : IPointer<Next, Last, object, object>, IPointerChain where Next:ILink where Last:ILink
     {
 
     }
@@ -391,7 +440,7 @@ namespace ES.EvPointer
 
 
     #region 杂碎功能
-        #region 返回针的针
+    #region 返回针的针
     public interface IPointerForIPointer<By, Yarn, On> : IPointer<IPointer, By, Yarn, On>
     {
 
@@ -405,6 +454,7 @@ namespace ES.EvPointer
     }
     #endregion
 
+  
 
     #endregion
 
@@ -435,7 +485,7 @@ namespace ES.EvPointer
     }
     public interface IReceiveLink
     {
-
+         
     }
     public interface ISendLink
     {
@@ -454,10 +504,7 @@ namespace ES.EvPointer
         {
             return pointer.Pick(By_, Yarn_, On_);
         }
-        object UsePointer<Back>(IPointer<Back, ILink> pointer)
-        {
-            return pointer.Pick(this);
-        }
+       
     }
 
     public interface ISendLink<Link> : ISendLink where Link : ILink
@@ -473,6 +520,10 @@ namespace ES.EvPointer
     public interface IReceiveLink<Link> : IReceiveLink where Link : ILink
     {
         void OnLink(Link link);
+    }
+    public interface IReceiveAnyLink : IReceiveLink<ILink>
+    {
+
     }
     #endregion
         #region Link扩展
@@ -522,7 +573,7 @@ namespace ES.EvPointer
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="architecture">原型针</param>
+        /// <param content="architecture">原型针</param>
         [HorizontalGroup("水平", width: 200)]
         [FoldoutGroup("水平/按钮测试")]
         [InfoBox("输入原型>绑定原型>游戏默认原型"), ShowInInspector, PropertyOrder(1), HideLabel]
@@ -573,20 +624,20 @@ namespace ES.EvPointer
 
     }
     /* [Serializable]
-     public class PointerForSimpleUnityEvent_WithLink<By, Yarn, On> : IPointerOnlyBackSingle<UnityEvent<LinkDirect<By, Yarn, On>>>
+     public class PointerForSimpleUnityEvent_WithLink<ByON, Yarn, From> : IPointerOnlyBackSingle<UnityEvent<LinkDirect<ByON, Yarn, From>>>
      {
-         [LabelText("unity事件")] public UnityEvent<LinkDirect<By,Yarn,On>> unityevent;
-         public UnityEvent<LinkDirect<By, Yarn, On>> Pick(IPointer by = null, IPointer yarn = null, IPointer on = null)
+         [LabelText("unity事件")] public UnityEvent<LinkDirect<ByON,Yarn,From>> unityevent;
+         public UnityEvent<LinkDirect<ByON, Yarn, From>> Pick(IPointer launcherEntity = null, IPointer launcherEntity = null, IPointer on = null)
          {
              return unityevent;
          }
      }*/
     //标准的UnityEventLink
     /*[Serializable]
-    public class PointerForSimpleUnityEvent_SelfCreateLink<By,Yarn,On> : IPointerOnlyBackSingle<UnityEvent<By,Yarn,On>>
+    public class PointerForSimpleUnityEvent_SelfCreateLink<ByON,Yarn,From> : IPointerOnlyBackSingle<UnityEvent<ByON,Yarn,From>>
     {
-        [LabelText("unity事件")] public UnityEvent<By, Yarn, On> unityevent;
-        public UnityEvent<By, Yarn, On> Pick(IPointer by = null, IPointer yarn = null, IPointer on = null)
+        [LabelText("unity事件")] public UnityEvent<ByON, Yarn, From> unityevent;
+        public UnityEvent<ByON, Yarn, From> Pick(IPointer launcherEntity = null, IPointer launcherEntity = null, IPointer on = null)
         {
             return unityevent;
         }

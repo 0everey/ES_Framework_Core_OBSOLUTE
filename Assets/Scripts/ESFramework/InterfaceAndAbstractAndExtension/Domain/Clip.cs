@@ -14,6 +14,8 @@ namespace ES
     {
         public void SetDomainAndCreateRelationship(IDomain Domain);
         public void TrySetupClip();
+        public void FixedUpdate();
+        
     }
     [TypeRegistryItem("抽象剪影定义")]
     public abstract class Clip<Core_, Domain_> : BaseESModule<Domain_>, IClip where Core_ : BaseCore where Domain_ : class, IDomain<Core_>
@@ -30,19 +32,19 @@ namespace ES
         #endregion
 
         #region 托管相关
-        protected override bool OnSubmitHosting(Domain_ hosting)
+        protected override void OnSubmitHosting(Domain_ hosting)
         {
             Domain = hosting;
             CreateRelationship();
             base.OnSubmitHosting(hosting);
-            return true;
+            
         }
 
-        protected override bool OnWithDrawHosting(Domain_ hosting)
+        protected override void OnWithDrawHosting(Domain_ hosting)
         {
             Domain = hosting;
             base.OnWithDrawHosting(hosting);
-            return false;
+            
         }
         #endregion
 
@@ -125,6 +127,11 @@ namespace ES
                      Core.transform.position = default;
                      break;
              }*/
+        }
+
+        public virtual void FixedUpdate()
+        {
+            
         }
 
         #endregion

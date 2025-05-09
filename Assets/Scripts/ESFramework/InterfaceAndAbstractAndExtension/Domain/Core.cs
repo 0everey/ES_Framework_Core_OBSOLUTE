@@ -1,7 +1,9 @@
 using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor.Timeline.Actions;
+#endif
 using UnityEngine;
 
 namespace ES

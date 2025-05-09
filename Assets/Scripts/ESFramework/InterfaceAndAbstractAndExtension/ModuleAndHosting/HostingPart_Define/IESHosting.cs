@@ -7,8 +7,12 @@ using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 namespace ES
 {
+    public interface IESOringinHosting
+    {
+
+    }
     //以Hosting声明
-    public interface IESHosting : IESWithLife
+    public interface IESHosting : IESOringinHosting, IESWithLife
     {
         #region 托管器专属
         //虚拟的
@@ -202,7 +206,7 @@ namespace ES
     public abstract class BaseESHostingAndModule<USE, Host> : BaseESHosting<USE>, IESModule<Host> where Host : class, IESHosting where USE : class, IESModule
     {
         #region 与自己的Host关联
-        public virtual Host GetHost { get; }
+        public Host GetHost => host;
         [LabelText("托管核心", SdfIconType.Bullseye)]
         public Host host;
         #endregion
@@ -377,6 +381,18 @@ namespace ES
             //无事发生
         }
     }
+
+    #region 原始托管器
+    public abstract class BaseESOringinalHostingAndModule<Host>:BaseESModule<Host>,IESOringinHosting where Host:class, IESOringinHosting
+    {
+        #region 与自己的Host关联
+        public override Host GetHost => host;
+        [LabelText("托管核心", SdfIconType.Bullseye)]
+        public Host host;
+        #endregion
+    }
+
+    #endregion
     //初级托管器--IMoudle
 
     //完整托管器--IDelegatedUpdatable

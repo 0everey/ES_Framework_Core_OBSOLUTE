@@ -1606,15 +1606,18 @@ MonoBehaviour:
     - rid: 165002684989476740
       type: {class: module0, ns: ES, asm: Assembly-CSharp}
       data:
-        domain: {fileID: 0}
+        Domain: {fileID: 0}
+        Preset: "\u9884\u8BBE1"
     - rid: 165002684989476741
       type: {class: module1, ns: ES, asm: Assembly-CSharp}
       data:
-        domain: {fileID: 0}
+        Domain: {fileID: 0}
+        Preset: "\u9884\u8BBE1"
     - rid: 165002684989476742
       type: {class: module4, ns: ES, asm: Assembly-CSharp}
       data:
-        domain: {fileID: 0}
+        Domain: {fileID: 0}
+        Preset: "\u9884\u8BBE1"
 --- !u!1 &1419177400
 GameObject:
   m_ObjectHideFlags: 0

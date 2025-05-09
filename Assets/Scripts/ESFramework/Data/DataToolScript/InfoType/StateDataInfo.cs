@@ -16,9 +16,9 @@ namespace ES
         [TypeSelectorSettings(FilterTypesFunction = nameof(TypeFilterBoolMayMachine)), LabelText("绑定主体逻辑状态", SdfIconType.Link45deg), GUIColor("@new Color(0.95f,0.9f,0.7f)")] 
         public Type BindingSelf;
 
-        [LabelText("共享数据"), SerializeReference] public StandardStateSharedData stateSharedData=new StandardStateSharedData();
+        [LabelText("共享数据"), SerializeReference] public ESStandardStateSharedData stateSharedData=new ESStandardStateSharedData();
         [Space(20)]
-        [LabelText("默认状态"),SerializeReference] public StandardStateStatus stateStatus=new StandardStateStatus();
+        [LabelText("默认状态"),SerializeReference] public ESStandardStateVariableData stateStatus=new ESStandardStateVariableData();
 
 
         [ShowIfGroup("add",VisibleIf = "@IsSonMachine"),LabelText("绑定状态机基准状态(可选)", SdfIconType.Link45deg), GUIColor("@new Color(0.95f,0.5f,0.7f)")]
@@ -28,8 +28,8 @@ namespace ES
 
         public virtual bool TypeFilterBoolMayMachine(Type type)
         {
-            if(IsSonMachine)return type.IsSubclassOf(typeof(BaseStateMachine)) && !type.IsAbstract && !type.IsInterface;
-            return typeof(IState).IsAssignableFrom(type) && !type.IsSubclassOf(typeof(BaseStateMachine)) && !type.IsAbstract && !type.IsInterface;
+            if(IsSonMachine)return type.IsSubclassOf(typeof(BaseOriginalStateMachine)) && !type.IsAbstract && !type.IsInterface;
+            return typeof(IESMicroState).IsAssignableFrom(type) && !type.IsSubclassOf(typeof(BaseOriginalStateMachine)) && !type.IsAbstract && !type.IsInterface;
         }
         /* [Serializable, TypeRegistryItem("技能符文每一个等级")]
          public class SkillPointRuneLevel

@@ -7,6 +7,14 @@ using UnityEngine;
 //接口--可更新
 namespace ES
 {
+    public interface IESOriginalModule
+    {
+
+    }
+    public interface IESOriginalModule<in Host> where Host:IESOringinHosting
+    {
+        bool OnSubmitHosting(Host host);
+    }
     //生命周期接口--纯Host和模块和Host且模块都有
     public interface IESWithLife
     {
@@ -19,7 +27,7 @@ namespace ES
         #endregion
     }
     //可更新的
-    public interface IESModule : IESWithLife
+    public interface IESModule : IESOriginalModule,IESWithLife
     {
         //这个是模块专属哈
         #region 模块专属功能区
@@ -27,20 +35,20 @@ namespace ES
         public void _TryActiveAndEnable();
         public void _TryInActiveAndDisable();
         bool HasSubmit { get; set; }
-        bool TrySubmitHosting(IESHosting hosting, bool asVirtual);
-        bool TryWithDrawHosting(IESHosting hosting, bool asVirtual);
+        bool TrySubmitHosting(IESOringinHosting hosting, bool asVirtual);
+        bool TryWithDrawHosting(IESOringinHosting hosting, bool asVirtual);
         #endregion 
     }
 
-    public interface IESModule<Host> : IESModule where Host : class, IESHosting
+    public interface IESModule<Host> : IESModule where Host : class, IESOringinHosting
     {
         #region 托管声明
         Host GetHost { get; }
-        bool IESModule.TrySubmitHosting(IESHosting hosting, bool asVirtual)
+        bool IESModule.TrySubmitHosting(IESOringinHosting hosting, bool asVirtual)
         {
             return TrySubmitHosting(hosting as Host, asVirtual);
         }
-        bool IESModule.TryWithDrawHosting(IESHosting hosting, bool asVirtual)
+        bool IESModule.TryWithDrawHosting(IESOringinHosting hosting, bool asVirtual)
         {
             return TryWithDrawHosting(hosting as Host, asVirtual);
         }
@@ -53,7 +61,7 @@ namespace ES
     {
         #region 显示控制状态
         [ShowInInspector,LabelText("控制自身启用状态"),PropertyOrder(-1)] public bool EnabledSelfControl { get => enabledSelf; set { if (value) TryEnableSelf(); else TryDisableSelf();  } }
-        [ShowInInspector, LabelText("显示活动状态"), PropertyOrder(-1), GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForUpdating")]
+        [ShowInInspector, LabelText("显示活动状态"),GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForUpdating")]
         public bool IsActiveAndEnableShow { get => IsActiveAndEnable; }
         #endregion
 
@@ -85,8 +93,10 @@ namespace ES
         }
         public void _TryActiveAndEnable()
         {
+            
             if (IsActiveAndEnable || !enabledSelf) return;//不要你
             OnEnable();
+            
         }
         public void _TryInActiveAndDisable()
         {
@@ -96,8 +106,10 @@ namespace ES
         }
         public void TryUpdate()
         {
+            
             if (CanUpdating&&IsActiveAndEnable)
             {
+                
                 Update();
             }
         }
@@ -106,17 +118,17 @@ namespace ES
         #region 关于提交SubMit
         
         public bool HasSubmit { get; set; }
-        public bool TrySubmitHosting(IESHosting hosting, bool asVirtual)
+        public bool TrySubmitHosting(IESOringinHosting hosting, bool asVirtual)
         {
             if (HasSubmit) return true;
-            if (asVirtual)
+            if (asVirtual&&hosting is IESHosting hosting1)
             {
-                hosting.VirtualBeHosted.TryAdd(this);
+                hosting1.VirtualBeHosted.TryAdd(this);
                 return HasSubmit = true;
             }
             return HasSubmit = _OnSubmitAsNormal(hosting);
         }
-        public bool TryWithDrawHosting(IESHosting hosting, bool asVirtual)
+        public bool TryWithDrawHosting(IESOringinHosting hosting, bool asVirtual)
         {
             if (!HasSubmit) return false;
             if (asVirtual)
@@ -129,20 +141,20 @@ namespace ES
         {
             TryWithDrawHosting(null,true);
         }
-        protected virtual bool _OnSubmitAsNormal(IESHosting hosting) { return true; }
-        protected virtual bool _OnWithDrawAsNormal(IESHosting hosting) { return false; }
+        protected virtual bool _OnSubmitAsNormal(IESOringinHosting hosting) { return true; }
+        protected virtual bool _OnWithDrawAsNormal(IESOringinHosting hosting) { return false; }
         #endregion
     }
-    public abstract class BaseESModule<Host> : BaseESModule, IESModule<Host> where Host : class, IESHosting
+    public abstract class BaseESModule<Host> : BaseESModule, IESModule<Host> where Host : class, IESOringinHosting
     {
         #region 与自己的Host关联
         public virtual Host GetHost { get; }
         public bool TrySubmitHosting(Host hosting, bool asVirtual)
         {
             if (HasSubmit) return true;
-            if (asVirtual)
+            if (asVirtual && hosting is IESHosting hosting1)
             {
-                hosting.VirtualBeHosted.TryAdd(this);
+                hosting1.VirtualBeHosted.TryAdd(this);
                 return HasSubmit = true;
             }
             return HasSubmit = _OnSubmitAsNormal(hosting);
@@ -157,21 +169,23 @@ namespace ES
             }
             return HasSubmit = _OnWithDrawAsNormal(hosting);
         }
-        protected sealed override bool _OnSubmitAsNormal(IESHosting hosting)
+        protected sealed override bool _OnSubmitAsNormal(IESOringinHosting hosting)
         {
-            return OnSubmitHosting(hosting as Host);
-        }
-        protected sealed override bool _OnWithDrawAsNormal(IESHosting hosting)
-        {
-            return OnWithDrawHosting(hosting as Host);
-        }
-        protected virtual bool OnSubmitHosting(Host host)
-        {
+            OnSubmitHosting(hosting as Host);
             return true;
         }
-        protected virtual bool OnWithDrawHosting(Host host)
+        protected sealed override bool _OnWithDrawAsNormal(IESOringinHosting hosting)
         {
+            OnWithDrawHosting(hosting as Host);
             return false;
+        }
+        protected virtual void OnSubmitHosting(Host host)
+        {
+            
+        }
+        protected virtual void OnWithDrawHosting(Host host)
+        {
+            
         }
         #endregion
     }

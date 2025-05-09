@@ -95,8 +95,8 @@ namespace ES
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="enemy"> 谁打我</param>
-        /// <param name="Class"> 咋打的</param>
+        /// <param content="enemy"> 谁打我</param>
+        /// <param content="Class"> 咋打的</param>
         /// <returns>返回的是是否有效攻击</returns>
        /* public bool ProactiveInvoke_OnPlayerBeEnemyAttack_BackApplyAttack(DamageClass Class)
         {

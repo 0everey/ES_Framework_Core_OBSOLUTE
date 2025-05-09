@@ -1,59 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5103703678651064282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e9b7ba47d76df64fb4928c9936d91b2, type: 3}
-  m_Name: "\u6570\u636E\u5355\u5143\u5DE6\u624B\u7089\u7BA1"
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: BindingSelf
-      Entry: 6
-      Data: 
-  DataKey:
-    str_direc: "\u5DE6\u624B\u7089\u7BA1"
-  asFirstLayer: 1
-  IsSonMachine: 0
-  stateSharedData:
-    rid: 4118737140697792522
-  stateStatus:
-    rid: 4118737140697792523
-  BindingStandState: {fileID: 0}
-  BindingAllStates: []
-  references:
-    version: 2
-    RefIds:
-    - rid: 4118737140697792522
-      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
-      data:
-        MergePart_:
-          BeHitWithoutCondition: []
-          HitWithoutCondition: []
-          CanBeHit: 0
-          CanHit: 0
-          logicLayer: 0
-          channel: 63
-          BeHitOrder: 0
-          HitOrder: 0
-    - rid: 4118737140697792523
-      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
-      data:
-        hasEnterTime: 0
-        stateStandStatus: 0
 --- !u!114 &-4199297137930135022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,30 +22,24 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: BindingSelf
-      Entry: 7
-      Data: 0|System.RuntimeType, mscorlib
-    - Name: 
-      Entry: 1
-      Data: test, Assembly-CSharp
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
   DataKey:
     str_direc: "\u9759\u6B62"
   asFirstLayer: 1
   IsSonMachine: 0
   stateSharedData:
-    rid: 4118737140697792513
+    rid: 165002775626514432
   stateStatus:
-    rid: 4118737140697792514
+    rid: 165002777599148044
   BindingStandState: {fileID: 0}
   BindingAllStates:
   - {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 4118737140697792513
-      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
+    - rid: 165002775626514432
+      type: {class: ESStandardStateSharedData, ns: ES, asm: Assembly-CSharp}
       data:
         MergePart_:
           BeHitWithoutCondition: []
@@ -110,11 +50,10 @@ MonoBehaviour:
           channel: 63
           BeHitOrder: 0
           HitOrder: 0
-    - rid: 4118737140697792514
-      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
+    - rid: 165002777599148044
+      type: {class: ESStandardStateVariableData, ns: ES, asm: Assembly-CSharp}
       data:
         hasEnterTime: 0
-        stateStandStatus: 0
 --- !u!114 &-3885064651176735477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,139 +83,30 @@ MonoBehaviour:
   asFirstLayer: 0
   IsSonMachine: 0
   stateSharedData:
-    rid: 4118737140697792518
+    rid: 165002775626514438
   stateStatus:
-    rid: 4118737140697792519
+    rid: 165002777599148047
   BindingStandState: {fileID: 0}
   BindingAllStates: []
   references:
     version: 2
     RefIds:
-    - rid: 4118737140697792518
-      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
+    - rid: 165002775626514438
+      type: {class: ESStandardStateSharedData, ns: ES, asm: Assembly-CSharp}
       data:
         MergePart_:
           BeHitWithoutCondition: []
           HitWithoutCondition: []
           CanBeHit: 0
           CanHit: 0
-          logicLayer: 0
-          channel: 63
-          BeHitOrder: 0
+          logicLayer: 1
+          channel: 561
+          BeHitOrder: 2
           HitOrder: 0
-    - rid: 4118737140697792519
-      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
+    - rid: 165002777599148047
+      type: {class: ESStandardStateVariableData, ns: ES, asm: Assembly-CSharp}
       data:
         hasEnterTime: 0
-        stateStandStatus: 0
---- !u!114 &-1736118877953595914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e9b7ba47d76df64fb4928c9936d91b2, type: 3}
-  m_Name: "\u6570\u636E\u5355\u5143\u6E10\u51BB\u75C7"
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: BindingSelf
-      Entry: 6
-      Data: 
-  DataKey:
-    str_direc: "\u6E10\u51BB\u75C7"
-  asFirstLayer: 1
-  IsSonMachine: 0
-  stateSharedData:
-    rid: 4118737140697792532
-  stateStatus:
-    rid: 4118737140697792533
-  BindingStandState: {fileID: 0}
-  BindingAllStates: []
-  references:
-    version: 2
-    RefIds:
-    - rid: 4118737140697792532
-      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
-      data:
-        MergePart_:
-          BeHitWithoutCondition: []
-          HitWithoutCondition: []
-          CanBeHit: 0
-          CanHit: 0
-          logicLayer: 0
-          channel: 63
-          BeHitOrder: 0
-          HitOrder: 0
-    - rid: 4118737140697792533
-      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
-      data:
-        hasEnterTime: 0
-        stateStandStatus: 0
---- !u!114 &-900648101668620865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e9b7ba47d76df64fb4928c9936d91b2, type: 3}
-  m_Name: "\u6570\u636E\u5355\u5143\u53F3\u624B\u7089\u7BA1"
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: BindingSelf
-      Entry: 6
-      Data: 
-  DataKey:
-    str_direc: "\u53F3\u624B\u7089\u7BA1"
-  asFirstLayer: 1
-  IsSonMachine: 0
-  stateSharedData:
-    rid: 4118737140697792524
-  stateStatus:
-    rid: 4118737140697792525
-  BindingStandState: {fileID: 0}
-  BindingAllStates: []
-  references:
-    version: 2
-    RefIds:
-    - rid: 4118737140697792524
-      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
-      data:
-        MergePart_:
-          BeHitWithoutCondition: []
-          HitWithoutCondition: []
-          CanBeHit: 0
-          CanHit: 0
-          logicLayer: 0
-          channel: 63
-          BeHitOrder: 0
-          HitOrder: 0
-    - rid: 4118737140697792525
-      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
-      data:
-        hasEnterTime: 0
-        stateStandStatus: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,16 +124,10 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: -4199297137930135022}
-    - {fileID: 7049674341585291457}
     - {fileID: 6714777976555889925}
     - {fileID: -3885064651176735477}
     - {fileID: 3335984220515197374}
-    - {fileID: -5103703678651064282}
-    - {fileID: -900648101668620865}
-    - {fileID: 6950600497964286122}
-    - {fileID: 3471548880895970470}
-    - {fileID: 2718719188293294302}
-    - {fileID: -1736118877953595914}
+    - {fileID: 7049674341585291457}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -322,7 +146,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 11
+      Data: 5
     - Name: 
       Entry: 7
       Data: 
@@ -340,7 +164,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: "\u653B\u51FB"
+      Data: "\u5F00\u95E8"
     - Name: $v
       Entry: 10
       Data: 1
@@ -352,7 +176,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: "\u5F00\u95E8"
+      Data: "\u62FE\u53D6"
     - Name: $v
       Entry: 10
       Data: 2
@@ -364,7 +188,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: "\u62FE\u53D6"
+      Data: "\u4EA4\u4E92\u5B50\u72B6\u6001"
     - Name: $v
       Entry: 10
       Data: 3
@@ -376,82 +200,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: "\u4EA4\u4E92\u5B50\u72B6\u6001"
+      Data: "\u653B\u51FB"
     - Name: $v
       Entry: 10
       Data: 4
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: "\u5DE6\u624B\u7089\u7BA1"
-    - Name: $v
-      Entry: 10
-      Data: 5
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: "\u53F3\u624B\u7089\u7BA1"
-    - Name: $v
-      Entry: 10
-      Data: 6
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: "\u6447\u82B1\u624B"
-    - Name: $v
-      Entry: 10
-      Data: 7
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: "\u601D\u8003\u4EBA\u751F"
-    - Name: $v
-      Entry: 10
-      Data: 8
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: "\u5DE6\u811A\u6B8B\u75BE"
-    - Name: $v
-      Entry: 10
-      Data: 9
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: "\u6E10\u51BB\u75C7"
-    - Name: $v
-      Entry: 10
-      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -462,60 +214,6 @@ MonoBehaviour:
       Entry: 8
       Data: 
   name__: "\u6570\u636E\u7EC4"
---- !u!114 &2718719188293294302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e9b7ba47d76df64fb4928c9936d91b2, type: 3}
-  m_Name: "\u6570\u636E\u5355\u5143\u5DE6\u811A\u6B8B\u75BE"
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: BindingSelf
-      Entry: 6
-      Data: 
-  DataKey:
-    str_direc: "\u5DE6\u811A\u6B8B\u75BE"
-  asFirstLayer: 1
-  IsSonMachine: 0
-  stateSharedData:
-    rid: 4118737140697792530
-  stateStatus:
-    rid: 4118737140697792531
-  BindingStandState: {fileID: 0}
-  BindingAllStates: []
-  references:
-    version: 2
-    RefIds:
-    - rid: 4118737140697792530
-      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
-      data:
-        MergePart_:
-          BeHitWithoutCondition: []
-          HitWithoutCondition: []
-          CanBeHit: 0
-          CanHit: 0
-          logicLayer: 0
-          channel: 63
-          BeHitOrder: 0
-          HitOrder: 0
-    - rid: 4118737140697792531
-      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
-      data:
-        hasEnterTime: 0
-        stateStandStatus: 0
 --- !u!114 &3335984220515197374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,16 +236,22 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: BindingSelf
-      Entry: 6
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: ES.ESStandardStateMachine_StringKey, Assembly-CSharp
+    - Name: 
+      Entry: 8
       Data: 
   DataKey:
     str_direc: "\u4EA4\u4E92\u5B50\u72B6\u6001"
   asFirstLayer: 1
   IsSonMachine: 1
   stateSharedData:
-    rid: 4118737140697792520
+    rid: 165002775626514453
   stateStatus:
-    rid: 4118737140697792521
+    rid: 165002777599148048
   BindingStandState: {fileID: 0}
   BindingAllStates:
   - {fileID: 6714777976555889925}
@@ -555,8 +259,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 4118737140697792520
-      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
+    - rid: 165002775626514453
+      type: {class: ESStandardStateSharedData, ns: ES, asm: Assembly-CSharp}
       data:
         MergePart_:
           BeHitWithoutCondition: []
@@ -567,65 +271,10 @@ MonoBehaviour:
           channel: 63
           BeHitOrder: 0
           HitOrder: 0
-    - rid: 4118737140697792521
-      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
+    - rid: 165002777599148048
+      type: {class: ESStandardStateVariableData, ns: ES, asm: Assembly-CSharp}
       data:
         hasEnterTime: 0
-        stateStandStatus: 0
---- !u!114 &3471548880895970470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e9b7ba47d76df64fb4928c9936d91b2, type: 3}
-  m_Name: "\u6570\u636E\u5355\u5143\u601D\u8003\u4EBA\u751F"
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: BindingSelf
-      Entry: 6
-      Data: 
-  DataKey:
-    str_direc: "\u601D\u8003\u4EBA\u751F"
-  asFirstLayer: 1
-  IsSonMachine: 0
-  stateSharedData:
-    rid: 4118737140697792528
-  stateStatus:
-    rid: 4118737140697792529
-  BindingStandState: {fileID: 0}
-  BindingAllStates: []
-  references:
-    version: 2
-    RefIds:
-    - rid: 4118737140697792528
-      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
-      data:
-        MergePart_:
-          BeHitWithoutCondition: []
-          HitWithoutCondition: []
-          CanBeHit: 0
-          CanHit: 0
-          logicLayer: 0
-          channel: 63
-          BeHitOrder: 0
-          HitOrder: 0
-    - rid: 4118737140697792529
-      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
-      data:
-        hasEnterTime: 0
-        stateStandStatus: 0
 --- !u!114 &6714777976555889925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,85 +304,30 @@ MonoBehaviour:
   asFirstLayer: 0
   IsSonMachine: 0
   stateSharedData:
-    rid: 4118737140697792516
+    rid: 165002775626514436
   stateStatus:
-    rid: 4118737140697792517
+    rid: 165002777599148046
   BindingStandState: {fileID: 0}
   BindingAllStates: []
   references:
     version: 2
     RefIds:
-    - rid: 4118737140697792516
-      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
+    - rid: 165002775626514436
+      type: {class: ESStandardStateSharedData, ns: ES, asm: Assembly-CSharp}
       data:
         MergePart_:
           BeHitWithoutCondition: []
           HitWithoutCondition: []
           CanBeHit: 0
           CanHit: 0
-          logicLayer: 0
-          channel: 63
-          BeHitOrder: 0
+          logicLayer: 1
+          channel: 35
+          BeHitOrder: 2
           HitOrder: 0
-    - rid: 4118737140697792517
-      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
+    - rid: 165002777599148046
+      type: {class: ESStandardStateVariableData, ns: ES, asm: Assembly-CSharp}
       data:
         hasEnterTime: 0
-        stateStandStatus: 0
---- !u!114 &6950600497964286122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e9b7ba47d76df64fb4928c9936d91b2, type: 3}
-  m_Name: "\u6570\u636E\u5355\u5143\u6447\u82B1\u624B"
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: BindingSelf
-      Entry: 6
-      Data: 
-  DataKey:
-    str_direc: "\u6447\u82B1\u624B"
-  asFirstLayer: 1
-  IsSonMachine: 0
-  stateSharedData:
-    rid: 4118737140697792526
-  stateStatus:
-    rid: 4118737140697792527
-  BindingStandState: {fileID: 0}
-  BindingAllStates: []
-  references:
-    version: 2
-    RefIds:
-    - rid: 4118737140697792526
-      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
-      data:
-        MergePart_:
-          BeHitWithoutCondition: []
-          HitWithoutCondition: []
-          CanBeHit: 0
-          CanHit: 0
-          logicLayer: 0
-          channel: 63
-          BeHitOrder: 0
-          HitOrder: 0
-    - rid: 4118737140697792527
-      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
-      data:
-        hasEnterTime: 0
-        stateStandStatus: 0
 --- !u!114 &7049674341585291457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -756,41 +350,34 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: BindingSelf
-      Entry: 7
-      Data: 0|System.RuntimeType, mscorlib
-    - Name: 
-      Entry: 1
-      Data: test, Assembly-CSharp
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
   DataKey:
     str_direc: "\u653B\u51FB"
   asFirstLayer: 1
   IsSonMachine: 0
   stateSharedData:
-    rid: 4118737099499503617
+    rid: 165002777599148036
   stateStatus:
-    rid: 4118737140697792515
+    rid: 165002777599148045
   BindingStandState: {fileID: 0}
   BindingAllStates: []
   references:
     version: 2
     RefIds:
-    - rid: 4118737099499503617
-      type: {class: StandardStateSharedData, ns: ES, asm: Assembly-CSharp}
+    - rid: 165002777599148036
+      type: {class: ESStandardStateSharedData, ns: ES, asm: Assembly-CSharp}
       data:
         MergePart_:
           BeHitWithoutCondition: []
           HitWithoutCondition: []
           CanBeHit: 0
           CanHit: 0
-          logicLayer: 0
+          logicLayer: 1
           channel: 63
-          BeHitOrder: 0
-          HitOrder: 0
-    - rid: 4118737140697792515
-      type: {class: StandardStateStatus, ns: ES, asm: Assembly-CSharp}
+          BeHitOrder: 1
+          HitOrder: 1
+    - rid: 165002777599148045
+      type: {class: ESStandardStateVariableData, ns: ES, asm: Assembly-CSharp}
       data:
         hasEnterTime: 0
-        stateStandStatus: 0

@@ -63,7 +63,17 @@ namespace ES
             Clips.Update();
             base.Update();
         }
-
+        
+        private void FixedUpdate()
+        {
+            foreach(var i in Clips.valuesNow_)
+            {
+                if (i.IsActiveAndEnable)
+                {
+                    i.FixedUpdate();
+                }
+            }
+        }
         #region 辅助方法
         public void RegesterAllButOnlyCreateRelationship(ICore core_)
         {

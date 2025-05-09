@@ -19,7 +19,6 @@ namespace ES
             else
             {
                 DestroyImmediate(gameObject);
-
             }
         }
         // Start is called before the first frame update

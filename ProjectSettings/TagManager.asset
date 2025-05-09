@@ -20,11 +20,11 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Entity
+  - DroppedItem
+  - Damagable
+  - Interactive
+  - OnlyShow
   - 
   - 
   - 

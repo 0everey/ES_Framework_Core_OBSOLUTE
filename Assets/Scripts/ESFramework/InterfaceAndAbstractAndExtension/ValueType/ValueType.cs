@@ -52,6 +52,12 @@ public class SafeUpdateList_EasyQueue_SeriNot_Dirty<T>
         valuesToRemove.Enqueue(add);
         isDirty = true;
     }
+    public bool TryContains(T who)
+    {
+        if (valuesToRemove.Contains(who)) return false;
+        if (valuesToAdd.Contains(who)) return true;
+        return valuesNow_.Contains(who);
+    }
     [Button("强制更新")]
     [FoldoutGroup("缓冲")]
     private void ForceUpdate()

@@ -38,22 +38,7 @@ namespace ES
         #region 控制子模块
         public virtual void UpdateAsHosting()
         {
-            /*  if (NormalBeHosted != null)
-              {
-                  foreach (var i in NormalBeHosted)
-                  {
-                      if (!i.HasSubmit)
-                      {
-                          i._TryInActiveAndDisable();
-                          //已经放弃
-                          virtualBeHostedList.TryRemove(i);
-                          continue;
-                      }
-                      if (!i.IsActiveAndEnable && i.enabledSelf) i._TryActiveAndEnable();
-                      else if (i.IsActiveAndEnable && !i.enabledSelf) i._TryInActiveAndDisable();
-                      i.TryUpdate();
-                  }
-              }*/
+             
             if (VirtualBeHosted != null)
             {
                 foreach (var i in VirtualBeHosted.valuesNow_)
@@ -182,6 +167,7 @@ namespace ES
             {
                 foreach (var i in NormalBeHosted)
                 {
+
                     if (!i.HasSubmit)
                     {
                         i._TryInActiveAndDisable();
@@ -189,8 +175,10 @@ namespace ES
                         TryRemoveModuleAsNormal(i);
                         continue;
                     }
-                    if (!i.IsActiveAndEnable && i.enabledSelf) i._TryActiveAndEnable();
-                    else if (i.IsActiveAndEnable && !i.enabledSelf) i._TryInActiveAndDisable();
+
+                    if (!i.IsActiveAndEnable && i.enabledSelf) { i._TryActiveAndEnable(); }
+                    else if (i.IsActiveAndEnable && !i.enabledSelf) { i._TryInActiveAndDisable();}
+                    
                     i.TryUpdate();
                 }
             }

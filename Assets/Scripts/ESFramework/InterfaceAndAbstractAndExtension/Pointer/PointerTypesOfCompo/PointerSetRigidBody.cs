@@ -94,6 +94,7 @@ namespace ES
             }
         }
     #endregion
+
     #region 刚体2D
     public abstract class PointerSetRigidbody2D_Abstract : IPointerNone
     {

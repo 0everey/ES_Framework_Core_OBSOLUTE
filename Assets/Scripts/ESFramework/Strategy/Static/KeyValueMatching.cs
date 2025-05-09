@@ -11,47 +11,13 @@ using UnityEngine.InputSystem;
 using static EnumCollect;
 using UnityEngine.UIElements;
 using DG.Tweening;
-
+using UnityEngine.Events;
 
 namespace ES
 {
-    //Key ESValue Matching 是一系列键值对映射或者静态处理方法，用于解耦的功能合集
-    public static class KeyValueMatchingUtility
+    //Key_ ESValue Matching 是一系列键值对映射或者静态处理方法，用于解耦的功能合集
+     public  static partial class KeyValueMatchingUtility
     {
-        //匹配器
-        public static class Matcher
-        {
-            public static string EnumToString_SkillPointState(EnumCollect.SkillPointOneLevelState state)
-            {
-                switch (state)
-                {
-                    case EnumCollect.SkillPointOneLevelState.None: return "无_不显示";
-                    case EnumCollect.SkillPointOneLevelState.UnknownDetail: return "未知详情-显示为?";
-                    case EnumCollect.SkillPointOneLevelState.CantUnlock: return "不允许解锁";
-                    case EnumCollect.SkillPointOneLevelState.CanUnlockButOptionNotFeet: return "可解锁但条件未达到";
-                    case EnumCollect.SkillPointOneLevelState.CanUnlockComplete: return "条件完全达成";
-                    case EnumCollect.SkillPointOneLevelState.Unlock: return "解锁";
-                }
-                return "空定义";
-            }
-            public static T SystemObjectToT<T>(object from)
-            {
-                Type type = typeof(T);
-                return (T)SystemObjectToT(from, type);
-            }
-            public static object SystemObjectToT(object from, Type type)
-            {
-                if (type == typeof(float))
-                {
-                    return Convert.ChangeType(Convert.ToSingle(from), typeof(float));
-                }
-                else
-                {
-                    return Convert.ChangeType(from, type);
-                }
-
-            }
-        }
         #region  找键器
         public static T FindByIKey<T, Key>(IEnumerable<T> ts, Key key) where T : IWithKey<Key> where Key : IKey
         {
@@ -64,7 +30,7 @@ namespace ES
             }
             return default(T);
         }
-        /* public static This FindByKey<This, TypeSelect_>(IEnumerable<This> ts, TypeSelect_ key) where This : IWithKey<object> where TypeSelect_ : IKey
+        /* public static CopyToWhere FindByKey<CopyToWhere, TypeSelect_>(IEnumerable<CopyToWhere> ts, TypeSelect_ key) where CopyToWhere : IWithKey<object> where TypeSelect_ : IKey
          {
              if (ts != null)
              {
@@ -73,7 +39,7 @@ namespace ES
                      if (i.key.Equals(key)) return i;
                  }
              }
-             return default(This);
+             return default(CopyToWhere);
          }*/
         public static T FindByAKey<T, Key>(IEnumerable<T> ts, Key key) where T : IWithKey<IKey<Key>>
         {
@@ -110,6 +76,41 @@ namespace ES
             return false;
         }
         #endregion
+        //匹配器
+        public static class Matcher
+        {
+            public static string EnumToString_SkillPointState(EnumCollect.SkillPointOneLevelState state)
+            {
+                switch (state)
+                {
+                    case EnumCollect.SkillPointOneLevelState.None: return "无_不显示";
+                    case EnumCollect.SkillPointOneLevelState.UnknownDetail: return "未知详情-显示为?";
+                    case EnumCollect.SkillPointOneLevelState.CantUnlock: return "不允许解锁";
+                    case EnumCollect.SkillPointOneLevelState.CanUnlockButOptionNotFeet: return "可解锁但条件未达到";
+                    case EnumCollect.SkillPointOneLevelState.CanUnlockComplete: return "条件完全达成";
+                    case EnumCollect.SkillPointOneLevelState.Unlock: return "解锁";
+                }
+                return "空定义";
+            }
+            public static T SystemObjectToT<T>(object from)
+            {
+                Type type = typeof(T);
+                return (T)SystemObjectToT(from, type);
+            }
+            public static object SystemObjectToT(object from, Type type)
+            {
+                if (type == typeof(float))
+                {
+                    return Convert.ChangeType(Convert.ToSingle(from), typeof(float));
+                }
+                else
+                {
+                    return Convert.ChangeType(from, type);
+                }
+
+            }
+        }
+ 
         //GUI Color 颜色库
         public static class ColorSelector
         {
@@ -128,21 +129,26 @@ namespace ES
             public static Color ColorForCatcher = new Color(0.8314f,0.6745f,0.051f);//抓取器   --偏橙色
             public static Color ColorForESValue = new Color(0.153f,0.682f,0.376f);//ES值    --偏绿
             public static Color ColorForUpdating = new Color(0.804f, 0.67843f, 0);//更新中    --偏绿
+
+            public static Color ColorForBinding = new Color(0,0.97f,1);//绑定色
+            public static Color ColorForSearch = new Color(0.4f,0.804f,0.667f);//选择色
+            public static Color ColorForApply = new Color(0,0.804f,0);//应用色
             static void test()
             {
+                
                 Color c = KeyValueMatchingUtility.ColorSelector.Color_01;
             }
         }
         //创建器
         public static class Creator
         {
-            //深拷贝
+            //深拷贝＋泛型
             public static T DeepClone<T>(T obj)
             {
                 return (T)DeepCloneObject(obj);
             }
             //
-            private static object DeepCloneObject(object obj)
+            public static object DeepCloneObject(object obj)
             {
                 if (obj == null)
                 {
@@ -212,7 +218,6 @@ namespace ES
                 BuffSoInfo info = KeyValueMatchingUtility.DataInfoPointer.PickBuffSoInfoByKey(use.Key());
                 if (info == null || info.BindingLogic == null)
                 {
-
                     return null;
                 }
 
@@ -228,42 +233,43 @@ namespace ES
                 }
                 return null;
             }
-            public static IState CreateStateRunTimeLogicOnlyOne(StateDataInfo info)
+            public static IESMicroState CreateStateRunTimeLogicOnlyOne(StateDataInfo info)
             {
-                if (info == null) return Activator.CreateInstance<BaseWithableStandardStateRunTimeLogic>();
-                var type = info.BindingSelf ?? typeof(BaseWithableStandardStateRunTimeLogic);
-                IState state = Activator.CreateInstance(type) as IState;
+                if (info == null) return Activator.CreateInstance<BaseWithableESStandardStateRunTimeLogic>();
+                var type = info.BindingSelf ?? typeof(BaseWithableESStandardStateRunTimeLogic);
+                IESMicroState state = Activator.CreateInstance(type) as IESMicroState;
                 if (info.IsSonMachine)
                 {
                     //子状态机 不考虑内容物
                 }
                 else
                 {
+                    
                     //
                     state.SharedData = info.stateSharedData;
-                    state.Status = DeepClone(info.stateStatus);
+                    state.VariableData = DeepClone(info.stateStatus);
                 }
                 return state;
             }
-            public static IState CreateStateRunTimeLogicComplete(StateDataInfo info)
+            public static IESMicroState CreateStateRunTimeLogicComplete(StateDataInfo info)
             {
                 if (info == null) return null;
-                IState state = Creator.CreateStateRunTimeLogicOnlyOne(info);
+                IESMicroState state = Creator.CreateStateRunTimeLogicOnlyOne(info);
                 if (state == null) return null;
                 //是子状态机的话 向下递归注册
-                if (info.IsSonMachine && state is BaseStateMachine sonMachine)
+                if (info.IsSonMachine && state is BaseOriginalStateMachine sonMachine)
                 {
                     //状态机也要合并了
                     sonMachine.AsThis = Creator.CreateStateRunTimeLogicOnlyOne(info.BindingStandState);
                     state.SharedData = info.stateSharedData;
-                    state.Status = DeepClone(info.stateStatus);
+                    state.VariableData = DeepClone(info.stateStatus);
 
 
                     foreach (var ii in info.BindingAllStates)
                     {
-                        IState stateii = Creator.CreateStateRunTimeLogicComplete(ii);
+                        IESMicroState stateii = Creator.CreateStateRunTimeLogicComplete(ii);
                         if (ii == null) continue;
-                        sonMachine.RegesterNewState(ii.key.Key(), stateii);
+                        sonMachine.RegisterNewState_Original(ii.key.Key(), stateii);
                     }
                 }
                 return state;
@@ -885,8 +891,79 @@ namespace ES
         //数据应用器
         public static class DataApply
         {
+            #region Copy
+            //完全同类型的具有Class变量-
+            public static void CopyToClassSameType_WithSharedAndVariableDataCopyTo<Shared,Variable>(IWithSharedAndVariableData<Shared, Variable> from,IWithSharedAndVariableData<Shared, Variable> to) 
+                where Shared:ISharedData 
+                where Variable:class,IVariableData
+            {
+                if (from != null && to != null)
+                {
+                    to.SharedData = from.SharedData;
+                    if (to.VariableData == null)
+                    {
+                        to.VariableData = Activator.CreateInstance<Variable>();
+                    }
+                    
+                    if (from.VariableData is ICopyToClass<Variable> copy)
+                    {
+                        copy.CopyTo(to.VariableData);
+                    }
+                    else
+                    {
+                        to.VariableData = Creator.DeepClone<Variable>(from.VariableData);
+                    }
+                }
+            }
+            //不同类型的具有Class变量
+            public static void CopyToClassDynamic_WithSharedAndVariableDataCopyTo<SharedFrom, VariableFrom, SharedTo, VariableTo>(IWithSharedAndVariableData<SharedFrom, VariableFrom> from, IWithSharedAndVariableData<SharedTo, VariableTo> to)
+                where SharedFrom : SharedTo, ISharedData where VariableFrom : class, VariableTo,IVariableData
+                where SharedTo : ISharedData where VariableTo: class, IVariableData
+            {
+                if (from != null && to != null)
+                {
+                    to.SharedData = from.SharedData;
+                    if (to.VariableData == null)
+                    {
+                        to.VariableData = Activator.CreateInstance<VariableTo>();
+                    }
+                    if (from.VariableData is ICopyToClass<VariableTo> copy)
+                    {
+                        copy.CopyTo(to.VariableData);
+                    }
+                    else
+                    {
+                        to.VariableData = Creator.DeepClone<VariableFrom>(from.VariableData);
+                    }
+                }
+            }
+            //完全同类型的具有Struct变量
+            public static void CopyToStructSameType_WithSharedAndVariableDataCopyTo<Shared, Variable>(IWithSharedAndVariableData<Shared, Variable> from,IWithSharedAndVariableData<Shared, Variable> to) 
+                where Shared : ISharedData 
+                where Variable : struct, IVariableData
+            {
+                if (from != null && to != null)
+                {
+                    to.SharedData = from.SharedData;
+                    //结构体不需要实现CopyTo
+                    to.VariableData = Creator.DeepClone<Variable>(from.VariableData);
+                }
+            }
+            //不同类型的具有Struct变量
+            public static void CopyToStructDynamic_WithSharedAndVariableDataCopyTo<SharedFrom, Variable, SharedTo>(IWithSharedAndVariableData<SharedFrom, Variable> from, IWithSharedAndVariableData<SharedTo, Variable> to) 
+                where SharedFrom : SharedTo ,ISharedData where Variable : struct,IVariableData
+                where SharedTo : ISharedData
+            {
+                if (from != null && to != null)
+                {
+                    to.SharedData = from.SharedData;
+                    //结构体不需要实现CopyTo
+                    to.VariableData = Creator.DeepClone<Variable>(from.VariableData);
+                }
+            }
+            #endregion
 
-            public static void ApplyStatePackToMachine(StateDataPack pack, BaseStateMachine machine)
+            public static void ApplyStatePackToMachine(StateDataPack pack, BaseOriginalStateMachine machine)
             {
                 if (pack != null && machine != null)
                 {
@@ -897,11 +974,48 @@ namespace ES
                         //只要第一层的直接注入哈
                         if (use.asFirstLayer)
                         {
-                            IState state = Creator.CreateStateRunTimeLogicComplete(use);
+                            IESMicroState state = Creator.CreateStateRunTimeLogicComplete(use);
                             if (state == null) continue;
-                            machine.RegesterNewState(i.Key, state);
+                            machine.RegisterNewState_Original(i.Key, state);
                         }
                     }
+                }
+            }
+        }
+
+        //Link事件
+        public static class ESLink
+        {
+            public static class ForEntityLink
+            {
+                public static void OnEntityLink(Entity entity,ILink linkDefault,bool ApplyOrCancel=true)
+                {
+
+                }
+            } 
+        }
+
+        public static class ESBack
+        {
+            public static class ForEntityBack
+            {
+                public static List<Entity> GetEntityAroundFriend(Entity entity,float r,Vector3? center=null)
+                {
+                    center ??= entity.transform.position;
+                    //查找把，找啊找r
+                    return null;
+                }
+                public static List<Entity> GetEntityTargetCache(Entity entity,string Key="Main",bool useAndClear=true)
+                {
+                    
+                    //查找把，找啊找r
+                    return null;//返回缓冲池
+                }
+                public static List<Entity> GetEntityVision(Entity entity, int maxCount = 5, bool reTry = false)
+                {
+
+                    //查找把，找啊找r
+                    return null;
                 }
             }
         }

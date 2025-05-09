@@ -408,7 +408,7 @@ namespace ES.EvPointer
     public class KeyEnumTestInventory_Direct : KeyEnum<ES.GameKeyType>
     {
         [LabelText("直接输入枚举值键")] public ES.GameKeyType enum_direc = GameKeyType.BlueKey;
-        public override ES.GameKeyType Key()
+        public override ES.GameKeyType Key_()
         {
             return enum_direc;
             //return base.TypeSelect_();

@@ -17,7 +17,7 @@ namespace ES
     public abstract class SoDataInfo : SerializedScriptableObject, ISoDataInfo
     {
         public KeyString_Direct key => DataKey;
-        [LabelText("数据键", SdfIconType.KeyFill)]
+        [LabelText("数据键", SdfIconType.KeyFill),InlineProperty]
         public KeyString_Direct DataKey = new KeyString_Direct();
         public void SetKey(object o)
         {

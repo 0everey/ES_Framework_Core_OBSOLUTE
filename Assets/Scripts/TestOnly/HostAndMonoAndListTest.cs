@@ -4,9 +4,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+#if UNITY_EDITOR
 using static UnityEditorInternal.VersionControl.ListControl;
-
+#endif
 public class HostAndMonoAndListTest : ESHostingMono_BaseESModule
 {
     public float f = 2;
@@ -68,7 +68,7 @@ public class HostAndMonoAndListTest : ESHostingMono_BaseESModule
          if (timeDis > 0) return;
 
          timeDis = 0.2f;
-         last++;*/
+         end++;*/
 
     }
 
@@ -150,7 +150,7 @@ public class HostAndMonoAndListTest : ESHostingMono_BaseESModule
 
              }
          }
-         int last = 0;
+         int end = 0;
          float timeDis = 0.2f;
          protected override void Update()
          {
@@ -159,9 +159,9 @@ public class HostAndMonoAndListTest : ESHostingMono_BaseESModule
              if (timeDis > 0) return;
 
              timeDis = 0.2f;
-             last++;
-             last %= testNum;
-             if (last % 2 == 0)
+             end++;
+             end %= testNum;
+             if (end % 2 == 0)
              {
                  aa.TryEnableSelf();
                  bb.TryDisableSelf();
@@ -194,7 +194,7 @@ public class HostAndMonoAndListTest : ESHostingMono_BaseESModule
                 //g.AddComponent<Run>();
             }
         }
-        int last = 0;
+        int end = 0;
         float timeDis = 0.2f;
 
         // Update is called once per frame
@@ -213,11 +213,11 @@ public class HostAndMonoAndListTest : ESHostingMono_BaseESModule
             if (timeDis > 0) return;
 
             timeDis = 0.2f;
-            last++;
-            last %= testNum;
-            NewStates[last] = true;
-            NewStates[(last + 1) % testNum] = false;
-            if (last % 2 == 0)
+            end++;
+            end %= testNum;
+            NewStates[end] = true;
+            NewStates[(end + 1) % testNum] = false;
+            if (end % 2 == 0)
             {
                 NewStates[5] = true;
                 NewStates[4] = false;
@@ -251,7 +251,7 @@ public class HostAndMonoAndListTest : ESHostingMono_BaseESModule
           //g.AddComponent<Run>();
        }
    }
-   int last = 0;
+   int end = 0;
    float timeDis = 0.2f;
 
    // Update is called once per frame
@@ -284,9 +284,9 @@ public class HostAndMonoAndListTest : ESHostingMono_BaseESModule
        if (timeDis > 0) return;
 
        timeDis = 0.2f;
-       last++;
-       last %= testNum;
-       NewStates[last]=true;
-       NewStates[(last+1) % testNum]=false;
+       end++;
+       end %= testNum;
+       NewStates[end]=true;
+       NewStates[(end+1) % testNum]=false;
 
    }*/
