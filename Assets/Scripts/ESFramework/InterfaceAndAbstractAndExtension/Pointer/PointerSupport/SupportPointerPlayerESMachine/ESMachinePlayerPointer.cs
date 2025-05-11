@@ -14,6 +14,7 @@ namespace ES {
     {
         [LabelText("可测试(按T)")]
         public bool TEST = false;
+        public Entity Test;
         private void Start()
         {
             TryBind();
@@ -51,7 +52,7 @@ namespace ES {
             CacheKeys();
         }
         bool use = false;
-        float f = 1;
+        float f =0.1f;
         private void Update()
         {
             if (TEST)
@@ -59,7 +60,11 @@ namespace ES {
                 if (Keyboard.current.tKey.wasPressedThisFrame)
                 {
                     use = true;
-                    f = UnityEngine.Random.value;
+                }
+                if (Keyboard.current.eKey.wasPressedThisFrame)
+                {
+                    
+                    Test.StateMachineDomain.Module_CrashDodge._TesetAddByInspector();
                 }
                 if (use)
                 {

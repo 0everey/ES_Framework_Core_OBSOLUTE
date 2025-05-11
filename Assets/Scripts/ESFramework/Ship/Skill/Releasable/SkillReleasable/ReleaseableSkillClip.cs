@@ -4,6 +4,7 @@ using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 
@@ -22,6 +23,7 @@ namespace ES
         [VerticalGroup("总数据/数据")]
         [InlineButton("Last", "上一个")]
         [InlineButton("Next", "下一个")]
+        [InlineButton("Save", "保存")]
         [LabelText("当前选中",Text = "@GetShowName()"),OnValueChanged("OnChangeSlider"), GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForCatcher"), 
             PropertyRange(0,5,MaxGetter = "GetSliderMax")] public int CurrentIndex;
         
@@ -133,6 +135,13 @@ namespace ES
         private void Last(){
             CurrentIndex--;
             OnChangeSlider();
+        }
+        private void Save()
+        {
+#if UNITY_EDITOR
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+#endif
         }
         #endregion
     }

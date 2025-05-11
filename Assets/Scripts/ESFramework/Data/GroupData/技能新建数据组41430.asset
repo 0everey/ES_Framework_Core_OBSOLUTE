@@ -134,8 +134,8 @@ MonoBehaviour:
     skillDuration: 1
     CurrentIndex: 0
     AllClips:
-    - triggerAtTime: 0.25
-      name: "\u65B0\u5EFA\u7247\u6BB51"
+    - triggerAtTime: 0
+      name: 6666
       st: "\u6280\u80FD/\u6280\u80FD1"
       crossFade:
         float: 0.2
@@ -146,34 +146,23 @@ MonoBehaviour:
         rid: 165002799258272290
       Applier:
         handles:
-        - rid: 165002816914718789
-    - triggerAtTime: 0.25
-      name: "\u65B0\u5EFA\u7247\u6BB52"
-      st: "\u6280\u80FD/\u6280\u80FD1"
-      crossFade:
-        float: 0.2
-      FloatParamName: float
-      optionForOverrideLast: 0
-      optionForNext: 0
-      Selector:
-        rid: 165002799258272297
-      Applier:
-        handles:
-        - rid: 165002816914718788
+        - rid: 165002869122793501
+        - rid: 165002870271770630
+        - rid: 165002870271770631
     skillActiveCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    bindingStateInfo: {fileID: 1821059992941752284, guid: ff48ba9755a48b943a736ebba90d3f69,
+    bindingStateInfo: {fileID: 5437187661124267082, guid: ff48ba9755a48b943a736ebba90d3f69,
       type: 2}
     skillTags: []
     coolDown:
       rid: 165002797435060416
     currentEditClip_:
-      triggerAtTime: 0.25
-      name: "\u65B0\u5EFA\u7247\u6BB51"
+      triggerAtTime: 0
+      name: 6666
       st: "\u6280\u80FD/\u6280\u80FD1"
       crossFade:
         float: 0.2
@@ -184,7 +173,9 @@ MonoBehaviour:
         rid: 165002799258272290
       Applier:
         handles:
-        - rid: 165002816914718789
+        - rid: 165002869122793501
+        - rid: 165002870271770630
+        - rid: 165002870271770631
   references:
     version: 2
     RefIds:
@@ -201,15 +192,6 @@ MonoBehaviour:
           rid: 165002799258272302
         end_:
           rid: 165002799258272303
-    - rid: 165002799258272297
-      type: {class: SomeEntitySelectorFromSelf, ns: ES, asm: Assembly-CSharp}
-      data:
-        intHepler: 0
-        pointers: []
-        head_:
-          rid: 165002816914718780
-        end_:
-          rid: 165002799258272305
     - rid: 165002799258272302
       type: {class: ReleasablePointer_EntitySelf, ns: ES, asm: Assembly-CSharp}
       data: 
@@ -219,21 +201,26 @@ MonoBehaviour:
         tags:
           tagNames: []
         r: 100
-    - rid: 165002799258272305
-      type: {class: ReleasablePointer_SelectTagsAndDistance, ns: ES, asm: Assembly-CSharp}
+    - rid: 165002869122793501
+      type: {class: EntityHandle_AnimatorTrigger, ns: ES, asm: Assembly-CSharp}
       data:
-        tags:
-          tagNames: []
-        r: 100
-    - rid: 165002816914718780
-      type: {class: ReleasablePointer_EntitySelf, ns: ES, asm: Assembly-CSharp}
-      data: 
-    - rid: 165002816914718788
-      type: {class: EntityHandle_AddBuff, ns: ES, asm: Assembly-CSharp}
-      data: 
-    - rid: 165002816914718789
-      type: {class: EntityHandle_Damage, ns: ES, asm: Assembly-CSharp}
-      data: 
+        name: Test
+        SetOrReset: 0
+    - rid: 165002870271770630
+      type: {class: EntityHandle_AnimatorTrigger, ns: ES, asm: Assembly-CSharp}
+      data:
+        name: Test
+        SetOrReset: 0
+    - rid: 165002870271770631
+      type: {class: EntityHandle_Dodge, ns: ES, asm: Assembly-CSharp}
+      data:
+        ApplyCrash:
+          duration: 0.25
+          vector: {x: 0, y: 0, z: 0.8}
+          CoolDownNext: 0.25
+          vectorHandle: 2
+          pathType: 0
+          baseOn: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,7 +486,7 @@ MonoBehaviour:
   start: "\u5F00\u59CB\u521B\u5EFA\u6280\u80FD\u5E8F\u5217\uFF01\uFF01"
   sequence:
     skillDuration: 1
-    CurrentIndex: 0
+    CurrentIndex: 1
     AllClips:
     - triggerAtTime: 0.25
       name: "\u65B0\u6280\u80FD\u7247\u6BB5"
@@ -512,20 +499,10 @@ MonoBehaviour:
       Selector:
         rid: 165002797435060470
       Applier:
-        handles: []
-    skillActiveCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    bindingStateInfo: {fileID: 0}
-    skillTags: []
-    coolDown:
-      rid: 165002797435060431
-    currentEditClip_:
-      triggerAtTime: 0.25
-      name: "\u65B0\u6280\u80FD\u7247\u6BB5"
+        handles:
+        - rid: 165002827909562441
+    - triggerAtTime: 0.25
+      name: "\u65B0\u5EFA\u7247\u6BB52"
       st: "\u6280\u80FD/\u6280\u80FD1"
       crossFade:
         float: 0.2
@@ -533,9 +510,35 @@ MonoBehaviour:
       optionForOverrideLast: 0
       optionForNext: 0
       Selector:
-        rid: 165002797435060471
+        rid: 165002827909562437
       Applier:
-        handles: []
+        handles:
+        - rid: 165002827909562440
+    skillActiveCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    bindingStateInfo: {fileID: 1821059992941752284, guid: ff48ba9755a48b943a736ebba90d3f69,
+      type: 2}
+    skillTags: []
+    coolDown:
+      rid: 165002797435060431
+    currentEditClip_:
+      triggerAtTime: 0.25
+      name: "\u65B0\u5EFA\u7247\u6BB52"
+      st: "\u6280\u80FD/\u6280\u80FD1"
+      crossFade:
+        float: 0.2
+      FloatParamName: float
+      optionForOverrideLast: 0
+      optionForNext: 0
+      Selector:
+        rid: 165002827909562437
+      Applier:
+        handles:
+        - rid: 165002827909562440
   references:
     version: 2
     RefIds:
@@ -552,15 +555,6 @@ MonoBehaviour:
           rid: 165002799258272322
         end_:
           rid: 165002799258272323
-    - rid: 165002797435060471
-      type: {class: SomeEntitySelectorFromSelf, ns: ES, asm: Assembly-CSharp}
-      data:
-        intHepler: 0
-        pointers: []
-        head_:
-          rid: 165002799258272324
-        end_:
-          rid: 165002799258272325
     - rid: 165002799258272322
       type: {class: ReleasablePointer_EntitySelf, ns: ES, asm: Assembly-CSharp}
       data: 
@@ -570,15 +564,40 @@ MonoBehaviour:
         tags:
           tagNames: []
         r: 100
-    - rid: 165002799258272324
+    - rid: 165002827909562437
+      type: {class: SomeEntitySelectorFromSelf, ns: ES, asm: Assembly-CSharp}
+      data:
+        intHepler: 0
+        pointers: []
+        head_:
+          rid: 165002827909562438
+        end_:
+          rid: 165002827909562439
+    - rid: 165002827909562438
       type: {class: ReleasablePointer_EntitySelf, ns: ES, asm: Assembly-CSharp}
       data: 
-    - rid: 165002799258272325
+    - rid: 165002827909562439
       type: {class: ReleasablePointer_SelectTagsAndDistance, ns: ES, asm: Assembly-CSharp}
       data:
         tags:
           tagNames: []
         r: 100
+    - rid: 165002827909562440
+      type: {class: EntityHandle_RemoveBuff, ns: ES, asm: Assembly-CSharp}
+      data:
+        useInfo: {fileID: 0}
+        key:
+          buffKey: "\u653B\u901F\u5F3A\u5316"
+    - rid: 165002827909562441
+      type: {class: EntityHandle_AddBuff, ns: ES, asm: Assembly-CSharp}
+      data:
+        useInfo: {fileID: 0}
+        key:
+          buffKey: "\u66B4\u51FB\u5F3A\u5316"
+        IsSelfDefineStartBuffStatus: 1
+        BuffStatusTest:
+          duration: 10
+          level: 0
 --- !u!114 &5896973035839970418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,7 +750,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    bindingStateInfo: {fileID: 0}
+    bindingStateInfo: {fileID: 5437187661124267082, guid: ff48ba9755a48b943a736ebba90d3f69,
+      type: 2}
     skillTags: []
     coolDown:
       rid: 165002797435060434

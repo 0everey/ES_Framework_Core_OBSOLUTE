@@ -983,10 +983,11 @@ namespace ES {
 
         public override bool TryActiveState(IESNanoState use)
         {
+            if (use.HasPrepared) return true;
             if (!this.HasPrepared && host is BaseOriginalStateMachine originalStateMachine)
             {
                 this.WithEnterState(use);
-                originalStateMachine.TryActiveState(this);
+                return originalStateMachine.TryActiveState(this);
             }
             if (allStates.Values.Contains(use))
             {
@@ -1189,6 +1190,7 @@ namespace ES {
                         else //有的不是标准状态
                         {
                             base.TryActiveState(ESMicro);
+                            Debug.Log("不具有");
                         }
                     }
                 }

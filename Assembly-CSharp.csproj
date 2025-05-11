@@ -206,6 +206,7 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithInt_EValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\ExpandEntityClass\EntityStateMachine.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerWithTimer.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\ESIOC\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Tool\OnlyShow\ESReadMeESMono.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithSystemObject_EValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutRendererAndColorAndMaterial.cs" />

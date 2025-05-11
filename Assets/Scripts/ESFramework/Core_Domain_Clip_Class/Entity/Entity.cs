@@ -16,7 +16,7 @@ namespace ES
         [FoldoutGroup("固有"), LabelText("ES超级标签")]
         public ESTagCollection ESTagsC = new ESTagCollection();
 
-
+        
         [FoldoutGroup("扩展域")][LabelText("基本域")]public BaseDomainForEntity BaseDomain;
         [FoldoutGroup("扩展域")][LabelText("标准状态机域")] public StateMachineDomainForEntity StateMachineDomain;
         [FoldoutGroup("扩展域")][LabelText("AI域")] public AIDomainForEntity AIDomain;
@@ -34,6 +34,9 @@ namespace ES
         protected override void BeforeAwakeBroadCastRegester()
         {
             base.BeforeAwakeBroadCastRegester();
+            Anim = GetComponent<Animator>();
+            Rigid = GetComponent<Rigidbody>();
+
         }
     }
 }

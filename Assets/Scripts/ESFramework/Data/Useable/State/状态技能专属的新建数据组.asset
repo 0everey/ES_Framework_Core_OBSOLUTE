@@ -115,6 +115,8 @@ MonoBehaviour:
       type: {class: ESStandardStateSharedData, ns: ES, asm: Assembly-CSharp}
       data:
         MergePart_:
+          BeCombinedWithoutCondition: []
+          CombinedWithoutCondition: []
           BeHitWithoutCondition: []
           HitWithoutCondition: []
           CanBeHit: 1
@@ -137,7 +139,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e9b7ba47d76df64fb4928c9936d91b2, type: 3}
-  m_Name: "\u6570\u636E\u5355\u5143\u6807\u51C6\u6280\u80FD_\u6253\u65AD\u79FB\u52A8"
+  m_Name: "\u6807\u51C6\u6280\u80FD\uFF0C\u6253\u65AD\u79FB\u52A8\uFF0C\u878D\u5165\u95EA\u8EAB"
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -174,6 +176,9 @@ MonoBehaviour:
       type: {class: ESStandardStateSharedData, ns: ES, asm: Assembly-CSharp}
       data:
         MergePart_:
+          BeCombinedWithoutCondition:
+          - "\u95EA\u8EAB"
+          CombinedWithoutCondition: []
           BeHitWithoutCondition: []
           HitWithoutCondition: []
           CanBeHit: 1

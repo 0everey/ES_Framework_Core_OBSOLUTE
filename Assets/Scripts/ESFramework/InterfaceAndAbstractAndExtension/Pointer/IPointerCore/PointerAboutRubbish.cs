@@ -160,7 +160,7 @@ namespace ES.EvPointer
             Entity player = GameCenterManager.Instance.BaseDomain.Module_PlayerState.PlayerSelf;
             if (player != null)
             {
-                player.BuffDomain?.buffHosting.AddHandle(KeyValueMatchingUtility.Creator.CreateBuffRunTime(buffKey, startStatus?.Pick()));
+                player.BuffDomain?.buffHosting.AddHandle(KeyValueMatchingUtility.Creator.CreateBuffRunTimeByKey(buffKey, startStatus?.Pick()));
             }
             return base.Pick(by, yarn, on);
         }*/
@@ -433,6 +433,7 @@ namespace ES.EvPointer
         {
             if (buffKey != null) return buffKey;
             return base.Key();
+            
         }
     }
     [Serializable]

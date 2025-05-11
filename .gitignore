@@ -93,3 +93,7 @@ Library/SourceAssetDB
 /Logs
 /UserSettings
 /obj/Debug
+Library/ArtifactDB
+Library/SourceAssetDB
+ProjectSettings/ProjectSettings.asset
+UserSettings/Layouts/default-2022.dwlt

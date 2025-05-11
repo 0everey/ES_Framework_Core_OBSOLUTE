@@ -1,9 +1,12 @@
+using DG.Tweening;
 using ES;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static ES.ClipStateMachine_CrashDodge;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace ES
 {
@@ -70,12 +73,12 @@ namespace ES
         #region 技能数据
         [NonSerialized]
         public ReleasableSkillsSequence Sequence;
-        [FoldoutGroup("技能专属")][LabelText("技能总时间")] public float skillAllTime = 0;
         [FoldoutGroup("技能专属")][LabelText("技能片段序列")] public Queue<ReleaseableSkillClip> SkillClips;
         [FoldoutGroup("技能专属")][LabelText("上一个片段获得的实体列表")] public List<Entity> LastClipSelectorEntites = new List<Entity>();
         [FoldoutGroup("技能专属")][LabelText("自己的缓冲实体")] public List<Entity> SelfCacheSkills = new List<Entity>();
         [FoldoutGroup("技能专属")][LabelText("自己的缓冲坐标")] public List<Vector3> SelfCacheVector3 = new List<Vector3>();
         [FoldoutGroup("技能专属")][LabelText("自己的缓冲模块")] public List<ESModule_WithDelegate> SelfModule = new List<ESModule_WithDelegate>();
+        [FoldoutGroup("技能专属")][LabelText("退出委托")] public Action<float> OnExit=(f)=> { };//float--已经开始的时间
         #endregion
 
         public void Setup(ReleasableSkillsSequence releasable)
@@ -90,7 +93,8 @@ namespace ES
             variableData.hasEnterTime = 0;
             if (Sequence == null) return;
             //开始准备
-            
+            Debug.Log("进入");
+            OnExit = (f) => { };
             PrivateMethod_PrepareSkillClips();
 
         }
@@ -102,11 +106,13 @@ namespace ES
             if (SkillClips != null)
             {
                 if (SkillClips.Count != 0) {
+                    
                     var next = SkillClips.Peek();
+                  
                     if (next == null) SkillClips.Dequeue();
                     if (variableData.hasEnterTime > next.triggerAtTime)
                     {
-                        SkillClips.Dequeue();//出列！
+                        next=SkillClips.Dequeue();//出列！
                         PrivateMethod_TriggerSkillClip(next);
                     }
                 }
@@ -128,6 +134,7 @@ namespace ES
         private void PrivateMethod_PrepareSkillClips()
         {
             //
+            Debug.Log("Heelpw"+Sequence.AllClips.Count);
             SkillClips = new Queue<ReleaseableSkillClip>();
             foreach (var i in Sequence.AllClips)
             {
@@ -187,6 +194,7 @@ namespace ES
                 if (e == null) continue;
                 foreach(var handle in clip.Applier.handles)
                 {
+                    Debug.Log(clip.name+clip.Applier.handles.Count+ handle);
                     handle.Pick(e,Entity,this);
                 }
                 
@@ -228,6 +236,218 @@ namespace ES
             }
         }
         #endregion
+    }
+
+    [Serializable,TypeRegistryItem("实体移动状态")]
+    public class EntityState_Move : EntityState
+    {
+        private ClipBase_3DMotion motion;
+        private float HasIn =0;
+        protected override void RunStatePreparedLogic()
+        {
+            base.RunStatePreparedLogic();
+            motion = Entity.BaseDomain.Module_3DMotion;
+            HasIn = 0;
+        }
+        protected override void RunStateUpdateLogic()
+        {
+            base.RunStateUpdateLogic();
+            HasIn += Time.deltaTime;
+            if (HasIn > 0.1f)
+            {
+                if (Mathf.Abs(motion.CurrentSpeedMutiplerZ) < 0.05 && Mathf.Abs(motion.CurrentSpeedMutiplerX) < 0.05)
+                {
+                    OnStateExit();
+                }
+            }
+        }
+        protected override void RunStateExitLogic()
+        {
+            base.RunStateExitLogic();
+            motion.TargetSpeedMutiplerX = motion.TargetSpeedMutiplerZ = 0;
+        }
+    }
+
+    [Serializable, TypeRegistryItem("实体闪身状态")]
+    public class EntityState_CrashDodge : EntityState
+    {
+        private ClipBase_3DMotion motion;
+        [NonSerialized]public ClipStateMachine_CrashDodge crashDodge;
+        [NonSerialized]public Applyable_CrashDodge data;
+        private float HasIn = 0;
+        private Vector3 startPos;
+        private Quaternion startDirec;
+        private Vector3 applyVector;
+        private Tween withTween=null;
+        
+        public void Setup(ClipStateMachine_CrashDodge _CrashDodge)
+        {
+            crashDodge = _CrashDodge;
+        }
+        public void SetData(ref Applyable_CrashDodge data_)
+        {
+            data = data_;
+        }
+        protected override void RunStatePreparedLogic()
+        {
+            base.RunStatePreparedLogic();
+            motion = Entity.BaseDomain.Module_3DMotion;
+            HasIn = 0;
+            startPos = Entity.transform.position;
+            startDirec = Entity.transform.rotation;
+            applyVector = Entity.transform.TransformDirection(data.vector);
+            data.duration = Mathf.Max(0.1f, data.duration);
+            if(data.baseOn== EnumCollect.ToDestionationBaseOn.DotweenDoMove)
+            {
+                if(data.pathType== EnumCollect.ToDestinationPath.Direct)
+                {
+                    if(data.vectorHandle== EnumCollect.ToDestinationVectorSpace.Target)
+                    {
+                        Debug.Log("aa"+data.vector+data.duration);
+                        withTween = Entity.Rigid.DOMove(data.vector, data.duration);
+                    }else if(data.vectorHandle== EnumCollect.ToDestinationVectorSpace.WorldSpace)
+                    {
+                        withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
+                    }else if(data.vectorHandle== EnumCollect.ToDestinationVectorSpace.SelfSpace)
+                    {
+                        withTween = Entity.Rigid.DOMove(applyVector, data.duration).SetRelative();
+                    }
+                }
+                else if (data.pathType == EnumCollect.ToDestinationPath.JumpAndDown)
+                {
+                    if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.Target)
+                    {
+                        withTween = Entity.Rigid.DOMove(data.vector, data.duration);
+                    }
+                    else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.WorldSpace)
+                    {
+                        withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
+                    }
+                    else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.SelfSpace)
+                    {
+                        withTween = Entity.Rigid.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
+                    }
+                }
+                else if (data.pathType == EnumCollect.ToDestinationPath.Rad)
+                {
+                    if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.Target)
+                    {
+                        withTween = Entity.Rigid.DOMove(data.vector, data.duration);
+                    }
+                    else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.WorldSpace)
+                    {
+                        withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
+                    }
+                    else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.SelfSpace)
+                    {
+                        withTween = Entity.Rigid.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
+                    }
+                }
+                else if (data.pathType == EnumCollect.ToDestinationPath.AIPath)
+                {
+                    if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.Target)
+                    {
+                        withTween = Entity.Rigid.DOMove(data.vector, data.duration);
+                    }
+                    else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.WorldSpace)
+                    {
+                        withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
+                    }
+                    else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.SelfSpace)
+                    {
+                        withTween = Entity.Rigid.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
+                    }
+                }
+            }
+        }
+        protected override void RunStateUpdateLogic()
+        {
+            base.RunStateUpdateLogic();
+            //超时
+            HasIn += Time.deltaTime;
+            if (HasIn > data.duration||HasIn>1)
+            {
+                OnStateExit();
+            }
+            if (data.baseOn == EnumCollect.ToDestionationBaseOn.ESCurveModule)
+            {
+                if (data.pathType == EnumCollect.ToDestinationPath.Direct)
+                {
+                    if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.Target)
+                    {
+                        Entity.Rigid.position = Vector3.MoveTowards(Entity.Rigid.position, data.vector, crashDodge.MaxSpeed);
+                        if (Vector3.Distance(Entity.Rigid.position, data.vector) < crashDodge.EndDisSuit)
+                        {
+                            OnStateExit();
+                        }
+                    }
+                    else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.WorldSpace)
+                    {
+                        Entity.Rigid.position += data.vector * Time.deltaTime / data.duration;
+                    }
+                    else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.SelfSpace)
+                    {
+                        Entity.Rigid.position += (applyVector) * Time.deltaTime / data.duration;
+                    }
+                }
+                else if (data.pathType == EnumCollect.ToDestinationPath.JumpAndDown)
+                {
+                    if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.Target)
+                    {
+                        withTween = Entity.Rigid.DOMove(data.vector, data.duration);
+                    }
+                    else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.WorldSpace)
+                    {
+                        withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
+                    }
+                    else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.SelfSpace)
+                    {
+                        withTween = Entity.Rigid.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
+                    }
+                }
+                else if (data.pathType == EnumCollect.ToDestinationPath.Rad)
+                {
+                    if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.Target)
+                    {
+                        withTween = Entity.Rigid.DOMove(data.vector, data.duration);
+                    }
+                    else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.WorldSpace)
+                    {
+                        withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
+                    }
+                    else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.SelfSpace)
+                    {
+                        withTween = Entity.Rigid.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
+                    }
+                }
+                else if (data.pathType == EnumCollect.ToDestinationPath.AIPath)
+                {
+                    if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.Target)
+                    {
+                        withTween = Entity.Rigid.DOMove(data.vector, data.duration);
+                    }
+                    else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.WorldSpace)
+                    {
+                        withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
+                    }
+                    else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.SelfSpace)
+                    {
+                        withTween = Entity.Rigid.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
+                    }
+                }
+            }
+
+        }
+
+        protected override void RunStateExitLogic()
+        {
+            base.RunStateExitLogic();
+            if (withTween != null)
+            {
+                withTween.Kill();
+            }
+            crashDodge.CoolDownNext = Mathf.Min(data.CoolDownNext, crashDodge.CoolDownNext);
+        }
     }
 }
 

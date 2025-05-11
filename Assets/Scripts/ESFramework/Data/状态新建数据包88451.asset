@@ -22,12 +22,7 @@ MonoBehaviour:
     - {fileID: 6714777976555889925, guid: cc7f2d8534d6ba2418cc09f5b7774072, type: 2}
     - {fileID: -3885064651176735477, guid: cc7f2d8534d6ba2418cc09f5b7774072, type: 2}
     - {fileID: 3335984220515197374, guid: cc7f2d8534d6ba2418cc09f5b7774072, type: 2}
-    - {fileID: -5103703678651064282, guid: cc7f2d8534d6ba2418cc09f5b7774072, type: 2}
-    - {fileID: -900648101668620865, guid: cc7f2d8534d6ba2418cc09f5b7774072, type: 2}
-    - {fileID: 6950600497964286122, guid: cc7f2d8534d6ba2418cc09f5b7774072, type: 2}
-    - {fileID: 3471548880895970470, guid: cc7f2d8534d6ba2418cc09f5b7774072, type: 2}
-    - {fileID: 2718719188293294302, guid: cc7f2d8534d6ba2418cc09f5b7774072, type: 2}
-    - {fileID: -1736118877953595914, guid: cc7f2d8534d6ba2418cc09f5b7774072, type: 2}
+    - {fileID: -5604901002137721134, guid: cc7f2d8534d6ba2418cc09f5b7774072, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -35,7 +30,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: applyingGroups
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[HellishBattle.ISoDataGroup, Assembly-CSharp]],
+      Data: 0|System.Collections.Generic.List`1[[ES.ISoDataGroup, Assembly-CSharp]],
         mscorlib
     - Name: 
       Entry: 12
@@ -51,7 +46,7 @@ MonoBehaviour:
       Data: 
     - Name: allInfo
       Entry: 7
-      Data: 1|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[HellishBattle.StateDataInfo,
+      Data: 1|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[ES.StateDataInfo,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
@@ -62,7 +57,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 11
+      Data: 6
     - Name: 
       Entry: 7
       Data: 
@@ -128,70 +123,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: "\u5DE6\u624B\u7089\u7BA1"
+      Data: "\u79FB\u52A8"
     - Name: $v
       Entry: 10
       Data: 6
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: "\u53F3\u624B\u7089\u7BA1"
-    - Name: $v
-      Entry: 10
-      Data: 7
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: "\u6447\u82B1\u624B"
-    - Name: $v
-      Entry: 10
-      Data: 8
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: "\u601D\u8003\u4EBA\u751F"
-    - Name: $v
-      Entry: 10
-      Data: 9
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: "\u5DE6\u811A\u6B8B\u75BE"
-    - Name: $v
-      Entry: 10
-      Data: 10
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: "\u6E10\u51BB\u75C7"
-    - Name: $v
-      Entry: 10
-      Data: 11
     - Name: 
       Entry: 8
       Data: 

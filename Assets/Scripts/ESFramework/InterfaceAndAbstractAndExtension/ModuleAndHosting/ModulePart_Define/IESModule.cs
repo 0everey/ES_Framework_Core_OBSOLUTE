@@ -145,6 +145,268 @@ namespace ES
         protected virtual bool _OnWithDrawAsNormal(IESOringinHosting hosting) { return false; }
         #endregion
     }
+    [Serializable,TypeRegistryItem("结构体委托模块")]
+    public struct ESModuleStruct : IESModule
+    {
+        #region 委托
+       private Action<ESModuleStruct> Action_Enable;
+       private Action<ESModuleStruct> Action_Disable;
+       private Action<ESModuleStruct> Action_OnUpdate;
+        #endregion
+
+        #region 重写逻辑
+        //启用时逻辑
+        public  bool CanUpdating => true;
+        #endregion
+
+        #region 关于开关逻辑与运行状态
+        public bool IsActiveAndEnable { get; set; }
+        public bool enabledSelf { get=>true; set { } }//永true式
+
+        public void TryEnableSelf()
+        {
+        }
+        public void TryDisableSelf()
+        {
+        }
+        public void _TryActiveAndEnable()
+        {
+            if (IsActiveAndEnable) return;//不要你
+           /* OnEnable();*/
+            IsActiveAndEnable = true; Action_Enable?.Invoke(this);
+        }
+        public void _TryInActiveAndDisable()
+        {
+            if (IsActiveAndEnable)
+            {
+                IsActiveAndEnable = false; Action_Disable?.Invoke(this);
+            }
+        }
+        public void TryUpdate()
+        {
+            if (IsActiveAndEnable)
+            {
+                Action_OnUpdate?.Invoke(this);
+            }
+        }
+        #endregion
+
+        #region 关于提交SubMit
+
+        public bool HasSubmit { get; set; }
+        public bool TrySubmitHosting(IESOringinHosting hosting, bool asVirtual)
+        {
+            if (HasSubmit) return true;
+            if (asVirtual && hosting is IESHosting hosting1)
+            {
+                hosting1.VirtualBeHosted.TryAdd(this);
+                return HasSubmit = true;
+            }
+            return true;
+        }
+        public bool TryWithDrawHosting(IESOringinHosting hosting, bool asVirtual)
+        {
+            if (!HasSubmit) return false;
+            if (asVirtual)
+            {
+                return HasSubmit = false;
+            }
+            return false;
+        }
+        public void TryWithDrawHostingVirtual()
+        {
+            TryWithDrawHosting(null, true);
+        }
+
+        #endregion
+        [Tooltip("规定启用时的事件")]
+        public ESModuleStruct WithEnable(Action<ESModuleStruct> func)
+        {
+            Action_Enable = func;
+            return this;
+        }
+        [Tooltip("规定禁用时的事件")]
+        public ESModuleStruct WithDisable(Action<ESModuleStruct> func)
+        {
+            Action_Disable = func;
+            return this;
+        }
+        [Tooltip("规定帧运行时的事件")]
+        public ESModuleStruct WithUpdate(Action<ESModuleStruct> func)
+        {
+            Action_OnUpdate = func;
+            return this;
+        }
+    }
+    [Serializable,TypeRegistryItem("模块_无自周期")]
+    public class ESModule_NoSelf : IESModule
+    {
+        
+
+        #region 重写逻辑
+        //启用时逻辑
+        public bool CanUpdating => true;
+        #endregion
+
+        #region 关于开关逻辑与运行状态
+        public bool IsActiveAndEnable { get; set; }
+        public bool enabledSelf { get => true; set { } }//永true式
+        protected virtual void OnEnable() { IsActiveAndEnable = true; }
+        //禁用时逻辑
+        protected virtual void OnDisable() { IsActiveAndEnable = false; }
+        //更新时逻辑
+        protected virtual void Update() { }
+        public void TryEnableSelf()
+        {
+
+        }
+        public void TryDisableSelf()
+        {
+        }
+        public void _TryActiveAndEnable()
+        {
+            if (IsActiveAndEnable) return;//不要你
+            /* OnEnable();*/
+            OnEnable();
+        }
+        public void _TryInActiveAndDisable()
+        {
+            if (IsActiveAndEnable)
+            {
+                OnDisable();
+            }
+        }
+        public void TryUpdate()
+        {
+            if (IsActiveAndEnable)
+            {
+                Update();
+            }
+        }
+        #endregion
+
+        #region 关于提交SubMit
+
+        public bool HasSubmit { get; set; }
+        public bool TrySubmitHosting(IESOringinHosting hosting, bool asVirtual)
+        {
+            if (HasSubmit) return true;
+            if (asVirtual && hosting is IESHosting hosting1)
+            {
+                hosting1.VirtualBeHosted.TryAdd(this);
+                return HasSubmit = true;
+            }
+            return true;
+        }
+        public bool TryWithDrawHosting(IESOringinHosting hosting, bool asVirtual)
+        {
+            if (!HasSubmit) return false;
+            if (asVirtual)
+            {
+                return HasSubmit = false;
+            }
+            return false;
+        }
+        public void TryWithDrawHostingVirtual()
+        {
+            TryWithDrawHosting(null, true);
+        }
+
+        #endregion
+    }
+    [Serializable, TypeRegistryItem("模块_快速委托")]
+    public class ESModule_Quick : IESModule
+    {
+        #region 委托
+        private Action<ESModule_Quick> Action_Enable;
+        private Action<ESModule_Quick> Action_Disable;
+        private Action<ESModule_Quick> Action_OnUpdate;
+        #endregion
+
+        #region 重写逻辑
+        //启用时逻辑
+        public bool CanUpdating => true;
+        #endregion
+
+        #region 关于开关逻辑与运行状态
+        public bool IsActiveAndEnable { get; set; }
+        public bool enabledSelf { get => true; set { } }//永true式
+
+        public void TryEnableSelf()
+        {
+        }
+        public void TryDisableSelf()
+        {
+        }
+        public void _TryActiveAndEnable()
+        {
+            if (IsActiveAndEnable) return;//不要你
+            /* OnEnable();*/
+            IsActiveAndEnable = true; Action_Enable?.Invoke(this);
+        }
+        public void _TryInActiveAndDisable()
+        {
+            if (IsActiveAndEnable)
+            {
+                IsActiveAndEnable = false; Action_Disable?.Invoke(this);
+            }
+        }
+        public void TryUpdate()
+        {
+            if (IsActiveAndEnable)
+            {
+                Action_OnUpdate?.Invoke(this);
+            }
+        }
+        #endregion
+
+        #region 关于提交SubMit
+
+        public bool HasSubmit { get; set; }
+        public bool TrySubmitHosting(IESOringinHosting hosting, bool asVirtual)
+        {
+            if (HasSubmit) return true;
+            if (asVirtual && hosting is IESHosting hosting1)
+            {
+                hosting1.VirtualBeHosted.TryAdd(this);
+                return HasSubmit = true;
+            }
+            return true;
+        }
+        public bool TryWithDrawHosting(IESOringinHosting hosting, bool asVirtual)
+        {
+            if (!HasSubmit) return false;
+            if (asVirtual)
+            {
+                return HasSubmit = false;
+            }
+            return false;
+        }
+        public void TryWithDrawHostingVirtual()
+        {
+            TryWithDrawHosting(null, true);
+        }
+
+        #endregion
+        [Tooltip("规定启用时的事件")]
+        public ESModule_Quick WithEnable(Action<ESModule_Quick> func)
+        {
+            Action_Enable = func;
+            return this;
+        }
+        [Tooltip("规定禁用时的事件")]
+        public ESModule_Quick WithDisable(Action<ESModule_Quick> func)
+        {
+            Action_Disable = func;
+            return this;
+        }
+        [Tooltip("规定帧运行时的事件")]
+        public ESModule_Quick WithUpdate(Action<ESModule_Quick> func)
+        {
+            Action_OnUpdate = func;
+            return this;
+        }
+    }
     public abstract class BaseESModule<Host> : BaseESModule, IESModule<Host> where Host : class, IESOringinHosting
     {
         #region 与自己的Host关联

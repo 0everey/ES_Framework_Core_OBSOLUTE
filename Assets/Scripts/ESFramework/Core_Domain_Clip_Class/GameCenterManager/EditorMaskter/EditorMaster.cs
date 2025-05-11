@@ -5,18 +5,19 @@ using UnityEngine;
 
 
 namespace ES {
-    [ExecuteInEditMode]
-    public class EditorMaster : MonoBehaviour
+ 
+    public class EditorMaster : SingletonAsMono<EditorMaster>
     {
         #region 加载到
         public static List<string> ESTags = new List<string>();
-
+        public static List<string> BuffKeys = new List<string>();
 
         #endregion
 
         #region 配置源
         [LabelText("配置的ESTags包")]public ESLayerStringSO ESTagsSO_;
 
+        [LabelText("配置的Buff键")] public BuffDataPack BuffDataPack;
 
         #endregion
         void Start()
@@ -44,6 +45,9 @@ namespace ES {
                     }
                 }
             }
+        }
+        private void LoadTypesInfoKeys(){
+
         }
         void Update()
         {

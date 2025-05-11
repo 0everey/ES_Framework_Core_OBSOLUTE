@@ -628,7 +628,7 @@ namespace ES
         [VerticalGroup("总组/数据包"),PropertyOrder(-1)]
         public string addText =>EvWindowDataAndTool.RenamePackWantWantGroup(EvWindowDataAndTool.TargetEnum(pack.getSoType()));
            
-        [VerticalGroup("总组/数据包"),SerializeReference, LabelText("拖入用于缓冲的数据组")]
+        [VerticalGroup("总组/数据包"),AssetSelector,SerializeReference, LabelText("拖入用于缓冲的数据组")]
         public List<ISoDataGroup> soInfos = new List<ISoDataGroup>();
         [DisplayAsString(fontSize: 30), HideLabel, GUIColor("@KeyValueMatchingUtility.ColorSelector.Color_01")]
         [VerticalGroup("总组/数据包")]
@@ -669,12 +669,16 @@ namespace ES
         [Button("缓冲入数据组", ButtonHeight = 20), GUIColor("@KeyValueMatchingUtility.ColorSelector.Color_04")]
         public void PushInDataGroup()
         {
+            
             if (soInfos != null)
             {
+                
                 Undo.RecordObject(this.pack as ScriptableObject, "this");
                 foreach (var i in soInfos)
                 {
-                    if (i == null || ((i as ScriptableObject)?? false)) return;
+                    if (i == null ) return;
+                    if (i is not ScriptableObject) return;
+                    
                     if (pack.getSoType() == i.getSoType())
                     {
                         pack.AddGroup(i);
@@ -685,7 +689,7 @@ namespace ES
                     }
 
                 }
-                
+                Undo.RecordObject(this.pack as ScriptableObject, "this");
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
                 

@@ -74,7 +74,7 @@ namespace ES
         [FoldoutGroup("约束与限制")][LabelText("位移Y方向")] public Vector3 YUpwards =Vector3.up;
         [FoldoutGroup("约束与限制")][LabelText("最大旋转速度")] public float MaxRotSpeed_ = 360;
         #endregion
-
+     
         #region 绑定
         protected override void CreateRelationship()
         {
@@ -192,9 +192,22 @@ namespace ES
         }
         private void PrivateMethod_Control3DMotion()
         {
-            Refer_3DMotion.TargetSpeedMutiplerZ = Cache_MoveRead.y;
-            Refer_3DMotion.TargetSpeedMutiplerX = Cache_MoveRead.x;
-            Refer_3DMotion.TargetRotationY =Cache_RotRead.x*RotMutipler;
+            if (Cache_MoveRead.magnitude > 0.01f&& Core.StateMachineDomain.StateMachine.TryActiveStateByKey("移动"))
+            {
+                //进入移动
+                Refer_3DMotion.TargetSpeedMutiplerZ = Cache_MoveRead.y;
+                Refer_3DMotion.TargetSpeedMutiplerX = Cache_MoveRead.x;
+            }
+            else
+            {
+                Refer_3DMotion.TargetSpeedMutiplerZ = 0;
+                Refer_3DMotion.TargetSpeedMutiplerX = 0;
+            }
+           
+            //需要输入才行
+           
+            Refer_3DMotion.TargetRotationY = Cache_RotRead.x * RotMutipler;
+           
         }
         private void PrivateMethod_ControlCamera()
         {

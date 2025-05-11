@@ -97,6 +97,11 @@ public class SafeUpdateSet_EasyQueue_SeriNot_Dirty<T>
         valuesToAdd.Enqueue(add);
         isDirty = true;
     }
+    public void TryAdd(ref T add)
+    {
+        valuesToAdd.Enqueue(add);
+        isDirty = true;
+    }
     public void TryRemove(T add)
     {
         valuesToRemove.Enqueue(add);
@@ -275,7 +280,7 @@ public class TypeSafeListIOC<Element> : SafeListIOC<Type, Element>
     }
 }
 [Serializable/*类型列表IOC*/]
-public class TypeListIOC<Element> : BaseListIOC<Type, Element>
+public class TypeListIOC<Element> : BaseListIOC_Arch_KeyAndList<Type, Element>
 {
     public override string IOCName => "类型键IOC表";
     public virtual Element Find<T>()
@@ -370,7 +375,7 @@ public abstract class SafeListIOC<Key, Element> :BaseESModule<IArchitecture>
     }
 }
 [Serializable/*基本列表IOC*/]
-public abstract class BaseListIOC<Key, Element> : ES.BaseESModule<IArchitecture>
+public abstract class BaseListIOC_Arch_KeyAndList<Key, Element> : ES.BaseESModule<IArchitecture>
 {
     [SerializeReference]
     [LabelText(@"@  IOCName ", icon: SdfIconType.ListColumnsReverse), GUIColor("IOCColor")]
@@ -458,7 +463,7 @@ public abstract class BaseListIOC<Key, Element> : ES.BaseESModule<IArchitecture>
 
 
 [Serializable/*基本字典IOC*/]
-public abstract class BaseDicIOC<TypeSelect_,Key, Element> : ES.BaseESModule<IArchitecture>, ES.IESModule<IArchitecture>
+public abstract class BaseDicIOC_TypeSelectAndKeyValue<TypeSelect_,Key, Element> : ES.BaseESModule<IArchitecture>, ES.IESModule<IArchitecture>
 {
     [SerializeReference]
     [LabelText(@"@  IOCName ", icon: SdfIconType.ListColumnsReverse), GUIColor("IOCColor")]
@@ -546,14 +551,14 @@ public abstract class BaseDicIOC<TypeSelect_,Key, Element> : ES.BaseESModule<IAr
   
 }
 [Serializable/*基本String键字典IOC*/]
-public abstract class BaseDicIOCWithStringKey<TypeSelect_, Element> : BaseDicIOC<TypeSelect_,string, Element> 
+public abstract class BaseDicIOCWithStringKey<TypeSelect_, Element> : BaseDicIOC_TypeSelectAndKeyValue<TypeSelect_,string, Element> 
 {
 
 }
 
 #region 特殊IOC —— 原型参数键池专属参数集合
 [Serializable, TypeRegistryItem("原型参数IOC")/*技能树参数分类-*/]
-public class ArchitectureKeyValuePoolTypeListIOC : BaseListIOC<EnumCollect.ArchitectureKeyValuePoolType, IArchitectureKeyValuePoolTypeValue>
+public class ArchitectureKeyValuePoolTypeListIOC : BaseListIOC_Arch_KeyAndList<EnumCollect.ArchitectureKeyValuePoolType, IArchitectureKeyValuePoolTypeValue>
 {
     public Action<EnumCollect.ArchitectureKeyValuePoolType, IArchitectureKeyValuePoolTypeValue> OnHandle = (at,who) => { };
 }
@@ -835,6 +840,37 @@ public static class EnumCollect
         [InspectorName("总是按面向的变大")] AlwaysForwardZup,
         [InspectorName("总是按面向的变小")] AlwaysForwardZdown,
         [InspectorName("随机")] Random
+    }
+
+    public enum ToDestinationVectorSpace
+    {
+        [InspectorName("到目标")] Target,
+        [InspectorName("按世界空间位移")] WorldSpace,
+        [InspectorName("按自身空间位移")] SelfSpace,
+    }
+    public enum PlacePosition
+    {
+        [InspectorName("按世界偏移")]WorldSpace,
+        [InspectorName("按本体坐标偏移")]SelfSpace,
+        [InspectorName("从发起者到目标者方向偏移")]LerpSpace,
+    }
+    public enum PlaceRotation
+    {
+        [InspectorName("按世界偏移")] WorldSpace,
+        [InspectorName("按本体坐标偏移")] SelfSpace,
+        [InspectorName("从发起者到目标者方向开始偏移")] LerpSpace,
+    }
+    public enum ToDestinationPath
+    {
+        [InspectorName("直接")]Direct,
+        [InspectorName("跳起落地")]JumpAndDown,
+        [InspectorName("弧形(不支持)")]Rad,
+        [InspectorName("按寻路(不支持)")]AIPath
+    }
+    public enum ToDestionationBaseOn
+    {
+        [InspectorName("用Dotween位移")]DotweenDoMove,
+        [InspectorName("用ES曲线托管移动位移")] ESCurveModule,
     }
 }
 

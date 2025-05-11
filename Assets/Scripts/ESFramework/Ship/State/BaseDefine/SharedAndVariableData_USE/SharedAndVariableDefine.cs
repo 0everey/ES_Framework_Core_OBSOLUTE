@@ -130,6 +130,8 @@ namespace ES {
         {
             //最高级别
             [Header("最高级别")]
+            [LabelText("无条件被融入"), Tooltip("最高级别的优先级，必定可被打断")] public string[] BeCombinedWithoutCondition;
+            [LabelText("无条件融入"), Tooltip("最高级别的优先级,必定可以打断")] public string[] CombinedWithoutCondition;
             [LabelText("无条件被打断"), Tooltip("最高级别的优先级，必定可被打断")] public string[] BeHitWithoutCondition;
             [LabelText("无条件打断"), Tooltip("最高级别的优先级,必定可以打断")] public string[] HitWithoutCondition;
             //第二级别
@@ -200,6 +202,14 @@ namespace ES {
                 { return HandleMergeBack.HitAndReplace; }//左边无条件被打断
                 if ((right.HitWithoutCondition?.Contains(leftName) ?? false))
                 { return HandleMergeBack.HitAndReplace; }//右边无条件打断
+
+                if (left.BeCombinedWithoutCondition?.Contains(rightName) ?? false)
+                {
+                    return HandleMergeBack.MergeComplete;
+                }
+                if ((right.CombinedWithoutCondition?.Contains(leftName) ?? false))
+                { return HandleMergeBack.MergeComplete; }//右边无条件打断
+
 
                 var channel = left.channel & right.channel;
                 //第二层 //两者都不在意打断 

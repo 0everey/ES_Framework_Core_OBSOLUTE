@@ -212,7 +212,7 @@ namespace ES
 
             }
             //创建实时BUff逻辑
-            public static BuffRunTimeLogic CreateBuffRunTime(KeyString use, BuffStatusTest? statusTest = null)
+            public static BuffRunTimeLogic CreateBuffRunTimeByKey(KeyString use, BuffStatusTest? statusTest = null)
             {
 
                 BuffSoInfo info = KeyValueMatchingUtility.DataInfoPointer.PickBuffSoInfoByKey(use.Key());
@@ -220,14 +220,17 @@ namespace ES
                 {
                     return null;
                 }
-
-                BuffRunTimeLogic buffRunTime = Activator.CreateInstance(info.BindingLogic) as BuffRunTimeLogic;
+                return CreateBuffRunTimeByInfo(info, statusTest);
+            }
+            public static BuffRunTimeLogic CreateBuffRunTimeByInfo(BuffSoInfo buffSoInfo,BuffStatusTest? statusTest = null)
+            {
+                BuffRunTimeLogic buffRunTime = Activator.CreateInstance(buffSoInfo.BindingLogic) as BuffRunTimeLogic;
 
                 if (buffRunTime != null)
                 {
 
-                    buffRunTime.buffSoInfo = info;
-                    buffRunTime.buffStatus = statusTest ?? info.defaultStatus;
+                    buffRunTime.buffSoInfo = buffSoInfo;
+                    buffRunTime.buffStatus = statusTest ?? buffSoInfo.defaultStatus;
 
                     return buffRunTime;
                 }
@@ -977,6 +980,31 @@ namespace ES
                             IESMicroState state = Creator.CreateStateRunTimeLogicComplete(use);
                             if (state == null) continue;
                             machine.RegisterNewState_Original(i.Key, state);
+                        }
+                    }
+                }
+            }
+            public static BuffRunTimeLogic ApplyBuffInfoToEntity(BuffSoInfo buffSoInfo,Entity entity,BuffStatusTest? buffStatusTest=null)
+            {
+                if (buffSoInfo != null && entity != null)
+                {
+                    var create = Creator.CreateBuffRunTimeByInfo(buffSoInfo, buffStatusTest);
+                    entity.BuffDomain.buffHosting.AddHandle(create);
+                    return create;
+                }
+                return null;
+            }
+
+            public static void Apply_Remove_BuffInfoToEntity(BuffSoInfo buffSoInfo, Entity entity)
+            {
+                if (buffSoInfo != null && entity != null)
+                {
+                    string s= buffSoInfo.key.Key();
+                    foreach(var i in entity.BuffDomain.buffHosting.buffRTLs.valuesNow_)
+                    {
+                        if (i.buffSoInfo.key.Key() == s)
+                        {
+                            entity.BuffDomain.buffHosting.RemoveHandle(i);
                         }
                     }
                 }

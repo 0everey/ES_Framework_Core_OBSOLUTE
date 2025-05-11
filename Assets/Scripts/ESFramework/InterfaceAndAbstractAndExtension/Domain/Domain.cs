@@ -27,6 +27,7 @@ namespace ES
         //剪影就是我的常规列表
         public override IEnumerable<Clip> NormalBeHosted => Clips.valuesNow_;
         public Core_ Core => core;
+        [LabelText("启用FixUpdate")] public bool EnableFixupdate = true;
         [FoldoutGroup("扩展域原始"), LabelText("域功能解释", icon: SdfIconType.Palette), GUIColor("ColorGetter"), ShowInInspector, PropertyOrder(-100)] public ESReadMeClass readMe = new ESReadMeClass() { readMe = "这是一个扩展区域" };
         [FoldoutGroup("扩展域原始"), LabelText("链接的核", icon: SdfIconType.Water), ReadOnly, GUIColor("ColorGetter")] public Core_ core;
         [FoldoutGroup("扩展域原始"), LabelText("全部剪影"),OdinSerialize] public SafeUpdateList_EasyQueue_SeriNot_Dirty<Clip> Clips = new SafeUpdateList_EasyQueue_SeriNot_Dirty<Clip>();
@@ -66,6 +67,7 @@ namespace ES
         
         private void FixedUpdate()
         {
+            if(EnableFixupdate)
             foreach(var i in Clips.valuesNow_)
             {
                 if (i.IsActiveAndEnable)

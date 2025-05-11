@@ -1,3 +1,4 @@
+using DG.Tweening;
 using ES.EvPointer;
 using Sirenix.OdinInspector;
 using System;
@@ -5,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static ES.ClipStateMachine_CrashDodge;
 
 namespace ES
 {
@@ -192,11 +194,11 @@ namespace ES
     {
         public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
         {
-            //Debug.Log("扣除血量" + by + yarn + on.GetKey());
+            Debug.Log("扣除血量" + by + yarn + on.GetKey());
             if (by != null)
             {
                 //LinkForEntityAttackEntity 备忘录
-            }
+            } 
             return 5;
         }
 
@@ -205,15 +207,27 @@ namespace ES
     [Serializable, TypeRegistryItem("A常规：获得Buff")]
     public class EntityHandle_AddBuff : IReleasablePointerOnlyByEntityYarnEntity
     {
+        [LabelText("直接引用SO(可选)")]public BuffSoInfo useInfo;
+        [LabelText("用键查询(可选)")] public KeyString_BuffUse key = new KeyString_BuffUse();
+        [LabelText("使用-自定义Buff开始状态")] public bool IsSelfDefineStartBuffStatus = true;
+        [LabelText("输入自定义Buff开始状态")] public BuffStatusTest BuffStatusTest = new BuffStatusTest() { duration = 10 };
         public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
         {
-            //Debug.Log("获得了Buff" + by + yarn + on.GetKey());
-            by.transform.position += Vector3.back;
             if (by != null)
             {
-                //LinkForEntityAttackEntity 备忘录
-            }
-            return 5;
+                var use = useInfo;
+               
+                if (use == null)
+                {
+                    use = KeyValueMatchingUtility.DataInfoPointer.PickBuffSoInfoByKey(key.Key());
+                }
+                if (use != null)
+                {
+                    KeyValueMatchingUtility.DataApply.ApplyBuffInfoToEntity(use, by, IsSelfDefineStartBuffStatus ? BuffStatusTest : null);
+                    
+                }
+                }
+                return null;
         }
 
 
@@ -221,12 +235,23 @@ namespace ES
     [Serializable, TypeRegistryItem("A常规:移除Buff")]
     public class EntityHandle_RemoveBuff : IReleasablePointerOnlyByEntityYarnEntity
     {
+        [LabelText("直接引用SO(可选)")] public BuffSoInfo useInfo;
+        [LabelText("用键查询(可选)")] public KeyString_BuffUse key = new KeyString_BuffUse();
+
         public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
         {
-            Debug.Log("移除Buff" + by + yarn + on.GetKey());
+            
             if (by != null)
             {
-                //LinkForEntityAttackEntity 备忘录
+                if (by != null)
+                {
+                    var use = useInfo;
+                    if (use == null)
+                    {
+                        use = KeyValueMatchingUtility.DataInfoPointer.PickBuffSoInfoByKey(key.Key());
+                    }
+                    if (use != null) KeyValueMatchingUtility.DataApply.Apply_Remove_BuffInfoToEntity(useInfo,by);
+                }
             }
             return 5;
         }
@@ -292,10 +317,46 @@ namespace ES
     [Serializable, TypeRegistryItem("D主动：直接生成预制件在实体原地附近")]
     public class EntityHandle_BirthAtHere : IReleasablePointerOnlyByEntityYarnEntity
     {
+        [LabelText("生成预制件")] public GameObject prefab;
+        [LabelText("用对象池")] public bool UsePool = true;
+        [LabelText("坐标向量"),SerializeReference] public IPointerForVector3_Only vector_only=new PointerForVector3_Direct();
+        [LabelText("旋转"),SerializeReference] public IPointerForQuaternion_Only quaternion_Only = new PointerForQuaternion_Direc(); 
+        [LabelText("坐标偏移模式")] public EnumCollect.PlacePosition placePos;
+        [LabelText("方向偏移模式")] public EnumCollect.PlaceRotation placeRot;
         public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
         {
+            Debug.Log("pick");
             if (by != null)
             {
+                Debug.Log("pick2");
+                Vector3 lookat = (yarn.transform.position - by.transform.position).normalized;
+                GameObject gg = UsePool ? Ev_PoolManager.Instance.GetInPool(prefab) : MonoBehaviour.Instantiate(prefab);
+                Vector3 vv = vector_only?.Pick() ?? default;
+                Quaternion rot = quaternion_Only?.Pick() ?? default;
+                if(placePos== EnumCollect.PlacePosition.WorldSpace)
+                {
+                    gg.transform.position = by.transform.position + vv;
+                }else if(placePos == EnumCollect.PlacePosition.SelfSpace)
+                {
+                    gg.transform.position = by.transform.position + by.transform.TransformDirection(vv);
+                }else
+                {
+                    Quaternion quaternion1 = Quaternion.LookRotation(lookat);
+                    gg.transform.position = by.transform.position + quaternion1 * vv;
+                }
+
+                if(placeRot== EnumCollect.PlaceRotation.WorldSpace)
+                {
+                    gg.transform.rotation = rot;
+                }else if(placeRot== EnumCollect.PlaceRotation.SelfSpace)
+                {
+                    gg.transform.rotation = (by.transform.rotation * rot);
+                }
+                else
+                {
+                    Quaternion quaternion1 = Quaternion.LookRotation(lookat);
+                    gg.transform.rotation =quaternion1 * rot;
+                }
                 //LinkForEntityAttackEntity 备忘录
             }
             return 5;
@@ -303,42 +364,28 @@ namespace ES
 
 
     }
-    [Serializable, TypeRegistryItem("D主动：直接生成预制件在相对空间")]
-    public class EntityHandle_BirthAtLocalSpace : IReleasablePointerOnlyByEntityYarnEntity
-    {
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
-        {
-            if (by != null)
-            {
-                //LinkForEntityAttackEntity 备忘录
-            }
-            return 5;
-        }
-
-
-    }
-    [Serializable, TypeRegistryItem("D主动：发射飞行物")]
-    public class EntityHandle_BirthFly : IReleasablePointerOnlyByEntityYarnEntity
-    {
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
-        {
-            if (by != null)
-            {
-                //LinkForEntityAttackEntity 备忘录
-            }
-            return 5;
-        }
-
-
-    }
+    
+    
     [Serializable, TypeRegistryItem("D主动：迅速闪身移动")]
     public class EntityHandle_Dodge : IReleasablePointerOnlyByEntityYarnEntity
     {
+        [LabelText("闪身运动"),InlineProperty]
+        public Applyable_CrashDodge ApplyCrash=new Applyable_CrashDodge() { 
+            baseOn= EnumCollect.ToDestionationBaseOn.ESCurveModule,
+            duration=0.25f, CoolDownNext=0.25f,
+            vector=new Vector3(0,0,0.8f), 
+            vectorHandle= EnumCollect.ToDestinationVectorSpace.SelfSpace
+        };
         public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
         {
+            Debug.Log(by+"闪身");
             if (by != null)
             {
-                //LinkForEntityAttackEntity 备忘录
+                var crash = by.StateMachineDomain.Module_CrashDodge;
+                if (crash != null)
+                {
+                    crash.TryAddCrashDodge(ref ApplyCrash);
+                }
             }
             return 5;
         }
@@ -348,11 +395,15 @@ namespace ES
     [Serializable, TypeRegistryItem("E动画：强制原生动画触发器")]
     public class EntityHandle_AnimatorTrigger : IReleasablePointerOnlyByEntityYarnEntity
     {
+        
+        [LabelText("触发器参数名")]public string name = "触发器参数";
+        [LabelText("是否启用")]public bool SetOrReset = true;
         public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
         {
             if (by != null)
             {
-                //LinkForEntityAttackEntity 备忘录
+                if(SetOrReset) by.Anim.SetTrigger(name);
+                else by.Anim.ResetTrigger(name);
             }
             return 5;
         }
@@ -362,11 +413,22 @@ namespace ES
     [Serializable, TypeRegistryItem("E动画：过渡播放原生动画")]
     public class EntityHandle_AnimatorCrossFade : IReleasablePointerOnlyByEntityYarnEntity
     {
+        [LabelText("过渡动画参数名")] public string name = "动画状态名参数";
+        [LabelText("过渡时间")] public float tranTime = 0.2f;
+        [LabelText("层级Index")] public int AnimLayer = 0;
+        [LabelText("启用固定过渡时间")] public bool UseFixTran = false;
         public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
         {
             if (by != null)
             {
-                //LinkForEntityAttackEntity 备忘录
+                if (UseFixTran)
+                {
+                    by.Anim.CrossFadeInFixedTime(name, tranTime, AnimLayer);
+                }
+                else
+                {
+                    by.Anim.CrossFade(name,tranTime,AnimLayer);
+                }
             }
             return 5;
         }
@@ -376,10 +438,25 @@ namespace ES
     [Serializable, TypeRegistryItem("E动画：逼近层级权重")]
     public class EntityHandle_AnimatorLayerWeight : IReleasablePointerOnlyByEntityYarnEntity
     {
+        [LabelText("哪一层")] public int LayerIndex = 0;
+        [LabelText("目标值")] public float targetWeight = 1;
+        [LabelText("逼近时间")] public float lerpTime = 0.5f;
+        [LabelText("多久退出？(默认随着技能)")] public float exitTime = 2;
+
         public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
         {
             if (by != null)
             {
+                
+                var Use= DOTween.To(()=>by.Anim.GetLayerWeight(LayerIndex),(to)=>by.Anim.SetLayerWeight(LayerIndex,to),targetWeight,lerpTime);
+                var delayExit = DOTween.Sequence();
+                delayExit.AppendInterval(lerpTime);
+                delayExit.AppendCallback(()=>Use.Rewind());
+                on.OnExit += (t) =>
+                {
+                    delayExit.Kill();
+                    Use.Rewind();
+                };
                 //LinkForEntityAttackEntity 备忘录
             }
             return 5;
