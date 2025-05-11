@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/ESFramework/InterfaceAndAbstractAndExtension/Pointer/PointerForParticle.meta
 guid: d6e4e14453e60c841849bca9c9a62bd4
+========
+guid: 670b80493e242394ba4eda64f09253ac
+>>>>>>>> parent of 3a061339 (Merge pull request #3 from chu123122/main):Library/PackageCache/com.unity.render-pipelines.universal-config@14.0.10/Runtime.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
