@@ -149,6 +149,18 @@ MonoBehaviour:
         - rid: 165002869122793501
         - rid: 165002870271770630
         - rid: 165002870271770631
+    - triggerAtTime: 0.25
+      name: "\u65B0\u5EFA\u7247\u6BB52"
+      st: "\u6280\u80FD/\u6280\u80FD1"
+      crossFade:
+        float: 0.2
+      FloatParamName: float
+      optionForOverrideLast: 0
+      optionForNext: 0
+      Selector:
+        rid: 165002870959374336
+      Applier:
+        handles: []
     skillActiveCurve:
       serializedVersion: 2
       m_Curve: []
@@ -216,11 +228,29 @@ MonoBehaviour:
       data:
         ApplyCrash:
           duration: 0.25
-          vector: {x: 0, y: 0, z: 0.8}
+          vector: {x: 0, y: 0, z: 3.17}
           CoolDownNext: 0.25
           vectorHandle: 2
           pathType: 0
           baseOn: 1
+    - rid: 165002870959374336
+      type: {class: SomeEntitySelectorFromSelf, ns: ES, asm: Assembly-CSharp}
+      data:
+        intHepler: 0
+        pointers: []
+        head_:
+          rid: 165002870959374337
+        end_:
+          rid: 165002870959374338
+    - rid: 165002870959374337
+      type: {class: ReleasablePointer_EntitySelf, ns: ES, asm: Assembly-CSharp}
+      data: 
+    - rid: 165002870959374338
+      type: {class: ReleasablePointer_SelectTagsAndDistance, ns: ES, asm: Assembly-CSharp}
+      data:
+        tags:
+          tagNames: []
+        r: 100
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
