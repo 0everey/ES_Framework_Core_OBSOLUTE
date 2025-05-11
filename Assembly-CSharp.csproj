@@ -110,6 +110,7 @@
     <Compile Include="Assets\Scripts\ESFramework\Ship\Skill\SkillPointController\SkillRuneControllerApplier.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\RoomGenerateDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Define\SharedAndVariable\IWithSharedAndVariableData.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerForParticle\PointerForParticle.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\ArchitectureDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Tool\GlobalControll\Tool_OnlyOneControl.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerTypesOfCompo\PointerSetAudio.cs" />
@@ -191,7 +192,6 @@
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\GameEventMessageDataPack.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutIOC.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutFloatAndInt.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerForParticle\PointerForParticle_GameObject.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithVector3_EValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByInputGetKey.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\BaseDomainForEntity.cs" />
