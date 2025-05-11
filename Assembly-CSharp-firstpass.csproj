@@ -842,6 +842,10 @@
       <Project>{1e2a4275-f5bb-a21d-db31-afcc79a98437}</Project>
       <Name>Unity.VSCode.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Cinemachine.csproj">
+      <Project>{c30b4f96-5757-ad68-52fe-89d805aaa31c}</Project>
+      <Name>Cinemachine</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.ScriptableBuildPipeline.Editor.csproj">
       <Project>{4442a890-6daa-f612-fcf5-1fc777e8f9ba}</Project>
       <Name>Unity.ScriptableBuildPipeline.Editor</Name>
@@ -853,10 +857,6 @@
     <ProjectReference Include="Unity.RenderPipelines.Universal.Editor.csproj">
       <Project>{9bb5594f-d9a6-000f-e48b-3cdd163e124c}</Project>
       <Name>Unity.RenderPipelines.Universal.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Cinemachine.csproj">
-      <Project>{c30b4f96-5757-ad68-52fe-89d805aaa31c}</Project>
-      <Name>Cinemachine</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
