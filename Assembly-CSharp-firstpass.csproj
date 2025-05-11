@@ -1178,7 +1178,10 @@
       <Project>{c30b4f96-5757-ad68-52fe-89d805aaa31c}</Project>
       <Name>Cinemachine</Name>
     </ProjectReference>
+<<<<<<< HEAD
 >>>>>>> parent of 830c6e87 (add basic particleSystem Body Control script)
+=======
+>>>>>>> parent of c0e0ddc2 (Merge pull request #4 from chu123122/main)
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
