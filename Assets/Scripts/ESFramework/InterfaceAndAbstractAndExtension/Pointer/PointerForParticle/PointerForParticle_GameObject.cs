@@ -19,7 +19,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         public abstract void PickTruely(ParticleSystem particleSystem);
     }
 
-    // 1. Duration
     [Serializable]
     [TypeRegistryItem("Particle_To_SetDuration", "ParticleSystem")]
     public class PointerSetParticle_SetDuration : PointerSetParticle_Abstract
@@ -33,7 +32,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 2. Looping
     [Serializable]
     [TypeRegistryItem("Particle_To_SetLooping", "ParticleSystem")]
     public class PointerSetParticle_SetLooping : PointerSetParticle_Abstract
@@ -47,7 +45,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 3. Prewarm
     [Serializable]
     [TypeRegistryItem("Particle_To_SetPrewarm", "ParticleSystem")]
     public class PointerSetParticle_SetPrewarm : PointerSetParticle_Abstract
@@ -61,7 +58,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 4. Start Delay
     [Serializable]
     [TypeRegistryItem("Particle_To_SetStartDelay", "ParticleSystem")]
     public class PointerSetParticle_SetStartDelay : PointerSetParticle_Abstract
@@ -75,7 +71,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 5. Start Lifetime
     [Serializable]
     [TypeRegistryItem("Particle_To_SetStartLifetime", "ParticleSystem")]
     public class PointerSetParticle_SetStartLifetime : PointerSetParticle_Abstract
@@ -89,7 +84,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 6. Start Speed
     [Serializable]
     [TypeRegistryItem("Particle_To_SetStartSpeed", "ParticleSystem")]
     public class PointerSetParticle_SetStartSpeed : PointerSetParticle_Abstract
@@ -103,7 +97,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 7. 3D Start Size
     [Serializable]
     [TypeRegistryItem("Particle_To_SetStartSize3D", "ParticleSystem")]
     public class PointerSetParticle_SetStartSize3D : PointerSetParticle_Abstract
@@ -117,7 +110,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    //    Start Size
     [Serializable]
     [TypeRegistryItem("Particle_To_SetStartSize", "ParticleSystem")]
     public class PointerSetParticle_SetStartSize : PointerSetParticle_Abstract
@@ -131,7 +123,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 8. 3D Start Rotation
     [Serializable]
     [TypeRegistryItem("Particle_To_SetStartRotation3D", "ParticleSystem")]
     public class PointerSetParticle_SetStartRotation3D : PointerSetParticle_Abstract
@@ -145,7 +136,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    //    Start Rotation
     [Serializable]
     [TypeRegistryItem("Particle_To_SetStartRotation", "ParticleSystem")]
     public class PointerSetParticle_SetStartRotation : PointerSetParticle_Abstract
@@ -159,7 +149,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 9. Flip Rotation
     [Serializable]
     [TypeRegistryItem("Particle_To_SetFlipRotation", "ParticleSystem")]
     public class PointerSetParticle_SetFlipRotation : PointerSetParticle_Abstract
@@ -173,7 +162,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 10. Start Color
     [Serializable]
     [TypeRegistryItem("Particle_To_SetStartColor", "ParticleSystem")]
     public class PointerSetParticle_SetStartColor_GameObject : PointerSetParticle_Abstract
@@ -187,7 +175,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 11. Gravity Modifier
     [Serializable]
     [TypeRegistryItem("Particle_To_SetGravityModifier", "ParticleSystem")]
     public class PointerSetParticle_SetGravityModifier : PointerSetParticle_Abstract
@@ -201,7 +188,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 12. Simulation Space
     [Serializable]
     [TypeRegistryItem("Particle_To_SetSimulationSpace", "ParticleSystem")]
     public class PointerSetParticle_SetSimulationSpace : PointerSetParticle_Abstract
@@ -215,7 +201,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 13. Simulation Speed
     [Serializable]
     [TypeRegistryItem("Particle_To_SetSimulationSpeed", "ParticleSystem")]
     public class PointerSetParticle_SetSimulationSpeed : PointerSetParticle_Abstract
@@ -229,7 +214,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 14. Use Unscaled Time
     [Serializable]
     [TypeRegistryItem("Particle_To_SetUnscaledTime", "ParticleSystem")]
     public class PointerSetParticle_SetUnscaledTime : PointerSetParticle_Abstract
@@ -243,7 +227,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 15. Scaling Mode
     [Serializable]
     [TypeRegistryItem("Particle_To_SetScalingMode", "ParticleSystem")]
     public class PointerSetParticle_SetScalingMode : PointerSetParticle_Abstract
@@ -257,7 +240,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 16. Play On Awake
     [Serializable]
     [TypeRegistryItem("Particle_To_SetPlayOnAwake", "ParticleSystem")]
     public class PointerSetParticle_SetPlayOnAwake : PointerSetParticle_Abstract
@@ -271,7 +253,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 17. Max Particles
     [Serializable]
     [TypeRegistryItem("Particle_To_SetMaxParticles", "ParticleSystem")]
     public class PointerSetParticle_SetMaxParticles : PointerSetParticle_Abstract
@@ -285,7 +266,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 18. Auto Random Seed
     [Serializable]
     [TypeRegistryItem("Particle_To_SetAutoRandomSeed", "ParticleSystem")]
     public class PointerSetParticle_SetAutoRandomSeed : PointerSetParticle_Abstract
@@ -302,7 +282,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 19. Stop Action
     [Serializable]
     [TypeRegistryItem("Particle_To_SetStopAction", "ParticleSystem")]
     public class PointerSetParticle_SetStopAction : PointerSetParticle_Abstract
@@ -316,7 +295,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 20. Culling Mode
     [Serializable]
     [TypeRegistryItem("Particle_To_SetCullingMode", "ParticleSystem")]
     public class PointerSetParticle_SetCullingMode : PointerSetParticle_Abstract
@@ -330,7 +308,6 @@ namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleS
         }
     }
 
-    // 21. Ring Buffer Mode
     [Serializable]
     [TypeRegistryItem("Particle_To_SetRingBufferMode", "ParticleSystem")]
     public class PointerSetParticle_SetRingBufferMode : PointerSetParticle_Abstract
