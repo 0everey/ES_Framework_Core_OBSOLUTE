@@ -872,6 +872,75 @@ public static class EnumCollect
         [InspectorName("用Dotween位移")]DotweenDoMove,
         [InspectorName("用ES曲线托管移动位移")] ESCurveModule,
     }
+    public enum HandleOnWhoEntityColOption
+    {
+        [InspectorName("作用在选择者,被发起者")]bySelectorYarnLauncher,
+        [InspectorName("作用在选择者,被碰撞者")] bySelectorYarnColOn,
+        [InspectorName("作用在被碰撞者,被发起者")] byColOnYarnLaucher,
+        [InspectorName("作用在被碰撞者,被选择者")] byColOnYarnSelector,
+        [InspectorName("作用在发起者,被选择者")] byLauncherYarnSelector,
+        [InspectorName("作用在发起者,被碰撞者")] ByLauncherYarnColOn
+    }
+    public enum HandleCacheOption
+    {
+        [InspectorName("不处理")]None,
+        [InspectorName("缓冲到Main主池")]ToMain,
+        [InspectorName("缓冲到技能本体池")] ToSelf,
+        [InspectorName("缓冲到自定义池")] ToSelfDefine
+    }
+    public enum SetTargetAboutDirecOption
+    {
+        [InspectorName("不改变方向")]None,
+        [InspectorName("直接面向")] Directly,
+        [InspectorName("抛物线")] Parabola,
+        [InspectorName("弧形")] RadAndFollow,
+        [InspectorName("按默认设置")]BySelfDefault
+    }
+    public enum FlyingBaseOn
+    {
+        [InspectorName("刚体固定更新")] RigidFixUpdate,
+        [InspectorName("刚体设置一次速度")] RigidVelocityOnce,
+        [InspectorName("普通变换更新")] TransUpdate,
+        [InspectorName("刚体速度渐进")] RigidVelocityUpdating,
+    }
+    [Flags]
+    public enum DestroyWhyOption
+    {
+        [InspectorName("生命周期到期")]LifeTime=1,
+        [InspectorName("触碰实体")] OnTriEntity=2,
+        [InspectorName("被环境阻挡")] OnBeBlockEnviroment=4,
+        [InspectorName("被实体格挡")] OnBeBlockByEntity=8,
+        [InspectorName("被飞行物碰到")] OnBeBlockByFlying=16,
+        [InspectorName("加载销毁")] OnLoadKill=32,
+        [InspectorName("常用")]Normal=OnTriEntity|LifeTime
+    }
+    public enum TargetSelectType
+    {
+        [InspectorName("数字计数")] Numerically = 0,
+        [InspectorName("随机")] Random = 1,
+        [InspectorName("程序化生成")] ProcedurallyWaypoints = 2,
+        [InspectorName("玩家作为坐标")] PlayerTarget = 3
+    }
+    public enum AttackType
+    {
+        [InspectorName("近战")]Melle=1,
+        [InspectorName("远程")]Range=2,
+        [InspectorName("近战和远程")]MelleAndRange=3
+    }
+    [Flags]
+    public enum AttackOnType
+    {
+        [InspectorName("直接命中")] Direct = 1,
+        [InspectorName("按动作")] AsAction = 2,
+        [InspectorName("执行序列")] HandleList =4
+    }
+    public enum AttackConditionRequire
+    {
+        [InspectorName("必须目标在范围内")]MustTargetInRange,
+        [InspectorName("必须有目标即可")]MustTargetHas,
+        [InspectorName("无条件攻击")]AlsoAttack,
+    }
+
 }
 
 public static class Test233

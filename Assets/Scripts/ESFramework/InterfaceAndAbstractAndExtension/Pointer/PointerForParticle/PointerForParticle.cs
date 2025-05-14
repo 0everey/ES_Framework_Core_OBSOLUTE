@@ -3,7 +3,7 @@ using ES.EvPointer;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace ESFramework.InterfaceAndAbstractAndExtension.Pointer.PointForParticleSystem
+namespace ES
 {
     public abstract class PointerSetParticle_Abstract : IPointerNone
     {

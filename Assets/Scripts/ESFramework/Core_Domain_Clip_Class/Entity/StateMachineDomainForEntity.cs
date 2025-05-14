@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,14 +11,23 @@ namespace ES
     {
         #region 固有
         [LabelText("标准角色总状态机")]public EntityStateMachine StateMachine=new EntityStateMachine();
-
+        
         #region 为了性能节约，让状态机自己携带着转
 
         #region 初始化
         [LabelText("初始化注册状态数据")]
         public StateDataPack RegisterPack;
-
-
+        [LabelText("初始化进入状态名")]
+        [ValueDropdown("StatePackKeys", AppendNextDrawer =true)]
+        public string DefaultStateName = "静止";
+        private string[] StatePackKeys()
+        {
+            if (RegisterPack != null)
+            {
+                return RegisterPack.allInfo.Keys.ToArray();
+            }
+            return new string[] { "先绑定" };
+        }
         #endregion
         #region 特殊属性
         public BaseOriginalStateMachine TheMachine => StateMachine;
@@ -55,6 +64,7 @@ namespace ES
 
             StateMachine.CreateRelationShip(core,this);//重建实体状态机
             KeyValueMatchingUtility.DataApply.ApplyStatePackToMachine(RegisterPack, StateMachine);
+            StateMachine.defaultStateKey = DefaultStateName;
         }
     }
     [Serializable]
@@ -69,7 +79,6 @@ namespace ES
         public List<SkillDataInfo> skillDataInfos = new List<SkillDataInfo>();
         protected override void OnSubmitHosting(StateMachineDomainForEntity hosting)
         {
-            Debug.Log("你好");
             base.OnSubmitHosting(hosting);
             foreach(var i in skillDataInfos)
             {
@@ -108,11 +117,6 @@ namespace ES
         [LabelText("射线：附加效果")] public string HitAddition;
 
         [LabelText("待执行队列"), ShowInInspector] public Queue<Applyable_CrashDodge> dodgeQueue = new Queue<Applyable_CrashDodge>();
-
-
-
-
-
         [Serializable,TypeRegistryItem("可应用的目的位移功能")]
         public struct Applyable_CrashDodge
         {
@@ -159,7 +163,6 @@ namespace ES
             {
                 lastHasGo = 0;
                 var apply = dodgeQueue.Dequeue();
-                Debug.Log("应用");
                 ApplyThis(ref apply);
                 
             }
@@ -175,11 +178,9 @@ namespace ES
             {
                 Refer_Crash.SetData(ref use);
                 bool b = false;
-                Debug.Log("尝试进入");
                 if (b =Domain.StateMachine.TryActiveState(Refer_Crash)) {
                     CoolDownNext = 10;
                 };
-                Debug.Log("结果"+b);
             }
 
         }

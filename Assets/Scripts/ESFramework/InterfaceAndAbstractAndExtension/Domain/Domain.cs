@@ -120,7 +120,7 @@ namespace ES
             Clips.TryRemove(use);
         }
         
-        public T GetModule<T>()
+        public T GetClip<T>()
         {
             foreach (var i in NormalBeHosted)
             {

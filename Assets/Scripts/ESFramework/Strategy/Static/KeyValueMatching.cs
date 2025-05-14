@@ -12,6 +12,7 @@ using static EnumCollect;
 using UnityEngine.UIElements;
 using DG.Tweening;
 using UnityEngine.Events;
+using Sirenix.Utilities;
 
 namespace ES
 {
@@ -92,6 +93,31 @@ namespace ES
                 }
                 return "空定义";
             }
+
+            public static float CalculateActorPropertyStrength(ESEntitySharedData actorData)
+            {
+                if (actorData == null) return 100;
+                float data1 = actorData.Health * 0.1f +
+                        actorData.VisionRangeAngle * 0.3f +
+                         actorData.VisionRangeDis * 2f +
+                          actorData.PatrolSpeed * 2f +
+                           actorData.ChaseSpeed * 3f +
+                           actorData.ChaseDistance * 0.1f;
+                if (actorData.Attacks_.Count > 0)
+                {
+                    float allAttack = 0;
+                    foreach (var i in actorData.Attacks_)
+                    {
+                        allAttack += i.CalculatePower();
+                       
+                    }
+
+                    data1 += allAttack / actorData.Attacks_.Count;
+                }
+               
+                return data1
+                           ;
+            }
             public static T SystemObjectToT<T>(object from)
             {
                 Type type = typeof(T);
@@ -147,7 +173,7 @@ namespace ES
             {
                 return (T)DeepCloneObject(obj);
             }
-            //
+            //深拷贝
             public static object DeepCloneObject(object obj)
             {
                 if (obj == null)
@@ -222,6 +248,7 @@ namespace ES
                 }
                 return CreateBuffRunTimeByInfo(info, statusTest);
             }
+            //创建实时BUff逻辑
             public static BuffRunTimeLogic CreateBuffRunTimeByInfo(BuffSoInfo buffSoInfo,BuffStatusTest? statusTest = null)
             {
                 BuffRunTimeLogic buffRunTime = Activator.CreateInstance(buffSoInfo.BindingLogic) as BuffRunTimeLogic;
@@ -236,6 +263,7 @@ namespace ES
                 }
                 return null;
             }
+            //创建本体实时状态
             public static IESMicroState CreateStateRunTimeLogicOnlyOne(StateDataInfo info)
             {
                 if (info == null) return Activator.CreateInstance<BaseWithableESStandardStateRunTimeLogic>();
@@ -254,6 +282,7 @@ namespace ES
                 }
                 return state;
             }
+            //递归创建全对象
             public static IESMicroState CreateStateRunTimeLogicComplete(StateDataInfo info)
             {
                 if (info == null) return null;
@@ -815,6 +844,45 @@ namespace ES
                 }
                 return vectors;
             }
+
+            public static List<T> SortAny<T>(List<T> vectors, Func<T, Vector3> GetPos, EnumCollect.PathSortType sortType, Vector3 pos = default, Transform transform = null)
+            {
+                if (vectors == null) return new List<T>();
+                if (vectors.Count <= 1) return vectors;
+
+                switch (sortType)
+                {
+                    case PathSortType.NoneSort: return vectors;
+                    case PathSortType.StartFromNearToFar:
+                        return vectors.OrderBy((n) => Vector3.Distance(pos, GetPos(n))).ToList();
+                    case PathSortType.StartFromFarToNear:
+                        return vectors.OrderByDescending((n) => Vector3.Distance(pos, GetPos(n))).ToList();
+                    case PathSortType.Yup:
+                        return vectors.OrderBy((n) => GetPos(n).y).ToList();
+                    case PathSortType.Ydown:
+                        return vectors.OrderByDescending((n) => GetPos(n).y).ToList();
+                    case PathSortType.Xup:
+                        return vectors.OrderBy((n) => GetPos(n).x).ToList();
+                    case PathSortType.Xdown:
+                        return vectors.OrderByDescending((n) => GetPos(n).x).ToList();
+                    case PathSortType.Zup:
+                        return vectors.OrderBy((n) => GetPos(n).z).ToList();
+                    case PathSortType.Zdown:
+                        return vectors.OrderByDescending((n) => GetPos(n).z).ToList();
+                    case PathSortType.StartForwardZup:
+                        if (transform != null)
+                            return vectors.OrderBy((n) => transform.InverseTransformPoint(GetPos(n)).z).ToList();
+                        else return vectors.OrderBy((n) => GetPos(n).z).ToList();
+                    case PathSortType.StartForwardZdown:
+                        if (transform != null)
+                            return vectors.OrderByDescending((n) => transform.InverseTransformPoint(GetPos(n)).z).ToList();
+                        else return vectors.OrderByDescending((n) => GetPos(n).z).ToList();
+                    case PathSortType.Random:
+                        return vectors.OrderBy((n) => UnityEngine.Random.value).ToList();
+                    
+                }
+                return vectors;
+            }
             public static List<Vector3> SortForLast_Near(List<Vector3> vectors, Vector3 pos)
             {
                 List<Vector3> reSort = new List<Vector3>(vectors);
@@ -1020,7 +1088,16 @@ namespace ES
                 {
 
                 }
+                
             } 
+            public static class Global
+            {
+                public static void GlobalLink_EntityAttackEntityHappen(LinkForEntityAttackEntityTruely link_Attack)
+                {
+                    link_Attack.victim.Invoke_BeAttackByEntity(link_Attack.attacker,link_Attack.damage);
+                    GameCenterManager.Instance.GameCenterArchitecture.SendLink(link_Attack);
+                }
+            }
         }
 
         public static class ESBack
@@ -1029,14 +1106,64 @@ namespace ES
             {
                 public static List<Entity> GetEntityAroundFriend(Entity entity,float r,Vector3? center=null)
                 {
-                    center ??= entity.transform.position;
-                    //查找把，找啊找r
-                    return null;
-                }
-                public static List<Entity> GetEntityTargetCache(Entity entity,string Key="Main",bool useAndClear=true)
-                {
                     
+                    var use= Physics.OverlapSphere(center?? entity.transform.position, r);
+                    List<Entity> entities = new List<Entity>();
+                    foreach(var i in use)
+                    {
+                        Entity ee = i.GetComponent<Entity>();
+                        if (ee != null&&!entities.Contains(ee)) entities.Add(ee);
+                    }
                     //查找把，找啊找r
+                    return entities;
+                }
+                public static List<Entity> GetEntityAround(Entity entity, float r, Vector3? center = null)
+                {
+
+                    var use = Physics.OverlapSphere(center ?? entity.transform.position, r);
+                    List<Entity> entities = new List<Entity>();
+                    foreach (var i in use)
+                    {
+                        Entity ee = i.GetComponent<Entity>();
+                        if (ee != null && !entities.Contains(ee)) entities.Add(ee);
+                    }
+                    //查找把，找啊找r
+                    return entities;
+                }
+                public static List<Entity> GetEntityTargetEntityCache(Entity entity,string Key="Main",bool useAndClear=true)
+                {
+
+                    //查找把，找啊找r
+                    if (entity?.BaseDomain.Module_Cache != null)
+                    {
+                        if (useAndClear)
+                        {
+                            return entity.BaseDomain.Module_Cache.CacheEntity.DequeueAll(Key).ToList();
+                        }
+                        else
+                        {
+                            return entity.BaseDomain.Module_Cache.CacheEntity.PeekAll(Key);
+                        }
+                       
+                    }
+                    return null;//返回缓冲池
+                }
+                public static List<Vector3> GetEntityTargetVector3Cache(Entity entity, string Key = "Main", bool useAndClear = true)
+                {
+
+                    //查找把，找啊找r
+                    if (entity?.BaseDomain.Module_Cache != null)
+                    {
+                        if (useAndClear)
+                        {
+                            return entity.BaseDomain.Module_Cache.CacheVector3.DequeueAll(Key).ToList();
+                        }
+                        else
+                        {
+                            return entity.BaseDomain.Module_Cache.CacheVector3.PeekAll(Key);
+                        }
+
+                    }
                     return null;//返回缓冲池
                 }
                 public static List<Entity> GetEntityVision(Entity entity, int maxCount = 5, bool reTry = false)

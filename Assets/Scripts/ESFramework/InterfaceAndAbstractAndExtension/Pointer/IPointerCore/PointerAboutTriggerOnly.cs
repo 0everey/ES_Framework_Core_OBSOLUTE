@@ -150,7 +150,7 @@ namespace ES.EvPointer
         public override object Pick(object by = null, object yarn = null, object on = null)
         {
             if (gameObject == null) return -1;
-            Ev_PoolManager.Instance.CreatePool(gameObject, num);
+            ES_PoolMaster.Instance.CreatePool(gameObject, num);
             return base.Pick(by, yarn, on);
         }
     }
@@ -162,7 +162,7 @@ namespace ES.EvPointer
         public override object Pick(object by = null, object yarn = null, object on = null)
         {
             if (mono == null) return -1;
-            Ev_PoolManager.Instance.CreatePool(mono.gameObject, num);
+            ES_PoolMaster.Instance.CreatePool(mono.gameObject, num);
             return base.Pick(by, yarn, on);
         }
     }
@@ -240,7 +240,7 @@ namespace ES.EvPointer
         private bool hasInit = false;
         public void Init(params object[] ps)
         {
-            Ev_PoolManager.Instance.CreatePool(prefab, 10);
+            ES_PoolMaster.Instance.CreatePool(prefab, 10);
             hasInit = true;
         }
 
@@ -249,7 +249,7 @@ namespace ES.EvPointer
             if (prefab != null)
             {
                 if (!hasInit) Init();
-                Apply(Ev_PoolManager.Instance.GetInPool(prefab).transform);
+                Apply(ES_PoolMaster.Instance.GetInPool(prefab).transform);
             }
             return base.Pick(by, yarn, on);
         }
@@ -262,7 +262,7 @@ namespace ES.EvPointer
         private bool hasInit = false;
         public void Init(params object[] ps)
         {
-            Ev_PoolManager.Instance.CreatePool(mono.gameObject, 10);
+            ES_PoolMaster.Instance.CreatePool(mono.gameObject, 10);
             hasInit = true;
         }
 
@@ -271,7 +271,7 @@ namespace ES.EvPointer
             if (mono != null)
             {
                 if (!hasInit) Init();
-                Apply(Ev_PoolManager.Instance.GetInPool(mono.gameObject).transform);
+                Apply(ES_PoolMaster.Instance.GetInPool(mono.gameObject).transform);
             }
             return base.Pick(by, yarn, on);
         }

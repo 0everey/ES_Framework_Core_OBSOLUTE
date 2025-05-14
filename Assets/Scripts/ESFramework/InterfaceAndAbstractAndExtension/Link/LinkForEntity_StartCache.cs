@@ -31,11 +31,11 @@ namespace ES
     }
 
     [Serializable,TypeRegistryItem("Link_攻击发生")]
-    public struct LinkForEntityAttackEntity : ILink
+    public struct LinkForEntityAttackEntityTruely : ILink
     {
         public Entity attacker;
         public Entity victim;
-
+        public Damage damage;
     }
     
     

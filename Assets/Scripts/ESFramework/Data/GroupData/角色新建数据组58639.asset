@@ -23,6 +23,44 @@ MonoBehaviour:
     SerializationNodes: []
   DataKey:
     str_direc: Darilos
+  entitySharedData:
+    enemyName: 
+    characters: []
+    bindingEnemyPrefab: {fileID: 0}
+    weightedStrenthValue: 100
+    Health: 100
+    VisionRangeAngle: 90
+    VisionRangeDis: 20
+    PatrolSpeed: 1
+    ChaseSpeed: 2
+    ChaseDistance: 100
+    UseAlert: 0
+    AlertTime: 2
+    AlertRange: 8
+    Attacks_:
+    - rid: 165002928870391892
+  entityVariableData:
+    Health: 100
+    DamageAdd: 0
+    DamagePerUp: 0
+    AttackSpeed: 0
+    SpeedPerUp: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002928870391892
+      type: {class: Attackable_SimpleEnemy, ns: ES, asm: Assembly-CSharp}
+      data:
+        Damage: 10
+        AttackRangeDis: 1
+        AttackSpeed: 1
+        attackType: 1
+        require: 0
+        attackOn: 1
+        preDelay: 0.25
+        attackExit_: 0.8
+        playSound: {fileID: 0}
+        AttackRangeAngle: 60
 --- !u!114 &-6139203167589708655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,6 +84,44 @@ MonoBehaviour:
     SerializationNodes: []
   DataKey:
     str_direc: "\u5565Cul"
+  entitySharedData:
+    enemyName: 
+    characters: []
+    bindingEnemyPrefab: {fileID: 0}
+    weightedStrenthValue: 100
+    Health: 100
+    VisionRangeAngle: 90
+    VisionRangeDis: 20
+    PatrolSpeed: 1
+    ChaseSpeed: 2
+    ChaseDistance: 100
+    UseAlert: 0
+    AlertTime: 2
+    AlertRange: 8
+    Attacks_:
+    - rid: 165002928870391890
+  entityVariableData:
+    Health: 100
+    DamageAdd: 0
+    DamagePerUp: 0
+    AttackSpeed: 0
+    SpeedPerUp: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002928870391890
+      type: {class: Attackable_SimpleEnemy, ns: ES, asm: Assembly-CSharp}
+      data:
+        Damage: 10
+        AttackRangeDis: 1
+        AttackSpeed: 1
+        attackType: 1
+        require: 0
+        attackOn: 1
+        preDelay: 0.25
+        attackExit_: 0.8
+        playSound: {fileID: 0}
+        AttackRangeAngle: 60
 --- !u!114 &-6070777438699161892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +145,44 @@ MonoBehaviour:
     SerializationNodes: []
   DataKey:
     str_direc: "\u91CD\u51FB\u7A0B\u5E8F"
+  entitySharedData:
+    enemyName: 
+    characters: []
+    bindingEnemyPrefab: {fileID: 0}
+    weightedStrenthValue: 100
+    Health: 100
+    VisionRangeAngle: 90
+    VisionRangeDis: 20
+    PatrolSpeed: 1
+    ChaseSpeed: 2
+    ChaseDistance: 100
+    UseAlert: 0
+    AlertTime: 2
+    AlertRange: 8
+    Attacks_:
+    - rid: 165002928870391897
+  entityVariableData:
+    Health: 100
+    DamageAdd: 0
+    DamagePerUp: 0
+    AttackSpeed: 0
+    SpeedPerUp: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002928870391897
+      type: {class: Attackable_SimpleEnemy, ns: ES, asm: Assembly-CSharp}
+      data:
+        Damage: 10
+        AttackRangeDis: 1
+        AttackSpeed: 1
+        attackType: 1
+        require: 0
+        attackOn: 1
+        preDelay: 0.25
+        attackExit_: 0.8
+        playSound: {fileID: 0}
+        AttackRangeAngle: 60
 --- !u!114 &-3581201634888277133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +206,44 @@ MonoBehaviour:
     SerializationNodes: []
   DataKey:
     str_direc: "\u5C0F\u660E"
+  entitySharedData:
+    enemyName: 888888
+    characters: []
+    bindingEnemyPrefab: {fileID: 100000, guid: 7d5f7699d6d1d48e485ac71126e12061, type: 3}
+    weightedStrenthValue: 100
+    Health: 100
+    VisionRangeAngle: 90
+    VisionRangeDis: 10
+    PatrolSpeed: 1
+    ChaseSpeed: 2
+    ChaseDistance: 100
+    UseAlert: 0
+    AlertTime: 2
+    AlertRange: 8
+    Attacks_:
+    - rid: 165002928870391894
+  entityVariableData:
+    Health: 100
+    DamageAdd: 5555
+    DamagePerUp: 0
+    AttackSpeed: 0
+    SpeedPerUp: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002928870391894
+      type: {class: Attackable_SimpleEnemy, ns: ES, asm: Assembly-CSharp}
+      data:
+        Damage: 10
+        AttackRangeDis: 1
+        AttackSpeed: 1
+        attackType: 1
+        require: 0
+        attackOn: 1
+        preDelay: 0.25
+        attackExit_: 0.8
+        playSound: {fileID: 0}
+        AttackRangeAngle: 60
 --- !u!114 &-701346399224484441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +267,44 @@ MonoBehaviour:
     SerializationNodes: []
   DataKey:
     str_direc: "\u4F9D\u8587\u5C14"
+  entitySharedData:
+    enemyName: 
+    characters: []
+    bindingEnemyPrefab: {fileID: 0}
+    weightedStrenthValue: 100
+    Health: 100
+    VisionRangeAngle: 90
+    VisionRangeDis: 20
+    PatrolSpeed: 5
+    ChaseSpeed: 5
+    ChaseDistance: 100
+    UseAlert: 0
+    AlertTime: 2
+    AlertRange: 8
+    Attacks_:
+    - rid: 165002928870391891
+  entityVariableData:
+    Health: 100
+    DamageAdd: 0
+    DamagePerUp: 0
+    AttackSpeed: 0
+    SpeedPerUp: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002928870391891
+      type: {class: Attackable_SimpleEnemy, ns: ES, asm: Assembly-CSharp}
+      data:
+        Damage: 10
+        AttackRangeDis: 1
+        AttackSpeed: 1
+        attackType: 1
+        require: 0
+        attackOn: 1
+        preDelay: 0.25
+        attackExit_: 0.8
+        playSound: {fileID: 0}
+        AttackRangeAngle: 60
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +337,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: keyValues
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[HellishBattle.ActorDataInfo,
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[ES.ActorDataInfo,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
@@ -297,6 +487,44 @@ MonoBehaviour:
     SerializationNodes: []
   DataKey:
     str_direc: "\u5927\u7239"
+  entitySharedData:
+    enemyName: 
+    characters: []
+    bindingEnemyPrefab: {fileID: 0}
+    weightedStrenthValue: 100
+    Health: 100
+    VisionRangeAngle: 90
+    VisionRangeDis: 20
+    PatrolSpeed: 1
+    ChaseSpeed: 2
+    ChaseDistance: 100
+    UseAlert: 0
+    AlertTime: 2
+    AlertRange: 8
+    Attacks_:
+    - rid: 165002928870391893
+  entityVariableData:
+    Health: 100
+    DamageAdd: 0
+    DamagePerUp: 0
+    AttackSpeed: 0
+    SpeedPerUp: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002928870391893
+      type: {class: Attackable_SimpleEnemy, ns: ES, asm: Assembly-CSharp}
+      data:
+        Damage: 10
+        AttackRangeDis: 1
+        AttackSpeed: 1
+        attackType: 1
+        require: 0
+        attackOn: 1
+        preDelay: 0.25
+        attackExit_: 0.8
+        playSound: {fileID: 0}
+        AttackRangeAngle: 60
 --- !u!114 &2669271368626503815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,6 +548,44 @@ MonoBehaviour:
     SerializationNodes: []
   DataKey:
     str_direc: "\u5B7D\u795E"
+  entitySharedData:
+    enemyName: 
+    characters: []
+    bindingEnemyPrefab: {fileID: 0}
+    weightedStrenthValue: 100
+    Health: 100
+    VisionRangeAngle: 90
+    VisionRangeDis: 20
+    PatrolSpeed: 1
+    ChaseSpeed: 2
+    ChaseDistance: 100
+    UseAlert: 0
+    AlertTime: 2
+    AlertRange: 8
+    Attacks_:
+    - rid: 165002928870391898
+  entityVariableData:
+    Health: 100
+    DamageAdd: 0
+    DamagePerUp: 0
+    AttackSpeed: 0
+    SpeedPerUp: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002928870391898
+      type: {class: Attackable_SimpleEnemy, ns: ES, asm: Assembly-CSharp}
+      data:
+        Damage: 10
+        AttackRangeDis: 1
+        AttackSpeed: 1
+        attackType: 1
+        require: 0
+        attackOn: 1
+        preDelay: 0.25
+        attackExit_: 0.8
+        playSound: {fileID: 0}
+        AttackRangeAngle: 60
 --- !u!114 &6773690880605288668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,6 +609,44 @@ MonoBehaviour:
     SerializationNodes: []
   DataKey:
     str_direc: "\u541B\u795E"
+  entitySharedData:
+    enemyName: 
+    characters: []
+    bindingEnemyPrefab: {fileID: 0}
+    weightedStrenthValue: 100
+    Health: 100
+    VisionRangeAngle: 90
+    VisionRangeDis: 20
+    PatrolSpeed: 1
+    ChaseSpeed: 2
+    ChaseDistance: 100
+    UseAlert: 0
+    AlertTime: 2
+    AlertRange: 8
+    Attacks_:
+    - rid: 165002928870391896
+  entityVariableData:
+    Health: 100
+    DamageAdd: 0
+    DamagePerUp: 0
+    AttackSpeed: 0
+    SpeedPerUp: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002928870391896
+      type: {class: Attackable_SimpleEnemy, ns: ES, asm: Assembly-CSharp}
+      data:
+        Damage: 10
+        AttackRangeDis: 1
+        AttackSpeed: 1
+        attackType: 1
+        require: 0
+        attackOn: 1
+        preDelay: 0.25
+        attackExit_: 0.8
+        playSound: {fileID: 0}
+        AttackRangeAngle: 60
 --- !u!114 &7166261129093022510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,3 +670,41 @@ MonoBehaviour:
     SerializationNodes: []
   DataKey:
     str_direc: "\u7537\u5A18\u738B"
+  entitySharedData:
+    enemyName: 
+    characters: []
+    bindingEnemyPrefab: {fileID: 0}
+    weightedStrenthValue: 100
+    Health: 100
+    VisionRangeAngle: 90
+    VisionRangeDis: 20
+    PatrolSpeed: 1
+    ChaseSpeed: 2
+    ChaseDistance: 100
+    UseAlert: 0
+    AlertTime: 2
+    AlertRange: 8
+    Attacks_:
+    - rid: 165002928870391895
+  entityVariableData:
+    Health: 100
+    DamageAdd: 0
+    DamagePerUp: 0
+    AttackSpeed: 0
+    SpeedPerUp: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002928870391895
+      type: {class: Attackable_SimpleEnemy, ns: ES, asm: Assembly-CSharp}
+      data:
+        Damage: 10
+        AttackRangeDis: 1
+        AttackSpeed: 1
+        attackType: 1
+        require: 0
+        attackOn: 1
+        preDelay: 0.25
+        attackExit_: 0.8
+        playSound: {fileID: 0}
+        AttackRangeAngle: 60

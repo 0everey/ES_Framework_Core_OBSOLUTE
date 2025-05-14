@@ -16,7 +16,7 @@ namespace ES
         [FoldoutGroup("工具管理器引用"), LabelText("音效管理器")] public ESAudioMaster AudioMaster;
         
 
-        public DomainForGameCenterManager BaseDomain;
+        [LabelText("基本域")]public DomainForGameCenterManager BaseDomain;
 
 
 
@@ -61,6 +61,12 @@ namespace ES
         public void SendLink<Link>(Link link) where Link:ILink
         {
             this.GameCenterArchitecture.SendLink(link);
+        }
+        public void Ins(GameObject g,Vector3 pos,Transform parent)
+        {
+            if (g == null) return;
+            if(parent!=null) Instantiate(g, pos, Quaternion.identity,parent);
+            else Instantiate(g, pos, Quaternion.identity);
         }
         /*[Button("发送Link")]
         public void SendLink()

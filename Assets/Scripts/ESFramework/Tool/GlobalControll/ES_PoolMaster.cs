@@ -5,16 +5,16 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
-public class Ev_PoolManager : MonoBehaviour
+public class ES_PoolMaster : MonoBehaviour
 {
-
-    public static Ev_PoolManager Instance
+    
+    public static ES_PoolMaster Instance
     {
         get
         {
             if (_instance == null)
             {
-                _instance = GameObject.FindAnyObjectByType<Ev_PoolManager>() as Ev_PoolManager;
+                _instance = GameObject.FindAnyObjectByType<ES_PoolMaster>() as ES_PoolMaster;
             };
             return _instance;
         }
@@ -23,7 +23,7 @@ public class Ev_PoolManager : MonoBehaviour
             _instance = value;
         }
     }
-    private static Ev_PoolManager _instance;
+    private static ES_PoolMaster _instance;
     public int defaultNum = 10;
     public int defaultExpandNumOnce = 5;
 

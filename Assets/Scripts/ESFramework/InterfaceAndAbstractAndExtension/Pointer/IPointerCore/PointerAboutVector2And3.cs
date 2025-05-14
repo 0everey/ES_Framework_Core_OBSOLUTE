@@ -245,6 +245,19 @@ namespace ES.EvPointer
             return vector;
         }
     }
+   /* [Serializable, TypeRegistryItem("Vector3_曲线和", "单值针/Vector3针")]
+    public class PointerForVector3_Curve : IPointerForVector3_Only
+    {
+        [LabelText("X曲线")] public AnimationCurve curveX=AnimationCurve.Constant(0,1,1);
+        [LabelText("Y曲线")] public AnimationCurve curveY = AnimationCurve.Constant(0, 1, 1);
+        [LabelText("Z曲线")] public AnimationCurve curveZ = AnimationCurve.Constant(0, 1, 1);
+        
+        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        {
+            
+            return vector;
+        }
+    }*/
     [Serializable, TypeRegistryItem("Vector3值_变换引用的坐标", "单值针/Vector3")]
     public class PointerForVector3_Transform : IPointerForVector3_Only
     {

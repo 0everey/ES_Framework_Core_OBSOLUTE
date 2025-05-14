@@ -9,7 +9,7 @@ namespace ES
     
     public abstract class SingletonAsCore<This> : BaseCore where This : MonoBehaviour
     {
-        [LabelText("不销毁")]public bool DontDestroy = true;
+        [LabelText("不销毁"),PropertyOrder(-5)]public bool DontDestroy = true;
         public static This Instance
         {
             get {
@@ -82,7 +82,7 @@ namespace ES
         }
 
         private static This _instance;
-        protected  void Awake()
+        protected virtual  void Awake()
         {
             //Debug.Log("awake");
             if (_instance == null)

@@ -61,23 +61,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Architecture\Architecture.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Ship\Attackable\AttackableAbout.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutGlobal.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Ship\State\BaseDefine\Abstract\BaseStateDefine.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerForDotween\PointerForDotween.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutCasterAndCatcher.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutRubbish.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerLoader.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Tool\GlobalControll\ES_PoolMaster.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\RoomGenerateDataPack.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerLink\PointerPlayerXXXReceiveLink.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Ship\SkillAndAddition\SkillPointController\SkillControllerSourceCore.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerTypesOfCompo\PointerSetUGUI.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerTypesOfCompo\PointerSetParticles.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutQuaternion.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Link\LinkTable.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Tool\GlobalControll\LateFollow.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\RuneDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\ActorDataGroup.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\Skill\Releasable\SkillReleasable\ReleaseableSkillClip.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutBool.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutSystemObject.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\SharedAndVariableData\EntitySharedAndVariableData.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutAnimator.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerDontDestroy.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByGetAxis.cs" />
@@ -92,8 +96,8 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Domain\Domain.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\TypeDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerSupport\SupportPointerPlayerESMachine\ESMachinePlayerPointer.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\Skill\SkillPointController\SkillPointSpritesReference.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\ItemDataPack.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Ship\SkillAndAddition\Releasable\SkillReleasable\ReleaseableSkillClip.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\Abstract\SoDataInfoConfiguration.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\RuneDataGroup.cs" />
     <Compile Include="Assets\Scripts\TestOnly\Run.cs" />
@@ -107,7 +111,6 @@
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\Abstract\SoDataGroup.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Strategy\Static\KeyValueMatching.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByCollider2D.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\Skill\SkillPointController\SkillRuneControllerApplier.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\RoomGenerateDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Define\SharedAndVariable\IWithSharedAndVariableData.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerForParticle\PointerForParticle.cs" />
@@ -128,6 +131,7 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutDelegate_Func_Action.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\StateDataGroup.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Item\HurtableDomainForItem.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutType.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ModuleAndHosting\HostingPart_Define\IESHosting.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\ArchitectureDataPack.cs" />
@@ -138,19 +142,24 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByMouse.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ModuleAndHosting\HostingPart_Define\ESHostMono.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Link\LinkForEntity_StartCache.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Ship\SkillAndAddition\Releasable\SkillReleasable\IReleasablePointerOnlyByEntityYarnEntityOn.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Domain\Clip.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Item\SharedAndVariableData\ItemSharedAndVariableData.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutTriggerOnly.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\ItemDataGroup.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Ship\SkillAndAddition\SkillPointController\SkillPointRunTime.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutPick_Invoke_Debug.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerNone.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByTrigger3D.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\SingleNoTool\ESLayerStringSO.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerTypesOfCompo\PointerSetRigidBody.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Item\HoldableDomainForItem.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Ship\SkillAndAddition\SkillPointController\SkillRuneControllerApplier.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Extension\Extension.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByGetButton.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutString.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\SkillDataInfo.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Special\ESObject.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\GameEventMessageDataGroup.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithFloat_EValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithEValue.cs" />
@@ -162,7 +171,6 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Domain\Core.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutVector2And3.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\StateMachineDomainForEntity.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\Skill\SkillPointController\SkillPointRunTime.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerTimeWatch\PointerPlayerAsStopWatch.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\Abstract\SoDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\SkillDataPack.cs" />
@@ -172,7 +180,6 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithType_EValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerTypesOfCompo\PointerSetLight.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\AIDomainForEntity.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\Skill\SkillPointController\SkillControllerSourceCore.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\GameCenterManager\EditorMaskter\EditorMaster.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\ActorDataPack.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerTypeCaster.cs" />
@@ -185,12 +192,11 @@
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\SkillDataGroup.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\SkillPointDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\BuffDataGroup.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\Skill\Releasable\SkillReleasable\IReleasablePointerOnlyByEntityYarnEntity.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\BuffDataPack.cs" />
     <Compile Include="Assets\Scripts\ESFramework\HotFix\Fix_Project_Transition.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Tool\GlobalControll\Ev_PoolManager.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\GameEventMessageDataPack.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutIOC.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\ESValueContainer.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutFloatAndInt.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithVector3_EValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByInputGetKey.cs" />
@@ -203,6 +209,8 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerSupport\SupportPointerPlayerEValue\PointerXXXEValueFromPointerPlayer.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Singleton\SingletonAsDomainCore.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\ActorDataInfo.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Ship\SkillAndAddition\SkillPointController\SkillPointSpritesReference.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Ship\SkillAndAddition\Releasable\NormalReleasable\IReleasablePointerOnlyByEntityYarnEntityOn.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\GameCenterManager\RunTimeMaster\ESAudioMaster.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithInt_EValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\ExpandEntityClass\EntityStateMachine.cs" />
@@ -1113,6 +1121,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.AI.Navigation">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Burst.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1189,6 +1201,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.AI.Navigation.Updater">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="PPv2URPConverters">
       <HintPath>Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
       <Private>False</Private>
@@ -1211,6 +1227,14 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">

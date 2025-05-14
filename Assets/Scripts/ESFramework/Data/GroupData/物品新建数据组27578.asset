@@ -23,6 +23,15 @@ MonoBehaviour:
     SerializationNodes: []
   DataKey:
     str_direc: "\u77F3\u82F1"
+  sharedData:
+    rid: -2
+  defaultData:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!114 &-5315542983804114063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,6 +55,15 @@ MonoBehaviour:
     SerializationNodes: []
   DataKey:
     str_direc: "\u6728\u5251"
+  sharedData:
+    rid: -2
+  defaultData:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!114 &-4401352314424099656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +87,15 @@ MonoBehaviour:
     SerializationNodes: []
   DataKey:
     str_direc: "\u94C1"
+  sharedData:
+    rid: -2
+  defaultData:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!114 &-4299210867300742830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +119,146 @@ MonoBehaviour:
     SerializationNodes: []
   DataKey:
     str_direc: "\u77F3\u5934"
+  sharedData:
+    rid: 165002894273937624
+  defaultData:
+    rid: 165002894273937625
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002894273937624
+      type: {class: ESItem_FlyingSharedData, ns: ES, asm: Assembly-CSharp}
+      data:
+        itemDisplayName: 
+        characters: []
+        bindingEnemyPrefab: {fileID: 0}
+        damage: 20
+        speed: 8
+        missileLife_: 555
+        maxTimes: 1
+        entityHandleOfItem:
+          handles_:
+          - rid: 165002907638038632
+          - rid: 165002907638038634
+          optionForPlaySound: 3
+          OnDesPlaySound: {fileID: 8300000, guid: a019ae3af8e864616b85773c509f5285,
+            type: 3}
+          optionForDesBirth: 3
+          OnDesBirth: {fileID: 100002, guid: 834bfaee90a9d4e04b1e8c1ca22cc88e, type: 3}
+    - rid: 165002894273937625
+      type: {class: ESItemVariableData, ns: ES, asm: Assembly-CSharp}
+      data: 
+    - rid: 165002907638038632
+      type: {class: EntityHandle_OnItem_ScaleCurve, ns: ES, asm: Assembly-CSharp}
+      data:
+        scaleXCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.07380953
+            value: 2
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        scaleYCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.10952384
+            value: 2
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        scaleZCurve:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        durationP:
+          rid: 165002907638038633
+        resumeTime: 0.25
+        resumeTo: {x: 1, y: 1, z: 1}
+    - rid: 165002907638038633
+      type: {class: PointerForFloat_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        float_: 1
+    - rid: 165002907638038634
+      type: {class: EntityHandle_OnItem_AddRigidForce, ns: ES, asm: Assembly-CSharp}
+      data:
+        vector3:
+          rid: 165002907638038635
+        placePos: 0
+    - rid: 165002907638038635
+      type: {class: PointerForVector3_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        vector: {x: 0, y: 1000, z: -2}
 --- !u!114 &-2292302297552512589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +282,15 @@ MonoBehaviour:
     SerializationNodes: []
   DataKey:
     str_direc: "\u5DE5\u4F5C\u53F0"
+  sharedData:
+    rid: -2
+  defaultData:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +320,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: keyValues
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[HellishBattle.ItemDataInfo,
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[ES.ItemDataInfo,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
@@ -258,3 +434,12 @@ MonoBehaviour:
     SerializationNodes: []
   DataKey:
     str_direc: "\u6728\u5934"
+  sharedData:
+    rid: -2
+  defaultData:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

@@ -60,7 +60,7 @@ namespace ES.EvPointer
     }
     #endregion
         #region 废案或者还没怎么用的扩展
-    public interface IPointer<Back, in Link,Head> : IPointerChainAny< Back,Link,Head> where Link : ILink
+    public interface IPointer<Back, in Link,Head> : IPointerChainAny< Back,Link,Head,object> where Link : ILink
     {
         Back Pick(Link link);
         // Back PickByLink(Link link) { if (link != null) return Pick(link.By_, link.Yarn_, link.On_); return default(Back); }
@@ -321,9 +321,10 @@ namespace ES.EvPointer
         public override Back Pick(object launcherEntity = default, object yarn = null, object on = null)
         {
             if (head == null || end == null) { Debug.LogError("链条首位不完整"); return default(Back); }
-            object headUse=head?.Pick(launcherEntity);
+            object headUse=head?.Pick(launcherEntity,launcherEntity,on);
             //Debug.Log("筛选的头部"+headUse);
-            return PickAfterHead(headUse, launcherEntity);
+            
+            return PickAfterHead(headUse, launcherEntity,on);
         }
         public  Back PickAfterHead(object startAsHead, object launcherEntity, object on = null)
         {
@@ -428,7 +429,7 @@ namespace ES.EvPointer
     {
 
     }
-    public interface IPointerChainAny<Next,in Last, Head> : IPointer<Next, Last, Head, object>, IPointerChain
+    public interface IPointerChainAny<Next,in Last, Head,On> : IPointer<Next, Last, Head, On>, IPointerChain
     {
 
     }

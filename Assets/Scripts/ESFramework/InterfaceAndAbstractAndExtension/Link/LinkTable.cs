@@ -1,4 +1,5 @@
 using ES.EvPointer;
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,6 +21,12 @@ namespace ES
     public struct Link_DestrolyCollideWall : ILink
     {
 
+    }
+    [Serializable,TypeRegistryItem]
+    public struct Link_DestroyWhy : ILink
+    {
+        [LabelText("销毁原因")]
+        public EnumCollect.DestroyWhyOption options;
     }
     public class LinkTable : MonoBehaviour
     {

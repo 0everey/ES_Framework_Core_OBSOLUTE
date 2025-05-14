@@ -21,5 +21,11 @@ namespace ES
         {
             return p.Pick(t, yarn, on);
         }
+
+        public static Vector3 NoY(this Vector3 v)
+        {
+            v.y = 0;
+            return v;
+        }
     }
 }

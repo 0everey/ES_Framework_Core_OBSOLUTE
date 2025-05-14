@@ -11,5 +11,9 @@ namespace ES
         public string start = "开始创建技能序列！！";
         [HideLabel]
         public ReleasableSkillsSequence sequence;
+        private void OnValidate()
+        {
+            sequence.OnChangeSlider();
+        }
     }
 }
