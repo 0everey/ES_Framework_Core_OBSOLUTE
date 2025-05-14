@@ -733,14 +733,12 @@ public static class EnumCollect
         [InspectorName("Mask异或(切换)")] Mask_Xor,
         [InspectorName("Mask且反(关闭)")] Mask_And_Not
     }
-
     public enum SendMessageType
     {
         [InspectorName("当前对象层")]SendMessage,
         [InspectorName("包含子对象")] BroadCastMessage,
         [InspectorName("包含父对象")] SendMessageUpWards,
     }
-
     public enum PointerSelectOneType
     {
         [InspectorName("第一个不为空的")] NotNullFirst,
@@ -777,8 +775,6 @@ public static class EnumCollect
         [InspectorName("设置生效中心和范围")] SetRangeCenterAndDistance,
         [InspectorName("设置可用")] SetCanPlay
     }
-
-
     public enum TransformHandle_ValueSet
     {
         [InspectorName("直接设置")]Set,
@@ -931,7 +927,7 @@ public static class EnumCollect
     public enum AttackOnType
     {
         [InspectorName("直接命中")] Direct = 1,
-        [InspectorName("按动作")] AsAction = 2,
+        [InspectorName("按动作和武器")] AsAction = 2,
         [InspectorName("执行序列")] HandleList =4
     }
     public enum AttackConditionRequire
@@ -940,7 +936,17 @@ public static class EnumCollect
         [InspectorName("必须有目标即可")]MustTargetHas,
         [InspectorName("无条件攻击")]AlsoAttack,
     }
-
+    [Flags]
+    public enum MouseTriggerOption
+    {
+        [InspectorName("按下时")]Down=1,
+        [InspectorName("松开时")] Up=2,
+        [InspectorName("按住时")] Hold=4,
+        [InspectorName("辅助档位，不要单独选择")]DontBeUse_0=8,
+        [InspectorName("按住足够时间")] HoldForTime=12,
+        [InspectorName("辅助档位，不要选择")] DontBeUse_1 = 16,
+        [InspectorName("按住足够时间并松手")] HoldForTimeAndUp=22
+    }
 }
 
 public static class Test233

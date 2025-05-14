@@ -573,8 +573,8 @@ namespace ES.EvPointer
                      tt.position -= shoudAdd2 * mutiDelta;*/
                     break;
                 case EnumCollect.TransformHandle_ValueSet.Muti:
-                    /*     Vector3 target = centerPos + (qF * Vector3.forward) * p3.z + (qF * Vector3.right) * p3.x + (qF * Vector3.up) * p3.y;
-                         tt.position = Vector3.MoveTowards(tt.localPosition, target, mutiDelta);*/
+                    /*     Vector3 targetParent = centerPos + (qF * Vector3.forward) * p3.z + (qF * Vector3.right) * p3.x + (qF * Vector3.up) * p3.y;
+                         tt.position = Vector3.MoveTowards(tt.localPosition, targetParent, mutiDelta);*/
                     break;
                 case EnumCollect.TransformHandle_ValueSet.Div:
                     /* Vector3 target2 = centerPos + (qF * Vector3.forward) * p3.z + (qF * Vector3.right) * p3.x + (qF * Vector3.up) * p3.y;

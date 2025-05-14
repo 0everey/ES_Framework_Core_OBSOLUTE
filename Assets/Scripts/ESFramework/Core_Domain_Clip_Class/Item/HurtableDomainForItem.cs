@@ -76,6 +76,10 @@ namespace ES {
             if (flyingData == null) Domain.RemoveClip(this);//没有存在的必要了
             lifeTimeHasGo =0;
             canColTimes = flyingData.maxTimes;
+            if (TargetDirect == default)
+            {
+                TargetDirect = Core.transform.forward * flyingData.speed;
+            }
 
         }
         [Button("设置目标测试")]

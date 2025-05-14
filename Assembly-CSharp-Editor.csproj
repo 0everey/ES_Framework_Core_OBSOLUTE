@@ -60,9 +60,9 @@
     <Analyzer Include="D:\UnityEditorDir\2022.3.57f1c1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\ESFramework\Editor\ESWindow\ESWindow.cs" />
     <Compile Include="Assets\Editor\TemplateSelfTest.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Editor\ESWindow\EvWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

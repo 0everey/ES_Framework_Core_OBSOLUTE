@@ -23,6 +23,7 @@ namespace ES
         [NonSerialized] public ClipBase_CacherPoolForSpecialCondition Module_Cache;
 
         [NonSerialized] public ClipBase_AB_Vision Module_AB_Vision;
+        [NonSerialized] public ClipBase_FireFlying Module_Fire;
         #endregion
 
 
@@ -314,7 +315,7 @@ namespace ES
         }
     }
 
-    [Serializable, TypeRegistryItem("视觉(MC版)")]
+    [Serializable, TypeRegistryItem("视觉支持(MC版)")]
     public class ClipBase_Vision_MC : ClipBase_AB_Vision
     {
         [LabelText("视觉筛选标签")]
@@ -485,6 +486,130 @@ namespace ES
             }
             return false;
         }
+    }
+    [Serializable,TypeRegistryItem("可发射支持")]
+    public class ClipBase_FireFlying : BaseClipForEntity
+    {
+        [LabelText("预制件")]public GameObject prefab;
+        [LabelText("发射点和方向")]public Transform FirePoint;
+        protected override void CreateRelationship()
+        {
+            base.CreateRelationship();
+            Domain.Module_Fire = this;
+        }
+        public void Fire(GameObject newOne=null,bool rePlace=true)
+        {
+            FirePoint ??= Core.transform;
+            GameObject gg = prefab;
+            if (newOne != null)
+            {
+                gg = newOne;
+                if (rePlace)
+                {
+                    prefab = newOne;
+                }
+            }
+            if (gg != null)
+            {
+                GameObject ins= GameCenter.Ins(gg,FirePoint.position,null,FirePoint.rotation);
+                var item = ins.GetComponent<Item>();
+                item.AddIgnoreEntity(Core);
+               
+            }
+        }
+    }
+
+    [Serializable,TypeRegistryItem("可发射扩展：按键发射")]
+    public class ClipBase_Expand_ButtonFireQuick : BaseClipForEntity
+    {
+        [LabelText("发射输入")]
+        public InputAction FireInput;
+        [LabelText("发射冷却")]
+        public float fireCoolDown = 0.2f;
+        private float coolTimeHas = 0.1f;
+        [LabelText("按住触发时间")]
+        public float holdTime = 1.5f;
+        [ShowInInspector,ReadOnly,LabelText("按住时间")]private float holdTimeHasGo = 0;
+        [LabelText("发射触发时机(可覆盖)")]
+        public EnumCollect.MouseTriggerOption triggerOption = EnumCollect.MouseTriggerOption.Down;
+
+        private ClipBase_FireFlying Refer_ModuleFire;
+        protected override void CreateRelationship()
+        {
+            base.CreateRelationship();
+            Refer_ModuleFire = Domain.Module_Fire;
+            if (FireInput == null|| Refer_ModuleFire==null)
+            {
+                //无效
+                this.enabledSelf = false;
+                Domain.RemoveClip(this);
+            }
+        }
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            FireInput.Enable();
+        }
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            FireInput.Disable();
+        }
+        protected override void Update()
+        {
+            base.Update();
+            coolTimeHas -= Time.deltaTime;
+            if (coolTimeHas > 0) return;
+            if (triggerOption.HasFlag( EnumCollect.MouseTriggerOption.Down)&& FireInput.WasPressedThisFrame())
+            {
+                Refer_ModuleFire.Fire();
+                coolTimeHas = fireCoolDown;
+            }
+            else if(triggerOption.HasFlag(EnumCollect.MouseTriggerOption.Up) && FireInput.WasReleasedThisFrame())
+            {
+                if(triggerOption.HasFlag(EnumCollect.MouseTriggerOption.HoldForTimeAndUp))
+                {
+                    if (holdTimeHasGo > holdTime)
+                    {
+                        holdTimeHasGo = 0;
+                        Refer_ModuleFire.Fire();
+                        coolTimeHas = fireCoolDown;
+                    }
+                }
+                else
+                {
+                    Refer_ModuleFire.Fire();
+                    coolTimeHas = fireCoolDown;
+                }
+                
+            }
+            else if(triggerOption.HasFlag( EnumCollect.MouseTriggerOption.Hold)&& FireInput.IsPressed())
+            {
+                holdTimeHasGo += Time.deltaTime;
+                if (triggerOption.HasFlag(EnumCollect.MouseTriggerOption.HoldForTime))
+                {
+                    if (holdTimeHasGo > holdTime)
+                    {
+                        holdTimeHasGo = 0;
+                        Refer_ModuleFire.Fire();
+                        coolTimeHas = fireCoolDown;
+                    }
+                }
+                else if(!triggerOption.HasFlag(EnumCollect.MouseTriggerOption.HoldForTimeAndUp))
+                {
+                    Refer_ModuleFire.Fire();
+                    coolTimeHas = fireCoolDown;
+                }
+
+
+            }
+            else
+            {
+                holdTimeHasGo = 0;
+            }
+            
+        }
+
     }
     /*   [Serializable,TypeRegistryItem("改名字模块")]
        public class BaseClipForEntity_改名字: BaseClipForEntity

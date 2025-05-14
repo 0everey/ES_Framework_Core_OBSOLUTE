@@ -62,11 +62,12 @@ namespace ES
         {
             this.GameCenterArchitecture.SendLink(link);
         }
-        public void Ins(GameObject g,Vector3 pos,Transform parent)
+        public GameObject Ins(GameObject g,Vector3 pos,Transform parent,Quaternion? qq=null)
         {
-            if (g == null) return;
-            if(parent!=null) Instantiate(g, pos, Quaternion.identity,parent);
-            else Instantiate(g, pos, Quaternion.identity);
+            if (g == null) return null;
+            
+            if(parent!=null) return Instantiate(g, pos, qq??Quaternion.identity, parent);
+            else return Instantiate(g, pos, qq ?? Quaternion.identity);
         }
         /*[Button("发送Link")]
         public void SendLink()

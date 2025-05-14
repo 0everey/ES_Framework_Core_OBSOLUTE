@@ -60,7 +60,19 @@ MonoBehaviour:
         preDelay: 0.25
         attackExit_: 0.8
         playSound: {fileID: 0}
+        prefabForShow:
+          rid: 165002936398905392
+        prefabForEffector:
+          rid: 165002936398905393
         AttackRangeAngle: 60
+    - rid: 165002936398905392
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+    - rid: 165002936398905393
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
 --- !u!114 &-6139203167589708655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +133,19 @@ MonoBehaviour:
         preDelay: 0.25
         attackExit_: 0.8
         playSound: {fileID: 0}
+        prefabForShow:
+          rid: 165002936398905390
+        prefabForEffector:
+          rid: 165002936398905391
         AttackRangeAngle: 60
+    - rid: 165002936398905390
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+    - rid: 165002936398905391
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
 --- !u!114 &-6070777438699161892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +206,19 @@ MonoBehaviour:
         preDelay: 0.25
         attackExit_: 0.8
         playSound: {fileID: 0}
+        prefabForShow:
+          rid: 165002936398905386
+        prefabForEffector:
+          rid: 165002936398905387
         AttackRangeAngle: 60
+    - rid: 165002936398905386
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+    - rid: 165002936398905387
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
 --- !u!114 &-3581201634888277133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +258,7 @@ MonoBehaviour:
     AlertRange: 8
     Attacks_:
     - rid: 165002928870391894
+    - rid: 165002936398905375
   entityVariableData:
     Health: 100
     DamageAdd: 5555
@@ -243,7 +280,44 @@ MonoBehaviour:
         preDelay: 0.25
         attackExit_: 0.8
         playSound: {fileID: 0}
+        prefabForShow:
+          rid: 165002936398905373
+        prefabForEffector:
+          rid: 165002936398905374
         AttackRangeAngle: 60
+    - rid: 165002936398905373
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+    - rid: 165002936398905374
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+    - rid: 165002936398905375
+      type: {class: Attackable_SimpleEnemy, ns: ES, asm: Assembly-CSharp}
+      data:
+        Damage: 10
+        AttackRangeDis: 15
+        AttackSpeed: 1
+        attackType: 2
+        require: 0
+        attackOn: 1
+        preDelay: 0.25
+        attackExit_: 0.8
+        playSound: {fileID: 0}
+        prefabForShow:
+          rid: 165002936398905376
+        prefabForEffector:
+          rid: 165002936398905377
+        AttackRangeAngle: 60
+    - rid: 165002936398905376
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+    - rid: 165002936398905377
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 6999067622756423496, guid: f7323df0a908fbf42a2aecc83ff91288, type: 3}
 --- !u!114 &-701346399224484441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +378,19 @@ MonoBehaviour:
         preDelay: 0.25
         attackExit_: 0.8
         playSound: {fileID: 0}
+        prefabForShow:
+          rid: 165002936398905388
+        prefabForEffector:
+          rid: 165002936398905389
         AttackRangeAngle: 60
+    - rid: 165002936398905388
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+    - rid: 165002936398905389
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,7 +610,19 @@ MonoBehaviour:
         preDelay: 0.25
         attackExit_: 0.8
         playSound: {fileID: 0}
+        prefabForShow:
+          rid: 165002936398905384
+        prefabForEffector:
+          rid: 165002936398905385
         AttackRangeAngle: 60
+    - rid: 165002936398905384
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+    - rid: 165002936398905385
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
 --- !u!114 &2669271368626503815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,7 +683,19 @@ MonoBehaviour:
         preDelay: 0.25
         attackExit_: 0.8
         playSound: {fileID: 0}
+        prefabForShow:
+          rid: 165002936398905378
+        prefabForEffector:
+          rid: 165002936398905379
         AttackRangeAngle: 60
+    - rid: 165002936398905378
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+    - rid: 165002936398905379
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
 --- !u!114 &6773690880605288668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -646,7 +756,19 @@ MonoBehaviour:
         preDelay: 0.25
         attackExit_: 0.8
         playSound: {fileID: 0}
+        prefabForShow:
+          rid: 165002936398905380
+        prefabForEffector:
+          rid: 165002936398905381
         AttackRangeAngle: 60
+    - rid: 165002936398905380
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+    - rid: 165002936398905381
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
 --- !u!114 &7166261129093022510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,4 +829,16 @@ MonoBehaviour:
         preDelay: 0.25
         attackExit_: 0.8
         playSound: {fileID: 0}
+        prefabForShow:
+          rid: 165002936398905382
+        prefabForEffector:
+          rid: 165002936398905383
         AttackRangeAngle: 60
+    - rid: 165002936398905382
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+    - rid: 165002936398905383
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}

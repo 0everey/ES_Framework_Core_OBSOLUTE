@@ -2,7 +2,9 @@ using DG.Tweening;
 using DG.Tweening.Core.Easing;
 using ES;
 using Sirenix.OdinInspector;
+#if UNITY_EDITOR
 using Sirenix.OdinInspector.Editor;
+#endif
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -70,6 +72,7 @@ namespace ES
             TheEntityStateMachine = host as EntityStateMachine;
             Entity = TheEntityStateMachine?.StateDomain.core;
             base.RunStatePreparedLogic();
+            
         }
     }
     [Serializable, TypeRegistryItem("实体标准技能状态")]
@@ -597,7 +600,7 @@ namespace ES
             ReferModule_Attack.attackableNow = null;
             foreach (var i in Entity.entitySharedData.Attacks_)
             {
-              
+                
                 if (remainDis < i.AttackRangeDis)
                 {
                     ReferModule_Attack.attackableNow = i;
