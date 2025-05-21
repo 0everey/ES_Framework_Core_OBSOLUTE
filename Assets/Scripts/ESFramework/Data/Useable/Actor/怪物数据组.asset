@@ -1,0 +1,766 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8757511592205877461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d725a630dfe1aff42b49940aa4a2488d, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u602A\u7269006"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: "\u602A\u7269006"
+  entitySharedData:
+    enemyName: 
+    characters: []
+    bindingEnemyPrefab: {fileID: 2550724089450864005, guid: 9af8bbfc787559d4098ef9727d0a759d, type: 3}
+    weightedStrenthValue: 100
+    Health: 100
+    VisionRangeAngle: 90
+    VisionRangeDis: 20
+    PatrolSpeed: 1
+    ChaseSpeed: 2
+    ChaseDistance: 100
+    UseAlert: 0
+    AlertTime: 2
+    AlertRange: 8
+    Attacks_:
+    - rid: 165002955447074947
+  entityVariableData:
+    Health: 100
+    DamageAdd: 0
+    DamagePerUp: 0
+    AttackSpeed: 0
+    SpeedPerUp: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002955447074947
+      type: {class: Attackable_SimpleEnemy, ns: ES, asm: Assembly-CSharp}
+      data:
+        Damage: 10
+        AttackRangeDis: 1
+        AttackSpeed: 1
+        attackType: 1
+        require: 0
+        attackOn: 1
+        preDelay: 0.25
+        attackExit_: 0.8
+        playSound: {fileID: 0}
+        prefabForShow:
+          rid: 165002955447074948
+        prefabForEffector:
+          rid: 165002955447074949
+        AttackRangeAngle: 60
+    - rid: 165002955447074948
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+    - rid: 165002955447074949
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+--- !u!114 &-5966184192273483201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d725a630dfe1aff42b49940aa4a2488d, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u602A\u7269005"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: "\u602A\u7269005"
+  entitySharedData:
+    enemyName: 
+    characters: []
+    bindingEnemyPrefab: {fileID: 2550724089450864005, guid: 9af8bbfc787559d4098ef9727d0a759d, type: 3}
+    weightedStrenthValue: 100
+    Health: 100
+    VisionRangeAngle: 90
+    VisionRangeDis: 20
+    PatrolSpeed: 1
+    ChaseSpeed: 2
+    ChaseDistance: 100
+    UseAlert: 0
+    AlertTime: 2
+    AlertRange: 8
+    Attacks_:
+    - rid: 165002955447074944
+  entityVariableData:
+    Health: 100
+    DamageAdd: 0
+    DamagePerUp: 0
+    AttackSpeed: 0
+    SpeedPerUp: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002955447074944
+      type: {class: Attackable_SimpleEnemy, ns: ES, asm: Assembly-CSharp}
+      data:
+        Damage: 10
+        AttackRangeDis: 1
+        AttackSpeed: 1
+        attackType: 1
+        require: 0
+        attackOn: 1
+        preDelay: 0.25
+        attackExit_: 0.8
+        playSound: {fileID: 0}
+        prefabForShow:
+          rid: 165002955447074945
+        prefabForEffector:
+          rid: 165002955447074946
+        AttackRangeAngle: 60
+    - rid: 165002955447074945
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+    - rid: 165002955447074946
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+--- !u!114 &-4499179199838891291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d725a630dfe1aff42b49940aa4a2488d, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u53F2\u83B1\u59C6\u521D\u7EA7\u6218\u58EB"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: "\u53F2\u83B1\u59C6\u521D\u7EA7\u6218\u58EB"
+  entitySharedData:
+    enemyName: "\u53F2\u83B1\u59C6\u521D\u7EA7\u6218\u58EB"
+    characters: []
+    bindingEnemyPrefab: {fileID: 0}
+    weightedStrenthValue: 100
+    Health: 100
+    VisionRangeAngle: 90
+    VisionRangeDis: 20
+    PatrolSpeed: 1
+    ChaseSpeed: 2
+    ChaseDistance: 100
+    UseAlert: 0
+    AlertTime: 2
+    AlertRange: 8
+    Attacks_:
+    - rid: 165003020391416390
+  entityVariableData:
+    Health: 100
+    DamageAdd: 0
+    DamagePerUp: 0
+    AttackSpeed: 0
+    SpeedPerUp: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 165003020391416390
+      type: {class: Attackable_SimpleEnemy, ns: ES, asm: Assembly-CSharp}
+      data:
+        Damage: 10
+        AttackRangeDis: 2
+        AttackSpeed: 1
+        attackType: 1
+        require: 0
+        attackOn: 1
+        preDelay: 0.25
+        attackExit_: 0.8
+        playSound: {fileID: 8300000, guid: 716cb20407353f44cb2626cb281b9901, type: 3}
+        prefabForShow:
+          rid: 165003020391416391
+        prefabForEffector:
+          rid: 165003020391416392
+        AttackRangeAngle: 60
+    - rid: 165003020391416391
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+    - rid: 165003020391416392
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50454c38560a9ff4bb8d3f1237ad5186, type: 3}
+  m_Name: "\u602A\u7269\u6570\u636E\u7EC4"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 5904115806703290534}
+    - {fileID: 8991442665542476404}
+    - {fileID: 3611626127198578361}
+    - {fileID: 4718544025783569809}
+    - {fileID: -5966184192273483201}
+    - {fileID: -8757511592205877461}
+    - {fileID: -4499179199838891291}
+    - {fileID: 8735142274255453679}
+    - {fileID: 943334889246665041}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: keyValues
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[ES.ActorDataInfo,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 9
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u602A\u7269001"
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u602A\u7269002"
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u602A\u7269003"
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u602A\u7269004"
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u602A\u7269005"
+    - Name: $v
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u602A\u7269006"
+    - Name: $v
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u53F2\u83B1\u59C6\u521D\u7EA7\u6218\u58EB"
+    - Name: $v
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u53F2\u83B1\u59C6\u6CD5\u5E08"
+    - Name: $v
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u53F2\u83B1\u59C6\u8611\u83C7\u5934"
+    - Name: $v
+      Entry: 10
+      Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  name__: "\u6570\u636E\u7EC4"
+--- !u!114 &943334889246665041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d725a630dfe1aff42b49940aa4a2488d, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u53F2\u83B1\u59C6\u8611\u83C7\u5934"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: "\u53F2\u83B1\u59C6\u8611\u83C7\u5934"
+  entitySharedData:
+    enemyName: 
+    characters: []
+    bindingEnemyPrefab: {fileID: 0}
+    weightedStrenthValue: 100
+    Health: 100
+    VisionRangeAngle: 90
+    VisionRangeDis: 20
+    PatrolSpeed: 1
+    ChaseSpeed: 2
+    ChaseDistance: 100
+    UseAlert: 0
+    AlertTime: 2
+    AlertRange: 8
+    Attacks_: []
+  entityVariableData:
+    Health: 100
+    DamageAdd: 0
+    DamagePerUp: 0
+    AttackSpeed: 0
+    SpeedPerUp: 0
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &3611626127198578361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d725a630dfe1aff42b49940aa4a2488d, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u602A\u7269003"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: "\u602A\u7269003"
+  entitySharedData:
+    enemyName: 
+    characters: []
+    bindingEnemyPrefab: {fileID: 2550724089450864005, guid: 9af8bbfc787559d4098ef9727d0a759d, type: 3}
+    weightedStrenthValue: 100
+    Health: 100
+    VisionRangeAngle: 90
+    VisionRangeDis: 20
+    PatrolSpeed: 1
+    ChaseSpeed: 2
+    ChaseDistance: 100
+    UseAlert: 0
+    AlertTime: 2
+    AlertRange: 8
+    Attacks_:
+    - rid: 165002955447074938
+  entityVariableData:
+    Health: 100
+    DamageAdd: 0
+    DamagePerUp: 0
+    AttackSpeed: 0
+    SpeedPerUp: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002955447074938
+      type: {class: Attackable_SimpleEnemy, ns: ES, asm: Assembly-CSharp}
+      data:
+        Damage: 10
+        AttackRangeDis: 1
+        AttackSpeed: 1
+        attackType: 1
+        require: 0
+        attackOn: 1
+        preDelay: 0.25
+        attackExit_: 0.8
+        playSound: {fileID: 0}
+        prefabForShow:
+          rid: 165002955447074939
+        prefabForEffector:
+          rid: 165002955447074940
+        AttackRangeAngle: 60
+    - rid: 165002955447074939
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+    - rid: 165002955447074940
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+--- !u!114 &4718544025783569809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d725a630dfe1aff42b49940aa4a2488d, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u602A\u7269004"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: "\u602A\u7269004"
+  entitySharedData:
+    enemyName: 
+    characters: []
+    bindingEnemyPrefab: {fileID: 2550724089450864005, guid: 9af8bbfc787559d4098ef9727d0a759d, type: 3}
+    weightedStrenthValue: 100
+    Health: 100
+    VisionRangeAngle: 90
+    VisionRangeDis: 20
+    PatrolSpeed: 1
+    ChaseSpeed: 2
+    ChaseDistance: 100
+    UseAlert: 0
+    AlertTime: 2
+    AlertRange: 8
+    Attacks_:
+    - rid: 165002955447074941
+  entityVariableData:
+    Health: 100
+    DamageAdd: 0
+    DamagePerUp: 0
+    AttackSpeed: 0
+    SpeedPerUp: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002955447074941
+      type: {class: Attackable_SimpleEnemy, ns: ES, asm: Assembly-CSharp}
+      data:
+        Damage: 10
+        AttackRangeDis: 1
+        AttackSpeed: 1
+        attackType: 1
+        require: 0
+        attackOn: 1
+        preDelay: 0.25
+        attackExit_: 0.8
+        playSound: {fileID: 0}
+        prefabForShow:
+          rid: 165002955447074942
+        prefabForEffector:
+          rid: 165002955447074943
+        AttackRangeAngle: 60
+    - rid: 165002955447074942
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+    - rid: 165002955447074943
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+--- !u!114 &5904115806703290534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d725a630dfe1aff42b49940aa4a2488d, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u602A\u7269001"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: "\u602A\u7269001"
+  entitySharedData:
+    enemyName: 
+    characters: []
+    bindingEnemyPrefab: {fileID: 2550724089450864005, guid: 9af8bbfc787559d4098ef9727d0a759d, type: 3}
+    weightedStrenthValue: 100
+    Health: 100
+    VisionRangeAngle: 90
+    VisionRangeDis: 20
+    PatrolSpeed: 1
+    ChaseSpeed: 2
+    ChaseDistance: 100
+    UseAlert: 0
+    AlertTime: 2
+    AlertRange: 8
+    Attacks_:
+    - rid: 165002955447074932
+  entityVariableData:
+    Health: 100
+    DamageAdd: 0
+    DamagePerUp: 0
+    AttackSpeed: 0
+    SpeedPerUp: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002955447074932
+      type: {class: Attackable_SimpleEnemy, ns: ES, asm: Assembly-CSharp}
+      data:
+        Damage: 10
+        AttackRangeDis: 8
+        AttackSpeed: 1
+        attackType: 2
+        require: 0
+        attackOn: 1
+        preDelay: 0.25
+        attackExit_: 0.8
+        playSound: {fileID: 0}
+        prefabForShow:
+          rid: 165002955447074933
+        prefabForEffector:
+          rid: 165002955447074934
+        AttackRangeAngle: 60
+    - rid: 165002955447074933
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+    - rid: 165002955447074934
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 6999067622756423496, guid: 40c55de433e6a8848830a9548c379ece, type: 3}
+--- !u!114 &8735142274255453679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d725a630dfe1aff42b49940aa4a2488d, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u53F2\u83B1\u59C6\u6CD5\u5E08"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: "\u53F2\u83B1\u59C6\u6CD5\u5E08"
+  entitySharedData:
+    enemyName: 
+    characters: []
+    bindingEnemyPrefab: {fileID: 0}
+    weightedStrenthValue: 100
+    Health: 60
+    VisionRangeAngle: 120
+    VisionRangeDis: 20
+    PatrolSpeed: 0.5
+    ChaseSpeed: 1
+    ChaseDistance: 100
+    UseAlert: 0
+    AlertTime: 2
+    AlertRange: 8
+    Attacks_: []
+  entityVariableData:
+    Health: 100
+    DamageAdd: 0
+    DamagePerUp: 0
+    AttackSpeed: 0
+    SpeedPerUp: 0
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &8991442665542476404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d725a630dfe1aff42b49940aa4a2488d, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u602A\u7269002"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: "\u602A\u7269002"
+  entitySharedData:
+    enemyName: 
+    characters: []
+    bindingEnemyPrefab: {fileID: 2550724089450864005, guid: 9af8bbfc787559d4098ef9727d0a759d, type: 3}
+    weightedStrenthValue: 100
+    Health: 100
+    VisionRangeAngle: 90
+    VisionRangeDis: 20
+    PatrolSpeed: 1
+    ChaseSpeed: 2
+    ChaseDistance: 100
+    UseAlert: 0
+    AlertTime: 2
+    AlertRange: 8
+    Attacks_:
+    - rid: 165002955447074935
+  entityVariableData:
+    Health: 100
+    DamageAdd: 0
+    DamagePerUp: 0
+    AttackSpeed: 0
+    SpeedPerUp: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002955447074935
+      type: {class: Attackable_SimpleEnemy, ns: ES, asm: Assembly-CSharp}
+      data:
+        Damage: 10
+        AttackRangeDis: 1
+        AttackSpeed: 1
+        attackType: 1
+        require: 0
+        attackOn: 1
+        preDelay: 0.25
+        attackExit_: 0.8
+        playSound: {fileID: 0}
+        prefabForShow:
+          rid: 165002955447074936
+        prefabForEffector:
+          rid: 165002955447074937
+        AttackRangeAngle: 60
+    - rid: 165002955447074936
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}
+    - rid: 165002955447074937
+      type: {class: PointerForGameObject_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        g: {fileID: 0}

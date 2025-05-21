@@ -1,0 +1,244 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7038938374575402247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3928fc8997e6c6446adfb62df4876549, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u5438\u8840\u5F3A\u5316"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: BindingLogic
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: ES.BuffBTL_UP_Vampire, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u5438\u8840\u5F3A\u5316"
+  defaultStatus:
+    duration: 0
+    level: 0
+  icon: {fileID: 0}
+  buffGoodOrBad: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea1d6da104467114ea4cad515bf44bdf, type: 3}
+  m_Name: "ES\u73A9\u5BB6\u603B\u63A7Buff"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 2368350186770131998}
+    - {fileID: 2799641291180851772}
+    - {fileID: -7038938374575402247}
+    - {fileID: 2948037890581222820}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: keyValues
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[ES.BuffSoInfo,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u66B4\u51FB\u5F3A\u5316"
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u653B\u901F\u5F3A\u5316"
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u5438\u8840\u5F3A\u5316"
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u79FB\u901F\u5F3A\u5316"
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  name__: "\u6570\u636E\u7EC4"
+--- !u!114 &2368350186770131998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3928fc8997e6c6446adfb62df4876549, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u66B4\u51FB\u5F3A\u5316"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: BindingLogic
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: ES.BuffBTL_UP_CriticalHit, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u66B4\u51FB\u5F3A\u5316"
+  defaultStatus:
+    duration: 0
+    level: 0
+  icon: {fileID: 0}
+  buffGoodOrBad: 0
+--- !u!114 &2799641291180851772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3928fc8997e6c6446adfb62df4876549, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u653B\u901F\u5F3A\u5316"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: BindingLogic
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: ES.BuffBTL_UP_AttackSpeed, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u653B\u901F\u5F3A\u5316"
+  defaultStatus:
+    duration: 0
+    level: 0
+  icon: {fileID: 0}
+  buffGoodOrBad: 0
+--- !u!114 &2948037890581222820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3928fc8997e6c6446adfb62df4876549, type: 3}
+  m_Name: "\u4F24\u5BB3\u5F3A\u5316"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: BindingLogic
+      Entry: 7
+      Data: 0|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: ES.BuffBTL_UP_AttackDamage, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+  DataKey:
+    str_direc: "\u4F24\u5BB3\u5F3A\u5316"
+  defaultStatus:
+    duration: 0
+    level: 0
+  icon: {fileID: 0}
+  buffGoodOrBad: 0

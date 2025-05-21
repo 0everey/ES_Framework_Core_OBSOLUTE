@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ES
 {
-    [Serializable,TypeRegistryItem("Link_开始缓存对象")]
+    [Serializable, TypeRegistryItem("Link_开始缓存对象")]
     public struct LinkForEntity_StartCache : ILink
     {
         [LabelText("缓存标志")]
@@ -30,13 +30,19 @@ namespace ES
         public List<Entity> entities;
     }
 
-    [Serializable,TypeRegistryItem("Link_攻击发生")]
-    public struct LinkForEntityAttackEntityTruely : ILink
+    [Serializable, TypeRegistryItem("Link_攻击真的发生了(已经造成伤害)")]
+    public struct Link_EntityAttackEntityTruely : ILink
     {
         public Entity attacker;
         public Entity victim;
         public Damage damage;
     }
-    
-    
+
+    [Serializable, TypeRegistryItem("Link_尝试攻击")]
+    public struct Link_EntityAttackEntityTryStart : ILink
+    {
+        public Entity attacker;
+        public Entity victim;
+        public Damage damage;
+    }
 }

@@ -52,10 +52,13 @@ namespace ES
             bool isEntity = false;
             if (other.gameObject.layer == EditorMaster.LayerEntity)
             {
+              
                 var e = other.GetComponent<Entity>();
                 if (e != null)
                 {
+                   
                     if (ignoreEntities.Contains(e)) return;
+                    
                     OnTriEntityHappen?.Invoke(e, center);
                     isEntity = true;
                 }
@@ -74,7 +77,7 @@ namespace ES
                 if (e != null)
                 {
                     if (ignoreEntities.Contains(e)) return;
-                    OnTriEntityHappen?.Invoke(e, pos);
+                    OnColEntityHappen?.Invoke(e, pos);
                     isEntity = true;
                 }
 

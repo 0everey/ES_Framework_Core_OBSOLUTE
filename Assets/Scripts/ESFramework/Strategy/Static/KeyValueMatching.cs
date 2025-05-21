@@ -8,7 +8,7 @@ using UnityEngine;
 
 
 using UnityEngine.InputSystem;
-using static EnumCollect;
+using static ES.EnumCollect;
 using UnityEngine.UIElements;
 using DG.Tweening;
 using UnityEngine.Events;
@@ -17,7 +17,7 @@ using Sirenix.Utilities;
 namespace ES
 {
     //Key_ ESValue Matching 是一系列键值对映射或者静态处理方法，用于解耦的功能合集
-     public  static partial class KeyValueMatchingUtility
+    public static partial class KeyValueMatchingUtility
     {
         #region  找键器
         public static T FindByIKey<T, Key>(IEnumerable<T> ts, Key key) where T : IWithKey<Key> where Key : IKey
@@ -109,12 +109,12 @@ namespace ES
                     foreach (var i in actorData.Attacks_)
                     {
                         allAttack += i.CalculatePower();
-                       
+
                     }
 
                     data1 += allAttack / actorData.Attacks_.Count;
                 }
-               
+
                 return data1
                            ;
             }
@@ -136,12 +136,12 @@ namespace ES
 
             }
         }
- 
+
         //GUI Color 颜色库
         public static class ColorSelector
         {
             //使用方法↓
-            //GUIColor("@KeyValueMatchingUtility.ColorSelector.Color_03")
+            //GUIColor("@OLDKeyValueMatchingUtilityOLD.ColorSelector.Color_03")
             public static Color Color_01 = new Color(0.988f, 0.758f, 0.763f, 1);
             public static Color Color_02 = new Color(0.9988f, 0.958f, 0.163f, 1);
             public static Color Color_03 = new Color(0.9988f, 0.958f, 0f, 1);//黄色
@@ -149,19 +149,19 @@ namespace ES
             public static Color Color_05 = new Color(0.7588f, 0.758f, 0.25f, 1);//色
             public static Color Color_06 = new Color(0.4588f, 0.758f, 0.45f, 1);//色
 
-            public static Color ColorForDes = new Color(0.682f,0.8392f,0.945f);//备注信息  --偏白
+            public static Color ColorForDes = new Color(0.682f, 0.8392f, 0.945f);//备注信息  --偏白
             public static Color ColorForPlayerReadMe = new Color(0.49f, 0.2353f, 0.596f);//播放器注释信息  --偏白
-            public static Color ColorForCaster = new Color(0.365f,0.6784f,0.886f);//投射器 --偏蓝
-            public static Color ColorForCatcher = new Color(0.8314f,0.6745f,0.051f);//抓取器   --偏橙色
-            public static Color ColorForESValue = new Color(0.153f,0.682f,0.376f);//ES值    --偏绿
+            public static Color ColorForCaster = new Color(0.365f, 0.6784f, 0.886f);//投射器 --偏蓝
+            public static Color ColorForCatcher = new Color(0.8314f, 0.6745f, 0.051f);//抓取器   --偏橙色
+            public static Color ColorForESValue = new Color(0.153f, 0.682f, 0.376f);//ES值    --偏绿
             public static Color ColorForUpdating = new Color(0.804f, 0.67843f, 0);//更新中    --偏绿
 
-            public static Color ColorForBinding = new Color(0,0.97f,1);//绑定色
-            public static Color ColorForSearch = new Color(0.4f,0.804f,0.667f);//选择色
-            public static Color ColorForApply = new Color(0,0.804f,0);//应用色
+            public static Color ColorForBinding = new Color(0, 0.97f, 1);//绑定色
+            public static Color ColorForSearch = new Color(0.4f, 0.804f, 0.667f);//选择色
+            public static Color ColorForApply = new Color(0, 0.804f, 0);//应用色
             static void test()
             {
-                
+
                 Color c = KeyValueMatchingUtility.ColorSelector.Color_01;
             }
         }
@@ -249,7 +249,7 @@ namespace ES
                 return CreateBuffRunTimeByInfo(info, statusTest);
             }
             //创建实时BUff逻辑
-            public static BuffRunTimeLogic CreateBuffRunTimeByInfo(BuffSoInfo buffSoInfo,BuffStatusTest? statusTest = null)
+            public static BuffRunTimeLogic CreateBuffRunTimeByInfo(BuffSoInfo buffSoInfo, BuffStatusTest? statusTest = null)
             {
                 BuffRunTimeLogic buffRunTime = Activator.CreateInstance(buffSoInfo.BindingLogic) as BuffRunTimeLogic;
 
@@ -275,7 +275,7 @@ namespace ES
                 }
                 else
                 {
-                    
+
                     //
                     state.SharedData = info.stateSharedData;
                     state.VariableData = DeepClone(info.stateStatus);
@@ -331,11 +331,7 @@ namespace ES
                 configuration ??= GameCenterManager.Instance.GameCenterArchitecture.configuration;
                 return configuration?.PackForItem?.allInfo.Keys.ToArray() ?? default;
             }
-            public static string[] PickEventMessageAllKeys(SoDataInfoConfiguration configuration = null)
-            {
-                configuration ??= GameCenterManager.Instance.GameCenterArchitecture.configuration;
-                return configuration?.PackForEventMessage?.allInfo.Keys.ToArray() ?? default;
-            }
+
             public static string[] PickPackAllKeys(ISoDataPack pack)
             {
                 var skeys = pack?.allInfo_?.Keys;
@@ -352,6 +348,7 @@ namespace ES
                 return keys;
 
             }
+          
         }
         //取数据器
         public static class DataInfoPointer
@@ -380,12 +377,7 @@ namespace ES
                 if (configuration.PackForItem.allInfo.ContainsKey(key)) return configuration.PackForItem.allInfo[key];
                 return default;
             }
-            public static GameEventMessageDataInfo PickEventMessageSoInfoByKey(string key, SoDataInfoConfiguration configuration = null)
-            {
-                configuration ??= GameCenterManager.Instance.GameCenterArchitecture.configuration;
-                if (configuration.PackForEventMessage.allInfo.ContainsKey(key)) return configuration.PackForEventMessage.allInfo[key];
-                return default;
-            }
+
             public static T PickASoInfoByKey<T>(string key, ISoDataPack pack = null) where T : class
             {
                 var dic = pack?.allInfo_;
@@ -397,6 +389,7 @@ namespace ES
 
                 return default;
             }
+          
             public static List<T> PickSoInfoListByKey<T>(string[] keys, ISoDataPack pack = null) where T : class
             {
                 if (keys == null || keys.Length == 0) return new List<T>();
@@ -879,7 +872,7 @@ namespace ES
                         else return vectors.OrderByDescending((n) => GetPos(n).z).ToList();
                     case PathSortType.Random:
                         return vectors.OrderBy((n) => UnityEngine.Random.value).ToList();
-                    
+
                 }
                 return vectors;
             }
@@ -964,9 +957,9 @@ namespace ES
         {
             #region Copy
             //完全同类型的具有Class变量-
-            public static void CopyToClassSameType_WithSharedAndVariableDataCopyTo<Shared,Variable>(IWithSharedAndVariableData<Shared, Variable> from,IWithSharedAndVariableData<Shared, Variable> to) 
-                where Shared:ISharedData 
-                where Variable:class,IVariableData
+            public static void CopyToClassSameType_WithSharedAndVariableDataCopyTo<Shared, Variable>(IWithSharedAndVariableData<Shared, Variable> from, IWithSharedAndVariableData<Shared, Variable> to)
+                where Shared : ISharedData
+                where Variable : class, IVariableData
             {
                 if (from != null && to != null)
                 {
@@ -975,7 +968,7 @@ namespace ES
                     {
                         to.VariableData = Activator.CreateInstance<Variable>();
                     }
-                    
+
                     if (from.VariableData is ICopyToClass<Variable> copy)
                     {
                         copy.CopyTo(to.VariableData);
@@ -988,8 +981,8 @@ namespace ES
             }
             //不同类型的具有Class变量
             public static void CopyToClassDynamic_WithSharedAndVariableDataCopyTo<SharedFrom, VariableFrom, SharedTo, VariableTo>(IWithSharedAndVariableData<SharedFrom, VariableFrom> from, IWithSharedAndVariableData<SharedTo, VariableTo> to)
-                where SharedFrom : SharedTo, ISharedData where VariableFrom : class, VariableTo,IVariableData
-                where SharedTo : ISharedData where VariableTo: class, IVariableData
+                where SharedFrom : SharedTo, ISharedData where VariableFrom : class, VariableTo, IVariableData
+                where SharedTo : ISharedData where VariableTo : class, IVariableData
             {
                 if (from != null && to != null)
                 {
@@ -1009,8 +1002,8 @@ namespace ES
                 }
             }
             //完全同类型的具有Struct变量
-            public static void CopyToStructSameType_WithSharedAndVariableDataCopyTo<Shared, Variable>(IWithSharedAndVariableData<Shared, Variable> from,IWithSharedAndVariableData<Shared, Variable> to) 
-                where Shared : ISharedData 
+            public static void CopyToStructSameType_WithSharedAndVariableDataCopyTo<Shared, Variable>(IWithSharedAndVariableData<Shared, Variable> from, IWithSharedAndVariableData<Shared, Variable> to)
+                where Shared : ISharedData
                 where Variable : struct, IVariableData
             {
                 if (from != null && to != null)
@@ -1021,8 +1014,8 @@ namespace ES
                 }
             }
             //不同类型的具有Struct变量
-            public static void CopyToStructDynamic_WithSharedAndVariableDataCopyTo<SharedFrom, Variable, SharedTo>(IWithSharedAndVariableData<SharedFrom, Variable> from, IWithSharedAndVariableData<SharedTo, Variable> to) 
-                where SharedFrom : SharedTo ,ISharedData where Variable : struct,IVariableData
+            public static void CopyToStructDynamic_WithSharedAndVariableDataCopyTo<SharedFrom, Variable, SharedTo>(IWithSharedAndVariableData<SharedFrom, Variable> from, IWithSharedAndVariableData<SharedTo, Variable> to)
+                where SharedFrom : SharedTo, ISharedData where Variable : struct, IVariableData
                 where SharedTo : ISharedData
             {
                 if (from != null && to != null)
@@ -1052,7 +1045,7 @@ namespace ES
                     }
                 }
             }
-            public static BuffRunTimeLogic ApplyBuffInfoToEntity(BuffSoInfo buffSoInfo,Entity entity,BuffStatusTest? buffStatusTest=null)
+            public static BuffRunTimeLogic ApplyBuffInfoToEntity(BuffSoInfo buffSoInfo, Entity entity, BuffStatusTest? buffStatusTest = null)
             {
                 if (buffSoInfo != null && entity != null)
                 {
@@ -1067,8 +1060,8 @@ namespace ES
             {
                 if (buffSoInfo != null && entity != null)
                 {
-                    string s= buffSoInfo.key.Key();
-                    foreach(var i in entity.BuffDomain.buffHosting.buffRTLs.valuesNow_)
+                    string s = buffSoInfo.key.Key();
+                    foreach (var i in entity.BuffDomain.buffHosting.buffRTLs.valuesNow_)
                     {
                         if (i.buffSoInfo.key.Key() == s)
                         {
@@ -1084,18 +1077,44 @@ namespace ES
         {
             public static class ForEntityLink
             {
-                public static void OnEntityLink(Entity entity,ILink linkDefault,bool ApplyOrCancel=true)
+                public static void OnEntityLink(Entity entity, ILink linkDefault, bool ApplyOrCancel = true)
                 {
 
                 }
-                
-            } 
+
+            }
             public static class Global
             {
-                public static void GlobalLink_EntityAttackEntityHappen(LinkForEntityAttackEntityTruely link_Attack)
+                public static void GlobalLink_EntityAttackEntityTryStart(Link_EntityAttackEntityTryStart link_Attack_Try)
                 {
-                    link_Attack.victim.Invoke_BeAttackByEntity(link_Attack.attacker,link_Attack.damage);
-                    GameCenterManager.Instance.GameCenterArchitecture.SendLink(link_Attack);
+                    if (link_Attack_Try.attacker == null || link_Attack_Try.victim == null) return;
+                    Debug.Log("攻击测试开始");
+                    //攻击者填充增益
+                    link_Attack_Try.attacker.Invoke_TryAttackEntityCalculate(link_Attack_Try.victim, link_Attack_Try.damage);
+                    if (link_Attack_Try.damage.canTrigger.Value > 0)
+                    {
+                        Debug.Log("攻击者测试通过");
+                        //被攻击者填充增益
+                        link_Attack_Try.victim.Invoke_BeAttackByEntityCalculate(link_Attack_Try.attacker, link_Attack_Try.damage);
+                        if (link_Attack_Try.damage.canTrigger.Value > 0)
+                        {
+                            Debug.Log("被攻击测试通过");
+                            //攻击者追加
+                            link_Attack_Try.attacker.Invoke_TrulyAttack(link_Attack_Try.victim, link_Attack_Try.damage);
+                            //被攻击者追加
+                            link_Attack_Try.victim.Invoke_TrulyBeAttack(link_Attack_Try.attacker, link_Attack_Try.damage);
+                            GameCenterManager.Instance.GameCenterArchitecture.SendLink(
+                                new Link_EntityAttackEntityTruely()
+                                {
+                                    attacker = link_Attack_Try.attacker,
+                                    victim = link_Attack_Try.victim,
+                                    damage = link_Attack_Try.damage
+                                }
+                              ); ;
+                        }
+                    }
+
+
                 }
             }
         }
@@ -1104,15 +1123,15 @@ namespace ES
         {
             public static class ForEntityBack
             {
-                public static List<Entity> GetEntityAroundFriend(Entity entity,float r,Vector3? center=null)
+                public static List<Entity> GetEntityAroundFriend(Entity entity, float r, Vector3? center = null)
                 {
-                    
-                    var use= Physics.OverlapSphere(center?? entity.transform.position, r);
+
+                    var use = Physics.OverlapSphere(center ?? entity.transform.position, r);
                     List<Entity> entities = new List<Entity>();
-                    foreach(var i in use)
+                    foreach (var i in use)
                     {
                         Entity ee = i.GetComponent<Entity>();
-                        if (ee != null&&!entities.Contains(ee)) entities.Add(ee);
+                        if (ee != null && !entities.Contains(ee)) entities.Add(ee);
                     }
                     //查找把，找啊找r
                     return entities;
@@ -1130,7 +1149,7 @@ namespace ES
                     //查找把，找啊找r
                     return entities;
                 }
-                public static List<Entity> GetEntityTargetEntityCache(Entity entity,string Key="Main",bool useAndClear=true)
+                public static List<Entity> GetEntityTargetEntityCache(Entity entity, string Key = "Main", bool useAndClear = true)
                 {
 
                     //查找把，找啊找r
@@ -1144,7 +1163,7 @@ namespace ES
                         {
                             return entity.BaseDomain.Module_Cache.CacheEntity.PeekAll(Key);
                         }
-                       
+
                     }
                     return null;//返回缓冲池
                 }

@@ -1,5 +1,6 @@
 using ES;
 using ES.EvPointer;
+using HellishBattle;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections;
@@ -23,7 +24,7 @@ namespace ES
         [FoldoutGroup("播放时"), LabelText("前摇")] public float preDelay = 0.25f;
         [FoldoutGroup("播放时"), LabelText("总时间")] public float attackExit_ = 0.8f;
         [FoldoutGroup("播放时"), LabelText("播放音效")] public AudioClip playSound;
-        [FoldoutGroup("预制件资源"), LabelText("显示效果预制件"),SerializeReference] public IPointerForGameObject_Only prefabForShow = new PointerForGameObject_Direct() { };
+        [FoldoutGroup("预制件资源"), LabelText("显示效果预制件"), SerializeReference] public IPointerForGameObject_Only prefabForShow = new PointerForGameObject_Direct() { };
         [FoldoutGroup("预制件资源"), LabelText("作用效果预制件"), SerializeReference] public IPointerForGameObject_Only prefabForEffector = new PointerForGameObject_Direct() { };
 
         public virtual float CalculatePower()
@@ -60,9 +61,9 @@ namespace ES
 
                 if (attackOn.HasFlag(EnumCollect.AttackOnType.Direct) && target != null)
                 {
-                    if(playSound!=null) GameCenterManager.Instance.AudioMaster.PlayDirect_Sound_OneShot(playSound, 0.8f);
-                    KeyValueMatchingUtility.ESLink.Global.GlobalLink_EntityAttackEntityHappen(
-                    new LinkForEntityAttackEntityTruely() { attacker = Who, victim = target, damage = new Damage() { damage = Damage } });
+                    if (playSound != null) GameCenterManager.Instance.AudioMaster.PlayDirect_Sound_OneShot(playSound, 0.8f);
+                    KeyValueMatchingUtility.ESLink.Global.GlobalLink_EntityAttackEntityTryStart(
+                    new Link_EntityAttackEntityTryStart() { attacker = Who, victim = target, damage = new Damage() { damage = Damage } });
                 }
             }
             if (attackType.HasFlag(EnumCollect.AttackType.Range))
@@ -93,6 +94,7 @@ namespace ES
     public class Damage
     {
         public float damage = 10;
+        public ESReferCheckout_Float canTrigger = new ESReferCheckout_Float() { Value = 1 };
     }
 
 }

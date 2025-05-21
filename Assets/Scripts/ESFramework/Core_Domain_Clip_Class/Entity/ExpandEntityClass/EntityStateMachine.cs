@@ -4,12 +4,14 @@ using ES;
 using Sirenix.OdinInspector;
 #if UNITY_EDITOR
 using Sirenix.OdinInspector.Editor;
+using UnityEditorInternal;
 #endif
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+
 using UnityEngine;
 using UnityEngine.AI;
 using static ES.ClipStateMachine_CrashDodge;
@@ -42,22 +44,22 @@ namespace ES
         protected override void OnEnable()
         {
             base.OnEnable();
-           
+
         }
         protected override void OnDisable()
         {
             base.OnDisable();
-           
+
         }
         protected override void OnStateEnter()
         {
             base.OnStateEnter();
-           
+
         }
         public override void OnStateExit()
         {
             base.OnStateExit();
-          
+
         }
     }
 
@@ -66,13 +68,13 @@ namespace ES
     {
         [NonSerialized]
         public EntityStateMachine TheEntityStateMachine;
-        [NonSerialized]public Entity Entity;
+        [NonSerialized] public Entity Entity;
         protected override void RunStatePreparedLogic()
         {
             TheEntityStateMachine = host as EntityStateMachine;
             Entity = TheEntityStateMachine?.StateDomain.core;
             base.RunStatePreparedLogic();
-            
+
         }
     }
     [Serializable, TypeRegistryItem("实体标准技能状态")]
@@ -83,10 +85,10 @@ namespace ES
         public ReleasableSkillsSequence Sequence;
         [FoldoutGroup("技能专属")][LabelText("技能片段序列")] public Queue<ReleaseableSkillClip> SkillClips;
         [FoldoutGroup("技能专属")][LabelText("上一个片段获得的实体列表")] public List<Entity> LastClipSelectorEntites = new List<Entity>();
-        [FoldoutGroup("技能专属")][LabelText("自己的缓冲实体")] public HashSet<Entity> SelfCacheEntites= new HashSet<Entity>();
-        [FoldoutGroup("技能专属")][LabelText("自己的缓冲坐标")] public HashSet<Vector3> SelfCacheVector3 = new HashSet<Vector3>();
+        [FoldoutGroup("技能专属")][LabelText("自己的缓冲实体")] public HashSet<Entity> SelfCacheEntites = new HashSet<Entity>();
+        [FoldoutGroup("技能专属")][LabelText("自己的缓冲坐标"), ShowInInspector] public HashSet<Vector3> SelfCacheVector3 = new HashSet<Vector3>();
         [FoldoutGroup("技能专属")][LabelText("自己的缓冲模块")] public List<ESModule_WithDelegate> SelfModule = new List<ESModule_WithDelegate>();
-        [FoldoutGroup("技能专属")][LabelText("退出委托")] public Action<float> OnExit=(f)=> { };//float--已经开始的时间
+        [FoldoutGroup("技能专属")][LabelText("退出委托")] public Action<float> OnExit = (f) => { };//float--已经开始的时间
         [FoldoutGroup("技能专属")][LabelText("运行时委托")] public Action<float> OnUpdate = (progress) => { };
         #endregion
 
@@ -104,6 +106,7 @@ namespace ES
             //开始准备
             Debug.Log("进入");
             OnExit = (f) => { };
+            PrivateMethod_ClearCache();
             PrivateMethod_PrepareSkillClips();
 
         }
@@ -114,22 +117,23 @@ namespace ES
             variableData.hasEnterTime += Time.deltaTime;
             if (SkillClips != null)
             {
-                if (SkillClips.Count != 0) {
-                    
+                if (SkillClips.Count != 0)
+                {
+
                     var next = SkillClips.Peek();
-                  
+
                     if (next == null) SkillClips.Dequeue();
-                    
+
                     if (variableData.hasEnterTime > next.triggerAtTime)
                     {
-                        next=SkillClips.Dequeue();//出列！
-                        Debug.Log("技能"+SkillClips.Count+TheEntityStateMachine.StateDomain.core.gameObject.name);
+                        next = SkillClips.Dequeue();//出列！
+
                         PrivateMethod_TriggerSkillClip(next);
                     }
                 }
-               
+
             }
-            OnUpdate?.Invoke(variableData.hasEnterTime/ Sequence.skillDuration);
+            OnUpdate?.Invoke(variableData.hasEnterTime / Sequence.skillDuration);
             if (variableData.hasEnterTime >= Sequence.skillDuration) OnStateExit();//截止了
 
         }
@@ -147,7 +151,7 @@ namespace ES
         private void PrivateMethod_PrepareSkillClips()
         {
             //
-            Debug.Log("Heelpw"+Sequence.AllClips.Count);
+            Debug.Log("Heelpw" + Sequence.AllClips.Count);
             SkillClips = new Queue<ReleaseableSkillClip>();
             foreach (var i in Sequence.AllClips)
             {
@@ -195,18 +199,18 @@ namespace ES
             {
                 if (clip.Selector is SomeEntitySelectorFromSelf chainSelector)
                 {
-                   
-                    MyEntites = chainSelector.Pick(Entity, Entity,this);
+
+                    MyEntites = chainSelector.Pick(Entity, Entity, this);
                 }
             }
-            if(clip.sortType== EnumCollect.PathSortType.NoneSort)
+            if (clip.sortType == EnumCollect.PathSortType.NoneSort)
             {
 
             }
             else
             {
-                MyEntites = MyEntites.Where((w) =>w!=null).ToList();
-                MyEntites = KeyValueMatchingUtility.Sorter.SortAny(MyEntites,(f) => f.transform.position,clip.sortType, Entity.transform.position, Entity.transform);
+                MyEntites = MyEntites.Where((w) => w != null).ToList();
+                MyEntites = KeyValueMatchingUtility.Sorter.SortAny(MyEntites, (f) => f.transform.position, clip.sortType, Entity.transform.position, Entity.transform);
             }
 
 
@@ -215,35 +219,35 @@ namespace ES
                 //造成效果
                 foreach (var e in MyEntites)
                 {
-                if (e == null) continue;
-                
+                    if (e == null) continue;
+
                     foreach (var handle in clip.Applier.handles)
                     {
-                       /* Debug.Log(MyEntites.Count + "/" + clip.name + "/" + clip.Applier.handles_.Count + "/" + handle);*/
+                        /* Debug.Log(MyEntites.Count + "/" + clip.name + "/" + clip.Applier.handles_.Count + "/" + handle);*/
                         handle.Pick(e, Entity, this);
                     }
                 }
-            }else
+            }
+            else
             {
-                
+
                 var se = DOTween.Sequence();
                 foreach (var e in MyEntites)
                 {
                     if (e == null) continue;
                     se.AppendCallback(() => {
-                        if(e!=null&&Entity!=null)
-                        foreach (var handle in clip.Applier.handles)
-                        {
-                            Debug.Log(MyEntites.Count + "/" + clip.name + "/" + clip.Applier.handles.Count + "/" + handle);
-                            handle.Pick(e, Entity, this);
-                        }
+                        if (e != null && Entity != null)
+                            foreach (var handle in clip.Applier.handles)
+                            {
+
+                                handle.Pick(e, Entity, this);
+                            }
                     });
-                    se.AppendInterval(Mathf.Max( clip.TriggerTimeDis_?.Pick() ?? 0.2f,0.2f));
-                    
+                    se.AppendInterval(Mathf.Max(clip.TriggerTimeDis_?.Pick() ?? 0.2f, 0.2f));
                 }
                 OnExit += (f) => { se.Kill(); };
-            } 
-            
+            }
+
             //应用到下次
             var nextOption = clip.optionForNext;
             //-------更新
@@ -258,22 +262,22 @@ namespace ES
                 MyEntites.Clear();
             }
             //----------------添加到
-            else if(nextOption== ReleaseableSkillClip.SelectorNextOptions.AddTo)
+            else if (nextOption == ReleaseableSkillClip.SelectorNextOptions.AddTo)
             {
                 LastClipSelectorEntites.AddRange(MyEntites);
                 MyEntites.Clear();
             }
             //-------------从中移除
-            else if(nextOption== ReleaseableSkillClip.SelectorNextOptions.RemoveFrom)
+            else if (nextOption == ReleaseableSkillClip.SelectorNextOptions.RemoveFrom)
             {
-                foreach(var i in MyEntites)
+                foreach (var i in MyEntites)
                 {
                     LastClipSelectorEntites.Remove(i);
                 }
                 MyEntites.Clear();
             }
             //--------------全部清除
-            else if(nextOption== ReleaseableSkillClip.SelectorNextOptions.ClearAll)
+            else if (nextOption == ReleaseableSkillClip.SelectorNextOptions.ClearAll)
             {
                 LastClipSelectorEntites.Clear();
                 MyEntites.Clear();
@@ -282,11 +286,11 @@ namespace ES
         #endregion
     }
 
-    [Serializable,TypeRegistryItem("实体移动状态")]
+    [Serializable, TypeRegistryItem("实体移动状态")]
     public class EntityState_Move : EntityState
     {
         private ClipBase_3DStandardMotion motion;
-        private float HasIn =0;
+        private float HasIn = 0;
         protected override void RunStatePreparedLogic()
         {
             base.RunStatePreparedLogic();
@@ -310,22 +314,22 @@ namespace ES
             base.RunStateExitLogic();
             motion.Set_TargetVX(0, null);
             motion.Set_TargetVZ(0, null);
-            
+
         }
     }
 
     [Serializable, TypeRegistryItem("实体闪身状态")]
     public class EntityState_CrashDodge : EntityState
     {
-        private ClipBase_3DStandardMotion motion;
-        [NonSerialized]public ClipStateMachine_CrashDodge crashDodge;
-        [NonSerialized]public Applyable_CrashDodge data;
+        private ClipBase_AB_3DMotion motion;
+        [NonSerialized] public ClipStateMachine_CrashDodge crashDodge;
+        [NonSerialized] public Applyable_CrashDodge data;
         private float HasIn = 0;
         private Vector3 startPos;
         private Quaternion startDirec;
         private Vector3 applyVector;
-        private Tween withTween=null;
-        
+        private Tween withTween = null;
+        private bool useRIGID = false;
         public void Setup(ClipStateMachine_CrashDodge _CrashDodge)
         {
             crashDodge = _CrashDodge;
@@ -339,69 +343,85 @@ namespace ES
             base.RunStatePreparedLogic();
             motion = Entity.BaseDomain.Module_3DMotion;
             HasIn = 0;
+            motion = Entity.BaseDomain.Module_AB_Motion;
+            useRIGID = motion?.BaseOnRigid ?? false;
             startPos = Entity.transform.position;
             startDirec = Entity.transform.rotation;
             applyVector = Entity.transform.TransformDirection(data.vector);
             data.duration = Mathf.Max(0.1f, data.duration);
-            if(data.baseOn== EnumCollect.ToDestionationBaseOn.DotweenDoMove)
+            if (data.baseOn == EnumCollect.ToDestionationBaseOn.DotweenDoMove)
             {
-                if(data.pathType== EnumCollect.ToDestinationPath.Direct)
+                if (data.pathType == EnumCollect.ToDestinationPath.Direct)
                 {
-                    if(data.vectorHandle== EnumCollect.ToDestinationVectorSpace.Target)
+                    if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.Target)
                     {
-                        Debug.Log("aa"+data.vector+data.duration);
-                        withTween = Entity.Rigid.DOMove(data.vector, data.duration);
-                    }else if(data.vectorHandle== EnumCollect.ToDestinationVectorSpace.WorldSpace)
+
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(data.vector, data.duration);
+                        else withTween = Entity.transform.DOMove(data.vector, data.duration);
+                    }
+                    else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.WorldSpace)
                     {
-                        withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
-                    }else if(data.vectorHandle== EnumCollect.ToDestinationVectorSpace.SelfSpace)
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
+                        else withTween = Entity.transform.DOMove(data.vector, data.duration).SetRelative();
+                    }
+                    else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.SelfSpace)
                     {
-                        withTween = Entity.Rigid.DOMove(applyVector, data.duration).SetRelative();
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(applyVector, data.duration).SetRelative();
+                        else withTween = Entity.transform.DOMove(applyVector, data.duration).SetRelative();
                     }
                 }
                 else if (data.pathType == EnumCollect.ToDestinationPath.JumpAndDown)
                 {
                     if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.Target)
                     {
-                        withTween = Entity.Rigid.DOMove(data.vector, data.duration);
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(data.vector, data.duration);
+                        else withTween = Entity.transform.DOMove(data.vector, data.duration);
                     }
                     else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.WorldSpace)
                     {
-                        withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
+                        else withTween = Entity.transform.DOMove(data.vector, data.duration).SetRelative();
                     }
                     else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.SelfSpace)
                     {
-                        withTween = Entity.Rigid.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
+                        else withTween = Entity.transform.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
                     }
                 }
                 else if (data.pathType == EnumCollect.ToDestinationPath.Rad)
                 {
                     if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.Target)
                     {
-                        withTween = Entity.Rigid.DOMove(data.vector, data.duration);
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(data.vector, data.duration);
+                        else withTween = Entity.transform.DOMove(data.vector, data.duration);
                     }
                     else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.WorldSpace)
                     {
-                        withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
+                        else withTween = Entity.transform.DOMove(data.vector, data.duration).SetRelative();
                     }
                     else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.SelfSpace)
                     {
-                        withTween = Entity.Rigid.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
+                        else withTween = Entity.transform.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
                     }
                 }
                 else if (data.pathType == EnumCollect.ToDestinationPath.AIPath)
                 {
                     if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.Target)
                     {
-                        withTween = Entity.Rigid.DOMove(data.vector, data.duration);
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(data.vector, data.duration);
+                        else withTween = Entity.transform.DOMove(data.vector, data.duration);
                     }
                     else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.WorldSpace)
                     {
-                        withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
+                        else withTween = Entity.transform.DOMove(data.vector, data.duration).SetRelative();
                     }
                     else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.SelfSpace)
                     {
-                        withTween = Entity.Rigid.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
+                        else withTween = Entity.transform.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
                     }
                 }
             }
@@ -411,7 +431,7 @@ namespace ES
             base.RunStateUpdateLogic();
             //超时
             HasIn += Time.deltaTime;
-            if (HasIn > data.duration||HasIn>1)
+            if (HasIn > data.duration || HasIn > 1)
             {
                 OnStateExit();
             }
@@ -421,7 +441,13 @@ namespace ES
                 {
                     if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.Target)
                     {
-                        Entity.Rigid.position = Vector3.MoveTowards(Entity.Rigid.position, data.vector, crashDodge.MaxSpeed*Time.deltaTime);
+                        if (useRIGID) Entity.Rigid.position = Vector3.MoveTowards(Entity.Rigid.position, data.vector, crashDodge.MaxSpeed * Time.deltaTime);
+                        else
+                        {
+                            Vector3 vv = data.vector - Entity.Rigid.position;
+                            Entity.CharacterController.Move((vv).normalized * crashDodge.MaxSpeed * Time.deltaTime);
+                            Entity.YV = vv.y * (1 - HasIn / data.duration);
+                        }
                         if (Vector3.Distance(Entity.Rigid.position, data.vector) < crashDodge.EndDisSuit)
                         {
                             OnStateExit();
@@ -429,56 +455,69 @@ namespace ES
                     }
                     else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.WorldSpace)
                     {
-                        Entity.Rigid.position += data.vector * Time.deltaTime / data.duration;
+                        if (useRIGID) Entity.Rigid.position += data.vector * Time.deltaTime / data.duration;
+                        else
+                        {
+                            Entity.CharacterController.Move((data.vector) * Time.deltaTime / data.duration);
+                            Entity.YV = applyVector.y * (1 - HasIn / data.duration);
+                        }
                     }
                     else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.SelfSpace)
                     {
-                        Entity.Rigid.position += (applyVector) * Time.deltaTime / data.duration;
+                        if (useRIGID) Entity.Rigid.position += (applyVector) * Time.deltaTime / data.duration;
+                        else/* Entity.transform.position += (applyVector) * Time.deltaTime / data.duration;*/
+                        {
+                            Entity.CharacterController.Move((applyVector) * Time.deltaTime / data.duration);
+                            Entity.YV = applyVector.y * (1 - HasIn / data.duration);
+                        }
                     }
                 }
                 else if (data.pathType == EnumCollect.ToDestinationPath.JumpAndDown)
                 {
                     if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.Target)
                     {
-                        withTween = Entity.Rigid.DOMove(data.vector, data.duration);
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(data.vector, data.duration);
+                        else withTween = Entity.transform.DOMove(data.vector, data.duration);
                     }
                     else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.WorldSpace)
                     {
-                        withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
+                        else withTween = Entity.transform.DOMove(data.vector, data.duration).SetRelative();
                     }
                     else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.SelfSpace)
                     {
-                        withTween = Entity.Rigid.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
+                        else withTween = Entity.transform.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
                     }
                 }
                 else if (data.pathType == EnumCollect.ToDestinationPath.Rad)
                 {
                     if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.Target)
                     {
-                        withTween = Entity.Rigid.DOMove(data.vector, data.duration);
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(data.vector, data.duration);
                     }
                     else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.WorldSpace)
                     {
-                        withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
                     }
                     else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.SelfSpace)
                     {
-                        withTween = Entity.Rigid.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
                     }
                 }
                 else if (data.pathType == EnumCollect.ToDestinationPath.AIPath)
                 {
                     if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.Target)
                     {
-                        withTween = Entity.Rigid.DOMove(data.vector, data.duration);
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(data.vector, data.duration);
                     }
                     else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.WorldSpace)
                     {
-                        withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(data.vector, data.duration).SetRelative();
                     }
                     else if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.SelfSpace)
                     {
-                        withTween = Entity.Rigid.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
+                        if (useRIGID) withTween = Entity.Rigid.DOMove(Entity.transform.TransformDirection(data.vector), data.duration);
                     }
                 }
             }
@@ -497,17 +536,17 @@ namespace ES
     }
 
     #region AI状态
-    [Serializable,TypeRegistryItem("实体AI游荡状态")]
+    [Serializable, TypeRegistryItem("实体AI游荡状态")]
     public class EntityState_AIPatrol : EntityState
     {
         public float nextMaxTargetTimeCount = 3;
         private float nextHasTargetPosTimeCount = 2;
         public float nextSeeTargetTimeCount = 0.5f;
         private float nextHasSeeTargetTimeCount = 2;
-        [NonSerialized]public ClipAI_AB_Target ReferModule_Target;
+        [NonSerialized] public ClipAI_AB_Target ReferModule_Target;
         [NonSerialized] public ClipBase_AB_Vision Refer_Vision;
         public float procedurallyNormalR = 10;
-        public EnumCollect.TargetSelectType targetSelectType= EnumCollect.TargetSelectType.ProcedurallyWaypoints;
+        public EnumCollect.TargetSelectType targetSelectType = EnumCollect.TargetSelectType.ProcedurallyWaypoints;
         [NonSerialized] public ESEntitySharedData ESEntityShared;
 
         protected override void RunStatePreparedLogic()
@@ -534,16 +573,16 @@ namespace ES
                 Refer_Vision.TrySee();
                 Refer_Vision.MakeSeeAsTarget();
             }
-            if ((ReferModule_Target.Agent.remainingDistance <= ReferModule_Target.Agent.stoppingDistance || nextHasTargetPosTimeCount < 0) && !ReferModule_Target.Agent.pathPending)
+            if (nextHasTargetPosTimeCount < 0)
             {
-                nextHasTargetPosTimeCount = UnityEngine.Random.Range(nextMaxTargetTimeCount/2,nextMaxTargetTimeCount);
+                nextHasTargetPosTimeCount = UnityEngine.Random.Range(nextMaxTargetTimeCount / 2, nextMaxTargetTimeCount);
                 if (targetSelectType == EnumCollect.TargetSelectType.Numerically)
                 {
-                   
+
                 }
                 else if (targetSelectType == EnumCollect.TargetSelectType.Random)
                 {
-                    
+
                 }
                 else if (targetSelectType == EnumCollect.TargetSelectType.ProcedurallyWaypoints)
                 {
@@ -558,7 +597,7 @@ namespace ES
         }
         public Vector3 RandomNavmeshLocation(float radius)
         {
-            Vector3 randomDirection =UnityEngine.Random.insideUnitSphere * radius;
+            Vector3 randomDirection = UnityEngine.Random.insideUnitSphere * radius;
             randomDirection += Entity.transform.position;
 
             NavMeshHit hit;
@@ -590,17 +629,19 @@ namespace ES
         }
         protected override void RunStateUpdateLogic()
         {
-            var AG = ReferModule_Target.Agent;
             base.RunStateUpdateLogic();
-            AG.isStopped = false;
 
 
-            float remainDis = AG.remainingDistance;
+
+
+            float remainDis = ReferModule_Target.Target != null ?
+                Vector3.Distance(Entity.transform.position, ReferModule_Target.Target.transform.position)
+                : Vector3.Distance(Entity.transform.position, ReferModule_Target.EndPathVS.Length > 0 ? ReferModule_Target.EndPathVS[0] : default);
             float ffNext = 1 / (Entity.entitySharedData.Attacks_.Count + 1);
             ReferModule_Attack.attackableNow = null;
             foreach (var i in Entity.entitySharedData.Attacks_)
             {
-                
+
                 if (remainDis < i.AttackRangeDis)
                 {
                     ReferModule_Attack.attackableNow = i;
@@ -612,18 +653,19 @@ namespace ES
                     {
                         break;
                     }
-                }else if (remainDis > Entity.entitySharedData.VisionRangeDis)
+                }
+                else if (remainDis > Entity.entitySharedData.VisionRangeDis)
                 {
                     ReferModule_Target.Target = null;
                     TheEntityStateMachine.TryActiveStateByKey("巡逻状态");
                 }
-                
+
             }
             if (ReferModule_Attack.attackableNow != null)
             {
-                
-               bool b=  TheEntityStateMachine.TryActiveStateByKey("攻击状态");
-               
+
+                bool b = TheEntityStateMachine.TryActiveStateByKey("攻击状态");
+
             }
         }
     }
@@ -654,10 +696,10 @@ namespace ES
         {
             base.RunStateEnterLogic();
             Entity.BaseDomain.Module_AB_Motion.StandardSpeed.y = 0.2f;
-            
+
             attackControl = Entity.AIDomain.Module_AB_AttackControl;
             hasAttack = false;
-            if (attackControl == null||attackControl.attackableNow==null) OnStateExit();
+            if (attackControl == null || attackControl.attackableNow == null) OnStateExit();
             toExit = attackControl.attackableNow.attackExit_;
             preDelay = attackControl.attackableNow.preDelay;
         }

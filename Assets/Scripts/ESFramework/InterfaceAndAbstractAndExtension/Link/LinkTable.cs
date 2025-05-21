@@ -8,7 +8,7 @@ using UnityEngine;
 namespace ES
 {
     [Serializable]
-    public class Link_AttackHappen: LinkDirect<int, int, int>
+    public class Link_AttackHappen : LinkDirect<int, int, int>
     {
 
     }
@@ -17,12 +17,8 @@ namespace ES
     {
         public string name_;
     }
-    [Serializable]
-    public struct Link_DestrolyCollideWall : ILink
-    {
 
-    }
-    [Serializable,TypeRegistryItem]
+    [Serializable, TypeRegistryItem]
     public struct Link_DestroyWhy : ILink
     {
         [LabelText("销毁原因")]
@@ -33,13 +29,13 @@ namespace ES
         // Start is called before the first frame update
         void Start()
         {
-        
+
         }
 
         // Update is called once per frame
         void Update()
         {
-        
+
         }
     }
 }

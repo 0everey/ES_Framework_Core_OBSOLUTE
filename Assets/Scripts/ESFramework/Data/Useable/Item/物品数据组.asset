@@ -1,0 +1,348 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9223324751203406226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4590bb1dc7d45494cbf047c9911c0b44, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u602A\u7269\u98DE\u5F39"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: "\u602A\u7269\u98DE\u5F39"
+  sharedData:
+    rid: 165002962488262760
+  defaultData:
+    rid: 165002962488262761
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002962488262760
+      type: {class: ESItem_FlyingSharedData, ns: ES, asm: Assembly-CSharp}
+      data:
+        itemDisplayName: 
+        characters: []
+        bindingEnemyPrefab: {fileID: 6999067622756423496, guid: 40c55de433e6a8848830a9548c379ece, type: 3}
+        damage: 20
+        speed: 8
+        missileLife_: 8
+        maxTimes: 1
+        entityHandleOfItem:
+          handles_:
+          - rid: 165002962488262762
+          optionForPlaySound: 0
+          OnDesPlaySound: {fileID: 0}
+          optionForDesBirth: 0
+          OnDesBirth: {fileID: 0}
+    - rid: 165002962488262761
+      type: {class: ESItemVariableData, ns: ES, asm: Assembly-CSharp}
+      data: 
+    - rid: 165002962488262762
+      type: {class: EntityHandle_OnItem_PlaySound, ns: ES, asm: Assembly-CSharp}
+      data:
+        audioClip: {fileID: 8300000, guid: ccdc1026f90774226b4c0759093380b3, type: 3}
+        float_Only:
+          rid: 165002962488262763
+        playAs3D: 0
+        ForceCrate: 0
+    - rid: 165002962488262763
+      type: {class: PointerForFloat_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        float_: 1
+--- !u!114 &-6830499833759779278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4590bb1dc7d45494cbf047c9911c0b44, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u73A9\u5BB6\u8001\u98DE\u5F39"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: "\u73A9\u5BB6\u8001\u98DE\u5F39"
+  sharedData:
+    rid: 165002973885235218
+  defaultData:
+    rid: 165002973885235219
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002973885235218
+      type: {class: ESItem_FlyingSharedData, ns: ES, asm: Assembly-CSharp}
+      data:
+        itemDisplayName: 
+        characters: []
+        bindingEnemyPrefab: {fileID: 8032219170663909675, guid: 408027f14fcf43a43b53605219c74bdd, type: 3}
+        damage: 20
+        speed: 8
+        missileLife_: 8
+        maxTimes: 1
+        entityHandleOfItem:
+          handles_:
+          - rid: 165002973885235224
+          - rid: 165002995835601165
+          optionForPlaySound: 0
+          OnDesPlaySound: {fileID: 0}
+          optionForDesBirth: 0
+          OnDesBirth: {fileID: 0}
+    - rid: 165002973885235219
+      type: {class: ESItemVariableData, ns: ES, asm: Assembly-CSharp}
+      data: 
+    - rid: 165002973885235224
+      type: {class: EntityHandle_OnItem_Inverse_LookAt, ns: ES, asm: Assembly-CSharp}
+      data:
+        faceTime: 0.2
+    - rid: 165002995835601165
+      type: {class: EntityHandle_OnItem_PlaySound, ns: ES, asm: Assembly-CSharp}
+      data:
+        audioClip: {fileID: 8300000, guid: 0dfe9f9829141478689194368436b534, type: 3}
+        float_Only:
+          rid: 165002995835601166
+        playAs3D: 0
+        ForceCrate: 0
+    - rid: 165002995835601166
+      type: {class: PointerForFloat_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        float_: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f11d3e617cb592347b5d644692cf696d, type: 3}
+  m_Name: "\u7269\u54C1\u6570\u636E\u7EC4"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: -9223324751203406226}
+    - {fileID: 4895398387971225684}
+    - {fileID: -6830499833759779278}
+    - {fileID: 3359133998242973747}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: keyValues
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[ES.ItemDataInfo,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u602A\u7269\u98DE\u5F39"
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u73A9\u5BB6\u98DE\u5F39"
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u73A9\u5BB6\u8001\u98DE\u5F39"
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u602A\u7269\u6162\u98DE\u5F39"
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  name__: "\u6570\u636E\u7EC4"
+--- !u!114 &3359133998242973747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4590bb1dc7d45494cbf047c9911c0b44, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u602A\u7269\u6162\u98DE\u5F39"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: "\u602A\u7269\u6162\u98DE\u5F39"
+  sharedData:
+    rid: 165003020391416606
+  defaultData:
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 165003020391416606
+      type: {class: ESItem_FlyingSharedData, ns: ES, asm: Assembly-CSharp}
+      data:
+        itemDisplayName: 
+        characters: []
+        bindingEnemyPrefab: {fileID: 0}
+        damage: 25
+        speed: 2.6
+        missileLife_: 8
+        maxTimes: 1
+        entityHandleOfItem:
+          handles_:
+          - rid: 165003020391416607
+          optionForPlaySound: 3
+          OnDesPlaySound: {fileID: 0}
+          optionForDesBirth: 3
+          OnDesBirth: {fileID: 0}
+    - rid: 165003020391416607
+      type: {class: EntityHandle_OnItem_PlaySound, ns: ES, asm: Assembly-CSharp}
+      data:
+        audioClip: {fileID: 8300000, guid: 5cf499af64856484b8fa53d684421f92, type: 3}
+        float_Only:
+          rid: 165003020391416608
+        playAs3D: 0
+        ForceCrate: 0
+    - rid: 165003020391416608
+      type: {class: PointerForFloat_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        float_: 1
+--- !u!114 &4895398387971225684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4590bb1dc7d45494cbf047c9911c0b44, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u73A9\u5BB6\u98DE\u5F39"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: "\u73A9\u5BB6\u98DE\u5F39"
+  sharedData:
+    rid: 165002962488262764
+  defaultData:
+    rid: 165002962488262767
+  references:
+    version: 2
+    RefIds:
+    - rid: 165002962488262764
+      type: {class: ESItem_FlyingSharedData, ns: ES, asm: Assembly-CSharp}
+      data:
+        itemDisplayName: 
+        characters: []
+        bindingEnemyPrefab: {fileID: 6999067622756423496, guid: 40c55de433e6a8848830a9548c379ece, type: 3}
+        damage: 20
+        speed: 8
+        missileLife_: 8
+        maxTimes: 1
+        entityHandleOfItem:
+          handles_:
+          - rid: 165002962488262765
+          optionForPlaySound: 0
+          OnDesPlaySound: {fileID: 0}
+          optionForDesBirth: 0
+          OnDesBirth: {fileID: 0}
+    - rid: 165002962488262765
+      type: {class: EntityHandle_OnItem_PlaySound, ns: ES, asm: Assembly-CSharp}
+      data:
+        audioClip: {fileID: 8300000, guid: ccdc1026f90774226b4c0759093380b3, type: 3}
+        float_Only:
+          rid: 165002962488262766
+        playAs3D: 0
+        ForceCrate: 0
+    - rid: 165002962488262766
+      type: {class: PointerForFloat_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
+      data:
+        float_: 1
+    - rid: 165002962488262767
+      type: {class: ESItemVariableData, ns: ES, asm: Assembly-CSharp}
+      data: 

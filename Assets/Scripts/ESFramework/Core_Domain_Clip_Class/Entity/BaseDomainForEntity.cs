@@ -58,7 +58,17 @@ namespace ES
     [Serializable]
     public abstract class ClipBase_AB_3DMotion : BaseClipForEntity
     {
+        [LabelText("控制移动权重比率")] public float SelfControlWeight = 1;
         [FoldoutGroup("常规")][LabelText("标准速度")] public Vector2 StandardSpeed = new Vector2(1, 3);
+        [FoldoutGroup("常规")][LabelText("基于刚体")] public bool BaseOnRigid = false;
+        [FoldoutGroup("常规")][LabelText("当前正向乘数")] public float CurrentSpeedMutiplerZ = 0;
+        [FoldoutGroup("常规")][LabelText("当前斜向乘数")] public float CurrentSpeedMutiplerX = 0;
+        [FoldoutGroup("行为方式")][LabelText("使用刚体/直接")] public bool UseRigid = true;
+        [FoldoutGroup("约束与限制")][LabelText("位移Y方向")] public Vector3 YUpwards = Vector3.up;
+        [FoldoutGroup("约束与限制")][LabelText("最大旋转速度")] public float MaxRotSpeed_ = 360;
+        [Header("旋转")]
+        [FoldoutGroup("常规")][LabelText("当前Y角速度")] public float CurrentRotationY;
+        [FoldoutGroup("其他效果"), LabelText("暂停移动")] public float timeForStay = 0;
 
         protected override void CreateRelationship()
         {
@@ -70,31 +80,57 @@ namespace ES
             }
         }
     }
-    [Serializable]
+    [Serializable, TypeRegistryItem("3D微型移动")]
     public class ClipBase_3DMicroMotion : ClipBase_AB_3DMotion
     {
+        public override void FixedUpdate()
+        {
+            if (timeForStay > 0) { timeForStay -= Time.fixedDeltaTime; return; }
+            base.FixedUpdate();
+            float Z = StandardSpeed.y * CurrentSpeedMutiplerZ;//相对Z
+            float X = StandardSpeed.x * CurrentSpeedMutiplerX;//相对X
 
+            Vector3 combine = Vector3.ProjectOnPlane(Core.transform.forward, YUpwards).normalized * Z
+                + Vector3.ProjectOnPlane(Core.transform.right, YUpwards).normalized * X + Vector3.up * Core.YV;
+            if (UseRigid && Core.Rigid != null)
+            {
+                Core.CharacterController.Move(combine * SelfControlWeight * Time.fixedDeltaTime);
+            }
+            else
+            {
+                Core.transform.position += combine * SelfControlWeight * Time.fixedDeltaTime;
+            }
+
+            Quaternion onlyY = Quaternion.Euler(0, Mathf.Clamp(CurrentRotationY, -MaxRotSpeed_, MaxRotSpeed_) * SelfControlWeight * Time.deltaTime, 0);
+
+
+            if (UseRigid && Core.Rigid != null)
+            {
+                Core.Rigid.rotation *= onlyY;
+            }
+            else
+            {
+                Core.transform.rotation *= onlyY;
+            }
+        }
     }
     [Serializable, TypeRegistryItem("3D标准移动")]
     public class ClipBase_3DStandardMotion : ClipBase_3DMicroMotion
     {
         #region 参数
-        [LabelText("控制移动权重比率")] public float SelfControlWeight = 1;
+
         [FoldoutGroup("输入源")] public HashSet<object> banSource = new HashSet<object>();
         [Header("位移")]
-        [FoldoutGroup("常规")][LabelText("当前正向乘数")] public float CurrentSpeedMutiplerZ = 0;
-        [FoldoutGroup("常规")][LabelText("当前斜向乘数")] public float CurrentSpeedMutiplerX = 0;
         [FoldoutGroup("常规")][LabelText("目标正向乘数"), SerializeField] private float TargetSpeedMutiplerZ = 0;
         [FoldoutGroup("常规")][LabelText("目标斜向乘数"), SerializeField] private float TargetSpeedMutiplerX = 0;
 
         [FoldoutGroup("常规")][LabelText("速度增益(按百分比)")] public Vector2 SpeedGain = new Vector2(0, 0);
-        [Header("旋转")]
-        [FoldoutGroup("常规")][LabelText("当前Y角速度")] public float CurrentRotationY;
+
         [FoldoutGroup("常规")][LabelText("目标Y角速度")] public float TargetRotationY;
 
 
         [FoldoutGroup("行为方式")][LabelText("使用RootMotion")] public bool UseRootMotion = false;
-        [FoldoutGroup("行为方式")][LabelText("使用刚体/直接")] public bool UseRigid = true;
+
 
 
 
@@ -102,8 +138,7 @@ namespace ES
         [FoldoutGroup("约束与限制")][LabelText("位移减速度乘数等级")] public float SpeedSubLevel_ = 10f;
         [FoldoutGroup("约束与限制")][LabelText("旋转逼近乘数等级")] public float RotSpeedLevel_ = 20f;
         [FoldoutGroup("约束与限制")][LabelText("位移Y权重")] public float YCut = 0.1f;
-        [FoldoutGroup("约束与限制")][LabelText("位移Y方向")] public Vector3 YUpwards = Vector3.up;
-        [FoldoutGroup("约束与限制")][LabelText("最大旋转速度")] public float MaxRotSpeed_ = 360;
+
         #endregion
 
         #region 绑定
@@ -114,6 +149,7 @@ namespace ES
         }
         protected override void Update()
         {
+            if (timeForStay > 0) { return; }
             base.Update();
             if (Core != null)
             {
@@ -124,7 +160,7 @@ namespace ES
         }
         public override void FixedUpdate()
         {
-            base.FixedUpdate();
+            if (timeForStay > 0) { timeForStay -= Time.fixedDeltaTime; return; }
             PrivateMethod_MotionPosition();//操作移动旋转
             PrivateMethod_MotionRotation();
         }
@@ -148,10 +184,10 @@ namespace ES
             float X = StandardSpeed.x * (1 + SpeedGain.x) * CurrentSpeedMutiplerX;//相对X
 
             Vector3 combine = Vector3.ProjectOnPlane(Core.transform.forward, YUpwards).normalized * Z
-                + Vector3.ProjectOnPlane(Core.transform.right, YUpwards).normalized * X;
+                + Vector3.ProjectOnPlane(Core.transform.right, YUpwards).normalized * X + Vector3.up * Core.YV;
             if (UseRigid && Core.Rigid != null)
             {
-                Core.Rigid.position += combine * SelfControlWeight * Time.fixedDeltaTime;
+                Core.CharacterController.Move(combine * SelfControlWeight * Time.fixedDeltaTime);
             }
             else
             {
@@ -194,8 +230,9 @@ namespace ES
     {
         [FoldoutGroup("常规")][LabelText("移动输入")] public InputAction MoveToV2;
         [FoldoutGroup("常规")][LabelText("旋转输入")] public InputAction RotToV2;
+        [FoldoutGroup("常规")][LabelText("跳跃输入")] public InputAction Jump;
         [FoldoutGroup("常规")][LabelText("旋转输出乘数")] public float RotMutipler = 10;
-        [FoldoutGroup("绑定")][LabelText("第一人称相机")] public Camera FirstCamera;
+        [FoldoutGroup("绑定")][LabelText("第一人称相机锚定点")] public Transform FirstCameraAnchor;
         [FoldoutGroup("绑定")][LabelText("绑定原始变换")] public Transform OriginalTrans;
 
         [FoldoutGroup("约束限制"), LabelText("相机最大旋转角度")] public float MaxRotForCamera = 35;
@@ -208,13 +245,15 @@ namespace ES
             base.OnEnable();
             MoveToV2.Enable();
             RotToV2.Enable();
+            Jump.Enable();
             Refer_3DMotion = Domain.Module_3DMotion;
         }
         protected override void OnDisable()
         {
             base.OnDisable();
             MoveToV2.Disable();
-            RotToV2.Dispose();
+            RotToV2.Disable();
+            Jump.Disable();
         }
         protected override void Update()
         {
@@ -223,6 +262,11 @@ namespace ES
             PrivateMethod_Read();
             PrivateMethod_Control3DMotion();
             PrivateMethod_ControlCamera();
+            if (Core.IsGrounded && Jump.WasPressedThisFrame())
+            {
+                Core.YV = 3.5f;
+                Core.IsGrounded = false;
+            }
         }
         private void PrivateMethod_Read()
         {
@@ -253,16 +297,16 @@ namespace ES
         private void PrivateMethod_ControlCamera()
         {
             if (OriginalTrans == null) OriginalTrans = Core.transform;
-            if (FirstCamera != null)
+            if (FirstCameraAnchor != null)
             {
-                Quaternion Target = FirstCamera.transform.rotation * Quaternion.Euler(-Mathf.Clamp(Cache_RotRead.y, -10, 10) * RotMutipler * Time.deltaTime, 0, 0);
+                Quaternion Target = FirstCameraAnchor.transform.rotation * Quaternion.Euler(-Mathf.Clamp(Cache_RotRead.y, -10, 10) * RotMutipler * Time.deltaTime, 0, 0);
                 if (Quaternion.Angle(Target, OriginalTrans.rotation) > MaxRotForCamera)
                 {
-                    FirstCamera.transform.rotation = Quaternion.RotateTowards(OriginalTrans.rotation, Target, MaxRotForCamera);
+                    FirstCameraAnchor.transform.rotation = Quaternion.RotateTowards(OriginalTrans.rotation, Target, MaxRotForCamera);
                 }
                 else
                 {
-                    FirstCamera.transform.rotation = Target;
+                    FirstCameraAnchor.transform.rotation = Target;
                 }
             }
         }
@@ -307,7 +351,7 @@ namespace ES
         }
         public virtual void TrySee()
         {
-           
+
         }
         public virtual bool MakeSeeAsTarget()
         {
@@ -328,18 +372,13 @@ namespace ES
 
 
         // Field on View
-       public List<ESObject> SeeESObjectList = new List<ESObject>();
+        public List<ESObject> SeeESObjectList = new List<ESObject>();
         Collider[] CollidersList = new Collider[50];
         int objectCount;
         float patrolHeight = 2.5f;
 
 
 
-        protected override void Update()
-        {
-            base.Update();
-
-        }
 
         /*Mesh CreateWedgeMesh(float angle, float range)
         {
@@ -433,10 +472,10 @@ namespace ES
             Vector3 origin = Domain.transform.position;
             Vector3 dest = obj.transform.position;
             Vector3 direction = dest - origin;
-            if (direction.y < 0 || direction.y > patrolHeight)
-            {
-                return false;
-            }
+            /* if (direction.y < 0 || direction.y > patrolHeight)
+             {
+                 return false;
+             }*/
 
             direction.y = 0;
             float deltaAngle = Vector3.Angle(direction, Domain.transform.forward);
@@ -447,7 +486,7 @@ namespace ES
 
             //origin.y += 
             dest.y = origin.y;
-            if (Physics.Linecast(origin, dest, EditorMaster.LayerMaskWall))
+            if (Physics.Linecast(origin, dest, EditorMaster.LayerMaskWall + EditorMaster.LayerMaskGround))
             {
                 return false;
             }
@@ -478,7 +517,7 @@ namespace ES
             for (int i = 0; i < SeeESObjectList.Count; i++)
             {
                 var ee = SeeESObjectList[i].transform.GetComponent<Entity>();
-                if (ee != null&& (TargetSeeTags.tagNames.Count==0&&ee.tag=="Player"|| TargetSeeTags.tagNames.Contains( ee.gameObject.tag)))
+                if (ee != null && (TargetSeeTags.tagNames.Count == 0 && ee.tag == "Player" || TargetSeeTags.tagNames.Contains(ee.gameObject.tag)))
                 {
                     Core.AIDomain.Module_AB_AITarget.Target = ee;
                     return true;
@@ -487,22 +526,24 @@ namespace ES
             return false;
         }
     }
-    [Serializable,TypeRegistryItem("可发射支持")]
+    [Serializable, TypeRegistryItem("可发射支持")]
     public class ClipBase_FireFlying : BaseClipForEntity
     {
-        [LabelText("预制件")]public GameObject prefab;
-        [LabelText("发射点和方向")]public Transform FirePoint;
+        [LabelText("预制件")] public GameObject prefab;
+        [LabelText("发射点和方向")] public Transform FirePoint;
         protected override void CreateRelationship()
         {
             base.CreateRelationship();
             Domain.Module_Fire = this;
         }
-        public void Fire(GameObject newOne=null,bool rePlace=true)
+        public void Fire(GameObject newOne = null, bool rePlace = true)
         {
+            Debug.Log("fire1");
             FirePoint ??= Core.transform;
             GameObject gg = prefab;
             if (newOne != null)
             {
+                Debug.Log("fire2");
                 gg = newOne;
                 if (rePlace)
                 {
@@ -511,15 +552,22 @@ namespace ES
             }
             if (gg != null)
             {
-                GameObject ins= GameCenter.Ins(gg,FirePoint.position,null,FirePoint.rotation);
+                Debug.Log("fire3");
+                GameObject ins = GameCenter.Ins(gg, FirePoint.position, null, FirePoint.rotation);
                 var item = ins.GetComponent<Item>();
+                var fly = item.HurtableDomain?.Module_Flying;
+                if (fly != null)
+                {
+                    fly.source = Core;
+                }
+
                 item.AddIgnoreEntity(Core);
-               
+
             }
         }
     }
 
-    [Serializable,TypeRegistryItem("可发射扩展：按键发射")]
+    [Serializable, TypeRegistryItem("可发射扩展：按键发射")]
     public class ClipBase_Expand_ButtonFireQuick : BaseClipForEntity
     {
         [LabelText("发射输入")]
@@ -529,7 +577,7 @@ namespace ES
         private float coolTimeHas = 0.1f;
         [LabelText("按住触发时间")]
         public float holdTime = 1.5f;
-        [ShowInInspector,ReadOnly,LabelText("按住时间")]private float holdTimeHasGo = 0;
+        [ShowInInspector, ReadOnly, LabelText("按住时间")] private float holdTimeHasGo = 0;
         [LabelText("发射触发时机(可覆盖)")]
         public EnumCollect.MouseTriggerOption triggerOption = EnumCollect.MouseTriggerOption.Down;
 
@@ -538,7 +586,7 @@ namespace ES
         {
             base.CreateRelationship();
             Refer_ModuleFire = Domain.Module_Fire;
-            if (FireInput == null|| Refer_ModuleFire==null)
+            if (FireInput == null || Refer_ModuleFire == null)
             {
                 //无效
                 this.enabledSelf = false;
@@ -560,14 +608,15 @@ namespace ES
             base.Update();
             coolTimeHas -= Time.deltaTime;
             if (coolTimeHas > 0) return;
-            if (triggerOption.HasFlag( EnumCollect.MouseTriggerOption.Down)&& FireInput.WasPressedThisFrame())
+            if (triggerOption.HasFlag(EnumCollect.MouseTriggerOption.Down) && FireInput.WasPressedThisFrame())
             {
+                Debug.Log("按下");
                 Refer_ModuleFire.Fire();
                 coolTimeHas = fireCoolDown;
             }
-            else if(triggerOption.HasFlag(EnumCollect.MouseTriggerOption.Up) && FireInput.WasReleasedThisFrame())
+            else if (triggerOption.HasFlag(EnumCollect.MouseTriggerOption.Up) && FireInput.WasReleasedThisFrame())
             {
-                if(triggerOption.HasFlag(EnumCollect.MouseTriggerOption.HoldForTimeAndUp))
+                if (triggerOption.HasFlag(EnumCollect.MouseTriggerOption.HoldForTimeAndUp))
                 {
                     if (holdTimeHasGo > holdTime)
                     {
@@ -581,9 +630,9 @@ namespace ES
                     Refer_ModuleFire.Fire();
                     coolTimeHas = fireCoolDown;
                 }
-                
+
             }
-            else if(triggerOption.HasFlag( EnumCollect.MouseTriggerOption.Hold)&& FireInput.IsPressed())
+            else if (triggerOption.HasFlag(EnumCollect.MouseTriggerOption.Hold) && FireInput.IsPressed())
             {
                 holdTimeHasGo += Time.deltaTime;
                 if (triggerOption.HasFlag(EnumCollect.MouseTriggerOption.HoldForTime))
@@ -595,7 +644,7 @@ namespace ES
                         coolTimeHas = fireCoolDown;
                     }
                 }
-                else if(!triggerOption.HasFlag(EnumCollect.MouseTriggerOption.HoldForTimeAndUp))
+                else if (!triggerOption.HasFlag(EnumCollect.MouseTriggerOption.HoldForTimeAndUp))
                 {
                     Refer_ModuleFire.Fire();
                     coolTimeHas = fireCoolDown;
@@ -607,7 +656,7 @@ namespace ES
             {
                 holdTimeHasGo = 0;
             }
-            
+
         }
 
     }

@@ -15,16 +15,29 @@ using UnityEngine.UIElements;
 namespace ES
 {
     //窗口总览
-    public class ESWindow : OdinMenuEditorWindow
+    public class ESDataWindow : ESWindowBase_Abstract<ESDataWindow>
     {
-        public static ESWindow usingWindow;
-
-
-
+        [MenuItem("Tools/ES工具/ES数据窗口")]
+        public static void TryOpenWindow()
+        {
+            OpenWindow();
+        }
+        public override void ESWindow_OpenHandle()
+        {
+            base.ESWindow_OpenHandle();
+            if (usingWindow.HasDelegate)
+            {
+                //已经注册委托
+            }
+            else
+            {
+                usingWindow.DelegateHandle();
+            }
+        }
         #region 数据滞留
         public string dataConfigurePageMenuNameAs => "数据生成工具";
-        public PageBase pageForSodataGroup;
-        public PageBase pageForSodataPack; 
+        public ESWindowPageBase pageForSodataGroup;
+        public ESWindowPageBase pageForSodataPack; 
         [NonSerialized] public Page_Root_StartUse pageForStartUse;
         [NonSerialized]public Page_CreateNewDataConfiguration pageForConfiguration;
         [NonSerialized] public Page_CreateNewInfoDataPack pageForNewInfoDataPack;
@@ -39,34 +52,14 @@ namespace ES
         /// 工具栏打开窗口捏
         /// </summary>
         [MenuItem("Tools/ES工具/ES窗口")]
-        public static void OpenWindow()
-        {
-            usingWindow = GetWindow<ESWindow>();
-            if (usingWindow.HasDelegate)
-            {
-                //已经注册委托
-            }
-            else
-            {
-                usingWindow.DelegateHandle();
-            }
-            Texture2D texture = Resources.Load<Texture2D>("Sprites/iv2");
-            Debug.Log(texture);
-            usingWindow.titleContent = new GUIContent("依薇尔工具窗口", texture, "使用依薇尔工具完成快速开发");
-            usingWindow.minSize = new Vector2(400, 300);
-            usingWindow.maxSize = new Vector2(2500, 1800);
-            usingWindow.maximized = true;
-            usingWindow.MenuWidth = 250;
-            usingWindow.Show();
-
-        }
+       
         private void DelegateHandle()
         {
             HasDelegate = true;
             rememberIOCCount = GameCenterManager.Instance.ArchutectureIOC.IOC.Count;
             GameCenterManager.Instance.ArchutectureIOC.OnChange += () => {
 
-                GameCenterManager.Instance.StartCoroutine(CoroutineMaker.DelayOneFrameCoroutine(() => { if(this!=null)RefreshWindow(); }));
+                GameCenterManager.Instance.StartCoroutine(CoroutineMaker.DelayOneFrameCoroutine(() => { if(this!=null)ESWindow_RefreshWindow(); }));
             };
         }
         
@@ -85,7 +78,7 @@ namespace ES
                 {
                     if (pageForSodataGroup.shouldRemake())
                     {
-                        RefreshWindow();
+                        ESWindow_RefreshWindow();
                     }
                 }
                 if (pageForChooseSceneArchitecture != null)
@@ -96,7 +89,7 @@ namespace ES
                 if (now != rememberIOCCount)
                 {
                     rememberIOCCount = now;
-                    RefreshWindow();
+                    ESWindow_RefreshWindow();
                 }
 
 
@@ -106,14 +99,13 @@ namespace ES
         /// <summary>
         /// 刷新窗口
         /// </summary>
-        public void RefreshWindow()
+        public override void ESWindow_RefreshWindow()
         {
-            Debug.Log("重建");
-            this.ForceMenuTreeRebuild();
-            SaveData();
+            base.ESWindow_RefreshWindow();
+            ES_SaveData();
         }
         public string pathForDefaultSetting;
-        public void LoadData()
+        public override void ES_LoadData()
         {
             Debug.Log("加载");
             if (EvWindowDataAndTool.HasNull(pageForConfiguration.configuration))
@@ -127,39 +119,34 @@ namespace ES
                
             }
         }
-        public void SaveData()
+        public override void ES_SaveData()
         {
-            Debug.Log("保存");
             if (EvWindowDataAndTool.AllIsOk(pageForConfiguration.configuration))
             {
                 Debug.Log("保存1");
                 string path = AssetDatabase.GetAssetPath(pageForConfiguration.configuration);
                 PlayerPrefs.SetString("configuration", path);
-            }
-           
-            
-           
+            } 
         }
-        protected override OdinMenuTree BuildMenuTree()
+        protected override void ES_BuildMenuTree(OdinMenuTree tree)
         {
-            OdinMenuTree tree = new OdinMenuTree();
-
+            base.ES_BuildMenuTree(tree);
             Part_BuildStartPage(tree);
             {
-                tree.Add(dataConfigurePageMenuNameAs,new PageRoot_DataTool(),icon:SdfIconType.Braces);
+                tree.Add(dataConfigurePageMenuNameAs, new PageRoot_DataTool(), icon: SdfIconType.Braces);
                 Part_BuildSoDataConfigureSettingPage(tree);
                 Part_BuildSoPackPage(tree);
                 Part_BuildSoDataGroupSettingsPage(tree);
             }
-            
+
             Part_BuildArchutectureShowerPage(tree);
             Part_EasyToolsPage(tree);
             Part_AboutPage(tree);
 
-            LoadData();
+            ES_LoadData();
             pageForConfiguration.Setup();
-            return tree;
         }
+        
         private void Part_BuildStartPage(OdinMenuTree tree)
         {
             tree.Add("开始使用！", pageForStartUse??=new Page_Root_StartUse(),SdfIconType.SunFill);
@@ -316,7 +303,7 @@ namespace ES
         
     }
     //创建 数据配置 总页面
-    public class Page_CreateNewDataConfiguration :PageBase
+    public class Page_CreateNewDataConfiguration :ESWindowPageBase
     {
         [TabGroup("总", "设置全局默认配置")]
         [LabelText("默认全局配置"),AssetSelector,OnValueChanged("EditDefaultConfiguration"),GUIColor("@KeyValueMatchingUtility.ColorSelector.Color_03")]
@@ -354,7 +341,7 @@ namespace ES
                     configuration = cache;
                 }
             }
-            ESWindow.usingWindow.SaveData();
+            ESDataWindow.usingWindow.ES_SaveData();
             var all = UnityEngine.Object.FindObjectsByType<GameCenterManager>(FindObjectsInactive.Include, FindObjectsSortMode.InstanceID);
             foreach (var i in all)
             {
@@ -389,7 +376,7 @@ namespace ES
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
                 Selection.activeObject = @object;
-                ESWindow.usingWindow.SaveData();
+                ESDataWindow.usingWindow.ES_SaveData();
             }
             else
             {
@@ -491,7 +478,7 @@ namespace ES
     }
     //创建数据包总页面
     [Serializable]
-    public class Page_CreateNewInfoDataPack : PageBase
+    public class Page_CreateNewInfoDataPack : ESWindowPageBase
     {
         [Title("开始新建数据包！", "可以先选择预设类型", bold: true, titleAlignment: TitleAlignments.Centered)]
 
@@ -597,8 +584,8 @@ namespace ES
         private void ResetConfigure()
         {
             hasChange = false;
-            ESWindow.usingWindow.selectPackType_ = createPackType_;
-            ESWindow.usingWindow.RefreshWindow(); 
+            ESDataWindow.usingWindow.selectPackType_ = createPackType_;
+            ESDataWindow.usingWindow.ESWindow_RefreshWindow(); 
             createName_ = EvWindowDataAndTool.RenamePackByEnumType(createPackType_);
         }
 
@@ -617,7 +604,7 @@ namespace ES
     }
     //子层 搜集的数据包页面
     [Serializable]
-    public class Page_Index_DataInfoPack : PageBase
+    public class Page_Index_DataInfoPack : ESWindowPageBase
     {
         [HorizontalGroup("总组")]
 
@@ -714,7 +701,7 @@ namespace ES
     }
     //数据组创建页面
     [Serializable]
-    public class Page_CreateNewInfoGroup : PageBase
+    public class Page_CreateNewInfoGroup : ESWindowPageBase
     {
         [Title("开始新建配置数据组！", "可以先选择预设类型", bold: true, titleAlignment: TitleAlignments.Centered)]
         [HorizontalGroup("总组")]
@@ -737,7 +724,7 @@ namespace ES
         private void Refresh()
         {
             AssetDatabase.Refresh();
-            ESWindow.usingWindow.selectPackType_ = createGroup_;
+            ESDataWindow.usingWindow.selectPackType_ = createGroup_;
 
         }
 
@@ -824,8 +811,8 @@ namespace ES
         private void ResetConfigure()
         {
             hasChange = false;
-            ESWindow.usingWindow.selectGroupType_ = createGroup_;
-            ESWindow.usingWindow.RefreshWindow();
+            ESDataWindow.usingWindow.selectGroupType_ = createGroup_;
+            ESDataWindow.usingWindow.ESWindow_RefreshWindow();
             createName_ = EvWindowDataAndTool.RenameGroupByEnumType(createGroup_);
             
             
@@ -855,7 +842,7 @@ namespace ES
     }
     //数据组配置页面
     [Serializable]
-    public class Page_DataInfoGroup : PageBase
+    public class Page_DataInfoGroup : ESWindowPageBase
     {
         [HorizontalGroup("总组")]
         [Title("开始配置数据组！!", "数据组可以把一类数据整合集中配置和保存", titleAlignment: TitleAlignments.Centered, Title = @"@  ""开始配置数据组:※ 【"" + group.name_  + ""】""   ")]
@@ -962,7 +949,7 @@ namespace ES
             AssetDatabase.Refresh();
             if (hasChange)
             {
-                ESWindow.usingWindow?.RefreshWindow();
+                ESDataWindow.usingWindow?.ESWindow_RefreshWindow();
             }
 
         }
@@ -1092,7 +1079,7 @@ namespace ES
 
     //任意的 场景中全部 原型监测页面
     [Serializable]
-    public class Page_RunTimeGameObjectChooseSceneArchitecture : PageBase
+    public class Page_RunTimeGameObjectChooseSceneArchitecture : ESWindowPageBase
     {
         [DisplayAsString(fontSize: 35), HideLabel, GUIColor("@KeyValueMatchingUtility.ColorSelector.Color_03")]
         public string warnIn = "选中任意携带原型的物体的原型显示-只显示首个";
@@ -1184,12 +1171,12 @@ namespace ES
         [TitleGroup("最后的话", "来自超级依薇尔", alignment: TitleAlignments.Split),HideLabel,PropertyOrder(3),ReadOnly,TextArea(5,10)]
         public string WordsOnEnd = "我是哔哩哔哩的超级依薇尔，欢迎关注我，另外我创建了QQ交流群982703564\n" +
             "欢迎前来进行Unity技术交流讨论和分享自己的作品和开发见解。\n" +
-            "本框架灵感部分来源于 Q FrameWork 感谢凉鞋大佬\n" +""
+            "本框架特别感谢 凉鞋大佬(Q FrameWork作者)\n" + ""
             ;
     }
     //基本页面
     [Serializable]
-    public abstract class PageBase
+    public abstract class ESWindowPageBase
     {
         public virtual void Setup()
         {
@@ -1198,6 +1185,10 @@ namespace ES
         public virtual bool shouldRemake()
         {
             return false;
+        }
+        public virtual ESWindowPageBase ReFresh()
+        {
+            return this;
         }
     }
     //数据源和辅助工具(待转移到KeyValueMatching)

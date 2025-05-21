@@ -16,8 +16,8 @@ TagManager:
   - Water
   - UI
   - Wall
-  - 
-  - 
+  - Ground
+  - GameInUI
   - 
   - 
   - Entity
@@ -27,7 +27,7 @@ TagManager:
   - OnlyShow
   - 
   - 
-  - 
+  - Weapon
   - 
   - 
   - 

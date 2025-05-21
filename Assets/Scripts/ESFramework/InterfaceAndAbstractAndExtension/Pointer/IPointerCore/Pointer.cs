@@ -17,7 +17,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 
-using static EnumCollect;
+using static ES.EnumCollect;
 
 //两者共性
 using IPointerForSystemObject = ES.EvPointer.IPointer;

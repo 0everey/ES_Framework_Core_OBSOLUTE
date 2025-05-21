@@ -60,11 +60,7 @@ namespace ES.EvPointer
     {
         public override string[] Keys => KeyValueMatchingUtility.KeyPointer.PickSKillAllKeys();
     }
-    [Serializable]
-    public class PSDG_EventMessage : PointerStringData_GameCenter
-    {
-        public override string[] Keys => KeyValueMatchingUtility.KeyPointer.PickEventMessageAllKeys();
-    }
+
     public abstract class PointerStringData_GameCenter : PointerStringDataKey
     {
 
