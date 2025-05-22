@@ -88,7 +88,7 @@ namespace ES
 
         bool LoadSync();
 
-        void LoadAsync();
+        void LoadAll_Async();
 
         string[] GetDependResSource();
 
@@ -276,7 +276,7 @@ namespace ES
             return false;
         }
 
-        public virtual void LoadAsync()
+        public virtual void LoadAll_Async()
         {
 
         }
@@ -576,7 +576,7 @@ namespace ES
             return true;
         }
 
-        public override void LoadAsync()
+        public override void LoadAll_Async()
         {
             if (!CheckIsWaitingToLoad())
             {
@@ -840,7 +840,7 @@ namespace ES
             return true;
         }
 
-        public override void LoadAsync()
+        public override void LoadAll_Async()
         {
             if (!CheckIsWaitingToLoad())
             {

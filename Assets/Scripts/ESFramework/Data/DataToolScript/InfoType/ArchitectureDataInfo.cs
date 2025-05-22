@@ -17,7 +17,7 @@ namespace ES
         public object TheValue => Value?.TheValue;
         private void OnValidate()
         {
-           Value.SetKey(key.str_direc);
+           Value?.SetKey(key.str_direc);
         }
         public void SetValue(object o)
         {

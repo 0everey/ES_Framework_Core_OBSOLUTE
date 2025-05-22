@@ -177,7 +177,8 @@ namespace ES
         private void PrivateMethod_TriggerSkillClip(ReleaseableSkillClip clip)
         {
             //动画器相关
-
+            if(clip.useStateSwitch)
+            Entity.Anim?.CrossFade(clip.st,clip.crossFade?.Pick()??0.2f,clip.layer);
             //开始筛选
             List<Entity> MyEntites = new List<Entity>();
             var overrideOption = clip.optionForOverrideLast;

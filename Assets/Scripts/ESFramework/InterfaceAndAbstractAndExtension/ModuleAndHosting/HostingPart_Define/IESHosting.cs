@@ -16,7 +16,7 @@ namespace ES
     {
         #region 托管器专属
         //虚拟的
-        SafeUpdateSet_EasyQueue_SeriNot_Dirty<IESModule> VirtualBeHosted { get; }
+       /* SafeUpdateSet_EasyQueue_SeriNot_Dirty<IESModule> VirtualBeHosted { get; }*/
         void UpdateAsHosting();
         void EnableAsHosting();
         void DisableAsHosting();
@@ -39,9 +39,10 @@ namespace ES
         #endregion
 
         #region 虚拟列表
-        public SafeUpdateSet_EasyQueue_SeriNot_Dirty<IESModule> VirtualBeHosted => virtualBeHostedList;
+       /* public SafeUpdateSet_EasyQueue_SeriNot_Dirty<IESModule> VirtualBeHosted => virtualBeHostedList;
         [LabelText("虚拟托管列表"),FoldoutGroup("虚拟托管")] public SafeUpdateSet_EasyQueue_SeriNot_Dirty<IESModule> virtualBeHostedList = new SafeUpdateSet_EasyQueue_SeriNot_Dirty<IESModule>();
-        #endregion
+       */ 
+       #endregion
 
         #region 重写逻辑
         public virtual bool CanUpdating => true;
@@ -57,7 +58,7 @@ namespace ES
                 }
             }
             UpdateAsHosting();
-            virtualBeHostedList.Update();
+            /*virtualBeHostedList.Update();*/
         }
         protected virtual void OnEnable()
         {
@@ -102,7 +103,7 @@ namespace ES
         #region 与对子的控制
         public virtual void UpdateAsHosting()
         {
-            if (VirtualBeHosted != null)
+           /* if (VirtualBeHosted != null)
             {
                 foreach (var i in VirtualBeHosted.valuesNow_)
                 {
@@ -115,28 +116,28 @@ namespace ES
                         }
                     i.TryUpdate();
                 }
-            }
+            }*/
         }
         public virtual void EnableAsHosting()
         {
-            if (VirtualBeHosted != null)
+          /*  if (VirtualBeHosted != null)
             {
                 foreach (var i in VirtualBeHosted.valuesNow_)
                 {
                     i._TryActiveAndEnable();
                 }
-            }
+            }*/
         }
         public virtual void DisableAsHosting()
         {
            
-            if (VirtualBeHosted != null)
+           /* if (VirtualBeHosted != null)
             {
                 foreach (var i in VirtualBeHosted.valuesNow_)
                 {
                     i._TryInActiveAndDisable();
                 }
-            }
+            }*/
         }
         #endregion
     }
@@ -212,7 +213,7 @@ namespace ES
             if (_HasSubmit) return true;
             if (asVirtual)
             {
-                hosting.VirtualBeHosted.TryAdd(this);
+                /*hosting.VirtualBeHosted.TryAdd(this);*/
                 return _HasSubmit = true;
             }
             return _HasSubmit = _OnSubmitAsNormal(hosting);
@@ -231,7 +232,7 @@ namespace ES
             if (_HasSubmit) return true;
             if (asVirtual)
             {
-                hosting.VirtualBeHosted.TryAdd(this);
+                /*hosting.VirtualBeHosted.TryAdd(this);*/
                 return _HasSubmit = true;
             }
             return _HasSubmit = _OnSubmitAsNormal(hosting);

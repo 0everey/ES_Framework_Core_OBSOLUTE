@@ -1,3 +1,4 @@
+using ES.EvPointer;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
@@ -72,32 +73,46 @@ namespace ES
     {
         
     }
-    [Serializable,TypeRegistryItem("技能注册器")]
+    [Serializable, TypeRegistryItem("技能注册器")]
     public class ClipStateMachine_SkillRegister : StateMachineClipForDomainForEntity
     {
         [LabelText("注册技能的Info")]
-        public List<SkillDataInfo> skillDataInfos = new List<SkillDataInfo>();
+        public List<SkillRegisterMessage> skillDataInfos = new List<SkillRegisterMessage>();
+        private Dictionary<string, EntityState_Skill> Skills = new Dictionary<string, EntityState_Skill>();
+        [ShowInInspector, DisableInEditorMode]
+        public string[] Keys => Skills.Keys.ToArray();
         protected override void OnSubmitHosting(StateMachineDomainForEntity hosting)
         {
             base.OnSubmitHosting(hosting);
-            foreach(var i in skillDataInfos)
+            foreach (var i in skillDataInfos)
             {
-                if (i == null) continue;
-                ReleasableSkillsSequence skillsSequence = i.sequence;
-                string Key = i.key.Key();
+                Debug.Log("t1");
+                if (i == null || i.info == null) continue;
+                ReleasableSkillsSequence skillsSequence = i.info.sequence;
+                Debug.Log("t2");
+                string Key = i.info.key.Key();
                 var Create = KeyValueMatchingUtility.Creator.CreateStateRunTimeLogicComplete(skillsSequence.bindingStateInfo);
-                if(Create is EntityState_Skill skill)
+                if (Create is EntityState_Skill skill)
                 {
+                    Debug.Log("t3");
                     skill.Setup(skillsSequence);
-                   
+                    string name = i.useRename ? i.rename : Key;
+                    Domain.StateMachine.RegisterNewState(name, Create);
+                    Skills.Add(name, skill);
                 }
-                
-                Domain.StateMachine.RegisterNewState(Key, Create);
-                
+
+
+
             }
         }
     }
-
+    [Serializable, TypeRegistryItem("注册技能交付")]
+    public class SkillRegisterMessage : ILink
+    {
+        [LabelText("启用重命名？")] public bool useRename = true;
+        [LabelText("重命名"), ShowIf("useRename")] public string rename = "技能1";
+        [LabelText("数据源")] public SkillDataInfo info;
+    }
     [Serializable,TypeRegistryItem("3D闪身支持")]
     public class ClipStateMachine_CrashDodge : StateMachineClipForDomainForEntity
     {

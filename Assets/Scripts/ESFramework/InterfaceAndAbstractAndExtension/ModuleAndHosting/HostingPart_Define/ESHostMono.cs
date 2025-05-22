@@ -12,9 +12,10 @@ namespace ES
     public abstract class ESHostingMono : MonoBehaviour, IESHosting
     {
         #region 虚拟列表
-        public SafeUpdateSet_EasyQueue_SeriNot_Dirty<IESModule> VirtualBeHosted => virtualBeHostedList;
+      /*  public SafeUpdateSet_EasyQueue_SeriNot_Dirty<IESModule> VirtualBeHosted => virtualBeHostedList;
         [LabelText("虚拟托管列表"), FoldoutGroup("作为托管器")] public SafeUpdateSet_EasyQueue_SeriNot_Dirty<IESModule> virtualBeHostedList = new SafeUpdateSet_EasyQueue_SeriNot_Dirty<IESModule>();
-        #endregion
+     */   
+      #endregion
 
         #region 显示控制和信息
         [ShowInInspector, LabelText("控制自身启用状态"), PropertyOrder(-1), FoldoutGroup("作为托管器")] public bool EnabledSelfControl { get => enabled; set { if (value) TryEnableSelf(); else TryDisableSelf(); } }
@@ -38,7 +39,7 @@ namespace ES
         #region 控制子模块
         public virtual void UpdateAsHosting()
         {
-             
+           /*  
             if (VirtualBeHosted != null)
             {
                 foreach (var i in VirtualBeHosted.valuesNow_)
@@ -54,7 +55,7 @@ namespace ES
                     
                     i.TryUpdate();
                 }
-            }
+            }*/
         }
 
         public virtual void EnableAsHosting()
@@ -67,13 +68,13 @@ namespace ES
                      i._TryActiveAndEnable();
                  }
              }*/
-            if (VirtualBeHosted != null)
+          /*  if (VirtualBeHosted != null)
             {
                 foreach (var i in VirtualBeHosted.valuesNow_)
                 {
                     i._TryActiveAndEnable();
                 }
-            }
+            }*/
         }
         public virtual void DisableAsHosting()
         {
@@ -84,13 +85,13 @@ namespace ES
                      i._TryInActiveAndDisable();
                  }
              }*/
-            if (VirtualBeHosted != null)
+            /*if (VirtualBeHosted != null)
             {
                 foreach (var i in VirtualBeHosted.valuesNow_)
                 {
                     i._TryInActiveAndDisable();
                 }
-            }
+            }*/
         }
         #endregion
 
@@ -135,7 +136,7 @@ namespace ES
                 }
             }
             UpdateAsHosting();
-            virtualBeHostedList.Update();
+            /*virtualBeHostedList.Update();*/
         }
         protected virtual void OnEnable()
         {

@@ -129,7 +129,7 @@ namespace ES
             if (_HasSubmit) return true;
             if (asVirtual&&hosting is IESHosting hosting1)
             {
-                hosting1.VirtualBeHosted.TryAdd(this);
+                /*hosting1.VirtualBeHosted.TryAdd(this);*/
                 return _HasSubmit = true;
             }
             return _HasSubmit = _OnSubmitAsNormal(hosting);
@@ -205,7 +205,7 @@ namespace ES
             if (_HasSubmit) return true;
             if (asVirtual && hosting is IESHosting hosting1)
             {
-                hosting1.VirtualBeHosted.TryAdd(this);
+                /*hosting1.VirtualBeHosted.TryAdd(this);*/
                 return _HasSubmit = true;
             }
             return true;
@@ -299,7 +299,7 @@ namespace ES
             if (_HasSubmit) return true;
             if (asVirtual && hosting is IESHosting hosting1)
             {
-                hosting1.VirtualBeHosted.TryAdd(this);
+               /* hosting1.VirtualBeHosted.TryAdd(this);*/
                 return _HasSubmit = true;
             }
             return true;
@@ -374,7 +374,7 @@ namespace ES
             if (_HasSubmit) return true;
             if (asVirtual && hosting is IESHosting hosting1)
             {
-                hosting1.VirtualBeHosted.TryAdd(this);
+               /* hosting1.VirtualBeHosted.TryAdd(this);*/
                 return _HasSubmit = true;
             }
             return true;
@@ -430,7 +430,7 @@ namespace ES
             if (_HasSubmit) return true;
             if (asVirtual && hosting is IESHosting hosting1)
             {
-                hosting1.VirtualBeHosted.TryAdd(this);
+                /*hosting1.VirtualBeHosted.TryAdd(this);*/
                 return _HasSubmit = true;
             }
             return _HasSubmit = _OnSubmitAsNormal(hosting);

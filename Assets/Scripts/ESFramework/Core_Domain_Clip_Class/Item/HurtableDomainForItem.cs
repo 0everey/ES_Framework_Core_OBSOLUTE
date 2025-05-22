@@ -175,6 +175,7 @@ namespace ES
                 Core.OnColEntityHappen += PassiveDelegate_OnTriOrColEntityHandles;
             }
             Core.OnDestroyHappen += PassiveDelegate_OnDeS;
+            Domain.OnFixedUpdate += FixedUpdate_MustSelfDelegate;
         }
 
         protected override void OnDisable()
@@ -191,7 +192,7 @@ namespace ES
                 Core.OnColEntityHappen -= PassiveDelegate_OnTriOrColEntityHandles;
             }
             Core.OnDestroyHappen -= PassiveDelegate_OnDeS;
-            Debug.Log("妈耶");
+            Domain.OnFixedUpdate -= FixedUpdate_MustSelfDelegate;
         }
         private void PassiveDelegate_OnTriOrColEntityHandles(Entity who, Vector3 at)
         {

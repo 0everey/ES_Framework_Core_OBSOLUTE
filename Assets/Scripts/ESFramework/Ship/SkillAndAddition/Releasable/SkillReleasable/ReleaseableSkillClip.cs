@@ -173,6 +173,13 @@ namespace ES
 
 
         [/*TabGroup("绑定状态与动画",true,TabName ="【绑定源】") ,*/GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForBinding")]
+        [LabelText("切换状态")]
+        [TabGroup("【绑定状态与动画】", TextColor = "@KeyValueMatchingUtility.ColorSelector.ColorForBinding")]
+        public bool useStateSwitch = false;
+
+        [LabelText("动画层级")]
+        [TabGroup("【绑定状态与动画】", TextColor = "@KeyValueMatchingUtility.ColorSelector.ColorForBinding")]
+        public int layer = 0;
 
         [LabelText("绑定原生状态")]
         [TabGroup("【绑定状态与动画】", TextColor = "@KeyValueMatchingUtility.ColorSelector.ColorForBinding")]
