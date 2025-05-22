@@ -14,7 +14,7 @@ namespace ES
     {
         public void SetDomainAndCreateRelationship(IDomain Domain);
         public void TrySetupClip();
-        public void FixedUpdate();
+        public void FixedUpdate_MustSelfDelegate();
         
     }
     [TypeRegistryItem("抽象剪影定义")]
@@ -129,7 +129,7 @@ namespace ES
              }*/
         }
 
-        public virtual void FixedUpdate()
+        public virtual void FixedUpdate_MustSelfDelegate()
         {
             
         }

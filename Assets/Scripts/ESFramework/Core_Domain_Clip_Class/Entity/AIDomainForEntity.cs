@@ -155,7 +155,7 @@ namespace ES
             if (timeHas < 0)
             {
                 timeHas = minTimeDis;
-                if (Domain.Module_AB_AITarget.Target != null)
+                if (Domain.Module_AB_AITarget.Target != null && SkillNames.Count>0)
                 {
                     string name = SkillNames[UnityEngine.Random.Range(0, SkillNames.Count)];
                     Core.StateMachineDomain.StateMachine.TryActiveStateByKey(name);

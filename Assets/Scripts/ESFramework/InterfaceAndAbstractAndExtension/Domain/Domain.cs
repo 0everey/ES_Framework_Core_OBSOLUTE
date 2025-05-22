@@ -1,6 +1,7 @@
 using ES;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,10 +28,9 @@ namespace ES
         //剪影就是我的常规列表
         public override IEnumerable<Clip> NormalBeHosted => Clips.valuesNow_;
         public Core_ Core => core;
-        [LabelText("启用FixUpdate")] public bool EnableFixupdate = true;
         [FoldoutGroup("扩展域原始"), LabelText("域功能解释", icon: SdfIconType.Palette), GUIColor("ColorGetter"), ShowInInspector, PropertyOrder(-100)] public ESReadMeClass readMe = new ESReadMeClass() { readMe = "这是一个扩展区域" };
         [FoldoutGroup("扩展域原始"), LabelText("链接的核", icon: SdfIconType.Water), ReadOnly, GUIColor("ColorGetter")] public Core_ core;
-        [FoldoutGroup("扩展域原始"), LabelText("全部剪影"),OdinSerialize] public SafeUpdateList_EasyQueue_SeriNot_Dirty<Clip> Clips = new SafeUpdateList_EasyQueue_SeriNot_Dirty<Clip>();
+        [FoldoutGroup("扩展域原始"), LabelText("全部剪影"), OdinSerialize] public SafeUpdateList_EasyQueue_SeriNot_Dirty<Clip> Clips = new SafeUpdateList_EasyQueue_SeriNot_Dirty<Clip>();
         #endregion
 
 
@@ -64,17 +64,10 @@ namespace ES
             Clips.Update();
             base.Update();
         }
-        
-        private void FixedUpdate()
+        public Action OnFixedUpdate = () => { };
+        protected virtual void FixedUpdate()
         {
-            if(EnableFixupdate)
-            foreach(var i in Clips.valuesNow_)
-            {
-                if (i.IsActiveAndEnable)
-                {
-                    i.FixedUpdate();
-                }
-            }
+            OnFixedUpdate?.Invoke();
         }
         #region 辅助方法
         public void RegesterAllButOnlyCreateRelationship(ICore core_)
@@ -100,18 +93,18 @@ namespace ES
         #region 常用功能
         public void AddClip(IClip clip, bool selfInvoke = true)
         {
-            if(clip is Clip use&&!Clips.valuesNow_.Contains(use))
+            if (clip is Clip use && !Clips.valuesNow_.Contains(use))
             {
                 Clips.TryAdd(use);
                 if (selfInvoke) clip.TrySubmitHosting(this, false);
             }
         }
-        
+
         public void RemoveClip(IClip clip, bool selfInvoke = true)
         {
             if (clip is Clip use)
             {
-               /* Clips.TryRemove(use);*/
+                /* Clips.TryRemove(use);*/
                 if (selfInvoke) clip.TryWithDrawHosting(this, false);
             }
         }
@@ -119,7 +112,7 @@ namespace ES
         {
             Clips.TryRemove(use);
         }
-        
+
         public T GetClip<T>()
         {
             foreach (var i in NormalBeHosted)

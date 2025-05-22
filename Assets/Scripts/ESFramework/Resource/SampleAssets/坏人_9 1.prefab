@@ -66,7 +66,16 @@ MonoBehaviour:
       data:
         Domain: {fileID: 0}
         Preset: "\u9884\u8BBE1"
+        SelfControlWeight: 1
         StandardSpeed: {x: 1, y: 3}
+        BaseOnRigid: 0
+        CurrentSpeedMutiplerZ: 0
+        CurrentSpeedMutiplerX: 0
+        UseRigid: 1
+        YUpwards: {x: 0, y: 1, z: 0}
+        MaxRotSpeed_: 360
+        CurrentRotationY: 0
+        timeForStay: 0
     - rid: 165002928870391900
       type: {class: ClipBase_Vision_MC, ns: ES, asm: Assembly-CSharp}
       data:
@@ -216,7 +225,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
@@ -344,6 +353,10 @@ MonoBehaviour:
     - content: "\u9635\u8425/\u4ED6\u65B9"
       getTime: 0
       times: 0
+  CharacterController: {fileID: 0}
+  YV: 0
+  GroundCheck: {fileID: 0}
+  IsGrounded: 0
   BaseDomain: {fileID: 0}
   StateMachineDomain: {fileID: 0}
   AIDomain: {fileID: 0}
@@ -667,7 +680,8 @@ MonoBehaviour:
         Preset: "\u9884\u8BBE1"
         Target: {fileID: 0}
         nextWayPointPosition: {x: 0, y: 0, z: 0}
-        Agent: {fileID: 5929610967748388145}
+        EndPathVS: []
+        NextPoint: {x: 0, y: 0, z: 0}
         nextWayPointIndex: 0
         PathUpdateTimeDis: 1
         nextMaxTargetTimeCount: 3
@@ -678,3 +692,5 @@ MonoBehaviour:
       data:
         Domain: {fileID: 0}
         Preset: "\u9884\u8BBE1"
+        SkillNames: []
+        minTimeDis: 6

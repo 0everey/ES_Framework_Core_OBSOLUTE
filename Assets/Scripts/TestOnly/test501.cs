@@ -41,9 +41,9 @@ public class test501 : ESHostingMono_BaseESModule
         base.Update();
         if (Input.GetKeyDown(KeyCode.O))
         {
-            Debug.Log("测试"+更子级别.HasSubmit);
+            Debug.Log("测试"+更子级别._HasSubmit);
             更子级别.TryWithDrawHosting(null,false);
-            Debug.Log("测试" + 更子级别.HasSubmit);
+            Debug.Log("测试" + 更子级别._HasSubmit);
         }
     }
 }

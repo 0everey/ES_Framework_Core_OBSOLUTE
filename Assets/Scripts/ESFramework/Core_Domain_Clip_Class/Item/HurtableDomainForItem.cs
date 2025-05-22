@@ -135,9 +135,9 @@ namespace ES
             }
             base.Update();
         }
-        public override void FixedUpdate()
+        public override void FixedUpdate_MustSelfDelegate()
         {
-            base.FixedUpdate();
+            base.FixedUpdate_MustSelfDelegate();
             if (delayTime > 0) return;
             if (flyBaseOn == FlyingBaseOn.RigidVelocityUpdating)
             {

@@ -9,32 +9,33 @@ namespace ES
 {
     public interface IESOriginalModule
     {
-
+       
     }
     public interface IESOriginalModule<in Host> where Host:IESOringinHosting
     {
         bool OnSubmitHosting(Host host);
     }
     //生命周期接口--纯Host和模块和Host且模块都有
-    public interface IESWithLife
+    public interface IESWithEnableLife
     {
         #region 生命周期接口
         bool IsActiveAndEnable { get; set; }
         bool CanUpdating { get;}
         public void TryDisableSelf();
         public void TryEnableSelf();
-        public void TryUpdate();
+        
         #endregion
     }
     //可更新的
-    public interface IESModule : IESOriginalModule,IESWithLife
+    public interface IESModule : IESOriginalModule,IESWithEnableLife
     {
         //这个是模块专属哈
         #region 模块专属功能区
-        bool enabledSelf { get; set; }
+        bool EnabledSelf { get; set; }
         public void _TryActiveAndEnable();
         public void _TryInActiveAndDisable();
-        bool HasSubmit { get; set; }
+        bool _HasSubmit { get; set; }
+        public void TryUpdate();
         bool TrySubmitHosting(IESOringinHosting hosting, bool asVirtual);
         bool TryWithDrawHosting(IESOringinHosting hosting, bool asVirtual);
         #endregion 
@@ -60,7 +61,7 @@ namespace ES
     public abstract class BaseESModule : IESModule
     {
         #region 显示控制状态
-        [ShowInInspector,LabelText("控制自身启用状态"),PropertyOrder(-1)] public bool EnabledSelfControl { get => enabledSelf; set { if (value) TryEnableSelf(); else TryDisableSelf();  } }
+        [ShowInInspector,LabelText("控制自身启用状态"),PropertyOrder(-1)] public bool EnabledSelfControl { get => EnabledSelf; set { if (value) TryEnableSelf(); else TryDisableSelf();  } }
         [ShowInInspector, LabelText("显示活动状态"),GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForUpdating")]
         public bool IsActiveAndEnableShow { get => IsActiveAndEnable; }
         #endregion
@@ -77,24 +78,31 @@ namespace ES
 
         #region 关于开关逻辑与运行状态
         public bool IsActiveAndEnable { get; set; } = false;
-        public bool enabledSelf { get; set; } = true;
+        public bool EnabledSelf { get=> _enableSelf; set{ _enableSelf = value;StateTest();  } }
 
-        public void TryEnableSelf()
+        private void StateTest()
         {
-            if (enabledSelf) return;
-            enabledSelf = true;
+            if (IsActiveAndEnable && !_enableSelf) _TryInActiveAndDisable();
+            else if (!IsActiveAndEnable && _enableSelf) _TryActiveAndEnable();
         }
-        public void TryDisableSelf()
+
+        [SerializeField, HideInInspector] private bool _enableSelf = true;
+        public virtual void TryEnableSelf()
         {
-            if (enabledSelf)
+            if (EnabledSelf) return;
+            EnabledSelf = true;
+        }
+        public virtual void TryDisableSelf()
+        {
+            if (EnabledSelf)
             {
-                enabledSelf = false;
+                EnabledSelf = false;
             }
         }
         public void _TryActiveAndEnable()
         {
             
-            if (IsActiveAndEnable || !enabledSelf) return;//不要你
+            if (IsActiveAndEnable || !EnabledSelf) return;//不要你
             OnEnable();
             
         }
@@ -106,10 +114,8 @@ namespace ES
         }
         public void TryUpdate()
         {
-            
             if (CanUpdating&&IsActiveAndEnable)
             {
-                
                 Update();
             }
         }
@@ -117,25 +123,25 @@ namespace ES
 
         #region 关于提交SubMit
         
-        public bool HasSubmit { get; set; }
+        public bool _HasSubmit { get; set; }
         public bool TrySubmitHosting(IESOringinHosting hosting, bool asVirtual)
         {
-            if (HasSubmit) return true;
+            if (_HasSubmit) return true;
             if (asVirtual&&hosting is IESHosting hosting1)
             {
                 hosting1.VirtualBeHosted.TryAdd(this);
-                return HasSubmit = true;
+                return _HasSubmit = true;
             }
-            return HasSubmit = _OnSubmitAsNormal(hosting);
+            return _HasSubmit = _OnSubmitAsNormal(hosting);
         }
         public bool TryWithDrawHosting(IESOringinHosting hosting, bool asVirtual)
         {
-            if (!HasSubmit) return false;
+            if (!_HasSubmit) return false;
             if (asVirtual)
             {
-                return HasSubmit = false;
+                return _HasSubmit = false;
             }
-            return HasSubmit = _OnWithDrawAsNormal(hosting);
+            return _HasSubmit = _OnWithDrawAsNormal(hosting);
         }
         public void TryWithDrawHostingVirtual()
         {
@@ -161,7 +167,7 @@ namespace ES
 
         #region 关于开关逻辑与运行状态
         public bool IsActiveAndEnable { get; set; }
-        public bool enabledSelf { get=>true; set { } }//永true式
+        public bool EnabledSelf { get=>true; set { } }//永true式
 
         public void TryEnableSelf()
         {
@@ -193,23 +199,23 @@ namespace ES
 
         #region 关于提交SubMit
 
-        public bool HasSubmit { get; set; }
+        public bool _HasSubmit { get; set; }
         public bool TrySubmitHosting(IESOringinHosting hosting, bool asVirtual)
         {
-            if (HasSubmit) return true;
+            if (_HasSubmit) return true;
             if (asVirtual && hosting is IESHosting hosting1)
             {
                 hosting1.VirtualBeHosted.TryAdd(this);
-                return HasSubmit = true;
+                return _HasSubmit = true;
             }
             return true;
         }
         public bool TryWithDrawHosting(IESOringinHosting hosting, bool asVirtual)
         {
-            if (!HasSubmit) return false;
+            if (!_HasSubmit) return false;
             if (asVirtual)
             {
-                return HasSubmit = false;
+                return _HasSubmit = false;
             }
             return false;
         }
@@ -250,7 +256,7 @@ namespace ES
 
         #region 关于开关逻辑与运行状态
         public bool IsActiveAndEnable { get; set; }
-        public bool enabledSelf { get => true; set { } }//永true式
+        public bool EnabledSelf { get => true; set { } }//永true式
         protected virtual void OnEnable() { IsActiveAndEnable = true; }
         //禁用时逻辑
         protected virtual void OnDisable() { IsActiveAndEnable = false; }
@@ -287,23 +293,23 @@ namespace ES
 
         #region 关于提交SubMit
 
-        public bool HasSubmit { get; set; }
+        public bool _HasSubmit { get; set; }
         public bool TrySubmitHosting(IESOringinHosting hosting, bool asVirtual)
         {
-            if (HasSubmit) return true;
+            if (_HasSubmit) return true;
             if (asVirtual && hosting is IESHosting hosting1)
             {
                 hosting1.VirtualBeHosted.TryAdd(this);
-                return HasSubmit = true;
+                return _HasSubmit = true;
             }
             return true;
         }
         public bool TryWithDrawHosting(IESOringinHosting hosting, bool asVirtual)
         {
-            if (!HasSubmit) return false;
+            if (!_HasSubmit) return false;
             if (asVirtual)
             {
-                return HasSubmit = false;
+                return _HasSubmit = false;
             }
             return false;
         }
@@ -330,7 +336,7 @@ namespace ES
 
         #region 关于开关逻辑与运行状态
         public bool IsActiveAndEnable { get; set; }
-        public bool enabledSelf { get => true; set { } }//永true式
+        public bool EnabledSelf { get => true; set { } }//永true式
 
         public void TryEnableSelf()
         {
@@ -362,23 +368,23 @@ namespace ES
 
         #region 关于提交SubMit
 
-        public bool HasSubmit { get; set; }
+        public bool _HasSubmit { get; set; }
         public bool TrySubmitHosting(IESOringinHosting hosting, bool asVirtual)
         {
-            if (HasSubmit) return true;
+            if (_HasSubmit) return true;
             if (asVirtual && hosting is IESHosting hosting1)
             {
                 hosting1.VirtualBeHosted.TryAdd(this);
-                return HasSubmit = true;
+                return _HasSubmit = true;
             }
             return true;
         }
         public bool TryWithDrawHosting(IESOringinHosting hosting, bool asVirtual)
         {
-            if (!HasSubmit) return false;
+            if (!_HasSubmit) return false;
             if (asVirtual)
             {
-                return HasSubmit = false;
+                return _HasSubmit = false;
             }
             return false;
         }
@@ -410,26 +416,33 @@ namespace ES
     public abstract class BaseESModule<Host> : BaseESModule, IESModule<Host> where Host : class, IESOringinHosting
     {
         #region 与自己的Host关联
+        public override void TryEnableSelf()
+        {
+            base.TryEnableSelf();
+        }
+        public override void TryDisableSelf()
+        {
+            base.TryDisableSelf();
+        }
         public virtual Host GetHost { get; }
         public bool TrySubmitHosting(Host hosting, bool asVirtual)
         {
-            if (HasSubmit) return true;
+            if (_HasSubmit) return true;
             if (asVirtual && hosting is IESHosting hosting1)
             {
                 hosting1.VirtualBeHosted.TryAdd(this);
-                return HasSubmit = true;
+                return _HasSubmit = true;
             }
-            return HasSubmit = _OnSubmitAsNormal(hosting);
+            return _HasSubmit = _OnSubmitAsNormal(hosting);
         }
-
         public bool TryWithDrawHosting(Host hosting, bool asVirtual)
         {
-            if (!HasSubmit) return false;
+            if (!_HasSubmit) return false;
             if (asVirtual)
             {
-                return HasSubmit = false;
+                return _HasSubmit = false;
             }
-            return HasSubmit = _OnWithDrawAsNormal(hosting);
+            return _HasSubmit = _OnWithDrawAsNormal(hosting);
         }
         protected sealed override bool _OnSubmitAsNormal(IESOringinHosting hosting)
         {

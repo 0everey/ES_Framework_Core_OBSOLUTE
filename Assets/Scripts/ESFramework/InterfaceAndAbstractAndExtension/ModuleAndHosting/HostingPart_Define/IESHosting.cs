@@ -12,12 +12,11 @@ namespace ES
 
     }
     //以Hosting声明
-    public interface IESHosting : IESOringinHosting, IESWithLife
+    public interface IESHosting : IESOringinHosting, IESWithEnableLife
     {
         #region 托管器专属
         //虚拟的
         SafeUpdateSet_EasyQueue_SeriNot_Dirty<IESModule> VirtualBeHosted { get; }
-        
         void UpdateAsHosting();
         void EnableAsHosting();
         void DisableAsHosting();
@@ -78,6 +77,7 @@ namespace ES
 
         #region 关于开关逻辑与运行状态
         public bool IsActiveAndEnable { get; set; } = false;
+
         public virtual void TryEnableSelf()
         {
             if (IsActiveAndEnable) return;
@@ -102,28 +102,23 @@ namespace ES
         #region 与对子的控制
         public virtual void UpdateAsHosting()
         {
-            
             if (VirtualBeHosted != null)
             {
                 foreach (var i in VirtualBeHosted.valuesNow_)
                 {
-                    if (!i.HasSubmit)
-                    {
-                        i._TryInActiveAndDisable();
-                        //已经放弃
-                        virtualBeHostedList.TryRemove(i);
-                        continue;
-                    }
-                    if (!i.IsActiveAndEnable && i.enabledSelf) i._TryActiveAndEnable();
-                    else if (i.IsActiveAndEnable && !i.enabledSelf) i._TryInActiveAndDisable();
+                        if (!i._HasSubmit)
+                        {
+                            i._TryInActiveAndDisable();
+                            //已经放弃
+                            virtualBeHostedList.TryRemove(i);
+                            continue;
+                        }
                     i.TryUpdate();
                 }
             }
         }
         public virtual void EnableAsHosting()
         {
-            
-        
             if (VirtualBeHosted != null)
             {
                 foreach (var i in VirtualBeHosted.valuesNow_)
@@ -148,7 +143,6 @@ namespace ES
     //以泛型声明
     public interface IESHosting<With> : IESHosting where With : class,IESModule
     {
-        
          IEnumerable<With> NormalBeHosted { get; }
          public abstract void TryRemoveModuleAsNormal(With use);
     }
@@ -184,16 +178,14 @@ namespace ES
             {
                 foreach (var i in NormalBeHosted)
                 {
-                    if (!i.HasSubmit)
-                    {
-                        i._TryInActiveAndDisable();
-                        //已经放弃
-                        
-                        continue;
-                    }
-                    if (!i.IsActiveAndEnable && i.enabledSelf) i._TryActiveAndEnable();
-                    else if (i.IsActiveAndEnable && !i.enabledSelf) i._TryInActiveAndDisable();
+                   
+                        if (!i._HasSubmit)
+                        {
+                            i._TryInActiveAndDisable();
+                            //已经放弃
 
+                            continue;
+                        }
                     i.TryUpdate();
                 }
             }
@@ -214,45 +206,45 @@ namespace ES
         //启用时逻辑
 
         #region 关于提交SubMit
-        public bool HasSubmit { get; set; }
+        public bool _HasSubmit { get; set; }
         public bool TrySubmitHosting(IESHosting hosting, bool asVirtual = false)
         {
-            if (HasSubmit) return true;
+            if (_HasSubmit) return true;
             if (asVirtual)
             {
                 hosting.VirtualBeHosted.TryAdd(this);
-                return HasSubmit = true;
+                return _HasSubmit = true;
             }
-            return HasSubmit = _OnSubmitAsNormal(hosting);
+            return _HasSubmit = _OnSubmitAsNormal(hosting);
         }
         public bool TryWithDrawHosting(IESHosting hosting, bool asVirtual = false)
         {
-            if (!HasSubmit) return false;
+            if (!_HasSubmit) return false;
             if (asVirtual)
             {
-                return HasSubmit = false;
+                return _HasSubmit = false;
             }
-            return HasSubmit = _OnWithDrawAsNormal(hosting);
+            return _HasSubmit = _OnWithDrawAsNormal(hosting);
         }
         public bool TrySubmitHosting(Host hosting, bool asVirtual = false)
         {
-            if (HasSubmit) return true;
+            if (_HasSubmit) return true;
             if (asVirtual)
             {
                 hosting.VirtualBeHosted.TryAdd(this);
-                return HasSubmit = true;
+                return _HasSubmit = true;
             }
-            return HasSubmit = _OnSubmitAsNormal(hosting);
+            return _HasSubmit = _OnSubmitAsNormal(hosting);
         }
 
         public bool TryWithDrawHosting(Host hosting, bool asVirtual = false)
         {
-            if (!HasSubmit) return false;
+            if (!_HasSubmit) return false;
             if (asVirtual)
             {
-                return HasSubmit = false;
+                return _HasSubmit = false;
             }
-            return HasSubmit = _OnWithDrawAsNormal(hosting);
+            return _HasSubmit = _OnWithDrawAsNormal(hosting);
         }
         public void TryWithDrawHostingVirtual()
         {
@@ -273,32 +265,35 @@ namespace ES
         #endregion
 
         #region 检查器显示控制与信息
-        [ShowInInspector, LabelText("控制自身启用状态"), PropertyOrder(-1)] public bool EnabledSelfControl { get => enabledSelf; set { if (value) TryEnableSelf(); else TryDisableSelf(); } }
+        [ShowInInspector, LabelText("控制自身启用状态"), PropertyOrder(-1)] public bool EnabledSelfControl { get => EnabledSelf; set { if (value) TryEnableSelf(); else TryDisableSelf(); } }
         [ShowInInspector, LabelText("显示活动状态"), PropertyOrder(-1), GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForUpdating")]
         public bool IsActiveAndEnableShow { get => IsActiveAndEnable; }
-        [ShowInInspector, LabelText("是否已经Submit"),PropertyOrder(-1)] public bool ShowHasSubmit => HasSubmit;
+        [ShowInInspector, LabelText("是否已经Submit"),PropertyOrder(-1)] public bool ShowHasSubmit => _HasSubmit;
         #endregion
 
         #region 开关逻辑
         
-        public bool enabledSelf { get; set; } = true;
+        public bool EnabledSelf { get; set; } = true;
 
         public override void TryEnableSelf()
         {
-            if (enabledSelf) return;
-            enabledSelf = true;
+            if (EnabledSelf) return;
+            EnabledSelf = true;
+           
         }
         public override void TryDisableSelf()
         {
-            if (enabledSelf)
+            if (EnabledSelf)
             {
-                enabledSelf = false;
+                EnabledSelf = false;
+              
             }
         }
         public void _TryActiveAndEnable()
         {
-            if (IsActiveAndEnable || !enabledSelf) return;//不要你
+            if (IsActiveAndEnable || !EnabledSelf) return;//不要你
             OnEnable();
+
         }
         public void _TryInActiveAndDisable()
         {

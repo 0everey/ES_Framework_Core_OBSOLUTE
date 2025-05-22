@@ -26,14 +26,17 @@ namespace ES
         [NonSerialized] public ClipBase_FireFlying Module_Fire;
         #endregion
 
-
+        protected override void FixedUpdate()
+        {
+            base.FixedUpdate();
+        }
 
         protected override void CreatRelationship()
         {
             base.CreatRelationship();
             core.BaseDomain = this;
         }
-
+        
         /* float timeDis = 2;
          protected override void Update()
          {
@@ -83,10 +86,11 @@ namespace ES
     [Serializable, TypeRegistryItem("3D微型移动")]
     public class ClipBase_3DMicroMotion : ClipBase_AB_3DMotion
     {
-        public override void FixedUpdate()
+        public override void FixedUpdate_MustSelfDelegate()
         {
+
             if (timeForStay > 0) { timeForStay -= Time.fixedDeltaTime; return; }
-            base.FixedUpdate();
+            base.FixedUpdate_MustSelfDelegate();
             float Z = StandardSpeed.y * CurrentSpeedMutiplerZ;//相对Z
             float X = StandardSpeed.x * CurrentSpeedMutiplerX;//相对X
 
@@ -94,7 +98,7 @@ namespace ES
                 + Vector3.ProjectOnPlane(Core.transform.right, YUpwards).normalized * X + Vector3.up * Core.YV;
             if (UseRigid && Core.Rigid != null)
             {
-                Core.CharacterController.Move(combine * SelfControlWeight * Time.fixedDeltaTime);
+                Core.Rigid.position += combine * SelfControlWeight * Time.fixedDeltaTime;
             }
             else
             {
@@ -112,6 +116,16 @@ namespace ES
             {
                 Core.transform.rotation *= onlyY;
             }
+        }
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            Domain.OnFixedUpdate += FixedUpdate_MustSelfDelegate;
+        }
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            Domain.OnFixedUpdate -= FixedUpdate_MustSelfDelegate;
         }
     }
     [Serializable, TypeRegistryItem("3D标准移动")]
@@ -158,7 +172,7 @@ namespace ES
                 PrivateMethod_();//其他
             }
         }
-        public override void FixedUpdate()
+        public override void FixedUpdate_MustSelfDelegate()
         {
             if (timeForStay > 0) { timeForStay -= Time.fixedDeltaTime; return; }
             PrivateMethod_MotionPosition();//操作移动旋转
@@ -187,6 +201,7 @@ namespace ES
                 + Vector3.ProjectOnPlane(Core.transform.right, YUpwards).normalized * X + Vector3.up * Core.YV;
             if (UseRigid && Core.Rigid != null)
             {
+                
                 Core.CharacterController.Move(combine * SelfControlWeight * Time.fixedDeltaTime);
             }
             else
@@ -538,12 +553,12 @@ namespace ES
         }
         public void Fire(GameObject newOne = null, bool rePlace = true)
         {
-            Debug.Log("fire1");
+            
             FirePoint ??= Core.transform;
             GameObject gg = prefab;
             if (newOne != null)
             {
-                Debug.Log("fire2");
+                
                 gg = newOne;
                 if (rePlace)
                 {
@@ -552,7 +567,7 @@ namespace ES
             }
             if (gg != null)
             {
-                Debug.Log("fire3");
+              
                 GameObject ins = GameCenter.Ins(gg, FirePoint.position, null, FirePoint.rotation);
                 var item = ins.GetComponent<Item>();
                 var fly = item.HurtableDomain?.Module_Flying;
@@ -589,7 +604,7 @@ namespace ES
             if (FireInput == null || Refer_ModuleFire == null)
             {
                 //无效
-                this.enabledSelf = false;
+                this.EnabledSelf = false;
                 Domain.RemoveClip(this);
             }
         }

@@ -12,7 +12,7 @@ namespace ES
     {
         [LabelText("提示"),PropertyOrder(-5)]
         public ESReadMeClass readme = new ESReadMeClass() { readMe= "请在尽量在窗口处进行调整,这里不推荐\n因为" };
-        #region 工具设置
+        #region AB工具设置
         
         [FoldoutGroup("AB包工具")][LabelText("AB打包模式")]public ABPackType abPackType;
         [FoldoutGroup("AB包工具")][LabelText("AB代码生成模式")] public ABForAutoCodeGen abFoeAutoCodeGen;
@@ -23,7 +23,11 @@ namespace ES
         [FoldoutGroup("AB包工具"), LabelText("AB包标记自定义名字")]
         public string ABName;
         #endregion
-
+        public static bool IsQuit = false;
+        private void OnApplicationQuit()
+        {
+            IsQuit = true;
+        }
         #region 加载到
         public static List<string> ESTags = new List<string>();
         public static List<string> BuffKeys = new List<string>();
@@ -127,7 +131,7 @@ namespace ES
         #region 分类
         protected override void Awake()
         {
-
+            IsQuit = false;
             base.Awake();
             Load();
         }

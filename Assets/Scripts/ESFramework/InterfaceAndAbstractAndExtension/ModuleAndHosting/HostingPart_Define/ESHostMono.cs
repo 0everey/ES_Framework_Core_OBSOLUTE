@@ -43,15 +43,15 @@ namespace ES
             {
                 foreach (var i in VirtualBeHosted.valuesNow_)
                 {
-                    if (!i.HasSubmit)
-                    {
-                        i._TryInActiveAndDisable();
-                        //已经放弃
-                        virtualBeHostedList.TryRemove(i);
-                        continue;
-                    }
-                    if (!i.IsActiveAndEnable && i.enabledSelf) i._TryActiveAndEnable();
-                    else if (i.IsActiveAndEnable && !i.enabledSelf) i._TryInActiveAndDisable();
+                  
+                        if (!i._HasSubmit)
+                        {
+                            i._TryInActiveAndDisable();
+                            //已经放弃
+                            virtualBeHostedList.TryRemove(i);
+                            continue;
+                        }
+                    
                     i.TryUpdate();
                 }
             }
@@ -122,6 +122,8 @@ namespace ES
         #region 重写逻辑
         public virtual bool CanUpdating => true;
 
+     
+
         protected virtual void Update()
         {
             if (UpdateIntervalFrameCount > 0)
@@ -146,6 +148,11 @@ namespace ES
         }
         protected virtual void OnDisable()
         {
+            Debug.Log(101);
+#if UNITY_EDITOR
+            if (EditorMaster.IsQuit) return;
+#endif
+            Debug.Log(102);
             IsActiveAndEnable = false;
             DisableAsHosting();
         }
@@ -168,17 +175,14 @@ namespace ES
                 foreach (var i in NormalBeHosted)
                 {
 
-                    if (!i.HasSubmit)
+                    if (!i._HasSubmit)
                     {
                         i._TryInActiveAndDisable();
                         //已经放弃
                         TryRemoveModuleAsNormal(i);
                         continue;
                     }
-
-                    if (!i.IsActiveAndEnable && i.enabledSelf) { i._TryActiveAndEnable(); }
-                    else if (i.IsActiveAndEnable && !i.enabledSelf) { i._TryInActiveAndDisable();}
-                    
+                  
                     i.TryUpdate();
                 }
             }
@@ -192,6 +196,7 @@ namespace ES
                 foreach (var i in NormalBeHosted)
                 {
                     i._TryActiveAndEnable();
+                    Debug.Log("开" + i.ToString());
                 }
             }
             base.EnableAsHosting();
@@ -203,6 +208,7 @@ namespace ES
                 foreach (var i in NormalBeHosted)
                 {
                     i._TryInActiveAndDisable();
+                    Debug.Log("关" + i.ToString());
                 }
             }
             base.DisableAsHosting();

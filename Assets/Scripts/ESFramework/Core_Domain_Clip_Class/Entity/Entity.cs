@@ -94,7 +94,7 @@ namespace ES
             if (YV <= 0)
             {
                 var back = Physics.Raycast(t.position + Vector3.up * 0.25f, Vector3.down, 0.5f, EditorMaster.LayerMaskGround);
-                Debug.Log("地面监测" + back);
+               
                 if (back)
                 {
                     if (YV > -0.1f) YV = 0;

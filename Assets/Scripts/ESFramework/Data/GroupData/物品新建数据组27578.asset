@@ -139,7 +139,7 @@ MonoBehaviour:
         entityHandleOfItem:
           handles_:
           - rid: 165002907638038632
-          - rid: 165002907638038634
+          - rid: 165003099540553988
           optionForPlaySound: 3
           OnDesPlaySound: {fileID: 8300000, guid: a019ae3af8e864616b85773c509f5285,
             type: 3}
@@ -249,16 +249,16 @@ MonoBehaviour:
       type: {class: PointerForFloat_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
       data:
         float_: 1
-    - rid: 165002907638038634
-      type: {class: EntityHandle_OnItem_AddRigidForce, ns: ES, asm: Assembly-CSharp}
+    - rid: 165003099540553988
+      type: {class: EntityHandle_OnItem_Dodge, ns: ES, asm: Assembly-CSharp}
       data:
-        vector3:
-          rid: 165002907638038635
-        placePos: 0
-    - rid: 165002907638038635
-      type: {class: PointerForVector3_Direct, ns: ES.EvPointer, asm: Assembly-CSharp}
-      data:
-        vector: {x: 0, y: 1000, z: -2}
+        ApplyCrash:
+          duration: 0.25
+          vector: {x: 0, y: 3, z: 0.8}
+          CoolDownNext: 0.25
+          vectorHandle: 2
+          pathType: 0
+          baseOn: 1
 --- !u!114 &-2292302297552512589
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -108,7 +108,7 @@ namespace ES
                 case "特殊的":
                     if (Domain.GetComponent<Entity>() == null)
                     {
-                        this.enabledSelf = true;
+                        this.EnabledSelf = true;
                     }
                     break;
 

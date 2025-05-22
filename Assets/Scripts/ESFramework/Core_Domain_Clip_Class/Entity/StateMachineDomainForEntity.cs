@@ -148,9 +148,9 @@ namespace ES
             base.OnSubmitHosting(hosting);
 
         }
-        public override void FixedUpdate()
+        public override void FixedUpdate_MustSelfDelegate()
         {
-            base.FixedUpdate();
+            base.FixedUpdate_MustSelfDelegate();
             if (dodgeQueue.Count == 0) {
                 CoolDownNext = StartPreventApply;
                 lastHasGo = 0;
