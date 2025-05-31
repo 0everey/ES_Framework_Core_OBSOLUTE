@@ -61,7 +61,7 @@ namespace ES
     }
     public enum ResSourceLoadType
     {
-        [InspectorName("AB包")] AssetBundle = 0,
+        [InspectorName("AB包")] Asset_Bundle = 0,
         [InspectorName("AB资源")] ABAsset = 1,
         [InspectorName("AB场景")] ABScene = 2,
         [InspectorName("内置的")] Internal = 3,
@@ -70,7 +70,7 @@ namespace ES
     }
     public interface IResSource : IRefCounter
     {
-        string AssetName { get; }
+        string AssetPath { get; }
 
         string OwnerAssetBundleName { get; }
 
@@ -90,7 +90,7 @@ namespace ES
 
         void LoadAll_Async();
 
-        string[] GetDependResSource();
+        string[] GetDependResSourceAllAssetBundles();
 
         bool IsDependResLoadFinish();
 
@@ -103,16 +103,16 @@ namespace ES
     {
         #region 字段被保护，使用属性获取
 
-        protected string mAssetName;
+        protected string mAssetPath;
         private ResSourceState mResSourceState = ResSourceState.Waiting;
         protected UnityEngine.Object mAsset;
         private event Action<bool, IResSource> mOnResLoadDoneEvent;
 
         #endregion
-        public string AssetName
+        public string AssetPath
         {
-            get { return mAssetName; }
-            protected set { mAssetName = value; }
+            get { return mAssetPath; }
+            protected set { mAssetPath = value; }
         }
 
 
@@ -214,7 +214,7 @@ namespace ES
         protected ESResSource(string assetName)
         {
             IsRecycled = false;
-            mAssetName = assetName;
+            mAssetPath = assetName;
         }
 
         public ESResSource()
@@ -229,7 +229,7 @@ namespace ES
 
         protected void HoldDependRes()
         {
-            var depends = GetDependResSource();
+            var depends = GetDependResSourceAllAssetBundles();
             if (depends == null || depends.Length == 0)
             {
                 return;
@@ -237,8 +237,8 @@ namespace ES
 
             for (var i = depends.Length - 1; i >= 0; --i)
             {
-                var resSearchRule = ResSourceSearchKey.GetOne(depends[i], null, typeof(AssetBundle));
-                var res = ESResMaster.Instance.GetRes(resSearchRule, false);
+                var resSearchRule = ResSourceSearchKey.GetOne(depends[i], null, typeof(Asset_Bundle));
+                var res = ESResMaster.Instance.GetResSourceBySearchKeys(resSearchRule, false);
                 resSearchRule.TryAutoPushToPool();
 
                 if (res != null)
@@ -250,7 +250,7 @@ namespace ES
 
         protected void UnHoldDependRes()
         {
-            var depends = GetDependResSource();
+            var depends = GetDependResSourceAllAssetBundles();
             if (depends == null || depends.Length == 0)
             {
                 return;
@@ -259,7 +259,7 @@ namespace ES
             for (var i = depends.Length - 1; i >= 0; --i)
             {
                 var resSearchRule = ResSourceSearchKey.GetOne(depends[i]);
-                var res = ESResMaster.Instance.GetRes(resSearchRule, false);
+                var res = ESResMaster.Instance.GetResSourceBySearchKeys(resSearchRule, false);
                 resSearchRule.TryAutoPushToPool();
 
                 if (res != null)
@@ -281,14 +281,14 @@ namespace ES
 
         }
 
-        public virtual string[] GetDependResSource()
+        public virtual string[] GetDependResSourceAllAssetBundles()
         {
             return null;
         }
 
         public bool IsDependResLoadFinish()
         {
-            var depends = GetDependResSource();
+            var depends = GetDependResSourceAllAssetBundles();
             if (depends == null || depends.Length == 0)
             {
                 return true;
@@ -297,7 +297,7 @@ namespace ES
             for (var i = depends.Length - 1; i >= 0; --i)
             {
                 var resSearchRule = ResSourceSearchKey.GetOne(depends[i]);
-                var res = ESResMaster.Instance.GetRes(resSearchRule, false);
+                var res = ESResMaster.Instance.GetResSourceBySearchKeys(resSearchRule, false);
                 resSearchRule.TryAutoPushToPool();
 
                 if (res == null || res.State != ResSourceState.Ready)
@@ -363,11 +363,11 @@ namespace ES
 
         public virtual void OnBePushedToPool()
         {
-            mAssetName = null;
+            mAssetPath = null;
             mOnResLoadDoneEvent = null;
         }
 
-        public virtual IEnumerator DoLoadAsync(System.Action finishCallback)
+        public virtual IEnumerator DoTaskAsync(System.Action finishCallback)
         {
             finishCallback();
             yield break;
@@ -375,14 +375,14 @@ namespace ES
 
         public override string ToString()
         {
-            return string.Format("This is ResSourceForAsset ,Name:{0}\t State:{1}\t RefCount:{2}", AssetName, State, RefCountNow);
+            return string.Format("This is ResSourceForAsset ,Name:{0}\t State:{1}\t RefCount:{2}", AssetPath, State, RefCountNow);
         }
 
         #endregion
     }
     public class ResSourceSearchKey : IPoolable, IPoolablebSelfControl
     {
-        public string AssetName { get; set; }
+        public string AssetPath { get; set; }
 
         public string OwnerAssetBundle { get; set; }
 
@@ -394,7 +394,7 @@ namespace ES
         public static ResSourceSearchKey GetOne(string assetName, string ownerBundleName = null, Type assetType = null)
         {
             var resSearchRule = ESResMaster.Instance.PoolForResSourceSearchKey.GetInPool();
-            resSearchRule.AssetName = assetName.ToLower();
+            resSearchRule.AssetPath = assetName.ToLower();
             resSearchRule.OwnerAssetBundle = ownerBundleName == null ? null : ownerBundleName.ToLower();
             resSearchRule.AssetType = assetType;
             resSearchRule.OriginalAssetName = assetName;
@@ -408,7 +408,7 @@ namespace ES
 
         public bool Match(IResSource res)
         {
-            if (res.AssetName == AssetName)
+            if (res.AssetPath == AssetPath)
             {
                 var isMatch = true;
 
@@ -431,13 +431,13 @@ namespace ES
 
         public override string ToString()
         {
-            return string.Format("AssetName:{0} BundleName:{1} TypeName:{2}", AssetName, OwnerAssetBundle,
+            return string.Format("AssetPath:{0} BundleName:{1} TypeName:{2}", AssetPath, OwnerAssetBundle,
                 AssetType);
         }
 
         void IPoolable.OnBePushedToPool()
         {
-            AssetName = null;
+            AssetPath = null;
 
             OwnerAssetBundle = null;
 
@@ -466,7 +466,7 @@ namespace ES
             var res = ESResMaster.Instance.PoolForAssetResSource.GetInPool();
             if (res != null)
             {
-                res.AssetName = name;
+                res.AssetPath = name;
                 res.mOwnerBundleName = onwerBundleName;
                 res.AssetType = assetTypde;
                 res.InitAssetBundleName();
@@ -505,17 +505,17 @@ namespace ES
 
             UnityEngine.Object obj = null;
 
-            if (EditorMaster.Instance.abPackType== EditorMaster.ABPackType.Simulate&& !string.Equals(mAssetName, "assetbundlemanifest"))
+            if (EditorMaster.Instance.abPackType== EditorMaster.ABPackType.Simulate&& !string.Equals(mAssetPath, "assetbundlemanifest"))
             {
-                var ResSourceSearchKey = ResSourceSearchKey.GetOne(AssetBundleName, null, typeof(AssetBundle));
+                var ResSourceSearchKey = ResSourceSearchKey.GetOne(AssetBundleName, null, typeof(Asset_Bundle));
 
-                var abR = ESResMaster.Instance.GetRes<AssetBundleResSource>(ResSourceSearchKey);
+                var abR = ESResMaster.Instance.GetResSourceBySearchKeys<LocalAssetBundleResSource>(ResSourceSearchKey);
                 ResSourceSearchKey.TryAutoPushToPool();
 
-                var assetPaths = AssetBundlePathHelper.GetAssetPathsFromAssetBundleAndAssetName(abR.AssetName, mAssetName);
+                var assetPaths = AssetBundlePathHelper.GetAssetPathsFromAssetBundleAndAssetName(abR.AssetPath, mAssetPath);
                 if (assetPaths.Length == 0)
                 {
-                    Debug.LogError("Failed Load Asset:" + mAssetName);
+                    Debug.LogError("Failed Load Asset:" + mAssetPath);
                     OnResLoadFaild();
                     return false;
                 }
@@ -536,12 +536,12 @@ namespace ES
             }
             else
             {
-                var ResSourceSearchKey = ResSourceSearchKey.GetOne(AssetBundleName, null, typeof(AssetBundle));
-                var abR = ESResMaster.Instance.GetRes<AssetBundleResSource>(ResSourceSearchKey);
+                var ResSourceSearchKey = ResSourceSearchKey.GetOne(AssetBundleName, null, typeof(Asset_Bundle));
+                var abR = ESResMaster.Instance.GetResSourceBySearchKeys<LocalAssetBundleResSource>(ResSourceSearchKey);
                 ResSourceSearchKey.TryAutoPushToPool();
 
 
-                if (abR == null || !abR.AssetBundle)
+                if (abR == null || !abR.Asset_Bundle)
                 {
                     Debug.LogError("Failed to Load Asset, Not Find AssetBundleImage:" + AssetBundleName);
                     return false;
@@ -553,11 +553,11 @@ namespace ES
 
                 if (AssetType != null)
                 {
-                    obj = abR.AssetBundle.LoadAsset(mAssetName, AssetType);
+                    obj = abR.Asset_Bundle.LoadAsset(mAssetPath, AssetType);
                 }
                 else
                 {
-                    obj = abR.AssetBundle.LoadAsset(mAssetName);
+                    obj = abR.Asset_Bundle.LoadAsset(mAssetPath);
                 }
             }
 
@@ -565,7 +565,7 @@ namespace ES
 
             if (obj == null)
             {
-                Debug.LogError("Failed Load Asset:" + mAssetName + ":" + AssetType + ":" + AssetBundleName);
+                Debug.LogError("Failed Load Asset:" + mAssetPath + ":" + AssetType + ":" + AssetBundleName);
                 OnResLoadFaild();
                 return false;
             }
@@ -593,7 +593,7 @@ namespace ES
             ResMgr.Instance.PushIEnumeratorTask(this);
         }
 
-        public override IEnumerator DoLoadAsync(System.Action finishCallback)
+        public override IEnumerator DoTaskAsync(System.Action finishCallback)
         {
             if (RefCountNow <= 0)
             {
@@ -604,16 +604,16 @@ namespace ES
 
 
             //Object obj = null;
-            var ResSourceSearchKey = ResSourceSearchKey.GetOne(AssetBundleName, null, typeof(AssetBundle));
-            var abR = ESResMaster.Instance.GetRes<AssetBundleResSource>(ResSourceSearchKey);
+            var ResSourceSearchKey = ResSourceSearchKey.GetOne(AssetBundleName, null, typeof(Asset_Bundle));
+            var abR = ESResMaster.Instance.GetResSourceBySearchKeys<LocalAssetBundleResSource>(ResSourceSearchKey);
             ResSourceSearchKey.TryAutoPushToPool();
 
-            if (AssetBundlePathHelper.SimulationMode && !string.Equals(mAssetName, "assetbundlemanifest"))
+            if (AssetBundlePathHelper.SimulationMode && !string.Equals(mAssetPath, "assetbundlemanifest"))
             {
-                var assetPaths = AssetBundlePathHelper.GetAssetPathsFromAssetBundleAndAssetName(abR.AssetName, mAssetName);
+                var assetPaths = AssetBundlePathHelper.GetAssetPathsFromAssetBundleAndAssetName(abR.AssetPath, mAssetPath);
                 if (assetPaths.Length == 0)
                 {
-                    Debug.LogError("Failed Load Asset:" + mAssetName);
+                    Debug.LogError("Failed Load Asset:" + mAssetPath);
                     OnResLoadFaild();
                     finishCallback();
                     yield break;
@@ -642,7 +642,7 @@ namespace ES
             else
             {
 
-                if (abR == null || abR.AssetBundle == null)
+                if (abR == null || abR.Asset_Bundle == null)
                 {
                     Debug.LogError("Failed to Load Asset, Not Find AssetBundleImage:" + AssetBundleName);
                     OnResLoadFaild();
@@ -659,14 +659,14 @@ namespace ES
 
                 if (AssetType != null)
                 {
-                    abQ = abR.AssetBundle.LoadAssetAsync(mAssetName, AssetType);
+                    abQ = abR.Asset_Bundle.LoadAssetAsync(mAssetPath, AssetType);
                     mAssetBundleRequest = abQ;
 
                     yield return abQ;
                 }
                 else
                 {
-                    abQ = abR.AssetBundle.LoadAssetAsync(mAssetName);
+                    abQ = abR.Asset_Bundle.LoadAssetAsync(mAssetPath);
                     mAssetBundleRequest = abQ;
 
                     yield return abQ;
@@ -678,7 +678,7 @@ namespace ES
 
                 if (!abQ.isDone)
                 {
-                    Debug.LogError("Failed Load Asset:" + mAssetName);
+                    Debug.LogError("Failed Load Asset:" + mAssetPath);
                     OnResLoadFaild();
                     finishCallback();
                     yield break;
@@ -692,7 +692,7 @@ namespace ES
             finishCallback();
         }
        
-        public override string[] GetDependResSource()
+        public override string[] GetDependResSourceAllAssetBundles()
         {
             return mAssetBundleArray;
         }
@@ -721,7 +721,7 @@ namespace ES
         {
             mAssetBundleArray = null;
 
-            var ResSourceSearchKey = ResSourceSearchKey.GetOne(mAssetName, mOwnerBundleName, AssetType);
+            var ResSourceSearchKey = ResSourceSearchKey.GetOne(mAssetPath, mOwnerBundleName, AssetType);
 
             var config = AssetBundleSettings.AssetBundleConfigFile.GetAssetData(ResSourceSearchKey);
 
@@ -729,7 +729,7 @@ namespace ES
 
             if (config == null)
             {
-                Debug.LogError("Not Find AssetData For Asset:" + mAssetName);
+                Debug.LogError("Not Find AssetData For Asset:" + mAssetPath);
                 return;
             }
 
@@ -737,7 +737,7 @@ namespace ES
 
             if (string.IsNullOrEmpty(assetBundleName))
             {
-                Debug.LogError("Not Find AssetBundle In Config:" + config.AssetBundleIndex + mOwnerBundleName);
+                Debug.LogError("Not Find Asset_Bundle In Config:" + config.AssetBundleIndex + mOwnerBundleName);
                 return;
             }
 
@@ -754,21 +754,21 @@ namespace ES
     #endregion
 
     #region 资源类型:AB包体资源
-    public class AssetBundleResSource : ESResSource
+    public class LocalAssetBundleResSource : ESResSource
     {
         private bool mUnloadFlag = true;
-        private string[] mDependResList;
+        private string[] needDepends;
         private AsyncOperation mAssetBundleCreateRequest;
         public string AESKey = string.Empty;
         private string mHash;
 
 
-        public static AssetBundleResSource GetInPool_ESLoader(string name)
+        public static LocalAssetBundleResSource GetInPool_ESLoader(string name)
         {
             var res = ESResMaster.Instance.PoolForAssetBundleResSource.GetInPool();
 
-            res.AssetName = name;
-            res.AssetType = typeof(AssetBundle);
+            res.AssetPath = name;
+            res.AssetType = typeof(Asset_Bundle);
             res.InitAssetBundleName();
 
             return res;
@@ -776,13 +776,13 @@ namespace ES
 
         private void InitAssetBundleName()
         {
-            mDependResList = AssetBundleSettings.AssetBundleConfigFile.GetAllDependenciesByUrl(AssetName);
-            mHash = AssetBundleSettings.AssetBundleConfigFile.GetABHash(AssetName);
+            needDepends = AssetBundleSettings.AssetBundleConfigFile.GetAllDependenciesByUrl(AssetPath);
+            mHash = AssetBundleSettings.AssetBundleConfigFile.GetABHash(AssetPath);
         }
 
-        public AssetBundle AssetBundle
+        public Asset_Bundle Asset_Bundle
         {
-            get { return (AssetBundle)mAsset; }
+            get { return (Asset_Bundle)mAsset; }
             private set { mAsset = value; }
         }
 
@@ -803,9 +803,9 @@ namespace ES
             else
             {
                 var url = AssetBundleSettings.AssetBundleName2Url(mHash != null
-                    ? mAssetName + "_" + mHash
-                    : mAssetName);
-                AssetBundle bundle;
+                    ? mAssetPath + "_" + mHash
+                    : mAssetPath);
+                Asset_Bundle bundle;
                 // var zipFileHelper = ResKit.Architecture.Interface.GetUtility<IZipFileHelper>();
 
                 // if (File.ReadAllText(url).Contains(AES.AESHead))
@@ -815,24 +815,24 @@ namespace ES
                 //         AESKey = JsonUtility.FromJson<EncryptConfig>(Resources.Load<TextAsset>("EncryptConfig").text).AESKey;
                 //     }
                 //  
-                //      bundle= AssetBundle.LoadFromMemory((AES.AESFileByteDecrypt(url, AESKey)));
+                //      bundle= Asset_Bundle.LoadFromMemory((AES.AESFileByteDecrypt(url, AESKey)));
                 //  
                 // }
                 // else
                 // {
-                bundle = AssetBundle.LoadFromFile(url);
+                bundle = Asset_Bundle.LoadFromFile(url);
                 // }
 
                 mUnloadFlag = true;
 
                 if (bundle == null)
                 {
-                    Debug.LogError("Failed Load AssetBundle:" + mAssetName);
+                    Debug.LogError("Failed Load Asset_Bundle:" + mAssetPath);
                     OnResLoadFaild();
                     return false;
                 }
 
-                AssetBundle = bundle;
+                Asset_Bundle = bundle;
             }
 
             State = ResSourceState.Ready;
@@ -852,7 +852,7 @@ namespace ES
             ResMgr.Instance.PushIEnumeratorTask(this);
         }
 
-        public override IEnumerator DoLoadAsync(System.Action finishCallback)
+        public override IEnumerator DoTaskAsync(System.Action finishCallback)
         {
             //开启的时候已经结束了
             if (RefCountNow <= 0)
@@ -869,8 +869,8 @@ namespace ES
             else
             {
                 var url = AssetBundleSettings.AssetBundleName2Url(mHash != null
-                    ? mAssetName + "_" + mHash
-                    : mAssetName);
+                    ? mAssetPath + "_" + mHash
+                    : mAssetPath);
 
                *//* if (PlatformCheck.IsWebGL || PlatformCheck.IsWeixinMiniGame)
                 {
@@ -883,7 +883,7 @@ namespace ES
 
                     if (!request.isDone)
                     {
-                        Debug.LogError("AssetBundleCreateRequest Not Done! Path:" + mAssetName);
+                        Debug.LogError("AssetBundleCreateRequest Not Done! Path:" + mAssetPath);
                         OnResLoadFaild();
                         finishCallback();
                         yield break;
@@ -891,14 +891,14 @@ namespace ES
 
                     var ab = DownloadHandlerAssetBundle.GetContent(abcR);
 
-                    AssetBundle = ab;
+                    Asset_Bundle = ab;
 
                     // 销毁
                     abcR.Dispose();
                 }
                 else*//*
                 {
-                    var abcR = AssetBundle.LoadFromFileAsync(url);
+                    var abcR = Asset_Bundle.LoadFromFileAsync(url);
 
                     mAssetBundleCreateRequest = abcR;
                     yield return abcR;
@@ -906,13 +906,13 @@ namespace ES
 
                     if (!abcR.isDone)
                     {
-                        Debug.LogError("AssetBundleCreateRequest Not Done! Path:" + mAssetName);
+                        Debug.LogError("AssetBundleCreateRequest Not Done! Path:" + mAssetPath);
                         OnResLoadFaild();
                         finishCallback();
                         yield break;
                     }
 
-                    AssetBundle = abcR.assetBundle;
+                    Asset_Bundle = abcR.assetBundle;
                 }
             }
 
@@ -920,14 +920,14 @@ namespace ES
             finishCallback();
         }
 
-        public override string[] GetDependResSource()
+        public override string[] GetDependResSourceAllAssetBundles()
         {
-            return mDependResList;
+            return needDepends;
         }
 
         public override bool UnloadImage(bool flag)
         {
-            if (AssetBundle != null)
+            if (Asset_Bundle != null)
             {
                 mUnloadFlag = flag;
             }
@@ -944,7 +944,7 @@ namespace ES
         {
             base.OnBePushedToPool();
             mUnloadFlag = true;
-            mDependResList = null;
+            needDepends = null;
         }
 
         protected override float CalculateProgress()
@@ -959,16 +959,16 @@ namespace ES
 
         protected override void OnReleaseRes()
         {
-            if (AssetBundle != null)
+            if (Asset_Bundle != null)
             {
-                AssetBundle.Unload(mUnloadFlag);
-                AssetBundle = null;
+                Asset_Bundle.Unload(mUnloadFlag);
+                Asset_Bundle = null;
             }
         }
 
         public override string ToString()
         {
-            return $"Type:AssetBundle\t {base.ToString()}";
+            return $"Type:Asset_Bundle\t {base.ToString()}";
         }
     }
 
@@ -987,7 +987,7 @@ namespace ES
     #endregion
 
     #region 扩展辅助功能
-    public interface IResDatas
+    public interface TheResDatas
     {
         string[] GetAllDependenciesByUrl(string url);
 
@@ -998,7 +998,7 @@ namespace ES
         int AddAssetBundleName(string abName, string[] depends, out AssetDataGroup @group);
         string GetABHash(string assetName);
     }
-    public class ResDatas : IResDatas
+    public class ResDatas : TheResDatas
     {
         public string AESKey = string.Empty;
 
@@ -1064,7 +1064,7 @@ namespace ES
             if (group == null)
             {
                 group = new AssetDataGroup(key);
-                Debug.Log("#Create Config Group:" + key);
+                Debug.Log("#CreateNewResByKey Config Group:" + key);
                 mAllAssetDataGroup.Add(group);
             }
 
@@ -1301,16 +1301,16 @@ namespace ES
     [Serializable]
     public class AssetData
     {
-        private string mAssetName;
+        private string mAssetPath;
         private string mOwnerBundleName;
         private int mAbIndex;
         private ResSourceLoadType mAssetType;
         private short mAssetObjectTypeCode = 0;
 
-        public string AssetName
+        public string AssetPath
         {
-            get => mAssetName;
-            set => mAssetName = value;
+            get => mAssetPath;
+            set => mAssetPath = value;
         }
 
         public int AssetBundleIndex
@@ -1333,8 +1333,8 @@ namespace ES
 
         public string UUID =>
             string.IsNullOrEmpty(mOwnerBundleName)
-                ? AssetName
-                : OwnerBundleName + AssetName;
+                ? AssetPath
+                : OwnerBundleName + AssetPath;
 
         public ResSourceLoadType AssetType
         {
@@ -1345,7 +1345,7 @@ namespace ES
         public AssetData(string assetName, ResSourceLoadType assetType, int abIndex, string ownerBundleName,
             short assetObjectTypeCode = 0)
         {
-            mAssetName = assetName;
+            mAssetPath = assetName;
             mAssetType = assetType;
             mAbIndex = abIndex;
             mOwnerBundleName = ownerBundleName;
@@ -1477,7 +1477,7 @@ namespace ES
 
             int index = mABUnitArray.Count - 1;
 
-            AddAssetData(new AssetData(name, ResSourceLoadType.AssetBundle, index, null));
+            AddAssetData(new AssetData(name, ResSourceLoadType.Asset_Bundle, index, null));
 
             return index;
         }
@@ -1548,12 +1548,12 @@ namespace ES
 
             if (resSearchRule.OwnerAssetBundle != null && mUUID4AssetData != null)
             {
-                return mUUID4AssetData.TryGetValue(resSearchRule.OwnerAssetBundle + resSearchRule.AssetName, out result) ? result : null;
+                return mUUID4AssetData.TryGetValue(resSearchRule.OwnerAssetBundle + resSearchRule.AssetPath, out result) ? result : null;
             }
 
             if (resSearchRule.OwnerAssetBundle == null && mAssetDataMap != null)
             {
-                return mAssetDataMap.TryGetValue(resSearchRule.AssetName, out result) ? result : null;
+                return mAssetDataMap.TryGetValue(resSearchRule.AssetPath, out result) ? result : null;
             }
 
             return result;
@@ -1571,17 +1571,17 @@ namespace ES
                 mUUID4AssetData = new Dictionary<string, AssetData>();
             }
 
-            string key = data.AssetName.ToLower();
+            string key = data.AssetPath.ToLower();
 
             if (mAssetDataMap.ContainsKey(key))
             {
-                var resSearchRule = ResSourceSearchKey.GetOne(data.AssetName);
+                var resSearchRule = ResSourceSearchKey.GetOne(data.AssetPath);
                 var old = GetAssetData(resSearchRule);
                 resSearchRule.TryAutoPushToPool();
 
                 try
                 {
-                    Debug.LogFormat("Already Add AssetData :{0} \n OldAB:{1}      NewAB:{2}", data.AssetName,
+                    Debug.LogFormat("Already Add AssetData :{0} \n OldAB:{1}      NewAB:{2}", data.AssetPath,
                         mABUnitArray[old.AssetBundleIndex].abName, mABUnitArray[data.AssetBundleIndex].abName);
                 }
                 catch (Exception e)
@@ -1596,7 +1596,7 @@ namespace ES
 
             if (mUUID4AssetData.ContainsKey(data.UUID))
             {
-                var resSearchRule = ResSourceSearchKey.GetOne(data.AssetName, data.OwnerBundleName);
+                var resSearchRule = ResSourceSearchKey.GetOne(data.AssetPath, data.OwnerBundleName);
 
                 var old = GetAssetData(resSearchRule);
                 resSearchRule.TryAutoPushToPool();
@@ -1655,14 +1655,14 @@ namespace ES
     }
     public class AssetBundleSettings
     {
-        private static IResDatas mAssetBundleConfigFile = null;
+        private static TheResDatas mAssetBundleConfigFile = null;
 
         /// <summary>
         /// 默认
         /// </summary>
-        private static Func<IResDatas> mAssetBundleConfigFileFactory = () => new ResDatas();
+        private static Func<TheResDatas> mAssetBundleConfigFileFactory = () => new ResDatas();
 
-        public static Func<IResDatas> AssetBundleConfigFileFactory
+        public static Func<TheResDatas> AssetBundleConfigFileFactory
         {
             set { mAssetBundleConfigFileFactory = value; }
         }
@@ -1671,7 +1671,7 @@ namespace ES
         /// 获取自定义的 资源信息
         /// </summary>
         /// <returns></returns>
-        public static IResDatas AssetBundleConfigFile
+        public static TheResDatas AssetBundleConfigFile
         {
             get
             {
@@ -1685,7 +1685,7 @@ namespace ES
             set { mAssetBundleConfigFile = value; }
         }
 
-        public static List<IResDatas> SubProjectAssetBundleConfigFiles = new List<IResDatas>();
+        public static List<TheResDatas> SubProjectAssetBundleConfigFiles = new List<TheResDatas>();
 
         public static bool LoadAssetResFromStreamingAssetsPath
         {
@@ -1694,7 +1694,7 @@ namespace ES
         }
 
 
-        #region AssetBundle 相关
+        #region Asset_Bundle 相关
 
         public static string AssetBundleUrl2Name(string url)
         {

@@ -1,4 +1,5 @@
 using ES;
+using FishNet.Object;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections;
@@ -11,6 +12,7 @@ namespace ES
     [TypeRegistryItem("Entity,Item的父类")]
  public class  ESObject  : BaseCore
 {
+       
         [FoldoutGroup("固有"), LabelText("刚体")] public Rigidbody Rigid;
         #region 委托事件
 

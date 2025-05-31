@@ -45,9 +45,11 @@ namespace ES {
         [FoldoutGroup("属性值"), LabelText("伤害加成(1+%)")] public float DamagePerUp = 0;
         [FoldoutGroup("属性值"), LabelText("攻击速度加成(1+%)")] public float AttackSpeed = 0;
         [FoldoutGroup("属性值"), LabelText("速度加成(1+%)")] public float SpeedPerUp = 0;
+
+        [FoldoutGroup("结算"), LabelText("计算攻击力")] public SettlementFloat Attack = new SettlementFloat(10);
         public void Init(params object[] ps)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

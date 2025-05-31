@@ -119,6 +119,11 @@ namespace ES
                 Update();
             }
         }
+        public void HardUpdate()
+        {
+            //无条件
+            Update();
+        }
         #endregion
 
         #region 关于提交SubMit

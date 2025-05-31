@@ -186,14 +186,14 @@ namespace ES
                 queue.Enqueue(g);
             }
         }
-        public GameObject GetInPool(GameObject key, Vector3 pos = default)
+        public GameObject GetInPool(GameObject key, Vector3? pos = default)
         {
             if (!GameObjectPool.ContainsKey(key)) { CreatePool(key); }
             var queue = GameObjectPool[key];
             if (queue.Count <= 0) ExpandPool(key);
             GameObject g = queue.Dequeue();
             if (g == null) return GetInPool(key, pos);
-            g.transform.position = pos;
+            g.transform.position = pos?? g.transform.position;
             g.SetActive(true);
             lastUseSet.Add(key);
             return g;

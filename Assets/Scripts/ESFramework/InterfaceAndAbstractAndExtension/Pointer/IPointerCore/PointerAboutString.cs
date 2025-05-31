@@ -26,7 +26,7 @@ namespace ES.EvPointer
             return Pick();
         }
     }
-    public interface IPointerForString<By, Yarn, On> : IPointer<string, By, Yarn, On>
+    public interface IPointerForString<On, From, With> : IPointer<string, On, From, With>
     {
 
     }
@@ -88,7 +88,7 @@ namespace ES.EvPointer
             return cast;
         }
 
-        public string Pick(object by = null, object yarn = null, object on = null)
+        public string Pick(object on= null, object from = null, object with = null)
         {
             string s = "";
             foreach (var i in pointers)
@@ -111,7 +111,7 @@ namespace ES.EvPointer
         [LabelText("直接拖入资源")]
         [FilePath(ParentFolder = "Assets/Resources/", RequireExistingPath = false, IncludeFileExtension = false)]
         public string path;
-        public string Pick(object by = null, object yarn = null, object on = null)
+        public string Pick(object on= null, object from = null, object with = null)
         {
             return path;
         }
@@ -123,7 +123,7 @@ namespace ES.EvPointer
     public class PointerForString_Direc : IPointerForString_Only
     {
         [LabelText("直接输入")] public string string_direc;
-        public string Pick(object by = null, object yarn = null, object on = null)
+        public string Pick(object on= null, object from = null, object with = null)
         {
             return string_direc;
         }
@@ -137,7 +137,7 @@ namespace ES.EvPointer
     {
         [ValueDropdown("tags"), LabelText("选择标签")]
         public string tagName;
-        public string Pick(object by = null, object yarn = null, object on = null)
+        public string Pick(object on= null, object from = null, object with = null)
         {
             return tagName;
         }
@@ -162,7 +162,7 @@ namespace ES.EvPointer
     {
         [ValueDropdown("tags"), LabelText("选择一些标签")]
         public List<string> tagNames = new List<string>();
-        public List<string> Pick(object by = null, object yarn = null, object on = null)
+        public List<string> Pick(object on= null, object from = null, object with = null)
         {
             
             return tagNames;

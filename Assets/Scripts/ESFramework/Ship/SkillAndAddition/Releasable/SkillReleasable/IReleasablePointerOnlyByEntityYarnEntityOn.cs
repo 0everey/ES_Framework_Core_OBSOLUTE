@@ -57,7 +57,7 @@ namespace ES
     /*从一个实体获得多个实体*/
     public interface IPointerForSomeEntityByEntityYarnEntityOnSkill : IPointerChainAny<List<Entity>, Entity, Entity, EntityState_Skill>
     {
-        //by 被操作 yarn 发起人 back 最终目的 on 技能
+        //on 被操作 from 发起人 back 最终目的 with 技能
     }
     /*从多个实体获得多个实体*/
     public interface IPointerForSomeEntityBySomeEntityYarnEntityOnSKill : IPointerChainAny<List<Entity>, List<Entity>, Entity, EntityState_Skill>
@@ -102,9 +102,9 @@ namespace ES
     [Serializable, TypeRegistryItem("单实体=>>多实体:只有我自己的列表")]
     public class ReleasablePointer_EntitySelf : IReleasablePointerForSomeEntityByEntityYarnEntityOnSKill
     {
-        public List<Entity> Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public List<Entity> Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            return new List<Entity>() { by };
+            return new List<Entity>() { on };
         }
 
 
@@ -114,9 +114,9 @@ namespace ES
     {
         [LabelText("是否立刻重新刷新目标")] public bool ReFreshRightly = false;
         [LabelText("最多目标"), SerializeReference] public IPointerForInt_Only max = new PointerForInt_Direct() { int_ = 5 };
-        public List<Entity> Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public List<Entity> Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            return KeyValueMatchingUtility.ESBack.ForEntityBack.GetEntityVision(by, max?.Pick() ?? 5, ReFreshRightly);
+            return KeyValueMatchingUtility.ESBack.ForEntityBack.GetEntityVision(on, max?.Pick() ?? 5, ReFreshRightly);
         }
     }
     [Serializable, TypeRegistryItem("单实体=>>多实体:我身边的队友")]
@@ -130,13 +130,13 @@ namespace ES
         public IPointerForVector3_Only ReleV3 = new PointerForVector3_Direct() { vector = default };
         [LabelText("包括我自己？")]
         public bool containsThis = true;
-        public List<Entity> Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public List<Entity> Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
             List<Entity> es = new List<Entity>();
-            if (containsThis) es.Add(by);
+            if (containsThis) es.Add(on);
             var friends = KeyValueMatchingUtility.ESBack.ForEntityBack.GetEntityAroundFriend(
-                by, distanceR?.Pick() ?? 5,
-                IsRele ? by.transform.TransformPoint(ReleV3?.Pick() ?? default) : ReleV3?.Pick() ?? default);
+                on, distanceR?.Pick() ?? 5,
+                IsRele ? on.transform.TransformPoint(ReleV3?.Pick() ?? default) : ReleV3?.Pick() ?? default);
             es.AddRange(friends);
             return es;
         }
@@ -152,13 +152,13 @@ namespace ES
         public IPointerForVector3_Only ReleV3 = new PointerForVector3_Direct() { vector = default };
         [LabelText("包括我自己？")]
         public bool containsThis = true;
-        public List<Entity> Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public List<Entity> Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
             List<Entity> es = new List<Entity>();
-            if (containsThis) es.Add(by);
+            if (containsThis) es.Add(on);
             var friends = KeyValueMatchingUtility.ESBack.ForEntityBack.GetEntityAround(
-                by, distanceR?.Pick() ?? 5,
-                IsRele ? by.transform.TransformPoint(ReleV3?.Pick() ?? default) : ReleV3?.Pick() ?? default);
+                on, distanceR?.Pick() ?? 5,
+                IsRele ? on.transform.TransformPoint(ReleV3?.Pick() ?? default) : ReleV3?.Pick() ?? default);
             es.AddRange(friends);
             Debug.Log("筛选到" + es.Count);
             return es;
@@ -170,9 +170,9 @@ namespace ES
 
         [LabelText("使用后就清理")]
         public bool UseAndClear = true;
-        public List<Entity> Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public List<Entity> Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            List<Entity> es = KeyValueMatchingUtility.ESBack.ForEntityBack.GetEntityTargetEntityCache(by, useAndClear: UseAndClear);
+            List<Entity> es = KeyValueMatchingUtility.ESBack.ForEntityBack.GetEntityTargetEntityCache(on, useAndClear: UseAndClear);
             return es;
         }
     }
@@ -183,9 +183,9 @@ namespace ES
         public bool UseAndClear = true;
         [LabelText("哪一个缓冲池")]
         public string whichCache = "缓冲池标记";
-        public List<Entity> Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public List<Entity> Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            List<Entity> es = KeyValueMatchingUtility.ESBack.ForEntityBack.GetEntityTargetEntityCache(by, whichCache, useAndClear: UseAndClear);
+            List<Entity> es = KeyValueMatchingUtility.ESBack.ForEntityBack.GetEntityTargetEntityCache(on, whichCache, useAndClear: UseAndClear);
             return es;
         }
     }
@@ -194,12 +194,12 @@ namespace ES
     {
         [LabelText("使用后就清理")]
         public bool UseAndClear = true;
-        public List<Entity> Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public List<Entity> Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            List<Entity> es = on.SelfCacheEntites.ToList();
+            List<Entity> es = with.SelfCacheEntites.ToList();
             if (UseAndClear)
             {
-                on.SelfCacheEntites.Clear();
+                with.SelfCacheEntites.Clear();
             }
             return es;
         }
@@ -216,12 +216,12 @@ namespace ES
         public PointerForStringList_Tag tags = new PointerForStringList_Tag();
         [LabelText("最大距离(为负不筛选)")]
         public float r = 100;
-        public List<Entity> Pick(List<Entity> by = null, Entity launcher = null, EntityState_Skill on = null)
+        public List<Entity> Pick(List<Entity> on = null, Entity launcher = null, EntityState_Skill with = null)
         {
-            List<Entity> end = new List<Entity>(by.Count / 2 + 1);
+            List<Entity> end = new List<Entity>(on.Count / 2 + 1);
             List<string> useTags = tags?.Pick() ?? null;
 
-            foreach (var i in by)
+            foreach (var i in on)
             {
 
                 if (i == null) continue;
@@ -267,7 +267,7 @@ namespace ES
                 end.Add(i);
             }
             return end;
-            //  Debug.Log("最后一步" + by+"and"+launcher);
+            //  Debug.Log("最后一步" + on+"and"+launcher);
 
         }
 
@@ -285,17 +285,17 @@ namespace ES
         public IPointerForFloat_Only float_Only = new PointerForFloat_Direct() { float_ = 0.25f };
         [LabelText("处理对象"), SerializeReference]
         public IReleasablePointerOnlyByEntityYarnEntityOn handle;
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
             if (handle == null) return null;
             float delay = float_Only?.Pick() ?? 0.25f;
 
-            if (by != null)
+            if (on != null)
             {
                 var use = DOTween.Sequence();
                 use.AppendInterval(delay);
-                use.AppendCallback(() => { handle?.Pick(by, yarn, on); });
-                on.OnExit += (f) => { use.Kill(); };
+                use.AppendCallback(() => { handle?.Pick(with,from,with); });
+                with.OnExit += (f) => { use.Kill(); };
                 //Link_EntityAttackEntityTruely 备忘录
             }
             return 5;
@@ -310,15 +310,15 @@ namespace ES
         public IPointerForFloat_Only float_Only = new PointerForFloat_Direct() { float_ = 0.25f };
         [LabelText("处理对象"), SerializeReference]
         public IReleasablePointerOnlyByEntityYarnEntityOn handle;
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
             if (handle == null) return null;
             float P = float_Only?.Pick() ?? 0.25f;
             if (UnityEngine.Random.value < P)
             {
-                if (by != null)
+                if (on != null)
                 {
-                    handle?.Pick(by, yarn, on);
+                    handle?.Pick(with,from,with);
                     //Link_EntityAttackEntityTruely 备忘录
                 }
             }
@@ -341,12 +341,12 @@ namespace ES
         public EnumCollect.HandleCacheOption handlePos;
         [LabelText("输入自定义池名"), ShowIf("@handlePos==EnumCollect.HandleCacheOption.ToSelfDefine")]
         public string selfDefine = "自定义池";
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
             if (handle == null) return null;
-            if (by == null || yarn == null) return null;
-            by.OnColEntityHappen += OnCol;
-            on.OnExit += (f) => { if (by != null) by.OnColEntityHappen -= OnCol; };
+            if (on == null || from == null) return null;
+            on.OnColEntityHappen += OnCol;
+            with.OnExit += (f) => { if (on != null) on.OnColEntityHappen -= OnCol; };
             return 5;
             void OnCol(Entity col, Vector3 pos)
             {
@@ -356,39 +356,39 @@ namespace ES
                 }
                 else if (handlePos == EnumCollect.HandleCacheOption.ToMain)
                 {
-                    yarn.BaseDomain.Module_Cache?.CacheVector3.AddToQueue("Main", pos);
+                    from.BaseDomain.Module_Cache?.CacheVector3.AddToQueue("Main", pos);
                 }
                 else if (handlePos == EnumCollect.HandleCacheOption.ToSelf)
                 {
-                    on.SelfCacheVector3.Add(pos);
+                    with.SelfCacheVector3.Add(pos);
                 }
                 else
                 {
-                    yarn.BaseDomain.Module_Cache?.CacheVector3.AddToQueue(selfDefine, pos);
+                    from.BaseDomain.Module_Cache?.CacheVector3.AddToQueue(selfDefine, pos);
                 }
                 if (option == EnumCollect.HandleOnWhoEntityColOption.bySelectorYarnLauncher)
                 {
-                    handle.Pick(by, yarn, on);
+                    handle.Pick(with,from,with);
                 }
                 else if (option == EnumCollect.HandleOnWhoEntityColOption.bySelectorYarnColOn)
                 {
-                    handle.Pick(by, col, on);
+                    handle.Pick(on, col, with);
                 }
                 else if (option == EnumCollect.HandleOnWhoEntityColOption.byLauncherYarnSelector)
                 {
-                    handle.Pick(yarn, by, on);
+                    handle.Pick(from, on, with);
                 }
                 else if (option == EnumCollect.HandleOnWhoEntityColOption.ByLauncherYarnColOn)
                 {
-                    handle.Pick(yarn, col, on);
+                    handle.Pick(from, col, with);
                 }
                 else if (option == EnumCollect.HandleOnWhoEntityColOption.byColOnYarnLaucher)
                 {
-                    handle.Pick(col, yarn, on);
+                    handle.Pick(col, from, with);
                 }
                 else if (option == EnumCollect.HandleOnWhoEntityColOption.byColOnYarnSelector)
                 {
-                    handle.Pick(col, by, on);
+                    handle.Pick(col, on, with);
                 }
 
             }
@@ -406,12 +406,12 @@ namespace ES
         public EnumCollect.HandleCacheOption handlePos;
         [LabelText("输入自定义池名"), ShowIf("@handlePos==EnumCollect.HandleCacheOption.ToSelfDefine")]
         public string selfDefine = "自定义池";
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
             if (handle == null) return null;
-            if (by == null || yarn == null) return null;
-            by.OnTriEntityHappen += OnCol;
-            on.OnExit += (f) => { if (by != null) by.OnTriEntityHappen -= OnCol; };
+            if (on == null || from == null) return null;
+            on.OnTriEntityHappen += OnCol;
+            with.OnExit += (f) => { if (on != null) on.OnTriEntityHappen -= OnCol; };
             return 5;
             void OnCol(Entity col, Vector3 pos)
             {
@@ -421,39 +421,39 @@ namespace ES
                 }
                 else if (handlePos == EnumCollect.HandleCacheOption.ToMain)
                 {
-                    yarn.BaseDomain.Module_Cache?.CacheVector3.AddToQueue("Main", pos);
+                    from.BaseDomain.Module_Cache?.CacheVector3.AddToQueue("Main", pos);
                 }
                 else if (handlePos == EnumCollect.HandleCacheOption.ToSelf)
                 {
-                    on.SelfCacheVector3.Add(pos);
+                    with.SelfCacheVector3.Add(pos);
                 }
                 else
                 {
-                    yarn.BaseDomain.Module_Cache?.CacheVector3.AddToQueue(selfDefine, pos);
+                    from.BaseDomain.Module_Cache?.CacheVector3.AddToQueue(selfDefine, pos);
                 }
                 if (option == EnumCollect.HandleOnWhoEntityColOption.bySelectorYarnLauncher)
                 {
-                    handle.Pick(by, yarn, on);
+                    handle.Pick(with,from,with);
                 }
                 else if (option == EnumCollect.HandleOnWhoEntityColOption.bySelectorYarnColOn)
                 {
-                    handle.Pick(by, col, on);
+                    handle.Pick(on, col, with);
                 }
                 else if (option == EnumCollect.HandleOnWhoEntityColOption.byLauncherYarnSelector)
                 {
-                    handle.Pick(yarn, by, on);
+                    handle.Pick(from, on, with);
                 }
                 else if (option == EnumCollect.HandleOnWhoEntityColOption.ByLauncherYarnColOn)
                 {
-                    handle.Pick(yarn, col, on);
+                    handle.Pick(from, col, with);
                 }
                 else if (option == EnumCollect.HandleOnWhoEntityColOption.byColOnYarnLaucher)
                 {
-                    handle.Pick(col, yarn, on);
+                    handle.Pick(col, from, with);
                 }
                 else if (option == EnumCollect.HandleOnWhoEntityColOption.byColOnYarnSelector)
                 {
-                    handle.Pick(col, by, on);
+                    handle.Pick(col, on, with);
                 }
 
             }
@@ -468,11 +468,11 @@ namespace ES
         public Vector2 range = new Vector2(0, 1);
         [LabelText("处理对象"), SerializeReference]
         public IReleasablePointerOnlyByEntityYarnEntityOn handle;
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
             if (handle == null) return null;
 
-            on.OnExit += (f) => { Debug.Log(f); if (f > range.x && f < range.y) { handle?.Pick(by, yarn, on); } };
+            with.OnExit += (f) => { Debug.Log(f); if (f > range.x && f < range.y) { handle?.Pick(with,from,with); } };
 
 
 
@@ -487,13 +487,13 @@ namespace ES
 
         [LabelText("全部处理对象"), SerializeReference]
         public List<IReleasablePointerOnlyByEntityYarnEntityOn> handles = new List<IReleasablePointerOnlyByEntityYarnEntityOn>();
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
             if (handles == null || handles.Count == 0) return null;
 
             foreach (var i in handles)
             {
-                i.Pick(by, yarn, on);
+                i.Pick(with,from,with);
             }
 
             return 5;
@@ -507,13 +507,13 @@ namespace ES
     {
         [LabelText("使用的攻击"), SerializeReference]
         public Damage ApplyDamage = new Damage();
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
 
-            if (by != null)
+            if (on != null)
             {
                 KeyValueMatchingUtility.ESLink.Global.GlobalLink_EntityAttackEntityTryStart(
-                     new Link_EntityAttackEntityTryStart() { attacker = yarn, victim = by, damage = ApplyDamage });
+                     new Link_EntityAttackEntityTryStart() { attacker = from, victim = on, damage = ApplyDamage });
             }
             return 5;
         }
@@ -527,9 +527,9 @@ namespace ES
         [LabelText("用键查询(可选)")] public KeyString_BuffUse key = new KeyString_BuffUse();
         [LabelText("使用-自定义Buff开始状态")] public bool IsSelfDefineStartBuffStatus = true;
         [LabelText("输入自定义Buff开始状态")] public BuffStatusTest BuffStatusTest = new BuffStatusTest() { duration = 10 };
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 var use = useInfo;
 
@@ -539,7 +539,7 @@ namespace ES
                 }
                 if (use != null)
                 {
-                    KeyValueMatchingUtility.DataApply.ApplyBuffInfoToEntity(use, by, IsSelfDefineStartBuffStatus ? BuffStatusTest : null);
+                    KeyValueMatchingUtility.DataApply.ApplyBuffInfoToEntity(use, on, IsSelfDefineStartBuffStatus ? BuffStatusTest : null);
 
                 }
             }
@@ -554,19 +554,19 @@ namespace ES
         [LabelText("直接引用SO(可选)")] public BuffSoInfo useInfo;
         [LabelText("用键查询(可选)")] public KeyString_BuffUse key = new KeyString_BuffUse();
 
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
 
-            if (by != null)
+            if (on != null)
             {
-                if (by != null)
+                if (on != null)
                 {
                     var use = useInfo;
                     if (use == null)
                     {
                         use = KeyValueMatchingUtility.DataInfoPointer.PickBuffSoInfoByKey(key.Key());
                     }
-                    if (use != null) KeyValueMatchingUtility.DataApply.Apply_Remove_BuffInfoToEntity(useInfo, by);
+                    if (use != null) KeyValueMatchingUtility.DataApply.Apply_Remove_BuffInfoToEntity(useInfo, on);
                 }
             }
             return 5;
@@ -577,9 +577,9 @@ namespace ES
     [Serializable, TypeRegistryItem("B特殊:解除负面效果")]
     public class EntityHandle_CancelNagativeEffect : IReleasablePointerOnlyByEntityYarnEntityOn
     {
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 //Link_EntityAttackEntityTruely 备忘录
             }
@@ -591,9 +591,9 @@ namespace ES
     [Serializable, TypeRegistryItem("B特殊:解除正面效果")]
     public class EntityHandle_CancelPositiveEffect : IReleasablePointerOnlyByEntityYarnEntityOn
     {
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 //Link_EntityAttackEntityTruely 备忘录
             }
@@ -605,9 +605,9 @@ namespace ES
     [Serializable, TypeRegistryItem("B特殊:晕眩控制")]
     public class EntityHandle_Controll : IReleasablePointerOnlyByEntityYarnEntityOn
     {
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 //Link_EntityAttackEntityTruely 备忘录
             }
@@ -619,24 +619,24 @@ namespace ES
     {
         [LabelText("自定义向量"), SerializeReference, InlineProperty] public IPointerForVector3_Only vector3 = new PointerForVector3_Direct() { vector = new Vector3(0, 0, -2) };
         [LabelText("空间模式")] public EnumCollect.PlacePosition placePos;
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 //Link_EntityAttackEntityTruely 备忘录
             }
             if (placePos == EnumCollect.PlacePosition.WorldSpace)
             {
-                by.Rigid.AddForce(vector3?.Pick() ?? Vector3.up);
+                on.Rigid.AddForce(vector3?.Pick() ?? Vector3.up);
             }
             else if (placePos == EnumCollect.PlacePosition.SelfSpace)
             {
-                by.Rigid.AddForce(by.transform.TransformDirection(vector3?.Pick() ?? Vector3.up));
+                on.Rigid.AddForce(on.transform.TransformDirection(vector3?.Pick() ?? Vector3.up));
             }
             else
             {
-                Quaternion quaternion1 = Quaternion.LookRotation((yarn.transform.position - by.transform.position));
-                by.Rigid.AddForce(quaternion1 * vector3?.Pick() ?? Vector3.up);
+                Quaternion quaternion1 = Quaternion.LookRotation((from.transform.position - on.transform.position));
+                on.Rigid.AddForce(quaternion1 * vector3?.Pick() ?? Vector3.up);
             }
             return 5;
         }
@@ -650,13 +650,13 @@ namespace ES
         [LabelText("持续时间"), SerializeReference, InlineProperty] public IPointerForFloat_Only durationP = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("恢复时间")] public float resumeTime = 0.25f;
         [LabelText("恢复到")] public Vector3 resumeTo = Vector3.one;
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 float start = Time.time;
                 float duration = durationP?.Pick() ?? 1;
-                Tween tween = DOTween.To(() => by.transform.localScale, x => { },
+                Tween tween = DOTween.To(() => on.transform.localScale, x => { },
             Vector3.back, duration)
             .SetEase(Ease.Linear); // 设置为线性缓动，因为曲线已经控制了缩放效果
 
@@ -672,14 +672,14 @@ namespace ES
                     float scaleZ = scaleZCurve.Evaluate(normalizedTime);
 
                     // 设置物体的缩放
-                    by.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
+                    on.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
                 });
-                tween.OnComplete(() => { by.transform.DOScale(resumeTo, resumeTime); });
+                tween.OnComplete(() => { on.transform.DOScale(resumeTo, resumeTime); });
 
-                on.OnExit += (f) =>
+                with.OnExit += (f) =>
                 {
                     tween.Kill();
-                    by.transform.DOScale(resumeTo, resumeTime);
+                    on.transform.DOScale(resumeTo, resumeTime);
                 };
             }
             return 5;
@@ -700,7 +700,7 @@ namespace ES
         [LabelText("是飞行物预制体")] public bool IsFlying = false;
         [LabelText("设置为攻击目标(改方向)"), ShowIfGroup("fly", VisibleIf = "@IsFlying")] public bool AsTargetDirect = true;
         [LabelText("移动方向对准面向"), ShowIfGroup("fly")] public bool moveDirecFollowForward = true;
-        [LabelText("把by设置为攻击目标"), ShowIfGroup("fly")] public bool TargetAsBy = true;
+        [LabelText("把on设置为攻击目标"), ShowIfGroup("fly")] public bool TargetAsBy = true;
 
 
         [LabelText("额外旋转偏移"), ShowIfGroup("fly")] public bool offsetRotAddition = false;
@@ -710,13 +710,13 @@ namespace ES
         public IPointerForQuaternion_Only quaternion_Offset_ = new PointerForQuaternion_Direc() {  quaternion = Quaternion.identity };
 
 
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
 
-            if (by != null)
+            if (on != null)
             {
-                Transform relePosOn = PosReleAsSkillLauncher ? yarn.transform : by.transform;
-                Transform other = PosReleAsSkillLauncher ? by.transform : yarn.transform;
+                Transform relePosOn = PosReleAsSkillLauncher ? from.transform : on.transform;
+                Transform other = PosReleAsSkillLauncher ? on.transform : from.transform;
 
                 Vector3 lookat = (other.transform.position - relePosOn.transform.position).normalized;
                 GameObject gg = UsePool ? ES_PoolMaster.Instance.GetInPool(prefab) : MonoBehaviour.Instantiate(prefab);
@@ -759,14 +759,14 @@ namespace ES
                         var fly = ii?.HurtableDomain.Module_Flying;
                         if (fly != null)
                         {
-                            ii.AddIgnoreEntity(yarn);
+                            ii.AddIgnoreEntity(from);
                             if (moveDirecFollowForward)
                             {
                                 fly.CurrentDirect = fly.TargetDirect = relePosOn.transform.forward;
                             }
                             if (AsTargetDirect)
                             {
-                                fly.SetTarget(by);
+                                fly.SetTarget(on);
                             }
                             fly.SpeedPerUp = speedUp;
                             fly.delayTime = delay;
@@ -800,12 +800,12 @@ namespace ES
             vector = new Vector3(0, 0, 0.8f),
             vectorHandle = EnumCollect.ToDestinationVectorSpace.SelfSpace
         };
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            Debug.Log(by + "闪身");
-            if (by != null)
+            Debug.Log(on + "闪身");
+            if (on != null)
             {
-                var crash = by.StateMachineDomain.Module_CrashDodge;
+                var crash = on.StateMachineDomain.Module_CrashDodge;
                 if (crash != null)
                 {
                     crash.TryAddCrashDodge(ref ApplyCrash);
@@ -822,12 +822,12 @@ namespace ES
 
         [LabelText("触发器参数名")] public string name = "触发器参数";
         [LabelText("是否启用")] public bool SetOrReset = true;
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
-                if (SetOrReset) by.Anim.SetTrigger(name);
-                else by.Anim.ResetTrigger(name);
+                if (SetOrReset) on.Anim.SetTrigger(name);
+                else on.Anim.ResetTrigger(name);
             }
             return 5;
         }
@@ -845,7 +845,7 @@ namespace ES
         public IPointerForFloat_Only interval = new PointerForFloat_Direct() { float_ = 0.15f };
         [LabelText("全部处理对象"), SerializeReference]
         public List<IReleasablePointerOnlyByEntityYarnEntityOn> handles = new List<IReleasablePointerOnlyByEntityYarnEntityOn>();
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
             if (handles == null || handles.Count == 0) return null;
             Sequence sequence = DOTween.Sequence();
@@ -853,10 +853,10 @@ namespace ES
             foreach (var i in handles)
             {
                 if (i == null) continue;
-                sequence.AppendCallback(() => i.Pick(by, yarn, on));
+                sequence.AppendCallback(() => i.Pick(with,from,with));
                 sequence.AppendInterval(interval?.Pick() ?? 0.14f);
             }
-            on.OnExit += (f) => { sequence.Kill(); };
+            with.OnExit += (f) => { sequence.Kill(); };
             return 5;
         }
 
@@ -873,7 +873,7 @@ namespace ES
         public IPointerForInt_Only times = new PointerForInt_Direct() { int_ = 3 };
         [LabelText("需要循环的处理"), SerializeReference]
         public IReleasablePointerOnlyByEntityYarnEntityOn handle;
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
             if (handle == null) return null;
 
@@ -883,16 +883,16 @@ namespace ES
                 Sequence sequence = DOTween.Sequence();
                 for (int i = 0; i < times_; i++)
                 {
-                    sequence.AppendCallback(() => handle.Pick(by, yarn, on));
+                    sequence.AppendCallback(() => handle.Pick(with,from,with));
                     sequence.AppendInterval(interval?.Pick() ?? 0.14f);
                 }
-                on.OnExit += (f) => { sequence.Kill(); };
+                with.OnExit += (f) => { sequence.Kill(); };
             }
             else
             {
                 for (int i = 0; i < times_; i++)
                 {
-                    handle.Pick(by, yarn, on);
+                    handle.Pick(with,from,with);
                 }
             }
 
@@ -919,15 +919,15 @@ namespace ES
             vector = new Vector3(0, 0, 0.8f),
             vectorHandle = EnumCollect.ToDestinationVectorSpace.Target
         };
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            Vector3 use = FirstOrRandom ? on.SelfCacheVector3.First() : on.SelfCacheVector3.First();
-            if (UseAndClear) on.SelfCacheVector3.Clear();
-            if (by != null)
+            Vector3 use = FirstOrRandom ? with.SelfCacheVector3.First() : with.SelfCacheVector3.First();
+            if (UseAndClear) with.SelfCacheVector3.Clear();
+            if (on != null)
             {
                 var useA = ApplyCrash;
-                useA.vector = Vector3.Lerp(by.transform.position, use, lerpValue) + yAdding?.Pick() * Vector3.up ?? Vector3.up;
-                var crash = by.StateMachineDomain.Module_CrashDodge;
+                useA.vector = Vector3.Lerp(on.transform.position, use, lerpValue) + yAdding?.Pick() * Vector3.up ?? Vector3.up;
+                var crash = on.StateMachineDomain.Module_CrashDodge;
                 if (crash != null)
                 {
                     crash.TryAddCrashDodge(ref useA);
@@ -952,26 +952,26 @@ namespace ES
         public string NONE = "还没想好";
         [LabelText("对攻击者附加效果"), SerializeReference]
         public IReleasablePointerOnlyByEntityYarnEntityOn apply = null;
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
             var use = DOTween.Sequence();
-            by.OnTryBeAttack += OnTryBeAttack;
+            on.OnTryBeAttack += OnTryBeAttack;
             use.AppendInterval(sustainTime);
-            use.AppendCallback(() => { by.OnTryBeAttack -= OnTryBeAttack; Debug.Log("结束格挡"); });
+            use.AppendCallback(() => { on.OnTryBeAttack -= OnTryBeAttack; Debug.Log("结束格挡"); });
 
-            on.OnExit += (f) => { use.Complete(true); };
+            with.OnExit += (f) => { use.Complete(true); };
             void OnTryBeAttack(Entity who, Damage da)
             {
                 da.canTrigger.Value -= 2;
                 if (triggerClip != null)
                 {
-                    GameCenterManager.Instance.AudioMaster.PlaySoundByESObject(by, triggerClip, 0.75f);
+                    GameCenterManager.Instance.AudioMaster.PlaySoundByESObject(on, triggerClip, 0.75f);
                 }
                 if (apply != null)
                 {
-                    if (AdditionDistance > Vector3.Distance(who.transform.position, by.transform.position))
+                    if (AdditionDistance > Vector3.Distance(who.transform.position, on.transform.position))
                     {
-                        apply.Pick(who, by, on);
+                        apply.Pick(who, on, with);
                     }
                 }
                 Debug.Log("格挡测试");
@@ -988,9 +988,9 @@ namespace ES
         [LabelText("持续时间")]
         public float sustainTime = 1.5f;
 
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            var use = by.BaseDomain?.Module_AB_Motion;
+            var use = on.BaseDomain?.Module_AB_Motion;
             if (use != null) use.timeForStay = sustainTime;
             return 5;
         }
@@ -1008,17 +1008,17 @@ namespace ES
         [LabelText("过渡时间")] public float tranTime = 0.2f;
         [LabelText("层级Index")] public int AnimLayer = 0;
         [LabelText("启用固定过渡时间")] public bool UseFixTran = false;
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 if (UseFixTran)
                 {
-                    by.Anim.CrossFadeInFixedTime(name, tranTime, AnimLayer);
+                    on.Anim.CrossFadeInFixedTime(name, tranTime, AnimLayer);
                 }
                 else
                 {
-                    by.Anim.CrossFade(name, tranTime, AnimLayer);
+                    on.Anim.CrossFade(name, tranTime, AnimLayer);
                 }
             }
             return 5;
@@ -1034,20 +1034,20 @@ namespace ES
         [LabelText("逼近时间")] public float lerpTime = 0.5f;
         [LabelText("多久退出？(默认随着技能)")] public float exitTime = 2;
 
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
-                float start = by.Anim.GetLayerWeight(LayerIndex);
-                var Use = DOTween.To(() => by.Anim.GetLayerWeight(LayerIndex), (to) => by.Anim.SetLayerWeight(LayerIndex, to), targetWeight, lerpTime);
+                float start = on.Anim.GetLayerWeight(LayerIndex);
+                var Use = DOTween.To(() => on.Anim.GetLayerWeight(LayerIndex), (to) => on.Anim.SetLayerWeight(LayerIndex, to), targetWeight, lerpTime);
                 var delayExit = DOTween.Sequence();
                 delayExit.AppendInterval(exitTime);
-                delayExit.Append(DOTween.To(() => by.Anim.GetLayerWeight(LayerIndex), (to) => by.Anim.SetLayerWeight(LayerIndex, to), start, lerpTime));
-                on.OnExit += (t) =>
+                delayExit.Append(DOTween.To(() => on.Anim.GetLayerWeight(LayerIndex), (to) => on.Anim.SetLayerWeight(LayerIndex, to), start, lerpTime));
+                with.OnExit += (t) =>
                 {
                     delayExit.Kill();
                     Use.Kill();
-                    DOTween.To(() => by.Anim.GetLayerWeight(LayerIndex), (to) => by.Anim.SetLayerWeight(LayerIndex, to), start, lerpTime);
+                    DOTween.To(() => on.Anim.GetLayerWeight(LayerIndex), (to) => on.Anim.SetLayerWeight(LayerIndex, to), start, lerpTime);
                 };
                 //Link_EntityAttackEntityTruely 备忘录
             }
@@ -1057,9 +1057,9 @@ namespace ES
     [Serializable, TypeRegistryItem("E动画：IK控制-手部预设")]
     public class EntityHandle_IKControl_HandPreset : IReleasablePointerOnlyByEntityYarnEntityOn
     {
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 //Link_EntityAttackEntityTruely 备忘录
             }
@@ -1072,14 +1072,14 @@ namespace ES
     public class EntityHandle_Cache_CacheEntityToSelfSkill : IReleasablePointerOnlyByEntityYarnEntityOn
     {
         [LabelText("成功概率"), SerializeReference] public IPointerForFloat_Only pointerForFloat = new PointerForFloat_DirectClamp01() { @float = 1 };
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 float f = pointerForFloat?.Pick() ?? 0.5f;
                 if (UnityEngine.Random.value < f)
                 {
-                    on.SelfCacheEntites.Add(by);
+                    with.SelfCacheEntites.Add(on);
                 }
             }
             return 5;
@@ -1089,14 +1089,14 @@ namespace ES
     public class EntityHandle_Cache_CacheEntityToMain : IReleasablePointerOnlyByEntityYarnEntityOn
     {
         [LabelText("成功概率"), SerializeReference] public IPointerForFloat_Only pointerForFloat = new PointerForFloat_DirectClamp01() { @float = 1 };
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 float f = pointerForFloat?.Pick() ?? 0.5f;
                 if (UnityEngine.Random.value < f)
                 {
-                    yarn.BaseDomain.Module_Cache?.CacheEntity.AddToQueue("Main", by);
+                    from.BaseDomain.Module_Cache?.CacheEntity.AddToQueue("Main", on);
                 }
             }
             return 5;
@@ -1107,16 +1107,16 @@ namespace ES
     {
         [LabelText("缓冲名")] public string cacheName = "自定义名字";
         [LabelText("成功概率"), SerializeReference] public IPointerForFloat_Only pointerForFloat = new PointerForFloat_DirectClamp01() { @float = 1 };
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
 
-            if (by != null)
+            if (on != null)
             {
                 float f = pointerForFloat?.Pick() ?? 0.5f;
                 if (UnityEngine.Random.value < f)
                 {
 
-                    yarn.BaseDomain.Module_Cache?.CacheEntity.AddToQueue(cacheName, by);
+                    from.BaseDomain.Module_Cache?.CacheEntity.AddToQueue(cacheName, on);
                 }
             }
             return 5;
@@ -1126,15 +1126,15 @@ namespace ES
     public class EntityHandle_Cache_CachePosToSelf : IReleasablePointerOnlyByEntityYarnEntityOn
     {
         [LabelText("成功概率"), SerializeReference] public IPointerForFloat_Only pointerForFloat = new PointerForFloat_DirectClamp01() { @float = 1 };
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 float f = pointerForFloat?.Pick() ?? 0.5f;
                 if (UnityEngine.Random.value < f)
                 {
-                    on.SelfCacheVector3.Add(by.transform.position);
-                    Debug.Log("缓冲了" + by.transform.position);
+                    with.SelfCacheVector3.Add(on.transform.position);
+                    Debug.Log("缓冲了" + on.transform.position);
                 }
             }
             return 5;
@@ -1144,14 +1144,14 @@ namespace ES
     public class EntityHandle_Cache_CachePosToMain : IReleasablePointerOnlyByEntityYarnEntityOn
     {
         [LabelText("成功概率"), SerializeReference] public IPointerForFloat_Only pointerForFloat = new PointerForFloat_DirectClamp01() { @float = 1 };
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 float f = pointerForFloat?.Pick() ?? 0.5f;
                 if (UnityEngine.Random.value < f)
                 {
-                    by.BaseDomain.Module_Cache?.CacheVector3.AddToQueue("Main", by.transform.position);
+                    on.BaseDomain.Module_Cache?.CacheVector3.AddToQueue("Main", on.transform.position);
                 }
             }
             return 5;
@@ -1162,14 +1162,14 @@ namespace ES
     {
         [LabelText("缓冲名")] public string cacheName = "自定义名字";
         [LabelText("成功概率"), SerializeReference] public IPointerForFloat_Only pointerForFloat = new PointerForFloat_DirectClamp01() { @float = 1 };
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 float f = pointerForFloat?.Pick() ?? 0.5f;
                 if (UnityEngine.Random.value < f)
                 {
-                    by.BaseDomain.Module_Cache?.CacheVector3.AddToQueue(cacheName, by.transform.position);
+                    on.BaseDomain.Module_Cache?.CacheVector3.AddToQueue(cacheName, on.transform.position);
                 }
             }
             return 5;
@@ -1179,21 +1179,21 @@ namespace ES
     public class EntityHandle_Inverse_LookAt : IReleasablePointerOnlyByEntityYarnEntityOn
     {
         [LabelText("多久能完全面向")] public float faceTime = 0.2f;
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
-                Vector3 vv = by.transform.position - yarn.transform.position;
-                Quaternion end = Quaternion.LookRotation(Vector3.ProjectOnPlane(vv, yarn.transform.up), yarn.transform.up);
+                Vector3 vv = on.transform.position - from.transform.position;
+                Quaternion end = Quaternion.LookRotation(Vector3.ProjectOnPlane(vv, from.transform.up), from.transform.up);
 
-                Tween use = yarn.transform.DORotateQuaternion(end, faceTime);
+                Tween use = from.transform.DORotateQuaternion(end, faceTime);
 
 
-                /* var to = yarn.transform.InverseTransformDirection(vv);
-                 var y = yarn.BaseDomain.Module_3DMotion;
+                /* var to = from.transform.InverseTransformDirection(vv);
+                 var y = from.BaseDomain.Module_3DMotion;
 
                  y.banSource.Add(this);*/
-                on.OnExit += (f) =>
+                with.OnExit += (f) =>
                 {
                     use.Kill();
                     /*y.banSource.Remove(this);*/
@@ -1221,28 +1221,28 @@ namespace ES
             CoolDownNext = 0.1f,
             vector = Vector3.forward,
         };
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
 
-                var crash = yarn.StateMachineDomain.Module_CrashDodge;
+                var crash = from.StateMachineDomain.Module_CrashDodge;
                 if (crash != null)
                 {
                     defaultDodge.duration = duration;
                     defaultDodge.pathType = pathType;
                     if (UseSelfDefineVector)
                     {
-                        defaultDodge.vector = selfVector?.Pick() ?? by.transform.position;
+                        defaultDodge.vector = selfVector?.Pick() ?? on.transform.position;
                     }
                     else
                     {
-                        defaultDodge.vector = by.transform.position;
+                        defaultDodge.vector = on.transform.position;
                     }
                     crash.TryAddCrashDodge(ref defaultDodge);
                 }
-                /* var to = yarn.transform.InverseTransformDirection(vv);
-                 var y = yarn.BaseDomain.Module_3DMotion;
+                /* var to = from.transform.InverseTransformDirection(vv);
+                 var y = from.BaseDomain.Module_3DMotion;
 
                  y.banSource.Add(this);*/
             }
@@ -1252,9 +1252,9 @@ namespace ES
     [Serializable, TypeRegistryItem("G反相：瞄准发射")]
     public class EntityHandle_Inverse_AimFire : IReleasablePointerOnlyByEntityYarnEntityOn
     {
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 //Link_EntityAttackEntityTruely 备忘录
             }
@@ -1266,9 +1266,9 @@ namespace ES
     [Serializable, TypeRegistryItem("G反相：处决")]
     public class EntityHandle_Inverse_Execute : IReleasablePointerOnlyByEntityYarnEntityOn
     {
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 //Link_EntityAttackEntityTruely 备忘录
             }
@@ -1286,9 +1286,9 @@ namespace ES
         [LabelText("是否播放为空间音效")] public bool playAs3D = false;
         [LabelText("没空间音频源是否强制创建")] public bool ForceCrate = false;
 
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 GameCenterManager.Instance.AudioMaster.PlayDirect_Sound_OneShot(audioClip, float_Only?.Pick() ?? 0.8f);
             }
@@ -1304,9 +1304,9 @@ namespace ES
         [LabelText("是否播放为空间音效")] public bool playAs3D = false;
         [LabelText("没空间音频源是否强制创建")] public bool ForceCrate = false;
 
-        public object Pick(Entity by = null, Entity yarn = null, EntityState_Skill on = null)
+        public object Pick(Entity on = null, Entity from = null, EntityState_Skill with = null)
         {
-            if (by != null && audioClips?.Length > 0)
+            if (on != null && audioClips?.Length > 0)
             {
                 var oneOf = audioClips[UnityEngine.Random.Range(0, audioClips.Length)];
                 GameCenterManager.Instance.AudioMaster.PlayDirect_Sound_OneShot(oneOf, float_Only?.Pick() ?? 0.8f);
@@ -1332,9 +1332,9 @@ namespace ES
         public override IPointerForSomeEntityBySomeEntityYarnEntityOnSKill end => end_;
 
         //指向
-        List<Entity> IPointer<List<Entity>, object, object, object>.Pick(object by, object yarn, object on)
+        List<Entity> IPointer<List<Entity>, object, object, object>.Pick(object on, object from, object with)
         {
-            return Pick(by, yarn, on);
+            return Pick(with,from,with);
         }
     }
 

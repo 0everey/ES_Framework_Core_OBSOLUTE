@@ -22,6 +22,7 @@ namespace ES
         public void AddClip(IClip clip, bool selfInvoke = true);
         public void RemoveClip(IClip clip, bool selfInvoke = true);
     }
+    [DefaultExecutionOrder(-1)]
     public abstract class BaseDomain<Core_, Clip> : ESHostingMono<Clip>, IDomain<Core_> where Core_ : BaseCore where Clip : class, IClip, IESModule
     {
         #region 常规属性字段
@@ -54,6 +55,7 @@ namespace ES
         {
             foreach (var i in NormalBeHosted)
             {
+                
                 i.TrySubmitHosting(this, false);
             }
         }
@@ -61,13 +63,20 @@ namespace ES
 
         protected override void Update()
         {
-            Clips.Update();
-            base.Update();
+            if (Core != null)
+            {
+                Clips.Update();
+                base.Update();
+            }
         }
+
         public Action OnFixedUpdate = () => { };
         protected virtual void FixedUpdate()
         {
-            OnFixedUpdate?.Invoke();
+            if (Core != null)
+            {
+                OnFixedUpdate?.Invoke();
+            }
         }
         #region 辅助方法
         public void RegesterAllButOnlyCreateRelationship(ICore core_)
@@ -104,6 +113,7 @@ namespace ES
         {
             if (clip is Clip use)
             {
+                use.TryDisableSelf();
                 /* Clips.TryRemove(use);*/
                 if (selfInvoke) clip.TryWithDrawHosting(this, false);
             }

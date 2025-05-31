@@ -42,7 +42,8 @@ namespace ES
         protected override void Update()
         {
             base.Update();
-            StateMachine.TryUpdate();
+            //不判断了
+            StateMachine.HardUpdate();
         }
         protected override void OnDisable()
         {
@@ -217,12 +218,61 @@ namespace ES
                 dodgeQueue.Dequeue();//不要你
             }
         }
-      
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            Domain.OnFixedUpdate += FixedUpdate_MustSelfDelegate;
+        }
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            Domain.OnFixedUpdate -= FixedUpdate_MustSelfDelegate;
+        }
     }
     [Serializable, TypeRegistryItem("慢动作支持")]
     public class ClipStateMachine_SlowAction : StateMachineClipForDomainForEntity
     {
 
     }
+    [Serializable, TypeRegistryItem("Buff注册器")]
+    public class ClipStateMachine_BuffRefister : StateMachineClipForDomainForEntity
+    {
+        /*[LabelText("注册技能的Info")]
+        public List<SkillRegisterMessage> skillDataInfos = new List<SkillRegisterMessage>();
+        private Dictionary<string, EntityState_Skill> Skills = new Dictionary<string, EntityState_Skill>();
+        [ShowInInspector, DisableInEditorMode]
+        public string[] Keys => Skills.Keys.ToArray();*/
+        public BuffSoInfo info;
+        protected override void OnSubmitHosting(StateMachineDomainForEntity hosting)
+        {
+            base.OnSubmitHosting(hosting);
+            if (info == null) return;
+            var Create = KeyValueMatchingUtility.Creator.CreateStateRunTimeLogicComplete(info.binding);
+            if (Create is EntityState_Buff buff)
+            {
+                buff.soInfo = info;
+                Domain.StateMachine.RegisterNewState(info.key.str_direc, Create);
+            }
+            /*foreach (var i in skillDataInfos)
+            {
+                Debug.Log("t1");
+                if (i == null || i.info == null) continue;
+                ReleasableSkillsSequence skillsSequence = i.info.sequence;
+                Debug.Log("t2");
+                string Key = i.info.key.Key();
+                var Create = KeyValueMatchingUtility.Creator.CreateStateRunTimeLogicComplete(skillsSequence.bindingStateInfo);
+                if (Create is EntityState_Skill skill)
+                {
+                    Debug.Log("t3");
+                    skill.Setup(skillsSequence);
+                    string name = i.useRename ? i.rename : Key;
+                    Domain.StateMachine.RegisterNewState(name, Create);
+                    Skills.Add(name, skill);
+                }
 
+
+
+            }*/
+        }
+    }
 }

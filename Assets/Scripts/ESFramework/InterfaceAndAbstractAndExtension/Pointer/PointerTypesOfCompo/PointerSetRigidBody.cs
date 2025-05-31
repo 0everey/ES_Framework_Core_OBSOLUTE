@@ -12,7 +12,7 @@ namespace ES
     public abstract class PointerSetRigidbody_Abstract : IPointerNone
         {
             [LabelText("直接引用刚体")]public Rigidbody rigidbody;
-            public object Pick(object by = null, object yarn = null, object on = null)
+            public object Pick(object on= null, object from = null, object with = null)
             {
                 if(rigidbody!=null)
                 PickTruely(rigidbody);
@@ -99,7 +99,7 @@ namespace ES
     public abstract class PointerSetRigidbody2D_Abstract : IPointerNone
     {
         [LabelText("直接引用刚体")] public Rigidbody2D rigidbody2D;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             if (rigidbody2D != null)
                 PickTruely(rigidbody2D);

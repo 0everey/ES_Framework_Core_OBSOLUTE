@@ -22,7 +22,7 @@ namespace ES.EvPointer
         [LabelText("直接引用UI")]
         public T ui;
 
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             if (ui != null)
             {

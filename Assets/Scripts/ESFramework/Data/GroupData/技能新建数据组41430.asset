@@ -195,7 +195,7 @@ MonoBehaviour:
     - triggerAtTime: 1
       name: "\u65B0\u5EFA\u7247\u6BB52"
       useStateSwitch: 1
-      layer: 0
+      layer: 1
       st: New State 0
       crossFade:
         float: 0.2
@@ -230,7 +230,7 @@ MonoBehaviour:
       triggerAtTime: 1
       name: "\u65B0\u5EFA\u7247\u6BB52"
       useStateSwitch: 1
-      layer: 0
+      layer: 1
       st: New State 0
       crossFade:
         float: 0.2
@@ -254,7 +254,7 @@ MonoBehaviour:
     - rid: 165002797435060416
       type: {class: PointerForFloat_Random30, ns: ES.EvPointer, asm: Assembly-CSharp}
       data:
-        float_range: {x: 5, y: 15}
+        float_range: {x: 8.781481, y: 15}
     - rid: 165002799258272290
       type: {class: SomeEntitySelectorFromSelf, ns: ES, asm: Assembly-CSharp}
       data:
@@ -870,7 +870,7 @@ MonoBehaviour:
     str_direc: "\u8272\u8BF1"
   start: "\u5F00\u59CB\u521B\u5EFA\u6280\u80FD\u5E8F\u5217\uFF01\uFF01"
   sequence:
-    skillDuration: 1
+    skillDuration: 2
     AllClips:
     - triggerAtTime: 0.25
       name: "\u65B0\u6280\u80FD\u7247\u6BB5"
@@ -891,7 +891,7 @@ MonoBehaviour:
       Applier:
         handles:
         - rid: 165002827909562441
-    - triggerAtTime: 0.25
+    - triggerAtTime: 0.75
       name: "\u65B0\u5EFA\u7247\u6BB52"
       useStateSwitch: 0
       layer: 0
@@ -924,7 +924,7 @@ MonoBehaviour:
     s: .........
     CurrentIndex: 1
     currentEditClip_:
-      triggerAtTime: 0.25
+      triggerAtTime: 0.75
       name: "\u65B0\u5EFA\u7247\u6BB52"
       useStateSwitch: 0
       layer: 0

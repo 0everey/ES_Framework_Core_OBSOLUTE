@@ -52,7 +52,7 @@ namespace ES
     /*从一个实体获得多个实体*/
     public interface IPointerForSomeEntityByEntityYarnEntityOnItem : IPointerChainAny<List<Entity>, Entity, Entity, Item>
     {
-        //by 被操作 yarn 发起人 back 最终目的 on 技能
+        //on 被操作 yarn 发起人 back 最终目的 on 技能
     }
     /*从多个实体获得多个实体*/
     public interface IPointerForSomeEntityBySomeEntityYarnEntityOnItem : IPointerChainAny<List<Entity>, List<Entity>, Entity, Item>
@@ -87,16 +87,16 @@ namespace ES
         public IPointerForFloat_Only float_Only = new PointerForFloat_Direct() { float_ = 0.25f };
         [LabelText("处理对象"), SerializeReference]
         public IReleasablePointerOnItemForSomeEntityByEntityYarnEntityOnItem handle;
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
             if (handle == null) return null;
             float delay = float_Only?.Pick() ?? 0.25f;
      
-            if (by != null)
+            if (on != null)
             {
                 var use= DOTween.Sequence();
                 use.AppendInterval(delay);
-                use.AppendCallback(() => { handle?.Pick(by,yarn,on); });
+                use.AppendCallback(() => { handle?.Pick(On,From,With); });
                 
                 //Link_EntityAttackEntityTruely 备忘录
             }
@@ -112,15 +112,15 @@ namespace ES
         public IPointerForFloat_Only float_Only = new PointerForFloat_Direct() { float_ = 0.25f };
         [LabelText("处理对象"), SerializeReference]
         public IReleasablePointerOnlyByEntityYarnEntityOnItem handle;
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
             if (handle == null) return null;
             float P = float_Only?.Pick() ?? 0.25f;
             if (UnityEngine.Random.value < P)
             {
-                if (by != null)
+                if (on != null)
                 {
-                    handle?.Pick(by, yarn, on);
+                    handle?.Pick(on,from,with);
                     //Link_EntityAttackEntityTruely 备忘录
                 }
             }
@@ -146,19 +146,19 @@ namespace ES
         [LabelText("提交后最大触发次数")] public int ColTimes = 5;
         [LabelText("剩余可触发次数")] public int canCol = 0;
         [LabelText("已经提交")] public bool hasSubmitCol = false;
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
             if (handle == null) return null;
-            if (by == null || yarn == null) return null;
+            if (on == null || yarn == null) return null;
             if (!hasSubmitCol)
             {
                 hasSubmitCol = true;
                 canCol = ColTimes;
-                by.OnColEntityHappen += OnCol;
+                on.OnColEntityHappen += OnCol;
             }
             if (canCol == 0)
             {
-                if (by != null) by.OnColEntityHappen -= OnCol;
+                if (on != null) on.OnColEntityHappen -= OnCol;
                 hasSubmitCol = false;
             };
         
@@ -173,10 +173,10 @@ namespace ES
                 }
                 else if(handlePos== OLDEnumCollect.HandleCacheOption.ToMain)
                 {
-                    yarn.BaseDomain.Module_Cache?.CacheVector3.AddToQueue("Main",pos);
+                    yarn.BaseDomain.Module_Cache?.CacheVector3.AddToQueue("MainBundle",pos);
                 }else if(handlePos== OLDEnumCollect.HandleCacheOption.ToSelf)
                 {
-                    yarn.BaseDomain.Module_Cache?.CacheVector3.AddToQueue("Main", pos);
+                    yarn.BaseDomain.Module_Cache?.CacheVector3.AddToQueue("MainBundle", pos);
                 }
                 else
                 {
@@ -184,15 +184,15 @@ namespace ES
                 }
                 if(option== OLDEnumCollect.HandleOnWhoEntityColOption.bySelectorYarnLauncher)
                 {
-                    handle.Pick(by,yarn,on);
+                    handle.Pick(On,From,With);
                 }
                 else if (option == OLDEnumCollect.HandleOnWhoEntityColOption.bySelectorYarnColOn)
                 {
-                    handle.Pick(by, col, on);
+                    handle.Pick(on, col, on);
                 }
                 else if (option == OLDEnumCollect.HandleOnWhoEntityColOption.byLauncherYarnSelector)
                 {
-                    handle.Pick(yarn, by, on);
+                    handle.Pick(yarn, on, on);
                 }
                 else if (option == OLDEnumCollect.HandleOnWhoEntityColOption.ByLauncherYarnColOn)
                 {
@@ -204,7 +204,7 @@ namespace ES
                 }
                 else if (option == OLDEnumCollect.HandleOnWhoEntityColOption.byColOnYarnSelector)
                 {
-                    handle.Pick(col, by, on);
+                    handle.Pick(col, on, on);
                 }
                 
             }
@@ -225,19 +225,19 @@ namespace ES
         [LabelText("提交后最大触发次数")] public int ColTimes = 5;
         [LabelText("剩余可触发次数")] public int canCol = 0;
         [LabelText("已经提交")] public bool hasSubmitCol = false;
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
             if (handle == null) return null;
-            if (by == null || yarn == null) return null;
+            if (on == null || yarn == null) return null;
             if (!hasSubmitCol)
             {
                 hasSubmitCol = true;
                 canCol = ColTimes;
-                by.OnTriEntityHappen += OnTri;
+                on.OnTriEntityHappen += OnTri;
             }
             if (canCol == 0)
             {
-                if (by != null) by.OnTriEntityHappen -= OnTri;
+                if (on != null) on.OnTriEntityHappen -= OnTri;
                 hasSubmitCol = false;
             };
             return -1;
@@ -249,11 +249,11 @@ namespace ES
                 }
                 else if (handlePos == OLDEnumCollect.HandleCacheOption.ToMain)
                 {
-                    yarn.BaseDomain.Module_Cache?.CacheVector3.AddToQueue("Main", pos);
+                    yarn.BaseDomain.Module_Cache?.CacheVector3.AddToQueue("MainBundle", pos);
                 }
                 else if (handlePos == OLDEnumCollect.HandleCacheOption.ToSelf)
                 {
-                    yarn.BaseDomain.Module_Cache?.CacheVector3.AddToQueue("Main", pos);
+                    yarn.BaseDomain.Module_Cache?.CacheVector3.AddToQueue("MainBundle", pos);
                 }
                 else
                 {
@@ -261,15 +261,15 @@ namespace ES
                 }
                 if (option == OLDEnumCollect.HandleOnWhoEntityColOption.bySelectorYarnLauncher)
                 {
-                    handle.Pick(by, yarn, on);
+                    handle.Pick(on,from,with);
                 }
                 else if (option == OLDEnumCollect.HandleOnWhoEntityColOption.bySelectorYarnColOn)
                 {
-                    handle.Pick(by, col, on);
+                    handle.Pick(on, col, on);
                 }
                 else if (option == OLDEnumCollect.HandleOnWhoEntityColOption.byLauncherYarnSelector)
                 {
-                    handle.Pick(yarn, by, on);
+                    handle.Pick(yarn, on, on);
                 }
                 else if (option == OLDEnumCollect.HandleOnWhoEntityColOption.ByLauncherYarnColOn)
                 {
@@ -281,7 +281,7 @@ namespace ES
                 }
                 else if (option == OLDEnumCollect.HandleOnWhoEntityColOption.byColOnYarnSelector)
                 {
-                    handle.Pick(col, by, on);
+                    handle.Pick(col, on, on);
                 }
 
             }
@@ -295,7 +295,7 @@ namespace ES
         public EnumCollect.DestroyWhyOption options = EnumCollect.DestroyWhyOption.Normal;
         [LabelText("处理对象"), SerializeReference]
         public IReleasablePointerOnlyByEntityYarnEntityOnItem handle;
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
             if (handle == null) return null;
 
@@ -305,7 +305,7 @@ namespace ES
             {
                 if ((why.options & options) != 0)
                 {
-                    handle?.Pick(by, yarn, on);
+                    handle?.Pick(on,from,with);
                 }
             }
         }
@@ -318,13 +318,13 @@ namespace ES
 
         [LabelText("全部处理对象"), SerializeReference]
         public List<IReleasablePointerOnlyByEntityYarnEntityOnItem> handles = new List<IReleasablePointerOnlyByEntityYarnEntityOnItem>();
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
             if (handles == null || handles.Count == 0) return null;
 
             foreach (var i in handles)
             {
-                i.Pick(by, yarn, on);
+                i.Pick(on,from,with);
             }
 
             return 5;
@@ -337,14 +337,14 @@ namespace ES
     {
         [LabelText("使用的攻击"), SerializeReference]
         public Damage ApplyDamage = new Damage();
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
 
-            if (by != null)
+            if (on != null)
             {
 
                 KeyValueMatchingUtility.ESLink.Global.GlobalLink_EntityAttackEntityTryStart(
-                    new Link_EntityAttackEntityTryStart() { attacker = yarn, victim = by, damage = ApplyDamage });
+                    new Link_EntityAttackEntityTryStart() { attacker = from, victim = on, damage = ApplyDamage });
                 //Link_EntityAttackEntityTruely 备忘录
             }
             return 5;
@@ -359,9 +359,9 @@ namespace ES
         [LabelText("用键查询(可选)")] public KeyString_BuffUse key = new KeyString_BuffUse();
         [LabelText("使用-自定义Buff开始状态")] public bool IsSelfDefineStartBuffStatus = true;
         [LabelText("输入自定义Buff开始状态")] public BuffStatusTest BuffStatusTest = new BuffStatusTest() { duration = 10 };
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 var use = useInfo;
 
@@ -371,7 +371,7 @@ namespace ES
                 }
                 if (use != null)
                 {
-                    KeyValueMatchingUtility.DataApply.ApplyBuffInfoToEntity(use, by, IsSelfDefineStartBuffStatus ? BuffStatusTest : null);
+                    KeyValueMatchingUtility.DataApply.ApplyBuffInfoToEntity(use, on, IsSelfDefineStartBuffStatus ? BuffStatusTest : null);
 
                 }
             }
@@ -386,19 +386,19 @@ namespace ES
         [LabelText("直接引用SO(可选)")] public BuffSoInfo useInfo;
         [LabelText("用键查询(可选)")] public KeyString_BuffUse key = new KeyString_BuffUse();
 
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
 
-            if (by != null)
+            if (on != null)
             {
-                if (by != null)
+                if (on != null)
                 {
                     var use = useInfo;
                     if (use == null)
                     {
                         use = KeyValueMatchingUtility.DataInfoPointer.PickBuffSoInfoByKey(key.Key());
                     }
-                    if (use != null) KeyValueMatchingUtility.DataApply.Apply_Remove_BuffInfoToEntity(useInfo, by);
+                    if (use != null) KeyValueMatchingUtility.DataApply.Apply_Remove_BuffInfoToEntity(useInfo, on);
                 }
             }
             return 5;
@@ -409,9 +409,9 @@ namespace ES
     [Serializable, TypeRegistryItem("B特殊:解除负面效果")]
     public class EntityHandle_OnItem_CancelNagativeEffect : IReleasablePointerOnlyByEntityYarnEntityOnItem
     {
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 //Link_EntityAttackEntityTruely 备忘录
             }
@@ -423,9 +423,9 @@ namespace ES
     [Serializable, TypeRegistryItem("B特殊:解除正面效果")]
     public class EntityHandle_OnItem_CancelPositiveEffect : IReleasablePointerOnlyByEntityYarnEntityOnItem
     {
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 //Link_EntityAttackEntityTruely 备忘录
             }
@@ -437,9 +437,9 @@ namespace ES
     [Serializable, TypeRegistryItem("B特殊:晕眩控制")]
     public class EntityHandle_OnItem_Controll : IReleasablePointerOnlyByEntityYarnEntityOnItem
     {
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 //Link_EntityAttackEntityTruely 备忘录
             }
@@ -451,24 +451,24 @@ namespace ES
     {
         [LabelText("自定义向量"), SerializeReference, InlineProperty] public IPointerForVector3_Only vector3 = new PointerForVector3_Direct() { vector = new Vector3(0, 0, -2) };
         [LabelText("空间模式")] public EnumCollect.PlacePosition placePos;
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 //Link_EntityAttackEntityTruely 备忘录
             }
             if (placePos == EnumCollect.PlacePosition.WorldSpace)
             {
-                by.Rigid.AddForce(vector3?.Pick() ?? Vector3.up);
+                on.Rigid.AddForce(vector3?.Pick() ?? Vector3.up);
             }
             else if (placePos == EnumCollect.PlacePosition.SelfSpace)
             {
-                by.Rigid.AddForce(by.transform.TransformDirection(vector3?.Pick() ?? Vector3.up));
+                on.Rigid.AddForce(on.transform.TransformDirection(vector3?.Pick() ?? Vector3.up));
             }
             else
             {
-                Quaternion quaternion1 = Quaternion.LookRotation((yarn.transform.position - by.transform.position));
-                by.Rigid.AddForce(quaternion1 * vector3?.Pick() ?? Vector3.up);
+                Quaternion quaternion1 = Quaternion.LookRotation((from.transform.position - on.transform.position));
+                on.Rigid.AddForce(quaternion1 * vector3?.Pick() ?? Vector3.up);
             }
             return 5;
         }
@@ -482,13 +482,13 @@ namespace ES
         [LabelText("持续时间"), SerializeReference, InlineProperty] public IPointerForFloat_Only durationP = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("恢复时间")] public float resumeTime = 0.25f;
         [LabelText("恢复到")] public Vector3 resumeTo = Vector3.one;
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 float start = Time.time;
                 float duration = durationP?.Pick() ?? 1;
-                Tween tween = DOTween.To(() => by.transform.localScale, x => { },
+                Tween tween = DOTween.To(() => on.transform.localScale, x => { },
             Vector3.back, duration)
             .SetEase(Ease.Linear); // 设置为线性缓动，因为曲线已经控制了缩放效果
 
@@ -504,9 +504,9 @@ namespace ES
                     float scaleZ = scaleZCurve.Evaluate(normalizedTime);
 
                     // 设置物体的缩放
-                    by.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
+                    on.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
                 });
-                tween.OnComplete(() => { by.transform.DOScale(resumeTo, resumeTime); });
+                tween.OnComplete(() => { on.transform.DOScale(resumeTo, resumeTime); });
 
             }
             return 5;
@@ -521,28 +521,28 @@ namespace ES
         [LabelText("旋转"), SerializeReference] public IPointerForQuaternion_Only quaternion_Only = new PointerForQuaternion_Direc();
         [LabelText("坐标偏移模式")] public EnumCollect.PlacePosition placePos;
         [LabelText("方向偏移模式")] public EnumCollect.PlaceRotation placeRot;
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
             Debug.Log("pick");
-            if (by != null)
+            if (on != null)
             {
                 Debug.Log("pick2");
-                Vector3 lookat = (yarn.transform.position - by.transform.position).normalized;
+                Vector3 lookat = (from.transform.position - on.transform.position).normalized;
                 GameObject gg = UsePool ? ES_PoolMaster.Instance.GetInPool(prefab) : MonoBehaviour.Instantiate(prefab);
                 Vector3 vv = vector_only?.Pick() ?? default;
                 Quaternion rot = quaternion_Only?.Pick() ?? default;
                 if (placePos == EnumCollect.PlacePosition.WorldSpace)
                 {
-                    gg.transform.position = by.transform.position + vv;
+                    gg.transform.position = on.transform.position + vv;
                 }
                 else if (placePos == EnumCollect.PlacePosition.SelfSpace)
                 {
-                    gg.transform.position = by.transform.position + by.transform.TransformDirection(vv);
+                    gg.transform.position = on.transform.position + on.transform.TransformDirection(vv);
                 }
                 else
                 {
                     Quaternion quaternion1 = Quaternion.LookRotation(lookat);
-                    gg.transform.position = by.transform.position + quaternion1 * vv;
+                    gg.transform.position = on.transform.position + quaternion1 * vv;
                 }
 
                 if (placeRot == EnumCollect.PlaceRotation.WorldSpace)
@@ -551,7 +551,7 @@ namespace ES
                 }
                 else if (placeRot == EnumCollect.PlaceRotation.SelfSpace)
                 {
-                    gg.transform.rotation = (by.transform.rotation * rot);
+                    gg.transform.rotation = (on.transform.rotation * rot);
                 }
                 else
                 {
@@ -579,12 +579,12 @@ namespace ES
             vector = new Vector3(0, 0, 0.8f),
             vectorHandle = EnumCollect.ToDestinationVectorSpace.SelfSpace
         };
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
-            Debug.Log(by + "闪身");
-            if (by != null)
+            Debug.Log(on + "闪身");
+            if (on != null)
             {
-                var crash = by.StateMachineDomain.Module_CrashDodge;
+                var crash = on.StateMachineDomain.Module_CrashDodge;
                 if (crash != null)
                 {
                     crash.TryAddCrashDodge(ref ApplyCrash);
@@ -601,12 +601,12 @@ namespace ES
 
         [LabelText("触发器参数名")] public string name = "触发器参数";
         [LabelText("是否启用")] public bool SetOrReset = true;
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
-            if (by != null)
+            if (on != null)
             {
-                if (SetOrReset) by.Anim.SetTrigger(name);
-                else by.Anim.ResetTrigger(name);
+                if (SetOrReset) on.Anim.SetTrigger(name);
+                else on.Anim.ResetTrigger(name);
             }
             return 5;
         }
@@ -620,17 +620,17 @@ namespace ES
         [LabelText("过渡时间")] public float tranTime = 0.2f;
         [LabelText("层级Index")] public int AnimLayer = 0;
         [LabelText("启用固定过渡时间")] public bool UseFixTran = false;
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 if (UseFixTran)
                 {
-                    by.Anim.CrossFadeInFixedTime(name, tranTime, AnimLayer);
+                    on.Anim.CrossFadeInFixedTime(name, tranTime, AnimLayer);
                 }
                 else
                 {
-                    by.Anim.CrossFade(name, tranTime, AnimLayer);
+                    on.Anim.CrossFade(name, tranTime, AnimLayer);
                 }
             }
             return 5;
@@ -645,14 +645,14 @@ namespace ES
     public class EntityHandle_OnItem_Cache_CacheEntityToMain : IReleasablePointerOnlyByEntityYarnEntityOnItem
     {
         [LabelText("成功概率"), SerializeReference] public IPointerForFloat_Only pointerForFloat = new PointerForFloat_DirectClamp01() { @float = 1 };
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 float f = pointerForFloat?.Pick() ?? 0.5f;
                 if (UnityEngine.Random.value < f)
                 {
-                    yarn.BaseDomain.Module_Cache?.CacheEntity.AddToQueue("Main", by);
+                    from.BaseDomain.Module_Cache?.CacheEntity.AddToQueue("Main", on);
                 }
             }
             return 5;
@@ -663,16 +663,16 @@ namespace ES
     {
         [LabelText("缓冲名")] public string cacheName = "自定义名字";
         [LabelText("成功概率"), SerializeReference] public IPointerForFloat_Only pointerForFloat = new PointerForFloat_DirectClamp01() { @float = 1 };
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
 
-            if (by != null)
+            if (on != null)
             {
                 float f = pointerForFloat?.Pick() ?? 0.5f;
                 if (UnityEngine.Random.value < f)
                 {
 
-                    yarn.BaseDomain.Module_Cache?.CacheEntity.AddToQueue(cacheName, by);
+                    from.BaseDomain.Module_Cache?.CacheEntity.AddToQueue(cacheName, on);
                 }
             }
             return 5;
@@ -683,14 +683,14 @@ namespace ES
     public class EntityHandle_OnItem_Cache_CachePosToMain : IReleasablePointerOnlyByEntityYarnEntityOnItem
     {
         [LabelText("成功概率"), SerializeReference] public IPointerForFloat_Only pointerForFloat = new PointerForFloat_DirectClamp01() { @float = 1 };
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 float f = pointerForFloat?.Pick() ?? 0.5f;
                 if (UnityEngine.Random.value < f)
                 {
-                    by.BaseDomain.Module_Cache?.CacheVector3.AddToQueue("Main", by.transform.position);
+                    on.BaseDomain.Module_Cache?.CacheVector3.AddToQueue("Main", on.transform.position);
                 }
             }
             return 5;
@@ -701,14 +701,14 @@ namespace ES
     {
         [LabelText("缓冲名")] public string cacheName = "自定义名字";
         [LabelText("成功概率"), SerializeReference] public IPointerForFloat_Only pointerForFloat = new PointerForFloat_DirectClamp01() { @float = 1 };
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 float f = pointerForFloat?.Pick() ?? 0.5f;
                 if (UnityEngine.Random.value < f)
                 {
-                    by.BaseDomain.Module_Cache?.CacheVector3.AddToQueue(cacheName, by.transform.position);
+                    on.BaseDomain.Module_Cache?.CacheVector3.AddToQueue(cacheName, on.transform.position);
                 }
             }
             return 5;
@@ -718,18 +718,18 @@ namespace ES
     public class EntityHandle_OnItem_Inverse_LookAt : IReleasablePointerOnlyByEntityYarnEntityOnItem
     {
         [LabelText("多久能完全面向")] public float faceTime = 0.2f;
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
-            if (by != null)
+            if (on != null)
             {
-                Vector3 vv = by.transform.position - yarn.transform.position;
-                Quaternion end = Quaternion.LookRotation(Vector3.ProjectOnPlane(vv, yarn.transform.up), yarn.transform.up);
+                Vector3 vv = on.transform.position - from.transform.position;
+                Quaternion end = Quaternion.LookRotation(Vector3.ProjectOnPlane(vv, from.transform.up), from.transform.up);
 
-                Tween use = yarn.transform.DORotateQuaternion(end, faceTime);
+                Tween use = from.transform.DORotateQuaternion(end, faceTime);
 
 
-                /* var to = yarn.transform.InverseTransformDirection(vv);
-                 var y = yarn.BaseDomain.Module_3DMotion;
+                /* var to = from.transform.InverseTransformDirection(vv);
+                 var y = from.BaseDomain.Module_3DMotion;
 
                  y.banSource.Add(this);*/
 
@@ -756,27 +756,27 @@ namespace ES
             CoolDownNext = 0.1f,
             vector = Vector3.forward,
         };
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
-            if (by != null)
+            if (on != null)
             {
 
-                var crash = yarn.StateMachineDomain.Module_CrashDodge;
+                var crash = from.StateMachineDomain.Module_CrashDodge;
                 if (crash != null)
                 {
                     defaultDodge.duration = duration;
                     defaultDodge.pathType = pathType;
                     if (UseSelfDefineVector)
                     {
-                        defaultDodge.vector = selfVector?.Pick() ?? by.transform.position;
+                        defaultDodge.vector = selfVector?.Pick() ?? on.transform.position;
                     }
                     else
                     {
-                        defaultDodge.vector = by.transform.position;
+                        defaultDodge.vector = on.transform.position;
                     }
                     crash.TryAddCrashDodge(ref defaultDodge);
                 }
-                /* var to = yarn.transform.InverseTransformDirection(vv);
+                /* var to = from.transform.InverseTransformDirection(vv);
                  var y = yarn.BaseDomain.Module_3DMotion;
 
                  y.banSource.Add(this);*/
@@ -794,9 +794,9 @@ namespace ES
         [LabelText("是否播放为空间音效")] public bool playAs3D = false;
         [LabelText("没空间音频源是否强制创建")] public bool ForceCrate = false;
 
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
-            if (by != null)
+            if (on != null)
             {
                 GameCenterManager.Instance.AudioMaster.PlayDirect_Sound_OneShot(audioClip, float_Only?.Pick() ?? 0.8f);
             }
@@ -812,9 +812,9 @@ namespace ES
         [LabelText("是否播放为空间音效")] public bool playAs3D = false;
         [LabelText("没空间音频源是否强制创建")] public bool ForceCrate = false;
 
-        public object Pick(Entity by = null, Entity yarn = null, Item on = null)
+        public object Pick(Entity on = null, Entity from = null, Item with = null)
         {
-            if (by != null && audioClips?.Length > 0)
+            if (on != null && audioClips?.Length > 0)
             {
                 var oneOf = audioClips[UnityEngine.Random.Range(0, audioClips.Length)];
                 GameCenterManager.Instance.AudioMaster.PlayDirect_Sound_OneShot(oneOf, float_Only?.Pick() ?? 0.8f);

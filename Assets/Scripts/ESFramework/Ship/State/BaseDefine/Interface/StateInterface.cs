@@ -23,13 +23,14 @@ namespace ES
         #region 键
         void SetKey(object key);
         object GetKey();
+        string QuickKey();
         #endregion
     }
     //微型状态，可能多层，但是不准并行,只能活动在当前层级，通常手写代码，一定是RunTimeLogic
     public interface IESMicroState : IESNanoState
     {
         IESMicroState AsThis { get; set; }//自身状态--如果是状态机的话，这个有用的
-
+        
      
 
         #region 自身状态--以Prepared和Exit为界限

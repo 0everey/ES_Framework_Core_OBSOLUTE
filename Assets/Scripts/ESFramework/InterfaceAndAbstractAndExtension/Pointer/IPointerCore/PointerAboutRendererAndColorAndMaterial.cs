@@ -14,7 +14,7 @@ namespace ES.EvPointer
     //核心 Ev针支持 关于 颜色 渲染 材质 部分
     #region 颜色,渲染和材质设置支持
     #region 接口和抽象定义
-    public interface IPointerForRenderer<By, Yarn, On> : IPointer<Renderer, By, Yarn, On>
+    public interface IPointerForRenderer<on,from,with> : IPointer<Renderer, on,from,with>
     {
 
     }
@@ -25,7 +25,7 @@ namespace ES.EvPointer
             return Pick();
         }
     }
-    public interface IPointerForColor<By, Yarn, On> : IPointer<Color, By, Yarn, On>
+    public interface IPointerForColor<on,from,with> : IPointer<Color, on,from,with>
     {
 
     }
@@ -44,7 +44,7 @@ namespace ES.EvPointer
     {
         [LabelText("直接输入颜色"), ColorUsage(true)]
         public Color color = Color.white;
-        public Color Pick(object by = null, object yarn = null, object on = null)
+        public Color Pick(object on= null, object from = null, object with = null)
         {
             return color;
         }
@@ -54,7 +54,7 @@ namespace ES.EvPointer
     {
         [LabelText("直接输入颜色"), ColorPalette("色盘", ShowAlpha = true)]
         public Color color = Color.white;
-        public Color Pick(object by = null, object yarn = null, object on = null)
+        public Color Pick(object on= null, object from = null, object with = null)
         {
             return color;
         }
@@ -63,7 +63,7 @@ namespace ES.EvPointer
     public class PointerForColor_Direc : IPointerForColor_Only
     {
         [LabelText("直接输入颜色"), ColorPalette] public Color color;
-        public Color Pick(object by = null, object yarn = null, object on = null)
+        public Color Pick(object on= null, object from = null, object with = null)
         {
             return color;
         }
@@ -86,7 +86,7 @@ namespace ES.EvPointer
         }
 
         
-        public Color Pick(object by = null, object yarn = null, object on = null)
+        public Color Pick(object on= null, object from = null, object with = null)
         {
             lastColor= Color.Lerp(color, color2, lerp?.Pick()??0);
             return lastColor;
@@ -98,7 +98,7 @@ namespace ES.EvPointer
     {
         [LabelText("引用渲染器")] public Renderer renderer;
 
-        public Renderer Pick(object by = null, object yarn = null, object on = null)
+        public Renderer Pick(object on= null, object from = null, object with = null)
         {
             return renderer;
         }
@@ -109,14 +109,14 @@ namespace ES.EvPointer
         [LabelText("渲染器来源"), SerializeReference]
         public IPointerForRenderer_Only renderer_Only = new PointerForRenderer_Direc();
         [LabelText("材质")] public Material material;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             Renderer rr = renderer_Only?.Pick();
             if (rr != null)
             {
                 rr.material = material;
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("渲染器设置材质块_设置颜色->_Color", "渲染颜色和材质")]
@@ -125,7 +125,7 @@ namespace ES.EvPointer
         [LabelText("渲染器来源"), SerializeReference]
         public IPointerForRenderer_Only renderer_Only = new PointerForRenderer_Direc();
         [LabelText("颜色"), ColorPalette] public Color color;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             Renderer rr = renderer_Only?.Pick();
             if (rr != null)
@@ -134,7 +134,7 @@ namespace ES.EvPointer
                 block.SetColor("_Color", color);
                 rr.SetPropertyBlock(block);
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("渲染器设置材质块_设置颜色->_MainColor", "渲染颜色和材质")]
@@ -143,7 +143,7 @@ namespace ES.EvPointer
         [LabelText("渲染器来源"), SerializeReference]
         public IPointerForRenderer_Only renderer_Only = new PointerForRenderer_Direc();
         [LabelText("颜色"), ColorPalette] public Color color;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             Renderer rr = renderer_Only?.Pick();
             if (rr != null)
@@ -152,7 +152,7 @@ namespace ES.EvPointer
                 block.SetColor("_MainColor", color);
                 rr.SetPropertyBlock(block);
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("渲染器设置材质块_设置浮点数", "渲染颜色和材质")]
@@ -162,7 +162,7 @@ namespace ES.EvPointer
         public IPointerForRenderer_Only renderer_Only = new PointerForRenderer_Direc();
         [LabelText("参数名称")] public string paraName = "AFloat";
         [LabelText("浮点数")] public IPointerForFloat_Only float_ = new PointerForFloat_Direct();
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             Renderer rr = renderer_Only?.Pick();
             if (rr != null)
@@ -171,7 +171,7 @@ namespace ES.EvPointer
                 block.SetFloat(paraName, float_?.Pick() ?? 0);
                 rr.SetPropertyBlock(block);
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("渲染器设置材质块_设置整数", "渲染颜色和材质")]
@@ -181,7 +181,7 @@ namespace ES.EvPointer
         public IPointerForRenderer_Only renderer_Only = new PointerForRenderer_Direc();
         [LabelText("参数名称")] public string paraName = "AInt";
         [LabelText("整数"), SerializeReference] public IPointerForInt_Only int_ = new PointerForInt_Direct();
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             Renderer rr = renderer_Only?.Pick();
             if (rr != null)
@@ -190,7 +190,7 @@ namespace ES.EvPointer
                 block.SetInt(paraName, int_?.Pick() ?? 0);
                 rr.SetPropertyBlock(block);
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("渲染器设置材质块_设置颜色", "渲染颜色和材质")]
@@ -200,7 +200,7 @@ namespace ES.EvPointer
         public IPointerForRenderer_Only renderer_Only = new PointerForRenderer_Direc();
         [LabelText("参数名称")] public string paraName = "_Color";
         [LabelText("颜色值"), SerializeReference] public IPointerForColor_Only _color = new PointerForColor_Direc();
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             Renderer rr = renderer_Only?.Pick();
             if (rr != null)
@@ -209,7 +209,7 @@ namespace ES.EvPointer
                 block.SetColor(paraName, _color?.Pick() ?? Color.white);
                 rr.SetPropertyBlock(block);
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("渲染器Mesh设置_设置Mesh", "渲染颜色和材质")]
@@ -219,14 +219,14 @@ namespace ES.EvPointer
         public MeshFilter filter_Only;
 
         [LabelText("颜色值")] public Mesh mesh;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             MeshFilter rr = filter_Only;
             if (rr != null)
             {
                 rr.mesh = mesh;
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("精灵渲染器设置_设置Sprite", "渲染颜色和材质")]
@@ -236,7 +236,7 @@ namespace ES.EvPointer
         public SpriteRenderer render_Only;
 
         [LabelText("颜色值")] public Sprite sprite;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             SpriteRenderer rr = render_Only;
             if (rr != null)
@@ -244,7 +244,7 @@ namespace ES.EvPointer
                 if (rr.sprite == null || sprite != null)
                     rr.sprite = sprite;
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     #endregion

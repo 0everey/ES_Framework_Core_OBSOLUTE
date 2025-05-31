@@ -138,7 +138,7 @@ namespace ES.EvPointer
         [LabelText("发起投射?", SdfIconType.At), GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForCaster")] public bool usePlayerCaster;
         [LabelText("发送到Caster", SdfIconType.At), ShowIf("usePlayerCaster"), GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForCaster")] public PointerPlayerSystemObjectCaster playerCaster_;
         [LabelText("发送的物体"), SerializeReference] public IPointer object_;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             object oo = object_?.Pick();
             if (usePlayerCaster) playerCaster_?.Recieve(oo);
@@ -159,7 +159,7 @@ namespace ES.EvPointer
             return cast;
         }
 
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             if (usePlayerCaster && playerCaster_ != null)
             {
@@ -277,7 +277,7 @@ namespace ES.EvPointer
             return caster.Cast();
         }
 
-        public T Pick(object by = null, object yarn = null, object on = null)
+        public T Pick(object on= null, object from = null, object with = null)
         {
             return Catch();
         }

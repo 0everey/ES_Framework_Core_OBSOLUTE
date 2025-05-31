@@ -19,14 +19,14 @@ namespace ES.EvPointer
         public virtual string[] Keys { get; }
 
         [LabelText("数据键"), ValueDropdown("Keys")] public string key;
-        public override string Pick(object by = null, object yarn = null, object on = null)
+        public override string Pick(object on= null, object from = null, object with = null)
         {
             return key;
         }
     }
     public abstract class PointerString : IPointerForString_Only
     {
-        public virtual string Pick(object by = null, object yarn = null, object on = null)
+        public virtual string Pick(object on= null, object from = null, object with = null)
         {
             return "null";
         }
@@ -110,7 +110,7 @@ namespace ES.EvPointer
     [Serializable]
     public abstract class PointerForBonus : IPointerNone
     {
-        public virtual object Pick(object by = null, object yarn = null, object on = null)
+        public virtual object Pick(object on= null, object from = null, object with = null)
         {
             return -1;
         }
@@ -120,14 +120,14 @@ namespace ES.EvPointer
     {
        /* [SerializeReference, LabelText("获得魔灵数量")]
         public IPointerForInt_Only pointerForInt;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             var useOn = GameCenterManager.Instance.BaseDomain.Module_PlayerState;
             int num;
             useOn.m_soul_ += num = pointerForInt?.Pick() ?? 1;
             useOn.m_soul_ = Mathf.Min(useOn.m_soul_, useOn.m_maxSoul);
             GameCenterManager.Instance.ProactiveInvoke_OnSoulCollected(num);// ProactiveInvoke_OnSoulCollected
-            return base.Pick(by, yarn, on);
+            return base.Pick(On, From, With);
         }*/
     }
     [Serializable]
@@ -135,12 +135,12 @@ namespace ES.EvPointer
     {
        /* [SerializeReference, LabelText("治愈血量")]
         public IPointerForInt_Only pointerForInt;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             var useOn = GameCenterManager.Instance.BaseDomain.Module_PlayerState;
             useOn.m_healthPoint += pointerForInt?.Pick() ?? 1;
             useOn.m_healthPoint = Mathf.Min(useOn.m_healthPoint, useOn.m_maxHealthPoint);
-            return base.Pick(by, yarn, on);
+            return base.Pick(On, From, With);
         }*/
     }
     [Serializable]
@@ -151,14 +151,14 @@ namespace ES.EvPointer
        /* [LabelText("使用的Buff键")]
         public KeyString_BuffUse buffKey = new KeyString_BuffUse();
         [SerializeReference, LabelText("初始状态")] public IPointerForBuffStatus startStatus;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             Entity player = GameCenterManager.Instance.BaseDomain.Module_PlayerState.PlayerSelf;
             if (player != null)
             {
                 player.BuffDomain?.buffHosting.AddHandle(KeyValueMatchingUtility.Creator.CreateBuffRunTimeByKey(buffKey, startStatus?.Pick()));
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(On, From, With);
         }*/
     }
     #endregion
@@ -171,10 +171,10 @@ namespace ES.EvPointer
         [LabelText("MMF播放器"), SerializeReference] public MMF_Player mmf_Player;
 
         [Button("使用_MMF播放器")]
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             mmf_Player?.PlayFeedbacks();
-            return base.Pick(by, yarn, on);
+            return base.Pick(On, From, With);
         }
     }
     [Serializable, TypeRegistryItem("Feel_控制_MMFPlayer", "其他插件支持")]
@@ -252,7 +252,7 @@ namespace ES.EvPointer
         }
 
         [Button("控制_MMF播放器")]
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             switch (option)
             {
@@ -301,7 +301,7 @@ namespace ES.EvPointer
                 case EnumCollect.PointerMMFPlayerHandleOptions.SetCanPlay: mmf_Player?.SetCanPlay((valueFloat_?.Pick() ?? 1) > 0); break;
 
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(On, From, With);
         }
     }
     [TypeRegistryItem("Feel_加载场景", "其他插件支持")]
@@ -310,7 +310,7 @@ namespace ES.EvPointer
     {
         [LabelText("最终场景名")] public string sceneNameToLoad = "场景名称";
         [LabelText("加载中场景名")] public string sceneNameForLoading = "";
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (sceneNameForLoading == null || sceneNameForLoading == "")
             {
@@ -321,7 +321,7 @@ namespace ES.EvPointer
                 MMSceneLoadingManager.LoadScene(sceneNameToLoad, sceneNameForLoading);
             }
 
-            return base.Pick(by, yarn, on);
+            return base.Pick(On, From, With);
         }
     }
     [TypeRegistryItem("Feel_叠加加载场景", "其他插件支持")]
@@ -330,7 +330,7 @@ namespace ES.EvPointer
     {
         [LabelText("最终场景名")] public string sceneNameToLoad = "场景名称";
         [LabelText("加载中场景名")] public string sceneNameForLoading = "";
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (sceneNameForLoading == null || sceneNameForLoading == "")
             {
@@ -341,7 +341,7 @@ namespace ES.EvPointer
                 MMAdditiveSceneLoadingManager.LoadScene(sceneNameToLoad, sceneNameForLoading);
             }
 
-            return base.Pick(by, yarn, on);
+            return base.Pick(On, From, With);
         }
     }
     [TypeRegistryItem("Feel_停帧冻结(需要Time管理器支持)", "其他插件支持")]
@@ -350,10 +350,10 @@ namespace ES.EvPointer
     {
         [LabelText("冻结时间"), SerializeReference]
         public IPointerForFloat_Only float_ = new PointerForFloat_Direct() { float_ = 0.1f };
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             MMFreezeFrameEvent.Trigger(float_?.Pick() ?? 0.1f);
-            return base.Pick(by, yarn, on);
+            return base.Pick(On, From, With);
         }
     }
     [TypeRegistryItem("Feel_浮动跳字(需要FloatingText管理器支持)", "其他插件支持")]
@@ -367,10 +367,10 @@ namespace ES.EvPointer
         [LabelText("速度方向"), SerializeReference] public IPointerForVector3_Only ve3_direction = new PointerForVector3_Direct();
         [LabelText("速度方向"), SerializeReference] public IPointerForFloat_Only float_iden = new PointerForFloat_Direct() { float_ = 1 };
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             MMFloatingTextSpawnEvent.Trigger(channelData, ve3_Pos?.Pick() ?? default, str_?.Pick(), ve3_direction?.Pick() ?? Vector3.up, float_iden?.Pick() ?? 1);
-            return base.Pick(by, yarn, on);
+            return base.Pick(On, From, With);
         }
     }
     #endregion*/
@@ -384,7 +384,7 @@ namespace ES.EvPointer
     public class PointerForBuffStatus_Base : IPointerForBuffStatus
     {
         [LabelText("直接使用基本Buff状态")] public BuffStatusTest BuffStatusTest;
-        public BuffStatusTest Pick(object by = null, object yarn = null, object on = null)
+        public BuffStatusTest Pick(object on= null, object from = null, object with = null)
         {
             if (BuffStatusTest.duration == 0) BuffStatusTest.duration = 10;
             if (BuffStatusTest.level == 0) BuffStatusTest.level = 1;

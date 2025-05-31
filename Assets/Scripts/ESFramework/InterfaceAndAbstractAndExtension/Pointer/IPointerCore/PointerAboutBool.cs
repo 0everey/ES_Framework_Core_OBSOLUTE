@@ -14,7 +14,7 @@ namespace ES.EvPointer
     //核心 Ev针支持 关于动画器 Anamator部分
     #region 布尔值部分
         #region 布尔值接口抽象和包
-        public interface IPointerForBool<in By, in Yarn, in On> : IPointer<bool, By, Yarn, On>
+        public interface IPointerForBool<in On, in From, in With> : IPointer<bool, On, From, With>
         {
 
         }
@@ -73,7 +73,7 @@ namespace ES.EvPointer
             return b;
         }
 
-        public bool Pick(object by = null, object yarn = null, object on = null)
+        public bool Pick(object on= null, object from = null, object with = null)
         {
             return b = bP?.Pick() ?? default;
         }
@@ -83,7 +83,7 @@ namespace ES.EvPointer
     {
 
         [LabelText("直接输入")] public bool bool_;
-        public bool Pick(object by = null, object yarn = null, object on = null)
+        public bool Pick(object on= null, object from = null, object with = null)
         {
             return bool_;
         }
@@ -96,7 +96,7 @@ namespace ES.EvPointer
     public class PointerForBool_GameObjectActiveInHier : IPointerForBool_Only
     {
         [LabelText("层级活动游戏物体")] public GameObject ob;
-        public bool Pick(object by = null, object yarn = null, object on = null)
+        public bool Pick(object on= null, object from = null, object with = null)
         {
             return ob?.activeInHierarchy ?? false;
         }
@@ -106,7 +106,7 @@ namespace ES.EvPointer
     public class PointerForBool_GameObjectActiveSelf : IPointerForBool_Only
     {
         [LabelText("自己活动游戏物体")] public GameObject ob;
-        public bool Pick(object by = null, object yarn = null, object on = null)
+        public bool Pick(object on= null, object from = null, object with = null)
         {
             return ob?.activeSelf ?? false;
         }
@@ -115,7 +115,7 @@ namespace ES.EvPointer
     public class PointerForBool_MonoEnable : IPointerForBool_Only
     {
         [LabelText("Mono可用脚本")] public MonoBehaviour mono;
-        public bool Pick(object by = null, object yarn = null, object on = null)
+        public bool Pick(object on= null, object from = null, object with = null)
         {
             return mono?.enabled ?? false;
         }
@@ -124,7 +124,7 @@ namespace ES.EvPointer
     public class PointerForBool_MonoActiveAndEnable : IPointerForBool_Only
     {
         [LabelText("Mono活动脚本")] public MonoBehaviour mono;
-        public bool Pick(object by = null, object yarn = null, object on = null)
+        public bool Pick(object on= null, object from = null, object with = null)
         {
             return mono?.isActiveAndEnabled ?? false;
         }
@@ -134,7 +134,7 @@ namespace ES.EvPointer
     {
         [LabelText("?Bool概率")] public float P = 0.5f;
 
-        public bool Pick(object by = null, object yarn = null, object on = null)
+        public bool Pick(object on= null, object from = null, object with = null)
         {
             if (UnityEngine.Random.value < P)
             {
@@ -148,7 +148,7 @@ namespace ES.EvPointer
     {
         [LabelText("?概率来源"), SerializeReference] public IPointerForFloat_Only float_;
 
-        public bool Pick(object by = null, object yarn = null, object on = null)
+        public bool Pick(object on= null, object from = null, object with = null)
         {
             if (UnityEngine.Random.value < float_?.Pick())
             {
@@ -163,7 +163,7 @@ namespace ES.EvPointer
         [LabelText("!运算默认值")] public bool default_;
         [LabelText("!运算Bool针"), SerializeReference] public IPointerForBool_Only bool_;
 
-        public bool Pick(object by = null, object yarn = null, object on = null)
+        public bool Pick(object on= null, object from = null, object with = null)
         {
 
             return (!bool_?.Pick()) ?? default_;
@@ -177,7 +177,7 @@ namespace ES.EvPointer
         [LabelText("&&Bool针1"), SerializeReference] public IPointerForBool_Only bool_1;
         [LabelText("&&Bool针2"), SerializeReference] public IPointerForBool_Only bool_2;
 
-        public bool Pick(object by = null, object yarn = null, object on = null)
+        public bool Pick(object on= null, object from = null, object with = null)
         {
             if (bool_1 == null || bool_2 == null) return default_;
             return bool_1.Pick() && bool_2.Pick();
@@ -190,7 +190,7 @@ namespace ES.EvPointer
         [LabelText("||运算Bool针1"), SerializeReference] public IPointerForBool_Only bool_1;
         [LabelText("||运算Bool针2"), SerializeReference] public IPointerForBool_Only bool_2;
 
-        public bool Pick(object by = null, object yarn = null, object on = null)
+        public bool Pick(object on= null, object from = null, object with = null)
         {
             if (bool_1 == null || bool_2 == null) return default_;
             return bool_1.Pick() || bool_2.Pick();
@@ -203,7 +203,7 @@ namespace ES.EvPointer
         [LabelText("默认赋值")] public float default_ = 1;
         [LabelText("左值"), SerializeReference] public IPointerForFloat_Only float_Left;
         [LabelText("右值"), SerializeReference] public IPointerForFloat_Only float_Right;
-        public bool Pick(object by = null, object yarn = null, object on = null)
+        public bool Pick(object on= null, object from = null, object with = null)
         {
             float left = float_Left?.Pick() ?? default_;
             float right = float_Right?.Pick() ?? default_;
@@ -215,7 +215,7 @@ namespace ES.EvPointer
     public class PointerForBool_NotDefault : IPointerForBool_Only
     {
         [LabelText("任意物体不为default"), SerializeReference] public IPointer ob_;
-        public bool Pick(object by = null, object yarn = null, object on = null)
+        public bool Pick(object on= null, object from = null, object with = null)
         {
             object oo = ob_?.Pick() ?? default;
             return oo != default;
@@ -225,7 +225,7 @@ namespace ES.EvPointer
     public class PointerForBool_NotNullOnly : IPointerForBool_Only
     {
         [LabelText("任意物体不为null"), SerializeReference] public IPointer ob_;
-        public bool Pick(object by = null, object yarn = null, object on = null)
+        public bool Pick(object on= null, object from = null, object with = null)
         {
             object oo = ob_?.Pick();
             if (oo is UnityEngine.Object uo) return uo != null;
@@ -236,7 +236,7 @@ namespace ES.EvPointer
     public class PointerForBool_NotNullAndDestroyed : IPointerForBool_Only
     {
         [LabelText("任意物体不为null"), SerializeReference] public IPointer ob_;
-        public bool Pick(object by = null, object yarn = null, object on = null)
+        public bool Pick(object on= null, object from = null, object with = null)
         {
             object oo = ob_?.Pick();
             if (oo is UnityEngine.Object uo) return uo != null;

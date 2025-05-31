@@ -559,7 +559,16 @@ namespace ES
     {
 
     }
+    [Serializable/*基本String键字典IOC*/]
+    public abstract class BaseDicIOCWithStringKeyAndStringSelect<Element> : BaseDicIOC_TypeSelectAndKeyValue<string, string, Element>
+    {
 
+    }
+    [Serializable,TypeRegistryItem("字符串分组+键 Type映射")]
+    public class DicIOCWithStringSelectStringKey_TypeValue: BaseDicIOCWithStringKeyAndStringSelect<Type>
+    {
+
+    }
     #region 特殊IOC —— 原型参数键池专属参数集合
     [Serializable, TypeRegistryItem("原型参数IOC")/*技能树参数分类-*/]
     public class ArchitectureKeyValuePoolTypeListIOC : BaseListIOC_Arch_KeyAndList<EnumCollect.ArchitectureKeyValuePoolType, IArchitectureKeyValuePoolTypeValue>

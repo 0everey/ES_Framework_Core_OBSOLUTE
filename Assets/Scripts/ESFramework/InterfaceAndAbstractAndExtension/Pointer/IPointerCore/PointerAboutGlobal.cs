@@ -18,10 +18,10 @@ namespace ES.EvPointer
     [Serializable, TypeRegistryItem("全局功能_重新加载当前场景")]
     public class PointerPicker_LoadCurrentScene : PointerOnlyAction
     {
-       public override object Pick(object by = null, object yarn = null, object on = null)
+       public override object Pick(object on= null, object from = null, object with = null)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("全局功能_直接加载场景")]
@@ -30,12 +30,12 @@ namespace ES.EvPointer
         [LabelText("字符串"), SerializeReference]
         public IPointerForString_Only string_Only = new PointerForString_Direc();
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             String s = string_Only?.Pick();
             if (s == null || s == "") return -1;
             SceneManager.LoadScene(s);
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("全局功能_异步加载场景")]
@@ -44,12 +44,12 @@ namespace ES.EvPointer
         [LabelText("字符串"), SerializeReference]
         public IPointerForString_Only string_Only = new PointerForString_Direc();
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             String s = string_Only?.Pick();
             if (s == null || s == "") return -1;
             SceneManager.LoadSceneAsync(s);
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("全局功能_叠加加载场景")]
@@ -58,12 +58,12 @@ namespace ES.EvPointer
         [LabelText("字符串"), SerializeReference]
         public IPointerForString_Only string_Only = new PointerForString_Direc();
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             String s = string_Only?.Pick();
             if (s == null || s == "") return -1;
             SceneManager.LoadScene(s, LoadSceneMode.Additive);
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("全局功能_叠加异步加载场景")]
@@ -72,19 +72,19 @@ namespace ES.EvPointer
         [LabelText("字符串"), SerializeReference]
         public IPointerForString_Only string_Only = new PointerForString_Direc();
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             String s = string_Only?.Pick();
             if (s == null || s == "") return -1;
             SceneManager.LoadSceneAsync(s, LoadSceneMode.Additive);
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("全局功能_暂停游戏(时间缩放=0)")]
     public class PointerPicker_SetTimeScaleTo0_PauseGame : PointerOnlyAction
     {
         
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             Time.timeScale = 0;
             return null;
@@ -93,7 +93,7 @@ namespace ES.EvPointer
     [Serializable, TypeRegistryItem("全局功能_恢复游戏(时间缩放=1)")]
     public class PointerPicker_SetTimeScaleTo1_ResumeGame : PointerOnlyAction
     {
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             Time.timeScale = 1;
             return null;
@@ -105,7 +105,7 @@ namespace ES.EvPointer
         [LabelText("设置缩放时间"), SerializeReference]
         public IPointerForFloat_Only float_only = new PointerForFloat_Direct();
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             float scale = float_only?.Pick()??1;
             Time.timeScale = scale;

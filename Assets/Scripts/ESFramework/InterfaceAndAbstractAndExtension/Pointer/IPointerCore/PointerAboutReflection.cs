@@ -25,7 +25,7 @@ namespace ES.EvPointer
     {
         [LabelText("任意物体"), SerializeReference] public IPointer every;
         [LabelText("字段名")] public string fieldName;
-        public T Pick(object by = null, object yarn = null, object on = null)
+        public T Pick(object on= null, object from = null, object with = null)
         {
             if (every != null)
             {
@@ -50,7 +50,7 @@ namespace ES.EvPointer
     {
         [LabelText("任意物体"), SerializeReference] public IPointer every;
         [LabelText("属性名")] public string propertyInfo;
-        public T Pick(object by = null, object yarn = null, object on = null)
+        public T Pick(object on= null, object from = null, object with = null)
         {
             if (every != null)
             {
@@ -75,7 +75,7 @@ namespace ES.EvPointer
     {
         [LabelText("任意物体"), SerializeReference] public IPointer every;
         [LabelText("方法名")] public string fieldName;
-        public T Pick(object by = null, object yarn = null, object on = null)
+        public T Pick(object on= null, object from = null, object with = null)
         {
             if (every != null)
             {
@@ -228,7 +228,7 @@ namespace ES.EvPointer
         [LabelText("任意物体"), SerializeReference] public IPointer every;
         [LabelText("字段名")] public string fieldName;
         public virtual T getValue { get; }
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             if (every != null)
             {
@@ -255,7 +255,7 @@ namespace ES.EvPointer
         [LabelText("任意物体"), SerializeReference] public IPointer every;
         [LabelText("属性名")] public string propertyName;
         public virtual T getValue { get; }
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             if (every != null)
             {
@@ -278,7 +278,7 @@ namespace ES.EvPointer
         [LabelText("任意物体"), SerializeReference] public IPointer every;
         [LabelText("方法名")] public string fieldName;
         [LabelText("参数列表"), SerializeReference] public List<IPointer> objects;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             if (every != null)
             {
@@ -495,7 +495,7 @@ namespace ES.EvPointer
 
     #region 反射信息针(XXXInfo_目前不是主流推荐使用上面的)
         #region XXXInfo接口抽象和包
-        public interface IPointerForMemberInfo<By, Yarn, On> : IPointer<MemberInfo, By, Yarn, On>
+        public interface IPointerForMemberInfo<On, From, With> : IPointer<MemberInfo, On, From, With>
         {
 
         }
@@ -503,7 +503,7 @@ namespace ES.EvPointer
         {
 
         }
-        public interface IPointerForFieldInfo<By, Yarn, On> : IPointer<FieldInfo, By, Yarn, On>
+        public interface IPointerForFieldInfo<On, From, With> : IPointer<FieldInfo, On, From, With>
         {
 
         }

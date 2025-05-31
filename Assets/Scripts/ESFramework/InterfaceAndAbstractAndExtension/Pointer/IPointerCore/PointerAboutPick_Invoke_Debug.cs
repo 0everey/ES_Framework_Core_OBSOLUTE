@@ -22,10 +22,10 @@ namespace ES.EvPointer
         [LabelText("要Pick(调用)的针"), SerializeReference] public IPointer pointer1;
 
         [Button("Pick该针-可测试")]
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             pointer1?.Pick();
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("Pick调用_任意针_遍历次数")]
@@ -34,14 +34,14 @@ namespace ES.EvPointer
         [LabelText("要Pick(调用)的针"), SerializeReference] public IPointer pointer1;
         [LabelText("遍历次数"), SerializeReference] public IPointerForInt_Only times = new PointerForInt_Direct() { int_ = 3 };
         [Button("Pick该针-可测试")]
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             int times_ = times?.Pick() ?? 3;
             for (int i = 0; i < times_; i++)
             {
                 pointer1?.Pick();
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("Pick调用_任意针_带冷却间隔调用")]
@@ -51,13 +51,13 @@ namespace ES.EvPointer
         [LabelText("冷却时间"),SerializeReference] public IPointerForFloat_Only coolDown = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("上次的触发游戏时间")]public float lastTime = 0;
         [Button("Pick该针-可测试")]
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (Time.time - lastTime <( coolDown?.Pick() ?? 1)) return null;
             lastTime = Time.time;
             pointer1?.Pick(); 
             playerCaster_?.Recieve(lastTime);
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
 
         public float Cast()
@@ -76,7 +76,7 @@ namespace ES.EvPointer
         [LabelText("要Pick(调用)的针列表"), SerializeReference] public List<IPointer> ps=new List<IPointer>();
         
         [Button("Pick该针-可测试")]
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             foreach(var i in ps)
             {
@@ -93,13 +93,13 @@ namespace ES.EvPointer
         [LabelText("Pick针"), SerializeReference] public IPointer pointer1;
 
         [Button("Pick该针")]
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (when?.Pick() ?? true)
             {
                 pointer1?.Pick();
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("Pick调用_三元表达式 触发针")]
@@ -109,7 +109,7 @@ namespace ES.EvPointer
         [LabelText("为真时Pick的针"), SerializeReference] public IPointer pointerForTrue;
         [LabelText("为假时Pick的针"), SerializeReference] public IPointer pointerForFalse;
         [Button("测试Pick该针")]
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (when?.Pick() ?? true)
             {
@@ -119,14 +119,14 @@ namespace ES.EvPointer
             {
                 pointerForFalse?.Pick();
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("触发针_触发UnityEvent")]
     public class PointerForAction_InvokeUnityEvent : IPointerOnlyAction
     {
         [LabelText("触发事件")] public UnityEvent unityEvent;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             if (unityEvent != null)
             {
@@ -139,7 +139,7 @@ namespace ES.EvPointer
     public class PointerForAction_InvokePointerPlayer : IPointerForAction_Only
     {
         [LabelText("触发的针Player")] public PointerPlayer aPlayer;
-        public Action Pick(object by = null, object yarn = null, object on = null)
+        public Action Pick(object on= null, object from = null, object with = null)
         {
             if (aPlayer != null)
             {
@@ -154,7 +154,7 @@ namespace ES.EvPointer
     [Serializable, TypeRegistryItem("触发针包_每次触发一个")]
     public class PointerPackOnlyAction_RandomOne : PointerPackerForNone, IPointerOnlyAction
     {
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (pointers != null && pointers.Count > 0)
             {
@@ -168,7 +168,7 @@ namespace ES.EvPointer
     [Serializable, TypeRegistryItem("触发针包_循环每次触发下一个")]
     public class PointerPackOnlyAction_LoopAndNext : PointerPackerForNone, IPointerOnlyAction
     {
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (pointers != null && pointers.Count > 0)
             {
@@ -183,7 +183,7 @@ namespace ES.EvPointer
     [Serializable, TypeRegistryItem("触发针包_遍历触发全部针")]
     public class PointerPackOnlyAction_LoopOnce : PointerPackerForNone, IPointerOnlyAction
     {
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (pointers != null)
             {
@@ -205,7 +205,7 @@ namespace ES.EvPointer
     {
         [LabelText("依赖触发"), SerializeReference]
         public IPointerNone dependPointer;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             return dependPointer?.Pick();
         }
@@ -221,7 +221,7 @@ namespace ES.EvPointer
             hasInit = true;
         }
         public bool hasInit = false;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (!hasInit) Init();
             return dependPointer?.Pick();
@@ -258,7 +258,7 @@ namespace ES.EvPointer
     {
         [LabelText("类型")] public LogType type = LogType.Log;
         [LabelText("debug内容"), SerializeReference] public IPointerForString_Only debug = new PointerForString_Direc() { string_direc = "任意内容" };
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             switch (type)
             {
@@ -268,7 +268,7 @@ namespace ES.EvPointer
                 default: Debug.Log(type + "$$" + debug?.Pick()); break;
             }
 
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("Debug直接输入字符串", "调试")]
@@ -276,7 +276,7 @@ namespace ES.EvPointer
     {
         [LabelText("类型")] public LogType type = LogType.Log;
         [LabelText("debug内容")] public string debug = "测试";
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             switch (type)
             {
@@ -286,7 +286,7 @@ namespace ES.EvPointer
                 default: Debug.Log(type + "$$" + debug); break;
             }
 
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("Debug任意物体", "调试")]
@@ -294,7 +294,7 @@ namespace ES.EvPointer
     {
         [LabelText("类型")] public LogType type = LogType.Log;
         [LabelText("debugr任意内容")] public IPointer everythingPointer = new PointerForString_Direc() { string_direc = "任意内容" };
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             string eve = everythingPointer?.Pick().ToString();
             switch (type)
@@ -305,7 +305,7 @@ namespace ES.EvPointer
                 default: Debug.Log(type + "$$" + eve); break;
             }
 
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
 
@@ -329,7 +329,7 @@ namespace ES.EvPointer
             return cancelSourceToken;
         }
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             GameCenterManager.Instance.StartCoroutine(CoroutineMaker.DelayCoroutine(() => { dependPointer?.Pick(); }, delayTime?.Pick() ?? 1,
                 applyCancellationSource ? cancelSourceToken = new CancellationTokenSource() : default));
@@ -360,7 +360,7 @@ namespace ES.EvPointer
         {
             return cancelSourceToken;
         }
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             GameCenterManager.Instance.StartCoroutine(CoroutineMaker.RepeatConroutine(
                 () => { dependPointer?.Pick(); },
@@ -394,7 +394,7 @@ namespace ES.EvPointer
             return cancelSourceToken;
         }
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             GameCenterManager.Instance.StartCoroutine(CoroutineMaker.RunningConroutine(
 
@@ -424,7 +424,7 @@ namespace ES.EvPointer
         [LabelText("是否必需接受者")] public bool needRecieve = false;
         public EnumCollect.SendMessageType messageType;
 
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             if (com == null) return default;
             SendMessageOptions options = needRecieve ? SendMessageOptions.RequireReceiver : SendMessageOptions.DontRequireReceiver;
@@ -522,7 +522,7 @@ namespace ES.EvPointer
     public abstract class SendLink<T> : IPointerNone where T : ILink
     {
         [LabelText("发送的Link")]public T link;
-        public virtual object Pick(object by = null, object yarn = null, object on = null)
+        public virtual object Pick(object on= null, object from = null, object with = null)
         {
             if (link != null)
             {

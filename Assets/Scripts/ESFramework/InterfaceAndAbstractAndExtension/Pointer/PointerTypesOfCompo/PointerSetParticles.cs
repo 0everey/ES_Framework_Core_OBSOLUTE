@@ -25,7 +25,7 @@ namespace ES
     {
         [LabelText("引用粒子系统")]
         public ParticleSystem system;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             if (system != null)
             {

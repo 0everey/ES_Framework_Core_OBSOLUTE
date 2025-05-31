@@ -14,7 +14,7 @@ namespace ES.EvPointer
     //核心 Ev针支持 关于四元数 Quaterntion部分
     #region 四元数部分
         #region 四元数接口抽象和包
-    public interface IPointerForQuaternion<By, Yarn, On> : IPointer<Quaternion, By, Yarn, On> { }
+    public interface IPointerForQuaternion<On, From, With> : IPointer<Quaternion, On, From, With> { }
     public interface IPointerForQuaternion_Only : IPointerOnlyBack<Quaternion>, IPointerForQuaternion<object, object, object>
     {
         object IPointer.Pick(object a, object b, object c)
@@ -50,7 +50,7 @@ namespace ES.EvPointer
         {
             [LabelText("四元数")]
             public Quaternion quaternion;
-            public Quaternion Pick(object by = null, object yarn = null, object on = null)
+            public Quaternion Pick(object on= null, object from = null, object with = null)
             {
                 return quaternion;
             }
@@ -60,7 +60,7 @@ namespace ES.EvPointer
         {
             [LabelText("欧拉角"), SerializeReference]
             public IPointerForVector3_Only v3Source;
-            public Quaternion Pick(object by = null, object yarn = null, object on = null)
+            public Quaternion Pick(object on= null, object from = null, object with = null)
             {
                 return Quaternion.Euler(v3Source?.Pick() ?? default);
             }
@@ -70,7 +70,7 @@ namespace ES.EvPointer
         {
             [LabelText("变换源"), SerializeReference]
             public IPointerForTransform_Only trans;
-            public Quaternion Pick(object by = null, object yarn = null, object on = null)
+            public Quaternion Pick(object on= null, object from = null, object with = null)
             {
                 return trans?.Pick()?.rotation ?? default;
             }
@@ -88,7 +88,7 @@ namespace ES.EvPointer
                 hasInit = true;
             }
 
-            public Quaternion Pick(object by = null, object yarn = null, object on = null)
+            public Quaternion Pick(object on= null, object from = null, object with = null)
             {
                 if (!hasInit) Init();
                 return q;
@@ -99,7 +99,7 @@ namespace ES.EvPointer
         {
             [LabelText("变换源"), SerializeReference]
             public IPointerForTransform_Only trans;
-            public Quaternion Pick(object by = null, object yarn = null, object on = null)
+            public Quaternion Pick(object on= null, object from = null, object with = null)
             {
                 return trans?.Pick()?.localRotation ?? default;
             }
@@ -111,7 +111,7 @@ namespace ES.EvPointer
             public IPointerForVector3_Only v3Direc;
             [LabelText("上轴(默认UP)"), SerializeReference]
             public IPointerForVector3_Only upWards;
-            public Quaternion Pick(object by = null, object yarn = null, object on = null)
+            public Quaternion Pick(object on= null, object from = null, object with = null)
             {
                 Vector3 vv = v3Direc?.Pick() ?? default;
                 if (vv == default) return Quaternion.identity;
@@ -127,13 +127,13 @@ namespace ES.EvPointer
             public IPointerForVector3_Only v3DirecFrom;
             [LabelText("方向后"), SerializeReference]
             public IPointerForVector3_Only v3DirecTo;
-            public Quaternion Pick(object by = null, object yarn = null, object on = null)
+            public Quaternion Pick(object on= null, object from = null, object with = null)
             {
-                Vector3 from = v3DirecFrom?.Pick() ?? default;
-                if (from == default) return Quaternion.identity;
+                Vector3 from_ = v3DirecFrom?.Pick() ?? default;
+                if (from_ == default) return Quaternion.identity;
                 Vector3 to = v3DirecTo?.Pick() ?? default;
                 if (to == default) return Quaternion.identity;
-                return Quaternion.FromToRotation(from, to);
+                return Quaternion.FromToRotation(from_, to);
             }
         }
         [Serializable, TypeRegistryItem("四元数_归一化")]
@@ -142,7 +142,7 @@ namespace ES.EvPointer
             [LabelText("源四元数"), SerializeReference]
             public IPointerForQuaternion_Only quaternion_Only;
 
-            public Quaternion Pick(object by = null, object yarn = null, object on = null)
+            public Quaternion Pick(object on= null, object from = null, object with = null)
             {
 
                 Quaternion q = quaternion_Only?.Pick() ?? Quaternion.identity;
@@ -157,7 +157,7 @@ namespace ES.EvPointer
             [LabelText("源四元数右"), SerializeReference]
             public IPointerForQuaternion_Only quaternion_Only_right;
 
-            public Quaternion Pick(object by = null, object yarn = null, object on = null)
+            public Quaternion Pick(object on= null, object from = null, object with = null)
             {
 
                 Quaternion q1 = quaternion_Only_left?.Pick() ?? Quaternion.identity;
@@ -174,7 +174,7 @@ namespace ES.EvPointer
             [LabelText("Lerp_T源"), SerializeReference] public IPointerForFloat_Only float_Only_t;
             [LabelText("取消钳制")] public bool clampNot;
 
-            public Quaternion Pick(object by = null, object yarn = null, object on = null)
+            public Quaternion Pick(object on= null, object from = null, object with = null)
             {
                 Quaternion a = (q_Only_1?.Pick() ?? default);
                 Quaternion b = (q_Only_2?.Pick() ?? default);
@@ -191,7 +191,7 @@ namespace ES.EvPointer
             [LabelText("Lerp_T源"), SerializeReference] public IPointerForFloat_Only float_Only_t;
             [LabelText("取消钳制")] public bool clampNot;
 
-            public Quaternion Pick(object by = null, object yarn = null, object on = null)
+            public Quaternion Pick(object on= null, object from = null, object with = null)
             {
                 Quaternion a = (q_Only_1?.Pick() ?? default);
                 Quaternion b = (q_Only_2?.Pick() ?? default);
@@ -208,7 +208,7 @@ namespace ES.EvPointer
             [LabelText("度数"), SerializeReference] public IPointerForFloat_Only float_Only_t;
 
 
-            public Quaternion Pick(object by = null, object yarn = null, object on = null)
+            public Quaternion Pick(object on= null, object from = null, object with = null)
             {
                 Quaternion a = (q_Only_1?.Pick() ?? default);
                 Quaternion b = (q_Only_2?.Pick() ?? default);

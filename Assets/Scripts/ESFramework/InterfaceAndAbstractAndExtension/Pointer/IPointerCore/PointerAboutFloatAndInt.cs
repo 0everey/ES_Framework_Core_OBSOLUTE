@@ -15,7 +15,7 @@ namespace ES.EvPointer
     //核心 Ev针支持 关于Float 和 Int 部分
     #region Float部分
         #region Float接口抽象与包
-    public interface IPointerForFloat<By, Yarn, On> : IPointer<float, By, Yarn, On>
+    public interface IPointerForFloat<On, From, With> : IPointer<float, On, From, With>
     {
 
     }
@@ -67,7 +67,7 @@ namespace ES.EvPointer
     {
         [LabelText("加float_1源"), SerializeReference] public IPointerForFloat_Only float_Only_1 = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("加float_2源"), SerializeReference] public IPointerForFloat_Only float_Only_2 = new PointerForFloat_Direct() { float_ = 1 };
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return (float_Only_1?.Pick() ?? default) + (float_Only_2?.Pick() ?? default);
         }
@@ -82,7 +82,7 @@ namespace ES.EvPointer
             return f;
         }
 
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return f = fP?.Pick() ?? default;
         }
@@ -92,7 +92,7 @@ namespace ES.EvPointer
     {
         [LabelText("减float_1源"), SerializeReference] public IPointerForFloat_Only float_Only_1 = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("减float_2源"), SerializeReference] public IPointerForFloat_Only float_Only_2 = new PointerForFloat_Direct() { float_ = 1 };
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return (float_Only_1?.Pick() ?? default) - (float_Only_2?.Pick() ?? default);
         }
@@ -102,7 +102,7 @@ namespace ES.EvPointer
     {
         [LabelText("乘float_1源"), SerializeReference] public IPointerForFloat_Only float_Only_1 = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("乘float_2源"), SerializeReference] public IPointerForFloat_Only float_Only_2 = new PointerForFloat_Direct() { float_ = 1 };
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return (float_Only_1?.Pick() ?? 1) * (float_Only_2?.Pick() ?? 1);
         }
@@ -112,7 +112,7 @@ namespace ES.EvPointer
     {
         [LabelText("除float_1源"), SerializeReference] public IPointerForFloat_Only float_Only_1 = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("除float_2源"), SerializeReference] public IPointerForFloat_Only float_Only_2 = new PointerForFloat_Direct() { float_ = 1 };
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return (float_Only_1?.Pick() ?? 0) / (float_Only_2?.Pick() ?? 1);
         }
@@ -122,7 +122,7 @@ namespace ES.EvPointer
     {
         [LabelText("余float_1源"), SerializeReference] public IPointerForFloat_Only float_Only_1 = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("余float_2源"), SerializeReference] public IPointerForFloat_Only float_Only_2 = new PointerForFloat_Direct() { float_ = 1 };
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return (float_Only_1?.Pick() ?? 0) % (float_Only_2?.Pick() ?? 1);
         }
@@ -132,7 +132,7 @@ namespace ES.EvPointer
     {
         [LabelText("底数float_1源"), SerializeReference] public IPointerForFloat_Only float_Only_1 = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("指数float_2源"), SerializeReference] public IPointerForFloat_Only float_Only_2 = new PointerForFloat_Direct() { float_ = 1 };
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return Mathf.Pow((float_Only_1?.Pick() ?? 0), (float_Only_2?.Pick() ?? 1));
         }
@@ -142,7 +142,7 @@ namespace ES.EvPointer
     {
         [LabelText("最小float_1源"), SerializeReference] public IPointerForFloat_Only float_Only_1 = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("最小float_2源"), SerializeReference] public IPointerForFloat_Only float_Only_2 = new PointerForFloat_Direct() { float_ = 1 };
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return Mathf.Min((float_Only_1?.Pick() ?? 0), (float_Only_2?.Pick() ?? 1));
         }
@@ -152,7 +152,7 @@ namespace ES.EvPointer
     {
         [LabelText("最大float_1源"), SerializeReference] public IPointerForFloat_Only float_Only_1 = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("最大float_2源"), SerializeReference] public IPointerForFloat_Only float_Only_2 = new PointerForFloat_Direct() { float_ = 1 };
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return Mathf.Max((float_Only_1?.Pick() ?? 0), (float_Only_2?.Pick() ?? 1));
         }
@@ -162,7 +162,7 @@ namespace ES.EvPointer
     {
         [LabelText("绝对距离float_1源"), SerializeReference] public IPointerForFloat_Only float_Only_1 = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("绝对距离float_2源"), SerializeReference] public IPointerForFloat_Only float_Only_2 = new PointerForFloat_Direct() { float_ = 1 };
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return Mathf.Abs((float_Only_1?.Pick() ?? 0) - (float_Only_2?.Pick() ?? 0));
         }
@@ -175,7 +175,7 @@ namespace ES.EvPointer
         [LabelText("Lerp_T源"), SerializeReference] public IPointerForFloat_Only float_Only_t;
         [LabelText("取消钳制")] public bool clampNot;
 
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             float a = (float_Only_1?.Pick() ?? 0);
             float b = (float_Only_2?.Pick() ?? 1);
@@ -190,7 +190,7 @@ namespace ES.EvPointer
         [LabelText("起始float_1源"), SerializeReference] public IPointerForFloat_Only float_Only_1 = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("终点float_2源"), SerializeReference] public IPointerForFloat_Only float_Only_2 = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("SmoothStep_T源"), SerializeReference] public IPointerForFloat_Only float_Only_t = new PointerForFloat_Direct() { float_ = 1 };
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             float a = (float_Only_1?.Pick() ?? 0);
             float b = (float_Only_2?.Pick() ?? 1);
@@ -203,7 +203,7 @@ namespace ES.EvPointer
     {
 
         [LabelText("Sign_T源"), SerializeReference] public IPointerForFloat_Only float_Only_t = new PointerForFloat_Direct() { float_ = 1 };
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
 
             float t = (float_Only_t?.Pick() ?? 0);
@@ -215,7 +215,7 @@ namespace ES.EvPointer
     {
 
         [LabelText("Cos_T源"), SerializeReference] public IPointerForFloat_Only float_Only_t = new PointerForFloat_Direct() { float_ = Mathf.PI };
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
 
             float t = (float_Only_t?.Pick() ?? 0);
@@ -227,7 +227,7 @@ namespace ES.EvPointer
     {
 
         [LabelText("Sin_T源"), SerializeReference] public IPointerForFloat_Only float_Only_t = new PointerForFloat_Direct() { float_ = Mathf.PI };
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
 
             float t = (float_Only_t?.Pick() ?? 0);
@@ -239,7 +239,7 @@ namespace ES.EvPointer
     {
 
         [LabelText("Tan_T源"), SerializeReference] public IPointerForFloat_Only float_Only_t = new PointerForFloat_Direct() { float_ = Mathf.PI / 4 };
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
 
             float t = (float_Only_t?.Pick() ?? 0);
@@ -251,7 +251,7 @@ namespace ES.EvPointer
     {
 
         [LabelText("Rad源ToAngle"), SerializeReference] public IPointerForFloat_Only float_Only_t = new PointerForFloat_Direct() { float_ = Mathf.PI };
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
 
             float t = (float_Only_t?.Pick() ?? 0);
@@ -263,7 +263,7 @@ namespace ES.EvPointer
     {
 
         [LabelText("Angle源ToDeg"), SerializeReference] public IPointerForFloat_Only float_Only_t = new PointerForFloat_Direct() { float_ = 180 };
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
 
             float t = (float_Only_t?.Pick() ?? 0);
@@ -273,7 +273,7 @@ namespace ES.EvPointer
     [Serializable, TypeRegistryItem("浮点数弧度转角度", "单值针/浮点数针")]
     public class PointerForFloat_Time : IPointerForFloat_Only
     {
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return Time.time;
         }
@@ -290,7 +290,7 @@ namespace ES.EvPointer
             hasInit = true;
         }
 
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             if (!hasInit) Init();
             return Time.time - startTime;
@@ -304,7 +304,7 @@ namespace ES.EvPointer
         [LabelText("起点上届float_2源"), SerializeReference] public IPointerForFloat_Only float_Only_startUp_2 = new PointerForFloat_Direct() { float_ = 1 };
         [LabelText("终点下界float_1源"), SerializeReference] public IPointerForFloat_Only float_Only_endDown_1 = new PointerForFloat_Direct() { float_ = 0 };
         [LabelText("终点上届float_2源"), SerializeReference] public IPointerForFloat_Only float_Only_endUp_2 = new PointerForFloat_Direct() { float_ = 1 };
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             float a1 = float_Only_startDown_1?.Pick() ?? 0;
             float a2 = float_Only_startUp_2?.Pick() ?? 1;
@@ -321,7 +321,7 @@ namespace ES.EvPointer
     {
         [LabelText("平方根float_1源"), SerializeReference] public IPointerForFloat_Only float_Only_1 = new PointerForFloat_Direct() { float_ = 1 };
 
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return Mathf.Sqrt(float_Only_1?.Pick() ?? 1);
         }
@@ -331,7 +331,7 @@ namespace ES.EvPointer
     {
         [LabelText("倒数float_1源"), SerializeReference] public IPointerForFloat_Only float_Only_1 = new PointerForFloat_Direct() { float_ = 1 };
 
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return 1 / (float_Only_1?.Pick() ?? 1);
         }
@@ -340,7 +340,7 @@ namespace ES.EvPointer
     public class PointerForFloat_LengthOfVector3 : IPointerForFloat_Only
     {
         [LabelText("Vector3源"), SerializeReference] public IPointerForVector3_Only vector3_Only;
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return (vector3_Only?.Pick().magnitude) ?? default;
         }
@@ -350,7 +350,7 @@ namespace ES.EvPointer
     {
         [LabelText("Vector3源_1"), SerializeReference] public IPointerForVector3_Only vector3_Only1;
         [LabelText("Vector3源_2"), SerializeReference] public IPointerForVector3_Only vector3_Only2;
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             Vector3 v1 = (vector3_Only1?.Pick()) ?? default;
             Vector3 v2 = (vector3_Only2?.Pick()) ?? default;
@@ -362,7 +362,7 @@ namespace ES.EvPointer
     {
         [LabelText("Vector3源_1"), SerializeReference] public IPointerForVector3_Only vector3_Only1;
         [LabelText("Vector3源_2"), SerializeReference] public IPointerForVector3_Only vector3_Only2;
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             Vector3 v1 = (vector3_Only1?.Pick()) ?? default;
             Vector3 v2 = (vector3_Only2?.Pick()) ?? default;
@@ -374,7 +374,7 @@ namespace ES.EvPointer
     {
         [LabelText("Vector3源_1"), SerializeReference] public IPointerForVector3_Only vector3_Only1;
         [LabelText("Vector3源_2"), SerializeReference] public IPointerForVector3_Only vector3_Only2;
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             Vector3 v1 = (vector3_Only1?.Pick()) ?? default;
             Vector3 v2 = (vector3_Only2?.Pick()) ?? default;
@@ -385,7 +385,7 @@ namespace ES.EvPointer
     public class PointerForFloat_LengthOfVector2 : IPointerForFloat_Only
     {
         [LabelText("Vector2源"), SerializeReference] public IPointerForVector2_Only vector2_Only;
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return (vector2_Only?.Pick().magnitude) ?? default;
         }
@@ -395,7 +395,7 @@ namespace ES.EvPointer
     {
         [LabelText("Vector2源_1"), SerializeReference] public IPointerForVector2_Only vector2_Only1;
         [LabelText("Vector2源_2"), SerializeReference] public IPointerForVector2_Only vector2_Only2;
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             Vector2 v1 = (vector2_Only1?.Pick()) ?? default;
             Vector2 v2 = (vector2_Only2?.Pick()) ?? default;
@@ -407,7 +407,7 @@ namespace ES.EvPointer
     {
         [LabelText("Vector2源_1"), SerializeReference] public IPointerForVector2_Only vector2_Only1;
         [LabelText("Vector2源_2"), SerializeReference] public IPointerForVector2_Only vector2_Only2;
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             Vector2 v1 = (vector2_Only1?.Pick()) ?? default;
             Vector2 v2 = (vector2_Only2?.Pick()) ?? default;
@@ -419,7 +419,7 @@ namespace ES.EvPointer
     {
         [LabelText("Vector2源_1"), SerializeReference] public IPointerForVector2_Only vector2_Only1;
         [LabelText("Vector2源_2"), SerializeReference] public IPointerForVector2_Only vector2_Only2;
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             Vector2 v1 = (vector2_Only1?.Pick()) ?? default;
             Vector2 v2 = (vector2_Only2?.Pick()) ?? default;
@@ -430,7 +430,7 @@ namespace ES.EvPointer
     public class PointerForFloat_XOfVector3 : IPointerForFloat_Only
     {
         [LabelText("Vector3源-X"), SerializeReference] public IPointerForVector3_Only vector3_Only;
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return (vector3_Only?.Pick().x) ?? default;
         }
@@ -439,7 +439,7 @@ namespace ES.EvPointer
     public class PointerForFloat_YOfVector3 : IPointerForFloat_Only
     {
         [LabelText("Vector3源-Y"), SerializeReference] public IPointerForVector3_Only vector3_Only;
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return (vector3_Only?.Pick().y) ?? default;
         }
@@ -448,7 +448,7 @@ namespace ES.EvPointer
     public class PointerForFloat_ZOfVector3 : IPointerForFloat_Only
     {
         [LabelText("Vector3源-Z"), SerializeReference] public IPointerForVector3_Only vector3_Only;
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return (vector3_Only?.Pick().z) ?? default;
         }
@@ -457,7 +457,7 @@ namespace ES.EvPointer
     public class PointerForFloat_FromInt : IPointerForFloat_Only
     {
         [LabelText("Int源"), SerializeReference] public IPointerForInt_Only int_only;
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return (int_only?.Pick()) ?? default;
         }
@@ -466,7 +466,7 @@ namespace ES.EvPointer
     public class PointerForFloat_Direct : IPointerForFloat_Only
     {
         [LabelText("直接输入")] public float float_;
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return float_;
         }
@@ -476,7 +476,7 @@ namespace ES.EvPointer
     public class PointerForFloat_DirectClamp01 : IPointerForFloat_Only
     {
         [LabelText("随机范围"), Range(0, 1)] public float @float = 0f;
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return @float;
         }
@@ -485,7 +485,7 @@ namespace ES.EvPointer
     public class PointerForFloat_RandomClamp01 : IPointerForFloat_Only
     {
         [LabelText("随机范围"), MinMaxSlider(0, 1)] public Vector2 float_range = new Vector2(0, 1);
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return Mathf.Clamp01(UnityEngine.Random.Range(float_range.x, float_range.y));
         }
@@ -494,7 +494,7 @@ namespace ES.EvPointer
     public class PointerForFloat_Random30 : IPointerForFloat_Only
     {
         [LabelText("随机范围"), MinMaxSlider(0, 30)] public Vector2 float_range = new Vector2(2, 5);
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return UnityEngine.Random.Range(float_range.x, float_range.y);
         }
@@ -503,7 +503,7 @@ namespace ES.EvPointer
     public class PointerForFloat_Random : IPointerForFloat_Only
     {
         [LabelText("随机范围")] public Vector2 float_range = new Vector2(2, 5);
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return UnityEngine.Random.Range(float_range.x, float_range.y);
         }
@@ -513,7 +513,7 @@ namespace ES.EvPointer
 
     #region Int部分
         #region Int接口抽象和包 
-    public interface IPointerForInt<By, Yarn, On> : IPointer<int, By, Yarn, On>
+    public interface IPointerForInt<On, From, With> : IPointer<int, On, From, With>
     {
 
     }
@@ -565,7 +565,7 @@ namespace ES.EvPointer
     public class PointerForInt_Direct : IPointerForInt_Only
     {
         [LabelText("直接输入")] public int int_;
-        public int Pick(object by = null, object yarn = null, object on = null)
+        public int Pick(object on= null, object from = null, object with = null)
         {
             return int_;
         }
@@ -575,7 +575,7 @@ namespace ES.EvPointer
     {
         [LabelText("权重列(过大的Index视为空概率)")] public List<float> weights = new List<float>();
 
-        public int Pick(object by = null, object yarn = null, object on = null)
+        public int Pick(object on= null, object from = null, object with = null)
         {
 
             float target = weights.Sum() * UnityEngine.Random.value;
@@ -591,7 +591,7 @@ namespace ES.EvPointer
     public class PointerForInt_Random30 : IPointerForInt_Only
     {
         [LabelText("随机范围"), MinMaxSlider(0, 30)] public Vector2Int int_range = new Vector2Int(2, 5);
-        public int Pick(object by = null, object yarn = null, object on = null)
+        public int Pick(object on= null, object from = null, object with = null)
         {
             return UnityEngine.Random.Range(int_range.x, int_range.y + 1);
         }
@@ -606,7 +606,7 @@ namespace ES.EvPointer
             return int_;
         }
 
-        public int Pick(object by = null, object yarn = null, object on = null)
+        public int Pick(object on= null, object from = null, object with = null)
         {
             return int_ = intP?.Pick() ?? default;
         }
@@ -615,7 +615,7 @@ namespace ES.EvPointer
     public class PointerForInt_Random : IPointerForInt_Only
     {
         [LabelText("随机范围")] public Vector2Int int_range = new Vector2Int(2, 5);
-        public int Pick(object by = null, object yarn = null, object on = null)
+        public int Pick(object on= null, object from = null, object with = null)
         {
             return UnityEngine.Random.Range(int_range.x, int_range.y);
         }

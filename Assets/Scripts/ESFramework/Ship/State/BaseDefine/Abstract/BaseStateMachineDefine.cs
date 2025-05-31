@@ -1,27 +1,24 @@
-using ES;
-using ES.EvPointer;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Sirenix.Utilities;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem;
 #if UNITY_EDITOR
-using static UnityEditor.VersionControl.Asset;
 #endif
 
-namespace ES {
+namespace ES
+{
 
     #region 最原始定义
     //原始定义
     public abstract class BaseOriginalStateMachine : BaseESOringinalHostingAndModule<BaseOriginalStateMachine>, IESNanoStateMachine, IESModule,IESOriginalModule<BaseOriginalStateMachine>
     {
         #region 杂货
-        public static IESNanoState NullState = new ESNanoStateMachine_StringKey() { key_ = "空状态" };
-        public static IESMicroState NullState_Micro = new BaseESMicroStateOverrideRunTimeLogic_StringKey() { key = "空状态" };
+        public abstract string QuickKey();
+        /*public static IESNanoState NullState = new ESNanoStateMachine_StringKey() { key_ = "空状态" };
+        public static IESMicroState NullState_Micro = new BaseESMicroStateOverrideRunTimeLogic_StringKey() { key = "空状态" };*/
         [DisplayAsString(FontSize = 25), HideLabel, PropertyOrder(-1)]
         public string Des_ => "我是一个状态机噢耶";//随便描述一下而已
         public bool CheckThisStateCanUpdating
@@ -49,7 +46,7 @@ namespace ES {
         }
 
         //默认进入状态
-        [NonSerialized] public IESNanoState StartWithState;
+        [NonSerialized] public IESNanoState StartWithState=null;
         [LabelText("设置默认状态的键(这里设置没用)"),ShowInInspector] public object defaultStateKey = null;
         //Host获取哈
         protected bool OnSubmitHostingAsNormal(BaseOriginalStateMachine hosting)
@@ -60,7 +57,7 @@ namespace ES {
         //获取初始状态
         protected IESNanoState GetStartWith()
         {
-            if (StartWithState != null && StartWithState != NullState)
+            if (StartWithState != null)
             {
                 return StartWithState;
             }
@@ -84,15 +81,17 @@ namespace ES {
             set { /*Debug.LogWarning("修改状态机自状态是危险的，但是允许");*/ thisState = value; }
         }
 
-        [LabelText("状态机自基准状态"), SerializeReference, FoldoutGroup("子状态")] public IESMicroState thisState = NullState_Micro;//基准状态不准是纳米的，起码是微型的罢
+        [LabelText("状态机自基准状态"),NonSerialized] public IESMicroState thisState = null;//基准状态不准是纳米的，起码是微型的罢
 
         #endregion
 
         #region 父子关系与保持的运行
         //基准状态
         //获得根状态机--非常好的东西
-        public BaseOriginalStateMachine Root { get { if (GetHost is BaseOriginalStateMachine machine) return machine.Root; else return this; } }
-
+        public BaseOriginalStateMachine Root { get { if (_root != null) return _root;
+             if (GetHost is BaseOriginalStateMachine machine) return _root=machine.Root; else return this; } 
+        }
+        private BaseOriginalStateMachine _root = null;
         public IESNanoState SelfRunningState { get => _SelfRunningState; set => _SelfRunningState = value; }
         [SerializeReference, LabelText("当前运行状态"), FoldoutGroup("子状态")] public IESNanoState _SelfRunningState = null;
         //总状态机(冲突合并需要的)--只有标准状态机需要
@@ -141,8 +140,6 @@ namespace ES {
             HasPrepared = false;//状态更新
 
             AsThis?.OnStateExit();//自基准状态
-
-            Debug.Log("关闭状态机"+GetKey());
             _Expand_ExitHappenDesign();//扩展Exit时机
             
             if (host is ESMicroStateMachine_StringKey parent)
@@ -153,7 +150,7 @@ namespace ES {
                 }
                 parent._SelfRunningStates.TryRemove(this);//如果自己是子，那么也要从父级的运行状态中移除
             }
-            _SelfRunningState = NullState;
+            _SelfRunningState = null;
         }
         //更新时--状态更新
         public void OnStateUpdate()
@@ -186,20 +183,20 @@ namespace ES {
         protected override void OnEnable()
         {
             base.OnEnable();
-            if (GetHost is BaseOriginalStateMachine machine) { }//如果有父状态机--》受父级更新控制
+            if (GetHost != null) { }//如果有父状态机--》受父级更新控制
             else OnStatePrepare();//如果没有父级或者父级不是状态机--》自己就完成控制了
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
-            if (GetHost is BaseOriginalStateMachine machine) { }//如果有父状态机--》受父级更新控制
+            if (GetHost != null) { }//如果有父状态机--》受父级更新控制
             else OnStateExit();//如果没有父级或者父级不是状态机--》自己就完成控制了
         }
         protected override void Update()
         {
             base.Update();
-            if (GetHost is BaseOriginalStateMachine machine) { }//如果有父状态机--》受父级更新控制
+            if (GetHost !=null) { }//如果有父状态机--》受父级更新控制
             else OnStateUpdate();//如果没有父级或者父级不是状态机--》自己就完成控制了
         }
         #endregion
@@ -218,7 +215,7 @@ namespace ES {
         }
         public bool IsStateNotNull(IESNanoState state)
         {
-            if (state == null || state == NullState || state == NullState_Micro) return false;
+            if (state == null) return false;
             return true;
         }
 
@@ -231,6 +228,7 @@ namespace ES {
         {
             get => AsThis?.VariableData; set { if (AsThis != null) AsThis.VariableData = value; }
         }
+
         #endregion
 
         #region 状态切换支持
@@ -720,8 +718,12 @@ namespace ES {
     [Serializable,TypeRegistryItem("纳米状态机(String)")]
     public class ESNanoStateMachine_StringKey : BaseOriginalStateMachine
     {
+        public override string QuickKey()
+        {
+            return key_.ToString();
+        }
         #region 字典表
-       
+
         [SerializeReference, LabelText("全部状态字典"), FoldoutGroup("子状态")]
         public Dictionary<string, IESNanoState> allStates = new Dictionary<string, IESNanoState>();
         public override string[] KeysWithLayer(string atFirst)
@@ -1011,13 +1013,13 @@ namespace ES {
         {
             if (allStates.ContainsKey(key))
             {
-               // Debug.LogError("重复注册状态?键是" + key);
+                Debug.LogError("重复注册状态?键是" + key);
             }
             else
             {
                 allStates.Add(key, logic);
                 logic.SetKey(key);
-                if (StartWithState == null || StartWithState == NullState)
+                if (StartWithState == null)
                 {
                     //新的
                     StartWithState = logic;
@@ -1297,31 +1299,36 @@ namespace ES {
         #region Active重写
         public override bool TryActiveState(IESNanoState use)
         {
-           
+            
             if (use is IESStandardState stand)
             {
+                if (stand.RunningStatus == EnumStateRunningStatus.StateUpdate) return true;
+                int theCount = RootMainRunningStates.Count;
                 //空状态：直接使用
-                if (RootMainRunningStates.Count == 0) {  return base.TryActiveState(stand); }
-                //已经包含-就取消
-                if (RootMainRunningStates.Contains(stand)||SelfRunningStates.Contains(stand))
+                if (theCount == 0) { return base.TryActiveState(stand); }
+                //正在运行，无必要
+                //已经包含-就取消---已经没必要了
+
+               /* if (SelfRunningStates.Contains(stand)||RootMainRunningStates.Contains(stand))
                 {
                    // Debug.LogWarning("尝试使用已经存在的状态，有何用意"+use.GetKey());
                     return true;
-                }
+                }*/
 
                // Debug.Log("-----------《《《《合并测试开始------来自" + stand.GetKey().ToString());
                 //单状态，简易判断
-                if (RootMainRunningStates.Count == 1)
+
+                if (theCount == 1)
                 {
-                    IESMicroState state = RootMainRunningStates.First();
+                    IESStandardState state = RootMainRunningStates.First();
                     {
                         //state的共享数据有的不是标准的哈/
                         //标准情形
                         //Debug.Log("单-合并--测试");
                         if (state.SharedData is ESStandardStateSharedData left && stand.SharedData is ESStandardStateSharedData right)
                         {
-                            string leftKey = state.GetKey().ToString();
-                            string rightKey = stand.GetKey().ToString();
+                            string leftKey = state.QuickKey();
+                            string rightKey = stand.QuickKey();
                             var back = ESStandardStateSharedData.HandleMerge(left.MergePart_, right.MergePart_, leftKey, rightKey);
                             if (back == HandleMergeBack.HitAndReplace)
                             {

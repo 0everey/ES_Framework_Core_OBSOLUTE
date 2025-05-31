@@ -14,7 +14,7 @@ namespace ES.EvPointer
     //核心 Ev针支持 关于Vector2和3部分
     #region Vector3部分
     #region Vector3接口抽象和包 
-    public interface IPointerForVector3<By, Yarn, On> : IPointer<Vector3, By, Yarn, On>
+    public interface IPointerForVector3<On, From, With> : IPointer<Vector3, On, From, With>
     {
 
     }
@@ -61,7 +61,7 @@ namespace ES.EvPointer
             return vector;
         }
 
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             return vector = v3P?.Pick() ?? default;
         }
@@ -71,7 +71,7 @@ namespace ES.EvPointer
     {
         [LabelText("加+_1"), SerializeReference] public IPointerForVector3_Only v3_1;
         [LabelText("加+_2"), SerializeReference] public IPointerForVector3_Only v3_2;
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             return (v3_1?.Pick() ?? default) + (v3_2?.Pick() ?? default);
         }
@@ -81,7 +81,7 @@ namespace ES.EvPointer
     {
         [LabelText("原Vector3"), SerializeReference] public IPointerForVector3_Only v3_1;
         [LabelText("乘数"), SerializeReference] public IPointerForFloat_Only float_;
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             return (v3_1?.Pick() ?? default) * (float_?.Pick() ?? 1);
         }
@@ -91,7 +91,7 @@ namespace ES.EvPointer
     {
         [LabelText("减-_1"), SerializeReference] public IPointerForVector3_Only v3_1;
         [LabelText("减-_2"), SerializeReference] public IPointerForVector3_Only v3_2;
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             return (v3_1?.Pick() ?? default) - (v3_2?.Pick() ?? default);
         }
@@ -101,7 +101,7 @@ namespace ES.EvPointer
     {
         [LabelText("叉X_1"), SerializeReference] public IPointerForVector3_Only v3_1;
         [LabelText("叉X_2"), SerializeReference] public IPointerForVector3_Only v3_2;
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             return Vector3.Cross((v3_1?.Pick() ?? default), (v3_2?.Pick() ?? default));
         }
@@ -112,7 +112,7 @@ namespace ES.EvPointer
         [LabelText("源向量"), SerializeReference] public IPointerForVector3_Only v3_1;
         [LabelText("投影到"), SerializeReference] public IPointerForVector3_Only v3_pro;
 
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             return Vector3.Project(v3_1?.Pick() ?? default, v3_pro?.Pick() ?? Vector3.forward);
         }
@@ -123,7 +123,7 @@ namespace ES.EvPointer
         [LabelText("源向量"), SerializeReference] public IPointerForVector3_Only v3_1;
         [LabelText("投影到"), SerializeReference] public IPointerForVector3_Only v3_pro;
 
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             return Vector3.Project(v3_1?.Pick() ?? default, v3_pro?.Pick().normalized ?? Vector3.forward);
         }
@@ -134,7 +134,7 @@ namespace ES.EvPointer
         [LabelText("源向量"), SerializeReference] public IPointerForVector3_Only v3_1;
         [LabelText("投影法平面"), SerializeReference] public IPointerForVector3_Only v3_pro;
 
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             return Vector3.ProjectOnPlane(v3_1?.Pick() ?? default, v3_pro?.Pick() ?? Vector3.forward);
         }
@@ -144,7 +144,7 @@ namespace ES.EvPointer
     {
         [LabelText("归一化"), SerializeReference] public IPointerForVector3_Only v3_1;
 
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             return Vector3.Normalize(v3_1?.Pick() ?? default);
         }
@@ -155,7 +155,7 @@ namespace ES.EvPointer
         [LabelText("X"), SerializeReference] public IPointerForFloat_Only v3_x;
         [LabelText("Y"), SerializeReference] public IPointerForFloat_Only v3_y;
         [LabelText("Z"), SerializeReference] public IPointerForFloat_Only v3_z;
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             return new Vector3(v3_x?.Pick() ?? default, v3_y?.Pick() ?? default, v3_z?.Pick() ?? default);
         }
@@ -166,7 +166,7 @@ namespace ES.EvPointer
         [LabelText("XZ"), SerializeReference] public IPointerForVector2_Only v3_xz;
         [LabelText("Y"), SerializeReference] public IPointerForFloat_Only v3_y;
 
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             Vector2 vv = v3_xz?.Pick() ?? default;
             return new Vector3(vv.x, v3_y?.Pick() ?? default, vv.y);
@@ -179,7 +179,7 @@ namespace ES.EvPointer
         [LabelText("开始点"), SerializeReference] public IPointerForVector3_Only InitValue;
         [LabelText("渐变偏移"), SerializeReference] public IPointerForVector3_Only OffsetValue;
         private bool hasInit = false;
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             if (!hasInit) Init();
             Vector3 use = now;
@@ -198,7 +198,7 @@ namespace ES.EvPointer
     {
         [LabelText("源四元数"), SerializeReference] public IPointerForQuaternion_Only quaternion_Only;
 
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             return quaternion_Only?.Pick().eulerAngles ?? default;
         }
@@ -211,7 +211,7 @@ namespace ES.EvPointer
         [LabelText("Lerp_T源"), SerializeReference] public IPointerForFloat_Only float_Only_t;
         [LabelText("取消钳制")] public bool clampNot;
 
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             Vector3 a = (v3_Only_1?.Pick() ?? default);
             Vector3 b = (v3_Only_2?.Pick() ?? default);
@@ -228,7 +228,7 @@ namespace ES.EvPointer
         [LabelText("距离"), SerializeReference] public IPointerForFloat_Only float_Only_t;
 
 
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             Vector3 a = (v3_Only_1?.Pick() ?? default);
             Vector3 b = (v3_Only_2?.Pick() ?? default);
@@ -240,7 +240,7 @@ namespace ES.EvPointer
     public class PointerForVector3_Direct : IPointerForVector3_Only
     {
         [LabelText("直接输入Vector3")] public Vector3 vector;
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             return vector;
         }
@@ -252,7 +252,7 @@ namespace ES.EvPointer
         [LabelText("Y曲线")] public AnimationCurve curveY = AnimationCurve.Constant(0, 1, 1);
         [LabelText("Z曲线")] public AnimationCurve curveZ = AnimationCurve.Constant(0, 1, 1);
         
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             
             return vector;
@@ -263,7 +263,7 @@ namespace ES.EvPointer
     {
         [LabelText("使用变换坐标")] public Transform transform;
         [LabelText("变换为空时")] public Vector3 vector3;
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             if (transform != null) return transform.position;
             return vector3;
@@ -290,7 +290,7 @@ namespace ES.EvPointer
             hasInit = true;
         }
 
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             if (!hasInit) Init();
             return vector3;
@@ -302,7 +302,7 @@ namespace ES.EvPointer
         [LabelText("使用变换坐标"), SerializeReference] public IPointerForTransform_Only transform;
         [LabelText("得到的坐标")] public Vector3 vector3;
 
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             Transform tt = transform?.Pick(0);
             if (tt != null) return tt.position;
@@ -314,7 +314,7 @@ namespace ES.EvPointer
     {
         [LabelText("针中心"), SerializeReference] public IPointerForVector3_Only center;
         [LabelText("半径范围")] public float r;
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             return (center?.Pick() ?? default) + UnityEngine.Random.insideUnitSphere * r;
         }
@@ -324,7 +324,7 @@ namespace ES.EvPointer
     {
         [LabelText("变换中心")] public Transform center;
         [LabelText("半径范围")] public float r;
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             if (center != null) return (center.position) + UnityEngine.Random.insideUnitSphere * r;
             else return UnityEngine.Random.insideUnitSphere * r;
@@ -335,7 +335,7 @@ namespace ES.EvPointer
     {
         [LabelText("随机中心")] public Vector3 center;
         [LabelText("半径范围")] public float r;
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             return center + UnityEngine.Random.insideUnitSphere * r;
         }
@@ -346,7 +346,7 @@ namespace ES.EvPointer
     {
         [LabelText("使用变换坐标")] public Transform transform;
         [LabelText("变换为空时")] public Vector3 vector3;
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             return transform?.forward ?? vector3;
         }
@@ -403,7 +403,7 @@ namespace ES.EvPointer
             return vector;
         }
 
-        public Vector2 Pick(object by = null, object yarn = null, object on = null)
+        public Vector2 Pick(object on= null, object from = null, object with = null)
         {
             return vector = v2P?.Pick() ?? default;
         }
@@ -414,7 +414,7 @@ namespace ES.EvPointer
         [LabelText("直接输入Vector2")] public Vector2 vector;
 
 
-        public Vector2 Pick(object by = null, object yarn = null, object on = null)
+        public Vector2 Pick(object on= null, object from = null, object with = null)
         {
             return vector;
         }
@@ -425,7 +425,7 @@ namespace ES.EvPointer
         [LabelText("范围01的Vector2"), MinMaxSlider(0, 1, showFields: true)] public Vector2 vector;
 
 
-        public Vector2 Pick(object by = null, object yarn = null, object on = null)
+        public Vector2 Pick(object on= null, object from = null, object with = null)
         {
             return vector;
         }
@@ -436,7 +436,7 @@ namespace ES.EvPointer
         [LabelText("X值"), SerializeReference] public IPointerForFloat_Only forX;
         [LabelText("Y值"), SerializeReference] public IPointerForFloat_Only forY;
 
-        public Vector2 Pick(object by = null, object yarn = null, object on = null)
+        public Vector2 Pick(object on= null, object from = null, object with = null)
         {
             return new Vector2(forX?.Pick() ?? 0, forY?.Pick() ?? 0);
         }
@@ -447,7 +447,7 @@ namespace ES.EvPointer
         [LabelText("Vector2值"), SerializeReference] public IPointerForVector2_Only Vector2;
         [LabelText("乘数值"), SerializeReference] public IPointerForFloat_Only forY;
 
-        public Vector2 Pick(object by = null, object yarn = null, object on = null)
+        public Vector2 Pick(object on= null, object from = null, object with = null)
         {
             return (Vector2?.Pick() ?? default) * (forY?.Pick() ?? 1);
         }
@@ -460,7 +460,7 @@ namespace ES.EvPointer
         [LabelText("Lerp_T源"), SerializeReference] public IPointerForFloat_Only float_Only_t;
         [LabelText("取消钳制")] public bool clampNot;
 
-        public Vector2 Pick(object by = null, object yarn = null, object on = null)
+        public Vector2 Pick(object on= null, object from = null, object with = null)
         {
             Vector2 a = (v2_Only_1?.Pick() ?? default);
             Vector2 b = (v2_Only_2?.Pick() ?? default);
@@ -477,7 +477,7 @@ namespace ES.EvPointer
         [LabelText("距离"), SerializeReference] public IPointerForFloat_Only float_Only_t;
 
 
-        public Vector2 Pick(object by = null, object yarn = null, object on = null)
+        public Vector2 Pick(object on= null, object from = null, object with = null)
         {
             Vector2 a = (v2_Only_1?.Pick() ?? default);
             Vector2 b = (v2_Only_2?.Pick() ?? default);
@@ -490,7 +490,7 @@ namespace ES.EvPointer
     {
         [LabelText("针中心"), SerializeReference] public IPointerForVector2_Only center;
         [LabelText("半径范围")] public float r;
-        public Vector2 Pick(object by = null, object yarn = null, object on = null)
+        public Vector2 Pick(object on= null, object from = null, object with = null)
         {
             return (center?.Pick() ?? default) + UnityEngine.Random.insideUnitCircle * r;
         }
@@ -500,7 +500,7 @@ namespace ES.EvPointer
     {
         [LabelText("变换中心")] public Transform center;
         [LabelText("半径范围")] public float r;
-        public Vector2 Pick(object by = null, object yarn = null, object on = null)
+        public Vector2 Pick(object on= null, object from = null, object with = null)
         {
             return (Vector2)(center.position) + UnityEngine.Random.insideUnitCircle * r;
         }
@@ -510,7 +510,7 @@ namespace ES.EvPointer
     {
         [LabelText("随机中心")] public Vector2 center;
         [LabelText("半径范围")] public float r;
-        public Vector2 Pick(object by = null, object yarn = null, object on = null)
+        public Vector2 Pick(object on= null, object from = null, object with = null)
         {
             return center + UnityEngine.Random.insideUnitCircle * r;
         }
@@ -520,7 +520,7 @@ namespace ES.EvPointer
     {
         [SerializeReference, LabelText("Vector3源")]
         public IPointerForVector3_Only v3Source;
-        public Vector2 Pick(object by = null, object yarn = null, object on = null)
+        public Vector2 Pick(object on= null, object from = null, object with = null)
         {
 
             Vector3 vv = v3Source?.Pick() ?? default;
@@ -532,7 +532,7 @@ namespace ES.EvPointer
     {
         [SerializeReference, LabelText("Vector3源")]
         public IPointerForVector3_Only v3Source;
-        public Vector2 Pick(object by = null, object yarn = null, object on = null)
+        public Vector2 Pick(object on= null, object from = null, object with = null)
         {
 
             Vector3 vv = v3Source?.Pick() ?? default;

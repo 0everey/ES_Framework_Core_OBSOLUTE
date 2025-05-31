@@ -22,15 +22,50 @@ namespace ES
     {
         //所在域-
         [HideInInspector] public Domain_ Domain;
-
+        [LabelText("更新网络权限")] public NetWorkUpdateOption updateOption = NetWorkUpdateOption.Always;
         #region 只读便捷属性
         public Core_ Core => Domain.Core;
         public override Domain_ GetHost => Domain;
         public GameCenterManager GameCenter => GameCenterManager.Instance;
         public DomainForGameCenterManager GameBaseDomain => GameCenterManager.Instance.BaseDomain;
 
-        #endregion
+        public ESNetManager ESNet => ESNetManager.Instance;
 
+        #endregion
+        public override bool CanUpdating
+        {
+            get
+            {
+                if (Core.NO == null ||
+                updateOption == NetWorkUpdateOption.Always) return true;
+                if(updateOption == NetWorkUpdateOption.OnlyOwner)
+                {
+                    if (Core.NO.IsOwner) return true;
+                    return false;
+                }
+                if (updateOption == NetWorkUpdateOption.OnlyOther)
+                {
+                    if (!Core.NO.IsOwner) return true;
+                    return false;
+                }
+                if (updateOption == NetWorkUpdateOption.OnlyClient)
+                {
+                    if (Core.NO.IsClientInitialized) return true;
+                    return false;
+                }
+                if (updateOption == NetWorkUpdateOption.OnlyServer)
+                {
+                    if (Core.NO.IsServerInitialized) return true;
+                    return false;
+                }
+                if (updateOption == NetWorkUpdateOption.OnlyHost)
+                {
+                    if (Core.NO.IsHostInitialized) return true;
+                    return false;
+                }
+                return true;
+            }
+        }
         #region 托管相关
         protected override void OnSubmitHosting(Domain_ hosting)
         {
@@ -135,6 +170,42 @@ namespace ES
         }
 
         #endregion
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+           
+        }
+        
+        protected override void Update()
+        {
+            base.Update();
+            /*if (GameCenterManager.Instance.NetSupport && Core.NO != null&&false)
+            {
+                Debug.Log("本人的" + Core.NO.IsOwner);
+                Debug.Log("客户的" + Core.NO.IsClientInitialized);
+                Debug.Log("服务器的" + Core.NO.IsServerInitialized);
+                if (Core.NO.IsOwner)//本人的：拦截
+                {
+
+                }
+                else //远程的：拦截
+                {
+                    var ban = ESNetManager.Instance.LocalDomain.Modole_BlockFunc.ForModuleOtherBan;
+                    if (ban != null)
+                    {
+                        foreach (var t in ban.TypeList)
+                        {
+                            if (t == this.GetType())
+                            {
+                                Domain.RemoveClip(this);
+                                this._TryInActiveAndDisable();
+                                break;
+                            }
+                        }
+                    }
+                }
+            }*/
+        }
     }
 
 }

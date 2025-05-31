@@ -14,7 +14,7 @@ namespace ES.EvPointer
     //核心 Ev针支持 关于变换 Transform部分
     #region 变换获取部分
     #region 变换接口抽象和包
-    public interface IPointerForTransform<By, Yarn, On> : IPointer<Transform, By, Yarn, On> { }
+    public interface IPointerForTransform<on,from,with> : IPointer<Transform, on,from,with> { }
     public interface IPointerForTransform_Only : IPointerOnlyBack<Transform>, IPointerForTransform<object, object, object>
     {
         object IPointer.Pick(object a, object b, object c)
@@ -52,7 +52,7 @@ namespace ES.EvPointer
     public class PointerForTransform_Direct : IPointerForTransform_Only
     {
         [LabelText("直接引用")] public Transform trans;
-        public Transform Pick(object by = null, object yarn = null, object on = null)
+        public Transform Pick(object on= null, object from = null, object with = null)
         {
             return trans;
         }
@@ -61,7 +61,7 @@ namespace ES.EvPointer
     public class PointerForTransform_OfCompoent : IPointerForTransform_Only
     {
         [LabelText("来自脚本")] public Component compo;
-        public Transform Pick(object by = null, object yarn = null, object on = null)
+        public Transform Pick(object on= null, object from = null, object with = null)
         {
             return compo?.transform;
         }
@@ -70,7 +70,7 @@ namespace ES.EvPointer
     public class PointerForTransform_OfGameObject : IPointerForTransform_Only
     {
         [LabelText("来自游戏物体"), SerializeReference] public IPointerForGameObject_Only ga;
-        public Transform Pick(object by = null, object yarn = null, object on = null)
+        public Transform Pick(object on= null, object from = null, object with = null)
         {
             return ga?.Pick()?.transform;
         }
@@ -79,7 +79,7 @@ namespace ES.EvPointer
     public class PointerForTransform_ParentOfTransform : IPointerForTransform_Only
     {
         [LabelText("来自谁的父级"), SerializeReference] public IPointerForTransform_Only child;
-        public Transform Pick(object by = null, object yarn = null, object on = null)
+        public Transform Pick(object on= null, object from = null, object with = null)
         {
             return child?.Pick()?.parent;
         }
@@ -88,7 +88,7 @@ namespace ES.EvPointer
     public class PointerForTransform_RootOfTransform : IPointerForTransform_Only
     {
         [LabelText("来自谁的根"), SerializeReference] public IPointerForTransform_Only child;
-        public Transform Pick(object by = null, object yarn = null, object on = null)
+        public Transform Pick(object on= null, object from = null, object with = null)
         {
             return child?.Pick()?.root;
         }
@@ -98,7 +98,7 @@ namespace ES.EvPointer
     {
         [LabelText("父级"), SerializeReference] public IPointerForTransform_Only parent;
         [LabelText("子Index(默认0)"), SerializeReference] public IPointerForInt_Only index;
-        public Transform Pick(object by = null, object yarn = null, object on = null)
+        public Transform Pick(object on= null, object from = null, object with = null)
         {
             int useIndex = index?.Pick() ?? 0;
             Transform tt = parent?.Pick();
@@ -115,7 +115,7 @@ namespace ES.EvPointer
     {
         [LabelText("父级"), SerializeReference] public IPointerForTransform_Only parent;
         [LabelText("名字(层级的)"), SerializeReference] public IPointerForString_Only str;
-        public Transform Pick(object by = null, object yarn = null, object on = null)
+        public Transform Pick(object on= null, object from = null, object with = null)
         {
             string ss = str?.Pick() ?? null;
             Transform par = parent?.Pick() ?? null;
@@ -128,7 +128,7 @@ namespace ES.EvPointer
     {
         [LabelText("父级"), SerializeReference] public IPointerForTransform_Only parent;
 
-        public Transform Pick(object by = null, object yarn = null, object on = null)
+        public Transform Pick(object on= null, object from = null, object with = null)
         {
 
             Transform par = parent?.Pick() ?? null;
@@ -142,7 +142,7 @@ namespace ES.EvPointer
     {
         [LabelText("父级"), SerializeReference] public IPointerForTransform_Only parent;
         [LabelText("名字(递归的)"), SerializeReference] public IPointerForString_Only str;
-        public Transform Pick(object by = null, object yarn = null, object on = null)
+        public Transform Pick(object on= null, object from = null, object with = null)
         {
 
             Transform par = parent?.Pick() ?? null;
@@ -156,7 +156,7 @@ namespace ES.EvPointer
     {
 
         [LabelText("标签")] public PointerForString_Tag str;
-        public Transform Pick(object by = null, object yarn = null, object on = null)
+        public Transform Pick(object on= null, object from = null, object with = null)
         {
             string ss = str?.Pick() ?? null;
             if (ss == null) return default;
@@ -195,7 +195,7 @@ namespace ES.EvPointer
 
         }
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             Transform tt = lock_;
             Vector3 vector3 = pv3?.Pick() ?? default;
@@ -279,7 +279,7 @@ namespace ES.EvPointer
             }
 
 
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
 
         }
     }
@@ -315,7 +315,7 @@ namespace ES.EvPointer
 
         }
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
 
             Transform tt = lock_trans;
@@ -377,7 +377,7 @@ namespace ES.EvPointer
                     }
                     break;
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
 
         }
     }
@@ -412,7 +412,7 @@ namespace ES.EvPointer
 
         }
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             Transform tt = lock_trans;
             Vector3 vector3 = pv3?.Pick() ?? default;
@@ -469,7 +469,7 @@ namespace ES.EvPointer
                     }
                     break;
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
 
         }
     }
@@ -506,7 +506,7 @@ namespace ES.EvPointer
 
         }
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             Transform tt = lock_trans;
             Vector3 vector3 = pv3?.Pick() ?? default;
@@ -592,7 +592,7 @@ namespace ES.EvPointer
                       }*/
                     break;
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
 
         }
     }
@@ -625,7 +625,7 @@ namespace ES.EvPointer
 
         }
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             Transform tt = lock_;
             Quaternion p3 = pv3?.Pick() ?? Quaternion.identity;
@@ -723,7 +723,7 @@ namespace ES.EvPointer
             }
 
 
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
 
         }
     }
@@ -754,7 +754,7 @@ namespace ES.EvPointer
 
         }
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             Transform tt = lock_;
             Vector3 vector3 = pv3?.Pick() ?? default;
@@ -840,7 +840,7 @@ namespace ES.EvPointer
             }
 
 
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
 
         }
     }

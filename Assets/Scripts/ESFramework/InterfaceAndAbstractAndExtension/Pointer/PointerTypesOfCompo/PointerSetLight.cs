@@ -30,7 +30,7 @@ namespace ES
         [LabelText("发光强度"),SerializeReference]public IPointerForFloat_Only pointerForFloat_ = new PointerForFloat_Direct() { float_=2 };
         [LabelText("光色"), SerializeReference] public IPointerForColor_Only forColor_Only = new PointerForColor_Direc() { color=Color.white };
         [LabelText("范围"), SerializeReference] public IPointerForFloat_Only pointerForFloat2_ = new PointerForFloat_Direct() { float_=20 };
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             if (light != null)
             {
@@ -50,7 +50,7 @@ namespace ES
         [LabelText("发光强度"), SerializeReference] public IPointerForFloat_Only pointerForFloat_ = new PointerForFloat_Direct() { float_ = 2 };
         [LabelText("光色"), SerializeReference] public IPointerForColor_Only forColor_Only = new PointerForColor_Direc() { color = Color.white };
         [LabelText("范围"), SerializeReference] public IPointerForFloat_Only pointerForFloat2_ = new PointerForFloat_Direct() { float_ = 20 };
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             if (light != null)
             {

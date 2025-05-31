@@ -14,6 +14,7 @@ namespace ES
     [Serializable,TypeRegistryItem("抽象泛型元-原始状态_纳米")]
     public abstract class BaseESNanoState<Key_> : BaseESModule<BaseOriginalStateMachine>,IESNanoState
     {
+        public abstract string QuickKey();
         #region 托管至
         [NonSerialized]
         public BaseOriginalStateMachine host;
@@ -152,12 +153,18 @@ namespace ES
     [Serializable, TypeRegistryItem("泛型键纳米状态(String)")]
     public class ESNanoStateWithDelegate<Key_> : BaseESNanoStateWithDelegate<Key_, ESNanoStateWithDelegate<Key_>>
     {
-
+        public override string QuickKey()
+        {
+            return key.ToString();
+        }
     }
     [Serializable,TypeRegistryItem("纳米状态(String)")]
     public class ESNanoStateWithDelegate_StringKey: BaseESNanoStateWithDelegate<string, ESNanoStateWithDelegate_StringKey>
     {
-
+        public override string QuickKey()
+        {
+            return key;
+        }
     }
 
 
@@ -188,6 +195,7 @@ namespace ES
         public IESMicroState AsThis { get => this; set => Debug.LogWarning("对于运行时状态来说,AsThis就是自己,赋值无效"); }
         public abstract void SetKey(object key);//设置键
         public abstract object GetKey();//获得键
+        public abstract string QuickKey();
         #endregion
 
         #region 自己状态与信息的声明
@@ -414,6 +422,10 @@ namespace ES
     [Serializable, TypeRegistryItem("微型继承状态(String)")]
     public class BaseESMicroStateOverrideRunTimeLogic_StringKey : BaseESMicroStateOverrideRunTimeLogic<string, BaseESMicroStateOverrideRunTimeLogic_StringKey>
     {
+        public override string QuickKey()
+        {
+            return key;
+        }
         public override object GetKey()
         {
             return this.key;
@@ -427,6 +439,10 @@ namespace ES
     [Serializable, TypeRegistryItem("微型可委托状态(String)")]
     public class BaseESMicroStateWithDelegateRunTimeLogic_StringKey : BaseESMicroStateWithDelegateRunTimeLogic<string,BaseESMicroStateWithDelegateRunTimeLogic_StringKey>
     {
+        public override string QuickKey()
+        {
+            return key;
+        }
         public override object GetKey()
         {
             return this.key;
@@ -509,6 +525,10 @@ namespace ES
     [Serializable, TypeRegistryItem("标准状态元(String)")]
     public class BaseESStandardStateRunTimeLogic_StringKey : BaseESStandardStateOverrideRunTimeLogic<string, BaseESStandardStateRunTimeLogic_StringKey>
     {
+        public override string QuickKey()
+        {
+            return key;
+        }
         public override object GetKey()
         {
             return this.key;
@@ -518,23 +538,37 @@ namespace ES
         {
             this.key = key.ToString();
         }
+#if UNITY_EDITOR
+        protected override void RunStateUpdateLogic()
+        {
+            base.RunStateUpdateLogic();
+        }
+#endif
     }
 
     [Serializable, TypeRegistryItem("标准可委托可继承状态元(String)")]
     public class BaseWithableESStandardStateRunTimeLogic : BaseESStandardStateWithDelegateRunTimeLogic<string, BaseWithableESStandardStateRunTimeLogic>
     {
+        public override string QuickKey()
+        {
+            return key;
+        }
         public override object GetKey()
         {
             return this.key;
         }
-
+        protected override void RunStateUpdateLogic()
+        {
+            base.RunStateUpdateLogic();
+           
+        }
         public override void SetKey(object key)
         {
             this.key = key.ToString();
         }
     }
 
-    #endregion
+#endregion
 }
 
 

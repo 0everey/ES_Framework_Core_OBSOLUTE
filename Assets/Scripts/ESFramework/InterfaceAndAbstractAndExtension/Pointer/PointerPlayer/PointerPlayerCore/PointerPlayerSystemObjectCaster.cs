@@ -18,7 +18,7 @@ namespace ES
         {
             return aObject;
         }
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (pointerFoSystemObject == (IPointer)this)
             {

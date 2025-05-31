@@ -13,6 +13,7 @@ using UnityEngine.UIElements;
 using DG.Tweening;
 using UnityEngine.Events;
 using Sirenix.Utilities;
+using System.Runtime.CompilerServices;
 
 namespace ES
 {
@@ -584,6 +585,7 @@ namespace ES
                     default: return f2;
                 }
             }
+
             //比较两个Float
             public static bool FunctionForCompareTwoFloat(float left, float right, EnumCollect.CompareTwoFunction useFunction)
             {
@@ -771,6 +773,35 @@ namespace ES
                     }
                 }
                 return;
+            }
+            //Function_OperationValue_InLine
+            [MethodImpl(methodImplOptions:MethodImplOptions.AggressiveInlining)]
+            public static float OpearationFloat_Inline(float value, float Value, OperationHandleTypeForFloat settleType)
+            {
+                switch (settleType)
+                {
+                    case OperationHandleTypeForFloat.Add: return value + Value;
+                    case OperationHandleTypeForFloat.Sub: return value - Value;
+                    case OperationHandleTypeForFloat.PerUp: return value * (1 + Value);
+                    case OperationHandleTypeForFloat.Max: return Mathf.Clamp(value, value, Value);
+                    case OperationHandleTypeForFloat.Min: return Mathf.Clamp(value, Value, value);
+                    case OperationHandleTypeForFloat.Wave: return value + UnityEngine.Random.Range(-Value, Value);
+                    default: return value;
+                }
+            }
+            [MethodImpl(methodImplOptions: MethodImplOptions.AggressiveInlining)]
+            public static float OpearationFloat_Cancel_Inline(float value, float Value, OperationHandleTypeForFloat settleType)
+            {
+                switch (settleType)
+                {
+                    case OperationHandleTypeForFloat.Add: return value - Value;
+                    case OperationHandleTypeForFloat.Sub: return value + Value;
+                    case OperationHandleTypeForFloat.PerUp: return value.SafeDivide(1 + Value);
+                    case OperationHandleTypeForFloat.Max: return Mathf.Clamp(value, value, Value);
+                    case OperationHandleTypeForFloat.Min: return Mathf.Clamp(value, Value, value);
+                    case OperationHandleTypeForFloat.Wave: return value + UnityEngine.Random.Range(-Value, Value);
+                    default: return value;
+                }
             }
         }
         //排序器

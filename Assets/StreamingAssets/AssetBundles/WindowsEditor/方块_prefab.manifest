@@ -1,0 +1,37 @@
+ManifestFileVersion: 0
+CRC: 2327983873
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8171a9e8f92aea0b8a7edac19b4b8f4b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 48f9e47804cc6149eb45c38c55466448
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 8171a9e8f92aea0b8a7edac19b4b8f4b
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- "Assets/Resources/Prefab/Rub/\u65B9\u5757 4.prefab"
+- "Assets/Resources/Prefab/Rub/\u65B9\u5757 1.prefab"
+- "Assets/Resources/Prefab/Rub/\u65B9\u5757 3.prefab"
+- "Assets/Resources/Prefab/Rub/\u65B9\u5757 5.prefab"
+- "Assets/Resources/Prefab/Rub/\u65B9\u5757 2.prefab"
+Dependencies:
+- F:/aaProject/ES_Framework_Core/Assets/StreamingAssets/AssetBundles/WindowsEditor/blue_mat

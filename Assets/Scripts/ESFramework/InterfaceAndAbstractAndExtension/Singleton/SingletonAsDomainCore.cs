@@ -21,13 +21,13 @@ namespace ES
                     return t;
                 }
                 Debug.LogError($"单例类{typeof(This).Name}场景中不存在");
-                GameObject g = GameObject.FindGameObjectWithTag("Manager");
-                if (g == null) {
-                    g = new GameObject();
-                    g.name = $"临时的---单例类{typeof(This).Name}";
-                }
-                return _instance=g.AddComponent<This>();
-                
+                /*  GameObject g = GameObject.FindGameObjectWithTag("Manager");
+                  if (g == null) {
+                      g = new GameObject();
+                      g.name = $"临时的---单例类{typeof(This).Name}";
+                  }
+                  return _instance=g.AddComponent<This>();*/
+                return null;
             }
             set { if (value != null) { _instance = value; }; }
         }
@@ -36,7 +36,7 @@ namespace ES
        protected override void Awake()
         {
             //Debug.Log("awake");
-            if (_instance == null) {
+            if (_instance == null || _instance == this) {
                 _instance = this as This;
                 if (_instance != null)
                 {
@@ -85,7 +85,7 @@ namespace ES
         protected virtual  void Awake()
         {
             //Debug.Log("awake");
-            if (_instance == null)
+            if (_instance == null || _instance == this)
             {
                 _instance = this as This;
                 if (_instance != null)
@@ -100,7 +100,7 @@ namespace ES
 
         }
     }
-    public abstract class SingletonAsNormalClass<This> 
+    public abstract class SingletonAsNormalClass<This> where  This:new()
     {
         [LabelText("不销毁")] public bool DontDestroy = true;
         public static This Instance
@@ -109,7 +109,7 @@ namespace ES
             {
                 if (_instance != null) return _instance;
                 Debug.LogError($"单例普通类{typeof(This).Name}中不存在");
-                return default;
+                return _instance=new This();
 
             }
             set { if (value != null) { _instance = value; }; }

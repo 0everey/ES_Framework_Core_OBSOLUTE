@@ -16,6 +16,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using static ES.ClipStateMachine_CrashDodge;
 using static UnityEngine.EventSystems.EventTrigger;
+using Sirenix.Serialization;
 
 namespace ES
 {
@@ -25,7 +26,35 @@ namespace ES
     {
         [HideInInspector] public Entity entity;
         [HideInInspector] public StateMachineDomainForEntity StateDomain;
-
+        [LabelText("技能子状态机")] public ESStandardStateMachine_StringKey SkillMachine = new ESStandardStateMachine_StringKey();
+        [LabelText("Buff子状态机")] public ESStandardStateMachine_StringKey BuffMachine = new ESStandardStateMachine_StringKey();
+        [LabelText("交互子状态机")] public ESStandardStateMachine_StringKey InteractionMachine = new ESStandardStateMachine_StringKey();
+        
+        
+        public bool TryActiveSkill(string name)
+        {
+            return SkillMachine.TryActiveStateByKey(name);
+        }
+        public bool TryActiveBuff(string name)
+        {
+            return BuffMachine.TryActiveStateByKey(name);
+        }
+        public bool TryActiveInteraction(IESNanoState state)
+        {
+            return InteractionMachine.TryActiveState(state);
+        }
+        public bool TryActiveSkill(IESNanoState state)
+        {
+            return SkillMachine.TryActiveState(state);
+        }
+        public bool TryActiveBuff(IESNanoState state)
+        {
+            return BuffMachine.TryActiveState(state);
+        }
+        public bool TryActiveInteraction(string name)
+        {
+            return InteractionMachine.TryActiveStateByKey(name);
+        }
         public void CreateRelationShip(Entity e, StateMachineDomainForEntity stateMachineDomain)
         {
             if (e != null)
@@ -33,6 +62,10 @@ namespace ES
                 entity = e;
                 StateDomain = stateMachineDomain;
                 defaultStateKey = "静止";
+                this.RegisterNewState("技能", SkillMachine);
+                this.RegisterNewState("Buff", BuffMachine);
+                this.RegisterNewState("交互", InteractionMachine);
+                
                 //
             }
         }
@@ -287,6 +320,95 @@ namespace ES
         #endregion
     }
 
+    [Serializable,TypeRegistryItem("实体标准Buff状态")]
+    public class EntityState_Buff : EntityState
+    {
+        #region 类型支持
+        public class BufferContainer : BaseListIOC_Arch_KeyAndList<OutputOperationBuffBuffer, ValueBufferOperationFloat>
+        {
+            public Queue<(OutputOperationBuffBuffer, ValueBufferOperationFloat)> ToDelete = new Queue<(OutputOperationBuffBuffer, ValueBufferOperationFloat)>();
+        }
+
+        #endregion
+        public BuffSoInfo soInfo;
+        private List<SettlementFloat> floats = new List<SettlementFloat>();
+        private List<SettlementBool> bools = new List<SettlementBool>();
+        [NonSerialized]
+        public Dictionary<OutputOpeationBuffDelegate,  (Delegate,int)> CacheActions = new Dictionary<OutputOpeationBuffDelegate, (Delegate, int)>();
+        [NonSerialized]
+        public Dictionary<OutputOpeationBuffSettle, SettleOperationFloat> CacheSettles = new  Dictionary<OutputOpeationBuffSettle, SettleOperationFloat>();
+        [NonSerialized]
+        public BufferContainer CacheBuffers =new BufferContainer();
+        /*[NonSerialized]
+        public Dictionary<>*/
+        public float Level => 1;
+        public void CreateSettleOperation(SettlementFloat settlement){
+            
+        }
+        protected override void RunStateEnterLogic()
+        {
+            base.RunStateEnterLogic();
+           /* foreach(var i in soInfo.dele)
+            {
+                if (i == null) continue;
+                i.TryOpeation(Entity,null,this);
+            }
+            foreach (var i in soInfo.settle)
+            {
+                if (i == null) continue;
+                i.TryOpeation(Entity, null, this);
+            }*/
+           
+        }
+        protected override void RunStateExitLogic()
+        {
+            base.RunStateExitLogic();
+           /* foreach (var i in soInfo.dele)
+            {
+                if (i == null) continue;
+                i.TryCancel(Entity, null, this);
+            }
+            foreach (var i in soInfo.settle)
+            {
+                if (i == null) continue;
+                i.TryCancel(Entity, null, this);
+            }*/
+            
+        }
+        float timer = 1;
+        float timer2 = 3;
+        protected override void RunStateUpdateLogic()
+        {
+            timer -= Time.deltaTime;
+            timer2 -= Time.deltaTime;
+            /*if (timer < 0)
+            {
+                timer = 1;
+                soInfo?.upd.TryOpeation(Entity,null,this);
+            }*/
+            if (timer2 < 0)
+            {
+                timer2 = 3;
+                soInfo?.buffer.TryOpeation(Entity, null, this);
+            }
+            base.RunStateUpdateLogic();
+            foreach(var i in CacheBuffers.ToDelete)
+            {
+                if (CacheBuffers.IOC.TryGetValue(i.Item1,out var list_))
+                {
+                    list_.Remove(i.Item2);
+                }
+            }
+            foreach(var ii in CacheBuffers.IOC)
+            {
+                foreach(var iii in ii.Value)
+                {
+                    ii.Key.TryUpdateTheBuffer(iii,Entity,null,this);
+                }
+            }
+        }
+    }
+
     [Serializable, TypeRegistryItem("实体移动状态")]
     public class EntityState_Move : EntityState
     {
@@ -356,7 +478,6 @@ namespace ES
                 {
                     if (data.vectorHandle == EnumCollect.ToDestinationVectorSpace.Target)
                     {
-
                         if (useRIGID) withTween = Entity.Rigid.DOMove(data.vector, data.duration);
                         else withTween = Entity.transform.DOMove(data.vector, data.duration);
                     }
@@ -446,7 +567,7 @@ namespace ES
                         else
                         {
                             Vector3 vv = data.vector - Entity.Rigid.position;
-                            Entity.CharacterController.Move((vv).normalized * crashDodge.MaxSpeed * Time.deltaTime);
+                            Entity.BaseDomain.Module_AB_Motion.Move((vv).normalized * crashDodge.MaxSpeed * Time.deltaTime);
                             Entity.YV = vv.y * (1 - HasIn / data.duration);
                         }
                         if (Vector3.Distance(Entity.Rigid.position, data.vector) < crashDodge.EndDisSuit)
@@ -459,7 +580,7 @@ namespace ES
                         if (useRIGID) Entity.Rigid.position += data.vector * Time.deltaTime / data.duration;
                         else
                         {
-                            Entity.CharacterController.Move((data.vector) * Time.deltaTime / data.duration);
+                            Entity.BaseDomain.Module_AB_Motion.Move((data.vector) * Time.deltaTime / data.duration);
                             Entity.YV = applyVector.y * (1 - HasIn / data.duration);
                         }
                     }
@@ -468,7 +589,7 @@ namespace ES
                         if (useRIGID) Entity.Rigid.position += (applyVector) * Time.deltaTime / data.duration;
                         else/* Entity.transform.position += (applyVector) * Time.deltaTime / data.duration;*/
                         {
-                            Entity.CharacterController.Move((applyVector) * Time.deltaTime / data.duration);
+                            Entity.BaseDomain.Module_AB_Motion.Move((applyVector) * Time.deltaTime / data.duration);
                             Entity.YV = applyVector.y * (1 - HasIn / data.duration);
                         }
                     }

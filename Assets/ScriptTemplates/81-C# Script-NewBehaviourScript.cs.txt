@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+namespace ES
+{
     #ROOTNAMESPACEBEGIN#
 public class #SCRIPTNAME# : MonoBehaviour
 {
@@ -16,5 +17,6 @@ public class #SCRIPTNAME# : MonoBehaviour
     {
         #NOTRIM#
     }
+}
 }
 #ROOTNAMESPACEEND#

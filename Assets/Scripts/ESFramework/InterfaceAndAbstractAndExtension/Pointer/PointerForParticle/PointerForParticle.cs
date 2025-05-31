@@ -9,7 +9,7 @@ namespace ES
     {
         [LabelText("直接引用ParticleSystem")] public ParticleSystem ParticleSystem;
 
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             if (ParticleSystem != null)
                 PickTruely(ParticleSystem);

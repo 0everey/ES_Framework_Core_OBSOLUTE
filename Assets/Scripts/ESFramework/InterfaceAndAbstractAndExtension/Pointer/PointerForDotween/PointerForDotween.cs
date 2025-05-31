@@ -76,7 +76,7 @@ namespace ES.EvPointer
     {
 
         //public abstract ByON byFrom { get; }
-        public Tween Pick(object by = null, object yarn = null, object on = null)
+        public Tween Pick(object on= null, object from = null, object with = null)
         {
             return (this as PointerPackForSameByOnlyOne<Tween, By, IPointerForTween>)?.Pick(byFrom);
         }
@@ -145,7 +145,7 @@ namespace ES.EvPointer
     {
         [SerializeReference, LabelText("带Trans的")]
         public IPointerForTweenByTransform forTrans;
-        public Tween Pick(object by = null, object yarn = null, object on = null)
+        public Tween Pick(object on= null, object from = null, object with = null)
         {
             return forTrans?.Pick();
         }
@@ -171,7 +171,7 @@ namespace ES.EvPointer
             return PickTruely(tt);
         }
 
-        public Tween Pick(object by = null, object yarn = null, object on = null)
+        public Tween Pick(object on= null, object from = null, object with = null)
         {
             return (this as IPointerForTweenByTransform)?.Pick(transform_Only?.Pick());
         }
@@ -199,7 +199,7 @@ namespace ES.EvPointer
             return Pick(forTween?.Pick());
         }
         //转换 不需要重写了
-        public Tween Pick(object by = null, object yarn = null, object on = null)
+        public Tween Pick(object on= null, object from = null, object with = null)
         {
             return (this as PointerChainForTween)?.Pick(forTween?.Pick());
         }
@@ -208,7 +208,7 @@ namespace ES.EvPointer
     public class PickTweenDirect : IPointerNone
     {
         [LabelText("使用补间(ByTrans)"), SerializeReference] public PointerForTweenByTransform_Reference pointerFor;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return pointerFor?.Pick();
         }
@@ -218,7 +218,7 @@ namespace ES.EvPointer
     public class PickTweenDirect_onlyBack : IPointerNone
     {
         [LabelText("使用补间(for)"), SerializeReference] public IPointerForTween pointerFor;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return pointerFor?.Pick();
         }
@@ -230,7 +230,7 @@ namespace ES.EvPointer
         [LabelText("Tween源"), SerializeReference] public IPointerForTween forTween;
         [LabelText("回调内容"), SerializeReference] public IPointerForAction_Only action_Only = new PointerForAction_FromPointerNone();
 
-        public Tween Pick(object by = null, object yarn = null, object on = null)
+        public Tween Pick(object on= null, object from = null, object with = null)
         {
             var use = forTween?.Pick();
             if (use == null) return null;
@@ -837,7 +837,7 @@ namespace ES.EvPointer
             [LabelText("嵌入Tween"), SerializeReference] public IPointerForTween forTween;
 
 
-            public IPointer Pick(object by = null, object yarn = null, object on = null)
+            public IPointer Pick(object on= null, object from = null, object with = null)
             {
                 return forTween;
             }
@@ -847,7 +847,7 @@ namespace ES.EvPointer
         {
             [LabelText("嵌入TweenCallBack"), SerializeReference] public IPointerForTweenCallBack forTweenCallBack;
 
-            public IPointer Pick(object by = null, object yarn = null, object on = null)
+            public IPointer Pick(object on= null, object from = null, object with = null)
             {
                 return forTweenCallBack;
             }
@@ -857,7 +857,7 @@ namespace ES.EvPointer
         {
             [LabelText("嵌入时间间隔"), SerializeReference] public IPointerForFloat_Only forInterval = new PointerForFloat_Direct() { float_ = 1 };
 
-            public IPointer Pick(object by = null, object yarn = null, object on = null)
+            public IPointer Pick(object on= null, object from = null, object with = null)
             {
                 return forInterval;
             }
@@ -869,7 +869,7 @@ namespace ES.EvPointer
     {
         [LabelText("回调类型")] public EnumCollect.CallBackType callBackType;
         [LabelText("Tween源"), SerializeReference] public IPointerForTween forTween;
-        public Delegate Pick(object by = null, object yarn = null, object on = null)
+        public Delegate Pick(object on= null, object from = null, object with = null)
         {
             var use = forTween?.Pick();
             return KeyValueMatchingUtility.Function.GetCallBackFromTween(use,callBackType);
@@ -884,7 +884,7 @@ namespace ES.EvPointer
         [LabelText("是否执行回调")]public bool withCallBack;
         [LabelText("施加的对象"), SerializeReference] public IPointer pointerForSystemObject_Only;
 
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             object oo = pointerForSystemObject_Only?.Pick();
             if (oo != null)
@@ -900,7 +900,7 @@ namespace ES.EvPointer
         
         [LabelText("施加的对象"), SerializeReference] public IPointer pointerForSystemObject_Only;
 
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             object oo = pointerForSystemObject_Only?.Pick();
             if (oo != null)
@@ -916,7 +916,7 @@ namespace ES.EvPointer
 
         [LabelText("施加的对象"), SerializeReference] public IPointer pointerForSystemObject_Only;
 
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             object oo = pointerForSystemObject_Only?.Pick();
             if (oo != null)
@@ -932,7 +932,7 @@ namespace ES.EvPointer
 
         [LabelText("施加的对象"), SerializeReference] public IPointer pointerForSystemObject_Only;
 
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             object oo = pointerForSystemObject_Only?.Pick();
             if (oo != null)
@@ -949,7 +949,7 @@ namespace ES.EvPointer
 
         [LabelText("施加的对象"), SerializeReference] public IPointer pointerForSystemObject_Only;
 
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             object oo = pointerForSystemObject_Only?.Pick();
             if (oo != null)
@@ -964,7 +964,7 @@ namespace ES.EvPointer
     {
         [LabelText("是否执行回调")] public bool withCallBack;
         [LabelText("施加的对象"), SerializeReference] public IPointer pointerForSystemObject_Only;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             object oo = pointerForSystemObject_Only?.Pick();
             if (oo != null)
@@ -978,7 +978,7 @@ namespace ES.EvPointer
     public class PointerNone_DoTweenHandle_CompleteAll : IPointerNone
     {
         [LabelText("是否执行回调")] public bool withCallBack;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return DOTween.CompleteAll(withCallBack);
         }
@@ -987,7 +987,7 @@ namespace ES.EvPointer
     public class PointerNone_DoTweenHandle_FlipAll : IPointerNone
     {
         [LabelText("是否执行回调")] public bool withCallBack;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return DOTween.FlipAll();
         }
@@ -996,7 +996,7 @@ namespace ES.EvPointer
     public class PointerNone_DoTweenHandle_ReStartAll : IPointerNone
     {
         [LabelText("是否执行回调")] public bool withCallBack;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return DOTween.RestartAll();
         }
@@ -1005,7 +1005,7 @@ namespace ES.EvPointer
     public class PointerNone_DoTweenHandle_RewindAll : IPointerNone
     {
         [LabelText("是否执行回调")] public bool withCallBack;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return DOTween.RewindAll();
         }
@@ -1014,7 +1014,7 @@ namespace ES.EvPointer
     public class PointerNone_DoTweenHandle_SmoothRewindAll : IPointerNone
     {
         [LabelText("是否执行回调")] public bool withCallBack;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return DOTween.SmoothRewindAll();
         }
@@ -1023,7 +1023,7 @@ namespace ES.EvPointer
     public class PointerNone_DoTweenHandle_KillAll : IPointerNone
     {
         [LabelText("是否执行回调")] public bool withCallBack;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return DOTween.KillAll(withCallBack);
         }
@@ -1039,7 +1039,7 @@ namespace ES.EvPointer
         [LabelText("目标值"), SerializeReference] public IPointerForFloat_Only forFloat_Only_EndValue = new PointerForFloat_Direct() { float_ = 0 };
         [LabelText("持续时间"), SerializeReference] public IPointerForFloat_Only forFloat_Only_duation = new PointerForFloat_Direct() { float_ = 0 };
 
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
 
             if (forFloat_Only != null&& forFloat_Only_EndValue!=null)
@@ -1077,7 +1077,7 @@ namespace ES.EvPointer
         {
             return caster; 
         }
-        public Tween Pick(object by = null, object yarn = null, object on = null) {
+        public Tween Pick(object on= null, object from = null, object with = null) {
 
             InitValue();
             return MakeTween();

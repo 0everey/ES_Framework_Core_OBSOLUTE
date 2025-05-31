@@ -16,7 +16,7 @@ namespace ES.EvPointer
 
     #region 类型针
     #region 类型接口抽象和包
-    public interface IPointerForType<By, Yarn, On> : IPointer<Type, By, Yarn, On>
+    public interface IPointerForType<On, From, With> : IPointer<Type, On, From, With>
     {
         
     }
@@ -33,7 +33,7 @@ namespace ES.EvPointer
     public class PointerForType_FromPlayer : IPointerForType_Only
     {
         [LabelText("类型投射播放器")] public PointerPlayerTypeCaster typeCaster;
-        public Type Pick(object by = null, object yarn = null, object on = null)
+        public Type Pick(object on= null, object from = null, object with = null)
         {
 
             return (typeCaster as IPointerForType_Only)?.Pick();
@@ -46,7 +46,7 @@ namespace ES.EvPointer
          [LabelText("类型"),NonSerialized,OdinSerialize,ShowInInspector,TypeSelectorSettings(FilterTypesFunction = "TypeFilterBoolMayMachine")]
          public Type type;
 
-         public Type Pick(object by = null, object yarn = null, object on = null)
+         public Type Pick(object on= null, object from = null, object with = null)
          {
              return type;
          }

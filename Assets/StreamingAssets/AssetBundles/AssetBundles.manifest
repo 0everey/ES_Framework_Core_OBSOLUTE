@@ -1,0 +1,14 @@
+ManifestFileVersion: 0
+CRC: 2741519860
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: "\u65B9\u5757_prefab"
+      Dependencies:
+        Dependency_0: blue_mat
+    Info_1:
+      Name: blue_mat
+      Dependencies: {}
+    Info_2:
+      Name: yellow_mat
+      Dependencies: {}

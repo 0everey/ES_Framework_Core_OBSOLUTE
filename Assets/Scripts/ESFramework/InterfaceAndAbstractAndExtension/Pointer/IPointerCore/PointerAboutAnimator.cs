@@ -30,11 +30,11 @@ namespace ES.EvPointer
         [LabelText("动画器")] public Animator animator;
         [LabelText("浮点数参数名")] public string ParaName = "aFloat";
         [LabelText("浮点值"), SerializeReference] public IPointerForFloat_Only float_Only = new PointerForFloat_Direct();
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             animator.SetFloat(ParaName, float_Only?.Pick() ?? 0);
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("动画器_增益_浮点数", "触发/动画")]
@@ -44,11 +44,11 @@ namespace ES.EvPointer
         [LabelText("浮点数参数名")] public string ParaName = "aFloat";
         [LabelText("增益浮点数值"), SerializeReference] public IPointerForFloat_Only float_Only = new PointerForFloat_Direct();
         [LabelText("乘上帧时间")] public bool mutiTimeDelta = true;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             animator.SetFloat(ParaName, animator.GetFloat(ParaName) + (float_Only?.Pick() ?? 0) * (mutiTimeDelta ? Time.deltaTime : 1));
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("动画器_逼近_浮点数", "触发/动画")]
@@ -59,12 +59,12 @@ namespace ES.EvPointer
         [LabelText("目标浮点数值"), SerializeReference] public IPointerForFloat_Only float_Only = new PointerForFloat_Direct();
         [LabelText("Lerp值"), SerializeReference] public IPointerForFloat_Only lerp_Only = new PointerForFloat_Direct();
         [LabelText("Lerp乘上帧时间")] public bool mutiTimeDelta = true;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             float t = lerp_Only?.Pick() ?? 0;
             animator.SetFloat(ParaName, Mathf.Lerp(animator.GetFloat(ParaName), +(float_Only?.Pick() ?? 0), t * (mutiTimeDelta ? Time.deltaTime : 1)));
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("动画器_设置参数_整数", "触发/动画")]
@@ -73,11 +73,11 @@ namespace ES.EvPointer
         [LabelText("动画器")] public Animator animator;
         [LabelText("整数参数名")] public string ParaName = "aInt";
         [LabelText("整数值"), SerializeReference] public IPointerForInt_Only int_Only = new PointerForInt_Direct();
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             animator.SetInteger(ParaName, int_Only?.Pick() ?? 0);
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
 
@@ -87,11 +87,11 @@ namespace ES.EvPointer
         [LabelText("动画器")] public Animator animator;
         [LabelText("布尔参数名")] public string ParaName = "aBool";
         [LabelText("布尔值"), SerializeReference] public IPointerForBool_Only bool_Only = new PointerForBool_Direc();
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             animator.SetBool(ParaName, bool_Only?.Pick() ?? false);
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("动画器_切换真假_布尔值", "触发/动画")]
@@ -100,11 +100,11 @@ namespace ES.EvPointer
         [LabelText("动画器")] public Animator animator;
         [LabelText("布尔参数名")] public string ParaName = "aBool";
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             animator.SetBool(ParaName, !animator.GetBool(ParaName));
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("动画器_设置参数_触发器", "触发/动画")]
@@ -113,13 +113,13 @@ namespace ES.EvPointer
         [LabelText("动画器")] public Animator animator;
         [LabelText("触发器参数名")] public string ParaName = "aTrigger";
         [LabelText("是否触发"), SerializeReference] public IPointerForBool_Only tri_Only = new PointerForBool_Direc();
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             bool b = tri_Only?.Pick() ?? false;
             if (b) animator.SetTrigger(ParaName);
             else animator.ResetTrigger(ParaName);
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("动画器_设置_层级权重", "触发/动画")]
@@ -128,14 +128,14 @@ namespace ES.EvPointer
         [LabelText("动画器")] public Animator animator;
         [LabelText("第几层"), SerializeReference] public IPointerForInt_Only layerIndex = new PointerForInt_Direct();
         [LabelText("权重值"), SerializeReference] public IPointerForFloat_Only float_Only = new PointerForFloat_Direct();
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             int index = layerIndex?.Pick() ?? 0;
             float weight = float_Only?.Pick() ?? 0;
             animator.SetLayerWeight(index, weight);
 
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("动画器_增益_层级权重", "触发/动画")]
@@ -145,14 +145,14 @@ namespace ES.EvPointer
         [LabelText("第几层"), SerializeReference] public IPointerForInt_Only layerIndex = new PointerForInt_Direct();
         [LabelText("增益权重值"), SerializeReference] public IPointerForFloat_Only float_Only = new PointerForFloat_Direct();
         [LabelText("乘上帧时间")] public bool mutiTimeDelta = true;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             int index = layerIndex?.Pick() ?? 0;
             float weight = (float_Only?.Pick() ?? 0) * (mutiTimeDelta ? Time.deltaTime : 1);
             animator.SetLayerWeight(index, weight + animator.GetLayerWeight(index));
 
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("动画器_逼近_层级权重", "触发/动画")]
@@ -163,14 +163,14 @@ namespace ES.EvPointer
         [LabelText("目标权重值"), SerializeReference] public IPointerForFloat_Only float_Only = new PointerForFloat_Direct();
         [LabelText("Lerp值"), SerializeReference] public IPointerForFloat_Only lerp_Only = new PointerForFloat_Direct();
         [LabelText("Lerp乘上帧时间")] public bool mutiTimeDelta = true;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             int index = layerIndex?.Pick() ?? 0;
             float weight = (float_Only?.Pick() ?? 0);
             float t = (lerp_Only?.Pick() ?? 0) * (mutiTimeDelta ? Time.deltaTime : 1);
             animator.SetLayerWeight(index, Mathf.Lerp(animator.GetLayerWeight(index), weight, t));
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("动画器_状态_直接播放", "触发/动画")]
@@ -181,13 +181,13 @@ namespace ES.EvPointer
         [LabelText("目标动画名"), SerializeReference] public IPointerForString_Only str_only = new PointerForString_Direc() { string_direc = "状态名" };
         [LabelText("归一化起始播放位置(可空)"), SerializeReference] public IPointerForFloat_Only start_Only = new PointerForFloat_DirectClamp01();
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null || str_only == null) return -1;
             int index = layerIndex?.Pick() ?? 0;
             float progress = start_Only?.Pick() ?? 0;
             animator.Play(str_only.Pick(), index, progress);
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("动画器_状态_过渡播放", "触发/动画")]
@@ -199,14 +199,14 @@ namespace ES.EvPointer
         [LabelText("归一化过渡时间(默认0.15f)"), SerializeReference] public IPointerForFloat_Only cross_Only = new PointerForFloat_DirectClamp01();
         [LabelText("归一化起始播放位置(可空)"), SerializeReference] public IPointerForFloat_Only start_Only = new PointerForFloat_DirectClamp01();
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null || str_only == null) return -1;
             int index = layerIndex?.Pick() ?? 0;
             float progress = start_Only?.Pick() ?? 0;
             float cross = cross_Only?.Pick() ?? 0.15f;
             animator.CrossFade(str_only.Pick(), cross, index, progress);
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("动画器_状态_过渡播放_", "触发/动画")]
@@ -218,7 +218,7 @@ namespace ES.EvPointer
         [LabelText("归一化过渡时间(默认0.15f)"), SerializeReference] public IPointerForFloat_Only cross_Only = new PointerForFloat_DirectClamp01();
         [LabelText("归一化起始播放位置(可空)"), SerializeReference] public IPointerForFloat_Only start_Only = new PointerForFloat_DirectClamp01();
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null || str_only == null) return -1;
             int index = layerIndex?.Pick() ?? 0;
@@ -226,7 +226,7 @@ namespace ES.EvPointer
             float cross = cross_Only?.Pick() ?? 0.15f;
             animator.CrossFade(str_only.Pick(), cross, index, progress);
             /* animator.gets*/
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
 
         }
     }
@@ -237,7 +237,7 @@ namespace ES.EvPointer
         [LabelText("目标动画器")] public Animator animator;
         [LabelText("第几层(可空)"), SerializeReference] public IPointerForInt_Only layerIndex = new PointerForInt_Direct();
 
-        public AnimatorStateInfo Pick(object by = null, object yarn = null, object on = null)
+        public AnimatorStateInfo Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return default;
             int index = layerIndex?.Pick() ?? 0;
@@ -250,7 +250,7 @@ namespace ES.EvPointer
         [LabelText("目标动画器")] public Animator animator;
         [LabelText("第几层(可空)"), SerializeReference] public IPointerForInt_Only layerIndex = new PointerForInt_Direct();
 
-        public AnimatorStateInfo Pick(object by = null, object yarn = null, object on = null)
+        public AnimatorStateInfo Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return default;
             int index = layerIndex?.Pick() ?? 0;
@@ -262,7 +262,7 @@ namespace ES.EvPointer
     {
         [LabelText("动画器")] public Animator animator;
         [LabelText("浮点数参数名")] public string ParaName = "aFloat";
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             return animator.GetFloat(ParaName);
@@ -273,7 +273,7 @@ namespace ES.EvPointer
     {
         [LabelText("动画器")] public Animator animator;
         [LabelText("整数参数名")] public string ParaName = "aInt";
-        public int Pick(object by = null, object yarn = null, object on = null)
+        public int Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             return animator.GetInteger(ParaName);
@@ -284,7 +284,7 @@ namespace ES.EvPointer
     {
         [LabelText("动画器")] public Animator animator;
         [LabelText("布尔值参数名")] public string ParaName = "aBool";
-        public bool Pick(object by = null, object yarn = null, object on = null)
+        public bool Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return false;
             return animator.GetBool(ParaName);
@@ -294,7 +294,7 @@ namespace ES.EvPointer
     public class PointerForFloat_AnimatorStateInfo_NormalizedTime : IPointerForFloat_Only
     {
         [SerializeReference, LabelText("动画状态信息")] public IPointerForAnimatorStateInfo_Only stateInfo = new PointerForAnimatorStateInfo_CurrentFromAnimator();
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             AnimatorStateInfo info = stateInfo?.Pick() ?? default;
             return info.normalizedTime;
@@ -304,7 +304,7 @@ namespace ES.EvPointer
     public class PointerForFloat_AnimatorStateInfo_ShortNameHash : IPointerForInt_Only
     {
         [SerializeReference, LabelText("动画状态信息")] public IPointerForAnimatorStateInfo_Only stateInfo = new PointerForAnimatorStateInfo_CurrentFromAnimator();
-        public int Pick(object by = null, object yarn = null, object on = null)
+        public int Pick(object on= null, object from = null, object with = null)
         {
             AnimatorStateInfo info = stateInfo?.Pick() ?? default;
             return info.shortNameHash;
@@ -314,7 +314,7 @@ namespace ES.EvPointer
     public class PointerForFloat_AnimatorStateInfo_TagHash : IPointerForInt_Only
     {
         [SerializeReference, LabelText("动画状态信息")] public IPointerForAnimatorStateInfo_Only stateInfo = new PointerForAnimatorStateInfo_CurrentFromAnimator();
-        public int Pick(object by = null, object yarn = null, object on = null)
+        public int Pick(object on= null, object from = null, object with = null)
         {
             AnimatorStateInfo info = stateInfo?.Pick() ?? default;
             return info.tagHash;
@@ -324,7 +324,7 @@ namespace ES.EvPointer
     public class PointerForInt_AnimatorStateInfo_FullNameHash : IPointerForInt_Only
     {
         [SerializeReference, LabelText("动画状态信息")] public IPointerForAnimatorStateInfo_Only stateInfo = new PointerForAnimatorStateInfo_CurrentFromAnimator();
-        public int Pick(object by = null, object yarn = null, object on = null)
+        public int Pick(object on= null, object from = null, object with = null)
         {
             AnimatorStateInfo info = stateInfo?.Pick() ?? default;
             return info.fullPathHash;
@@ -335,7 +335,7 @@ namespace ES.EvPointer
     {
 
         [LabelText("转化名称")] public string name_;
-        public int Pick(object by = null, object yarn = null, object on = null)
+        public int Pick(object on= null, object from = null, object with = null)
         {
             return Animator.StringToHash(name_);
         }
@@ -366,7 +366,7 @@ namespace ES.EvPointer
             hasInit = true;
         }
 
-        public int Pick(object by = null, object yarn = null, object on = null)
+        public int Pick(object on= null, object from = null, object with = null)
         {
             if (!hasInit) Init();
             return hash;
@@ -378,7 +378,7 @@ namespace ES.EvPointer
         [LabelText("动画器")] public Animator animator;
         [LabelText("浮点数参数Hash"), SerializeReference] public IPointerForInt_Only NameHash = new PointerForInt_Animator_HashInit();
         [LabelText("浮点值"), SerializeReference] public IPointerForFloat_Only float_Only = new PointerForFloat_Direct();
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             int i = NameHash?.Pick() ?? 0;
@@ -386,7 +386,7 @@ namespace ES.EvPointer
             {
                 animator.SetFloat(i, float_Only?.Pick() ?? 0);
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("动画器_增益_浮点数_Hash", "触发/动画")]
@@ -396,7 +396,7 @@ namespace ES.EvPointer
         [LabelText("浮点数参数Hash"), SerializeReference] public IPointerForInt_Only NameHash = new PointerForInt_Animator_HashInit();
         [LabelText("增益浮点数值"), SerializeReference] public IPointerForFloat_Only float_Only = new PointerForFloat_Direct();
         [LabelText("乘上帧时间")] public bool mutiTimeDelta = true;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             int i = NameHash?.Pick() ?? 0;
@@ -405,7 +405,7 @@ namespace ES.EvPointer
                 animator.SetFloat(i, animator.GetFloat(i) + (float_Only?.Pick() ?? 0) * (mutiTimeDelta ? Time.deltaTime : 1));
 
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("动画器_逼近_浮点数_Hash", "触发/动画")]
@@ -416,7 +416,7 @@ namespace ES.EvPointer
         [LabelText("目标浮点数值"), SerializeReference] public IPointerForFloat_Only float_Only = new PointerForFloat_Direct();
         [LabelText("Lerp值"), SerializeReference] public IPointerForFloat_Only lerp_Only = new PointerForFloat_Direct();
         [LabelText("Lerp乘上帧时间")] public bool mutiTimeDelta = true;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             float t = lerp_Only?.Pick() ?? 0;
@@ -425,7 +425,7 @@ namespace ES.EvPointer
             {
                 animator.SetFloat(i, Mathf.Lerp(animator.GetFloat(i), +(float_Only?.Pick() ?? 0), t * (mutiTimeDelta ? Time.deltaTime : 1)));
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("动画器_设置参数_整数_Hash", "触发/动画")]
@@ -434,7 +434,7 @@ namespace ES.EvPointer
         [LabelText("动画器")] public Animator animator;
         [LabelText("整数值参数Hash"), SerializeReference] public IPointerForInt_Only NameHash = new PointerForInt_Animator_HashInit();
         [LabelText("整数值"), SerializeReference] public IPointerForInt_Only int_Only = new PointerForInt_Direct();
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             int i = NameHash?.Pick() ?? 0;
@@ -442,7 +442,7 @@ namespace ES.EvPointer
             {
                 animator.SetInteger(i, int_Only?.Pick() ?? 0);
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
 
@@ -452,7 +452,7 @@ namespace ES.EvPointer
         [LabelText("动画器")] public Animator animator;
         [LabelText("布尔值参数Hash"), SerializeReference] public IPointerForInt_Only NameHash = new PointerForInt_Animator_HashInit();
         [LabelText("布尔值"), SerializeReference] public IPointerForBool_Only bool_Only = new PointerForBool_Direc();
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             int i = NameHash?.Pick() ?? 0;
@@ -460,7 +460,7 @@ namespace ES.EvPointer
             {
                 animator.SetBool(i, bool_Only?.Pick() ?? false);
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("动画器_切换真假_布尔值_Hash", "触发/动画")]
@@ -469,7 +469,7 @@ namespace ES.EvPointer
         [LabelText("动画器")] public Animator animator;
         [LabelText("布尔值参数Hash"), SerializeReference] public IPointerForInt_Only NameHash = new PointerForInt_Animator_HashInit();
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             int i = NameHash?.Pick() ?? 0;
@@ -477,7 +477,7 @@ namespace ES.EvPointer
             {
                 animator.SetBool(i, !animator.GetBool(i));
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("动画器_设置参数_触发器_Hash", "触发/动画")]
@@ -486,7 +486,7 @@ namespace ES.EvPointer
         [LabelText("动画器")] public Animator animator;
         [LabelText("触发器参数Hash"), SerializeReference] public IPointerForInt_Only NameHash = new PointerForInt_Animator_HashInit();
         [LabelText("是否触发"), SerializeReference] public IPointerForBool_Only tri_Only = new PointerForBool_Direc();
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             bool b = tri_Only?.Pick() ?? false;
@@ -497,7 +497,7 @@ namespace ES.EvPointer
                 else animator.ResetTrigger(i);
             }
 
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("动画器_状态_直接播放_Hash", "触发/动画")]
@@ -508,7 +508,7 @@ namespace ES.EvPointer
         [LabelText("动画名Hash"), SerializeReference] public IPointerForInt_Only NameHash = new PointerForInt_Animator_HashInit();
         [LabelText("归一化起始播放位置(可空)"), SerializeReference] public IPointerForFloat_Only start_Only = new PointerForFloat_DirectClamp01();
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null || NameHash == null) return -1;
             int index = layerIndex?.Pick() ?? 0;
@@ -519,7 +519,7 @@ namespace ES.EvPointer
                 animator.Play(i, index, progress);
             }
 
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("动画器_状态_过渡播放_Hash", "触发/动画")]
@@ -531,7 +531,7 @@ namespace ES.EvPointer
         [LabelText("归一化过渡时间(默认0.15f)"), SerializeReference] public IPointerForFloat_Only cross_Only = new PointerForFloat_DirectClamp01();
         [LabelText("归一化起始播放位置(可空)"), SerializeReference] public IPointerForFloat_Only start_Only = new PointerForFloat_DirectClamp01();
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null || NameHash == null) return -1;
             int index = layerIndex?.Pick() ?? 0;
@@ -542,7 +542,7 @@ namespace ES.EvPointer
             {
                 animator.CrossFade(i, cross, index, progress);
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("动画器_获取_浮点参数值_Hash")]
@@ -551,7 +551,7 @@ namespace ES.EvPointer
         [LabelText("动画器")] public Animator animator;
         [LabelText("浮点数参数Hash")][SerializeReference] public IPointerForInt_Only NameHash = new PointerForInt_Animator_HashInit();
 
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             int i = NameHash?.Pick() ?? 0;
@@ -567,7 +567,7 @@ namespace ES.EvPointer
     {
         [LabelText("动画器")] public Animator animator;
         [LabelText("整数参数Hash")][SerializeReference] public IPointerForInt_Only NameHash = new PointerForInt_Animator_HashInit();
-        public int Pick(object by = null, object yarn = null, object on = null)
+        public int Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return -1;
             int i = NameHash?.Pick() ?? 0;
@@ -583,7 +583,7 @@ namespace ES.EvPointer
     {
         [LabelText("动画器")] public Animator animator;
         [LabelText("布尔参数Hash")][SerializeReference] public IPointerForInt_Only NameHash = new PointerForInt_Animator_HashInit();
-        public bool Pick(object by = null, object yarn = null, object on = null)
+        public bool Pick(object on= null, object from = null, object with = null)
         {
             if (animator == null) return false;
             int i = NameHash?.Pick() ?? 0;

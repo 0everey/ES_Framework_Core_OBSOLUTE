@@ -33,7 +33,7 @@ namespace ES.EvPointer
     public class PointerNonePickSome : IPointerNone
     {
         [SerializeReference, LabelText("调用列表")] public IPointerNoneSome some;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return some?.Pick();
         }
@@ -44,7 +44,7 @@ namespace ES.EvPointer
     //没啥必要说是
     public abstract class PointerOnlyAction : IPointerOnlyAction
     {
-        public virtual object Pick(object by = null, object yarn = null, object on = null)
+        public virtual object Pick(object on= null, object from = null, object with = null)
         {
             return -1;
         }
@@ -66,7 +66,7 @@ namespace ES.EvPointer
     public class PointerForAction_FromPointerNone : IPointerForAction_Only
     {
         [LabelText("来自触发针"), SerializeReference] public IPointerNone pointerNone = new PointerPickerEveryThing();
-        public Action Pick(object by = null, object yarn = null, object on = null)
+        public Action Pick(object on= null, object from = null, object with = null)
         {
             if (pointerNone != null)
             {
@@ -81,7 +81,7 @@ namespace ES.EvPointer
     {
         [LabelText("使用的游戏物体")] public GameObject gameObject;
         [LabelText("设置状态")] public bool activeTo;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             if (gameObject != null)
                 gameObject.SetActive(activeTo);
@@ -93,7 +93,7 @@ namespace ES.EvPointer
     {
         [LabelText("使用的游戏物体"), SerializeReference] public IPointerForGameObject_Only gameObjectP;
         [LabelText("设置状态")] public bool activeTo;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             GameObject gg = gameObjectP?.Pick();
             if (gg != null) gg.SetActive(activeTo);
@@ -105,7 +105,7 @@ namespace ES.EvPointer
     {
         [LabelText("使用的脚本")] public MonoBehaviour mono;
         [LabelText("设置状态")] public bool activeTo;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             if (mono != null)
                 mono.enabled = (activeTo);
@@ -117,7 +117,7 @@ namespace ES.EvPointer
     {
         [LabelText("使用的脚本"), SerializeReference] public IPointerForComponent_Only comP;
         [LabelText("设置状态")] public bool activeTo;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             MonoBehaviour mono = comP?.Pick() as MonoBehaviour;
             if (mono != null) mono.enabled = (activeTo);
@@ -130,7 +130,7 @@ namespace ES.EvPointer
         [LabelText("使用的游戏物体")] public IPointerForGameObject_Only comP;
         [LabelText("操作类型")]public EnumCollect.
         [LabelText("操作布尔参数")] public bool handle;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             GameObject mono = comP?.Pick();
             KeyValueMatchingUtility.Function.
@@ -147,11 +147,11 @@ namespace ES.EvPointer
     public class PoinerCreateGameObjectPoolByGameObject : PointerCreateGameObjectByPool
     {
         [LabelText("使用的游戏物体")] public GameObject gameObject;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (gameObject == null) return -1;
             ES_PoolMaster.Instance.CreatePool(gameObject, num);
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("触发针_创建对象池_引用预制件的(脚本)")]
@@ -159,11 +159,11 @@ namespace ES.EvPointer
     {
         [LabelText("使用的游戏脚本")] public Component mono;
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (mono == null) return -1;
             ES_PoolMaster.Instance.CreatePool(mono.gameObject, num);
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     //触发针_实例化游戏物体抽象类
@@ -187,9 +187,9 @@ namespace ES.EvPointer
             return last;
         }
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
         protected void Apply(Transform t)
         {
@@ -207,7 +207,7 @@ namespace ES.EvPointer
     {
         [LabelText("直接使用游戏物体")]
         public GameObject prefab;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (prefab != null)
             {
@@ -215,7 +215,7 @@ namespace ES.EvPointer
                 if(g!=null) Apply(g.transform);
 
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("触发针_实例化游戏物体_使用预制件脚本")]
@@ -223,13 +223,13 @@ namespace ES.EvPointer
     {
         [LabelText("使用脚本")]
         public Component mono;
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (mono != null)
             {
                 Apply(MonoBehaviour.Instantiate(mono).transform);
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("触发针_实例化游戏物体依赖对象池_直接使用预制件")]
@@ -244,14 +244,14 @@ namespace ES.EvPointer
             hasInit = true;
         }
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (prefab != null)
             {
                 if (!hasInit) Init();
                 Apply(ES_PoolMaster.Instance.GetInPool(prefab).transform);
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("触发针_实例化游戏物体依赖对象池_使用预制件脚本")]
@@ -266,21 +266,21 @@ namespace ES.EvPointer
             hasInit = true;
         }
 
-        public override object Pick(object by = null, object yarn = null, object on = null)
+        public override object Pick(object on= null, object from = null, object with = null)
         {
             if (mono != null)
             {
                 if (!hasInit) Init();
                 Apply(ES_PoolMaster.Instance.GetInPool(mono.gameObject).transform);
             }
-            return base.Pick(by, yarn, on);
+            return base.Pick(on,from,with);
         }
     }
     [Serializable, TypeRegistryItem("触发针_销毁游戏物体(针来源)")]
     public class PointerDestroyGameObject : IPointerNone
     {
         [LabelText("摧毁游戏物体"), SerializeReference] public IPointerForGameObject_Only pointerFor;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             if (pointerFor != null)
             {
@@ -299,7 +299,7 @@ namespace ES.EvPointer
     {
         [LabelText("延迟摧毁游戏物体"), SerializeReference] public IPointerForGameObject_Only pointerFor;
         [LabelText("延迟时间"), SerializeReference] public IPointerForFloat_Only pointerTime;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             float delayTime = pointerTime?.Pick() ?? 1;
             if (pointerFor != null)

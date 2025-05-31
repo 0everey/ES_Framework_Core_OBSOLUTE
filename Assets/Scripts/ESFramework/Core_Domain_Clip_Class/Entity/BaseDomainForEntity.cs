@@ -15,8 +15,7 @@ namespace ES
 
     public class BaseDomainForEntity : BaseDomain<Entity, BaseClipForEntity>
     {
-
-
+       
         #region 引用
         [NonSerialized] public ClipBase_AB_3DMotion Module_AB_Motion;
         [NonSerialized] public ClipBase_3DStandardMotion Module_3DMotion;
@@ -35,6 +34,7 @@ namespace ES
         {
             base.CreatRelationship();
             core.BaseDomain = this;
+            
         }
         
         /* float timeDis = 2;
@@ -53,10 +53,7 @@ namespace ES
     [Serializable]
     public abstract class BaseClipForEntity : Clip<Entity, BaseDomainForEntity>
     {
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-        }
+      
     }
     [Serializable]
     public abstract class ClipBase_AB_3DMotion : BaseClipForEntity
@@ -82,6 +79,21 @@ namespace ES
                 StandardSpeed.y = Core.entitySharedData.PatrolSpeed;
             }
         }
+        public void Move(Vector3 v3)
+        {
+            if (Core.CharacterController != null)
+            {
+                Core.CharacterController.Move(v3);
+            }
+            else if (UseRigid && Core.Rigid != null)
+            {
+                Core.Rigid.position += v3;
+            }
+            else
+            {
+                Core.transform.position += v3;
+            }
+        }
     }
     [Serializable, TypeRegistryItem("3D微型移动")]
     public class ClipBase_3DMicroMotion : ClipBase_AB_3DMotion
@@ -96,15 +108,9 @@ namespace ES
 
             Vector3 combine = Vector3.ProjectOnPlane(Core.transform.forward, YUpwards).normalized * Z
                 + Vector3.ProjectOnPlane(Core.transform.right, YUpwards).normalized * X + Vector3.up * Core.YV;
-            if (UseRigid && Core.Rigid != null)
-            {
-                Core.Rigid.position += combine * SelfControlWeight * Time.fixedDeltaTime;
-            }
-            else
-            {
-                Core.transform.position += combine * SelfControlWeight * Time.fixedDeltaTime;
-            }
 
+            Move(combine * SelfControlWeight * Time.fixedDeltaTime);
+           
             Quaternion onlyY = Quaternion.Euler(0, Mathf.Clamp(CurrentRotationY, -MaxRotSpeed_, MaxRotSpeed_) * SelfControlWeight * Time.deltaTime, 0);
 
 
@@ -120,6 +126,8 @@ namespace ES
         protected override void OnEnable()
         {
             base.OnEnable();
+            Debug.Log(Domain);
+            Debug.Log(Domain.OnFixedUpdate);
             Domain.OnFixedUpdate += FixedUpdate_MustSelfDelegate;
         }
         protected override void OnDisable()
@@ -199,15 +207,7 @@ namespace ES
 
             Vector3 combine = Vector3.ProjectOnPlane(Core.transform.forward, YUpwards).normalized * Z
                 + Vector3.ProjectOnPlane(Core.transform.right, YUpwards).normalized * X + Vector3.up * Core.YV;
-            if (UseRigid && Core.Rigid != null)
-            {
-                
-                Core.CharacterController.Move(combine * SelfControlWeight * Time.fixedDeltaTime);
-            }
-            else
-            {
-                Core.transform.position += combine * SelfControlWeight * Time.fixedDeltaTime;
-            }
+            Move(combine * SelfControlWeight * Time.fixedDeltaTime);
         }
         public void Set_TargetVZ(float f, object who)
         {
@@ -568,7 +568,7 @@ namespace ES
             if (gg != null)
             {
               
-                GameObject ins = GameCenter.Ins(gg, FirePoint.position, null, FirePoint.rotation);
+                GameObject ins = ESSpawnMaster.Instance.Ins(gg, FirePoint.position, null, FirePoint.rotation);
                 var item = ins.GetComponent<Item>();
                 var fly = item.HurtableDomain?.Module_Flying;
                 if (fly != null)

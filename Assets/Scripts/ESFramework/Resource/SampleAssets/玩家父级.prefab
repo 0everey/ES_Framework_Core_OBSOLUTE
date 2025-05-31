@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8943e87e4e40842a060beec8005d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnableFixupdate: 1
   readMe:
     edit: 1
     ReadMe: "\u7F16\u5199\u63D0\u793A\u6587\u4EF6"
@@ -100,7 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6153cff379c40a94080b3653c41108d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnableFixupdate: 1
   readMe:
     edit: 1
     ReadMe: "\u7F16\u5199\u63D0\u793A\u6587\u4EF6"
@@ -366,7 +364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da29e1c831ece7847aebc5f9cc965ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnableFixupdate: 1
   readMe:
     edit: 1
     ReadMe: "\u7F16\u5199\u63D0\u793A\u6587\u4EF6"
@@ -378,6 +375,7 @@ MonoBehaviour:
     - rid: 165002816914718725
     - rid: 165002840011702272
   StateMachine:
+    _enableSelf: 1
     thisState:
       rid: 165002816914718720
     _SelfRunningState:
@@ -403,14 +401,22 @@ MonoBehaviour:
     - rid: 165002816914718725
       type: {class: ClipStateMachine_SkillRegister, ns: ES, asm: Assembly-CSharp}
       data:
+        _enableSelf: 1
         Domain: {fileID: 0}
         Preset: "\u9884\u8BBE1"
         skillDataInfos:
-        - {fileID: -1901351340352760058, guid: 5df778371c5a7754f9dc05d597afc355, type: 2}
-        - {fileID: 5522202241113279524, guid: 5df778371c5a7754f9dc05d597afc355, type: 2}
+        - useRename: 1
+          rename: "\u6280\u80FD1"
+          info: {fileID: -1901351340352760058, guid: 5df778371c5a7754f9dc05d597afc355,
+            type: 2}
+        - useRename: 1
+          rename: "\u6280\u80FD2"
+          info: {fileID: 2122311780919986368, guid: 5df778371c5a7754f9dc05d597afc355,
+            type: 2}
     - rid: 165002840011702272
       type: {class: ClipStateMachine_CrashDodge, ns: ES, asm: Assembly-CSharp}
       data:
+        _enableSelf: 1
         Domain: {fileID: 0}
         Preset: "\u9884\u8BBE1"
         dataInfo: {fileID: 3254679571482181224, guid: c7b7aee7df33f104ab9ee45b7a55d921,
@@ -432,7 +438,7 @@ MonoBehaviour:
           CoolDownNext: 0
           vectorHandle: 0
           pathType: 0
-          baseOn: 0
+          baseOn: 1
 --- !u!114 &5181759166321305205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,7 +669,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aede5e8ea1488704b8c7cc8a4e475b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnableFixupdate: 1
   readMe:
     edit: 1
     ReadMe: "\u7F16\u5199\u63D0\u793A\u6587\u4EF6"
@@ -683,6 +688,7 @@ MonoBehaviour:
     - rid: 165002870959374566
       type: {class: ClipBase_CacherPoolForSpecialCondition, ns: ES, asm: Assembly-CSharp}
       data:
+        _enableSelf: 1
         Domain: {fileID: 0}
         Preset: "\u9884\u8BBE1"
         CacheEntity:
@@ -694,6 +700,7 @@ MonoBehaviour:
     - rid: 165002917983027208
       type: {class: ClipBase_3DStandardMotion, ns: ES, asm: Assembly-CSharp}
       data:
+        _enableSelf: 1
         Domain: {fileID: 0}
         Preset: "\u9884\u8BBE1"
         SelfControlWeight: 1
@@ -718,6 +725,7 @@ MonoBehaviour:
     - rid: 165002917983027209
       type: {class: ClipBase_Expand3DMotion_FirstMotionControl, ns: ES, asm: Assembly-CSharp}
       data:
+        _enableSelf: 1
         Domain: {fileID: 0}
         Preset: "\u9884\u8BBE1"
         MoveToV2:
@@ -812,6 +820,7 @@ MonoBehaviour:
     - rid: 165002936398905394
       type: {class: ClipBase_FireFlying, ns: ES, asm: Assembly-CSharp}
       data:
+        _enableSelf: 1
         Domain: {fileID: 0}
         Preset: "\u9884\u8BBE1"
         prefab: {fileID: 6999067622756423496, guid: 292573ebde9d74648a315cfb7285c071,
@@ -820,6 +829,7 @@ MonoBehaviour:
     - rid: 165002936398905395
       type: {class: ClipBase_Expand_ButtonFireQuick, ns: ES, asm: Assembly-CSharp}
       data:
+        _enableSelf: 1
         Domain: {fileID: 0}
         Preset: "\u9884\u8BBE1"
         FireInput:

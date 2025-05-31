@@ -40,6 +40,14 @@ namespace ES {
         {
             Tags.Sort((left, right) => string.CompareOrdinal(left.content, right.content)); ;
         }
+        public bool Contains(ESTag eSTag)
+        {
+            foreach(var i in Tags)
+            {
+                if (i.Equals(eSTag)) return true;
+            }
+            return false;
+        }
         
     }
 }

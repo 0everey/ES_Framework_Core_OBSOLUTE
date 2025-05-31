@@ -1,5 +1,6 @@
 using ES.EvPointer;
 using Sirenix.OdinInspector;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -13,6 +14,7 @@ namespace ES
     [TypeRegistryItem("游戏核心管理器")]
     public class GameCenterManager : SingletonAsCore<GameCenterManager>,IWithArchitecture
     {
+        [NonSerialized]public bool NetSupport = false;
         [FoldoutGroup("工具管理器引用"), LabelText("音效管理器")] public ESAudioMaster AudioMaster;
         
 
@@ -42,7 +44,7 @@ namespace ES
         [FoldoutGroup("编辑器支持"),LabelText("默认GUI Style")]
         public GUIStyle style;
 
-
+        
         [FoldoutGroup("垃圾场")]
         [LabelText("引用默认的技能精灵图表")]public SkillPointSpritesReference SkillPointSpritesReference;
         public IArchitecture GetArchitecture => GameCenterArchitecture;
@@ -62,13 +64,11 @@ namespace ES
         {
             this.GameCenterArchitecture.SendLink(link);
         }
-        public GameObject Ins(GameObject g,Vector3 pos,Transform parent,Quaternion? qq=null)
-        {
-            if (g == null) return null;
-            
-            if(parent!=null) return Instantiate(g, pos, qq??Quaternion.identity, parent);
-            else return Instantiate(g, pos, qq ?? Quaternion.identity);
-        }
+
+
+        #region 生成相关
+       
+        #endregion
         /*[Button("发送Link")]
         public void SendLink()
         {
@@ -105,71 +105,71 @@ namespace ES
         /// <param content="enemy"> 谁打我</param>
         /// <param content="Class"> 咋打的</param>
         /// <returns>返回的是是否有效攻击</returns>
-       /* public bool ProactiveInvoke_OnPlayerBeEnemyAttack_BackApplyAttack(DamageClass Class)
-        {
-            OnPlayerBeEnemyAttack?.Invoke(Class.who, Class);
-            if (Class != null &&Class.who!=null&& BaseDomain.Module_PlayerState != null)
-            {
-                Debug.Log("玩家被攻击" + Class.Type + Class.who);
-                if (BaseDomain.Module_PlayerState.isSimpleDefending)
-                {
-                    //普通防御
-                    BaseDomain.Module_PlayerState.m_blockMeter -= 20;
-                    if (BaseDomain.Module_PlayerState.m_blockMeter < 0)
-                    {
-                        OnGuardBreaked?.Invoke();
-                        Debug.Log("护盾破碎");
-                    }
-                    Debug.Log("护盾抵挡");
-                    return false;
-                }else if (BaseDomain.Module_PlayerState.isSpecialGeDang)
-                {
-                   
-                     if (Class.Type == DamageType.Melle)
-                    {
-                        OnSuccessParriedMeleeATK?.Invoke();
-                        Debug.Log("完美格挡近战");
-                    }
-                    else if (Class.Type == DamageType.Range)
-                    {
-                        OnSuccessParriedRangeATK?.Invoke();
-                        Debug.Log("完美格挡远程");
-                    }
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-            
-            return true;
-        }
-        public void ProactiveInvoke_OnWeaponSetup(WeaponSwitch weaponSwitch)
-        {
-            if (weaponSwitch != null)
-            {
-                OnWeaponSetup?.Invoke(weaponSwitch);
-            }
-        }
-        public void ProactiveInvoke_OnSoulCollected(int num)
-        {
-            OnSoulCollected?.Invoke(num);
-        }
-        private void Start()
-        {
-            var test1 = KeyValueMatchingUtility.FindByAKey(buffSoInfos, "暴击强化");
-           // Debug.Log(test1!=null ? $"Test1找到了{test1}": "Test1失败"  );
+        /* public bool ProactiveInvoke_OnPlayerBeEnemyAttack_BackApplyAttack(DamageClass Class)
+         {
+             OnPlayerBeEnemyAttack?.Invoke(Class.who, Class);
+             if (Class != null &&Class.who!=null&& BaseDomain.Module_PlayerState != null)
+             {
+                 Debug.Log("玩家被攻击" + Class.Type + Class.who);
+                 if (BaseDomain.Module_PlayerState.isSimpleDefending)
+                 {
+                     //普通防御
+                     BaseDomain.Module_PlayerState.m_blockMeter -= 20;
+                     if (BaseDomain.Module_PlayerState.m_blockMeter < 0)
+                     {
+                         OnGuardBreaked?.Invoke();
+                         Debug.Log("护盾破碎");
+                     }
+                     Debug.Log("护盾抵挡");
+                     return false;
+                 }else if (BaseDomain.Module_PlayerState.isSpecialGeDang)
+                 {
 
-            var test2 = KeyValueMatchingUtility.FindByIKey(buffSoInfos, new KeyString_Direct() { str_direc= "暴击强化" });
-           // Debug.Log(test1 != null ? $"Test2找到了{test1}" : "Test2失败");
-        }
-        
-        public override void Update()
-        {
-            base.Update();
-            
-        }*/
-      
+                      if (Class.Type == DamageType.Melle)
+                     {
+                         OnSuccessParriedMeleeATK?.Invoke();
+                         Debug.Log("完美格挡近战");
+                     }
+                     else if (Class.Type == DamageType.Range)
+                     {
+                         OnSuccessParriedRangeATK?.Invoke();
+                         Debug.Log("完美格挡远程");
+                     }
+                     return false;
+                 }
+                 else
+                 {
+                     return true;
+                 }
+             }
+
+             return true;
+         }
+         public void ProactiveInvoke_OnWeaponSetup(WeaponSwitch weaponSwitch)
+         {
+             if (weaponSwitch != null)
+             {
+                 OnWeaponSetup?.Invoke(weaponSwitch);
+             }
+         }
+         public void ProactiveInvoke_OnSoulCollected(int num)
+         {
+             OnSoulCollected?.Invoke(num);
+         }
+         private void Start()
+         {
+             var test1 = KeyValueMatchingUtility.FindByAKey(buffSoInfos, "暴击强化");
+            // Debug.Log(test1!=null ? $"Test1找到了{test1}": "Test1失败"  );
+
+             var test2 = KeyValueMatchingUtility.FindByIKey(buffSoInfos, new KeyString_Direct() { str_direc= "暴击强化" });
+            // Debug.Log(test1 != null ? $"Test2找到了{test1}" : "Test2失败");
+         }
+
+         public override void Update()
+         {
+             base.Update();
+
+         }*/
+
     }
 }

@@ -1,8 +1,10 @@
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
+using static Unity.Burst.Intrinsics.X86;
 
 
 namespace ES
@@ -12,17 +14,7 @@ namespace ES
     {
         [LabelText("提示"),PropertyOrder(-5)]
         public ESReadMeClass readme = new ESReadMeClass() { readMe= "请在尽量在窗口处进行调整,这里不推荐\n因为" };
-        #region AB工具设置
-        
-        [FoldoutGroup("AB包工具")][LabelText("AB打包模式")]public ABPackType abPackType;
-        [FoldoutGroup("AB包工具")][LabelText("AB代码生成模式")] public ABForAutoCodeGen abFoeAutoCodeGen;
-        [FoldoutGroup("AB包工具"),FolderPath, LabelText("生成路径")]
-        public string genarateFolder = "Assets/StreamingAssets/AssetBundles";
-        [FoldoutGroup("AB包工具"),LabelText("AB包标记模式")]
-        public ABMaskType abMaskType = ABMaskType.AsOrinal;
-        [FoldoutGroup("AB包工具"), LabelText("AB包标记自定义名字")]
-        public string ABName;
-        #endregion
+       
         public static bool IsQuit = false;
         private void OnApplicationQuit()
         {
@@ -43,6 +35,7 @@ namespace ES
 
         #endregion
 
+        #region LayerMask
         #region 静态支持LayerMask Int
         public static int LayerDefault = 0;
         public static int LayerTransparentFX = 1;
@@ -126,9 +119,9 @@ namespace ES
 
 
         #endregion
+        #endregion
 
-
-        #region 分类
+        #region 总览
         protected override void Awake()
         {
             IsQuit = false;
@@ -143,6 +136,7 @@ namespace ES
         private void Load()
         {
             LoadESTags();
+            LoadSST();
         }
         private void LoadESTags()
         {
@@ -164,25 +158,24 @@ namespace ES
         }
         #endregion
 
-        #region 枚举和类
-        public enum ABPackType
-        {
-            [InspectorName("模拟模式")] Simulate,
-            [InspectorName("发布模式")] Release
-        }
-        public enum ABForAutoCodeGen
-        {
-            [InspectorName("不生成代码")] NoneCode,
-            [InspectorName("生成同名代码")] CodeAsOriginal,
-            [InspectorName("生成代码转大写")] CodeAsUpper,
-            [InspectorName("生成代码转小写")] CodeAsLower
-        }
+        
 
-        public enum ABMaskType
+        #region 可寻类型分组键
+        [LabelText("可寻分组键")]
+        public DicIOCWithStringSelectStringKey_TypeValue sst = new DicIOCWithStringSelectStringKey_TypeValue();
+        private void LoadSST()
         {
-            [InspectorName("原名")]AsOrinal,
-            [InspectorName("收集到文件夹名")] AsFolder,
-            [InspectorName("自定义名")] SelfDefine,
+            sst = new DicIOCWithStringSelectStringKey_TypeValue();
+             var assem= Assembly.GetExecutingAssembly();
+            var types = assem.GetTypes();
+             foreach(var i in types)
+            {
+                var at = i.GetCustomAttribute<ESDisplayNameKeyToTypeAttribute>();
+                if (at != null)
+                {
+                    sst.AddElement(at.TeamCollect,at.DisplayKeyName,i);
+                }
+            }
         }
         #endregion
     }

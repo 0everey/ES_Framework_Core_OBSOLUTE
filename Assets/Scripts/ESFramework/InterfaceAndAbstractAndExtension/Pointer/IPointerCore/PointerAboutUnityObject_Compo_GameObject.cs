@@ -14,7 +14,7 @@ namespace ES.EvPointer
     //核心 Ev针支持 关于Unity.Object 资源 脚本等部分
     #region UnityObject部分
         #region Unity.Object 接口抽象和包
-    public interface IPointerForUnityObject<By, Yarn, On> : IPointer<UnityEngine.Object, By, Yarn, On>
+    public interface IPointerForUnityObject<On, From, With> : IPointer<UnityEngine.Object, On, From, With>
     {
 
     }
@@ -53,7 +53,7 @@ namespace ES.EvPointer
     public class PointerForUnityObejct_Direct : IPointerForUnityObject_Only
     {
         [LabelText("直接输入Unity物体")]public UnityEngine.Object direct;
-        public UnityEngine.Object Pick(object by = null, object yarn = null, object on = null)
+        public UnityEngine.Object Pick(object on= null, object from = null, object with = null)
         {
             return direct;
         }
@@ -62,7 +62,7 @@ namespace ES.EvPointer
     #endregion
     #region 脚本部分
     #region 脚本接口抽象和包
-    public interface IPointerForComponent<By, Yarn, On> : IPointer<Component, By, Yarn, On>
+    public interface IPointerForComponent<On, From, With> : IPointer<Component, On, From, With>
     {
 
     }
@@ -104,7 +104,7 @@ namespace ES.EvPointer
     {
         [LabelText("直接引用脚本")]
         public Component component_direc;
-        public Component Pick(object by = null, object yarn = null, object on = null)
+        public Component Pick(object on= null, object from = null, object with = null)
         {
             return component_direc;
         }
@@ -113,7 +113,7 @@ namespace ES.EvPointer
     #endregion
     #region 游戏物体部分
         #region 游戏物体接口抽象和包
-    public interface IPointerForGameObject<By, Yarn, On> : IPointer<GameObject, object, object, object>
+    public interface IPointerForGameObject<On, From, With> : IPointer<GameObject, object, object, object>
     {
 
     }
@@ -163,7 +163,7 @@ namespace ES.EvPointer
     public class PointerForGameObject_FromCompoent : IPointerForGameObject_Only
     {
         [LabelText("脚本源"), SerializeReference] public IPointerForComponent_Only cP;
-        public GameObject Pick(object by = null, object yarn = null, object on = null)
+        public GameObject Pick(object on= null, object from = null, object with = null)
         {
             return cP?.Pick()?.gameObject;
         }
@@ -176,7 +176,7 @@ namespace ES.EvPointer
     public class PointerForGameObject_FromTag : IPointerForGameObject_Only
     {
         [LabelText("使用的标签")] public PointerForString_Tag tag = new PointerForString_Tag();
-        public GameObject Pick(object by = null, object yarn = null, object on = null)
+        public GameObject Pick(object on= null, object from = null, object with = null)
         {
             if (tag != null)
                 return GameObject.FindGameObjectWithTag(tag?.Pick());
@@ -188,7 +188,7 @@ namespace ES.EvPointer
     public class PointerForGameObject_Direct : IPointerForGameObject_Only
     {
         [LabelText("直接引用游戏物体")] public GameObject g;
-        public GameObject Pick(object by = null, object yarn = null, object on = null)
+        public GameObject Pick(object on= null, object from = null, object with = null)
         {
             return g;
         }
@@ -204,7 +204,7 @@ namespace ES.EvPointer
             return g_;
         }
 
-        public GameObject Pick(object by = null, object yarn = null, object on = null)
+        public GameObject Pick(object on= null, object from = null, object with = null)
         {
             return g_ = gP?.Pick() ?? default;
         }

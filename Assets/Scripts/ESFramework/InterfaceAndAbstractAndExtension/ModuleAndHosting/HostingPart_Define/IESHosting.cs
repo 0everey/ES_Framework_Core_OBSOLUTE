@@ -383,8 +383,8 @@ namespace ES
     {
         #region 与自己的Host关联
         public override Host GetHost => host;
-        [LabelText("托管核心", SdfIconType.Bullseye)]
-        public Host host;
+        [LabelText("托管核心", SdfIconType.Bullseye),NonSerialized,ShowInInspector]
+        public Host host=null;
         #endregion
     }
 

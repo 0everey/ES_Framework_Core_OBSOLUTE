@@ -11,7 +11,11 @@ namespace ES
    /* [CreateAssetMenu(fileName = "BuffSoInfo", menuName = "EvData/BuffSoInfo")]*/
     public class BuffSoInfo : SoDataInfo
     {
-    
+        [LabelText("注册与注销"), SerializeReference] public List<OutputOpeationBuffDelegate> dele = new List<OutputOpeationBuffDelegate>();
+        [LabelText("更新的"),SerializeReference] public OutputOpeationBuffDo upd;
+        public StateDataInfo binding;
+        [LabelText("结算的"), SerializeReference] public List<OutputOpeationBuffSettle> settle = new List<OutputOpeationBuffSettle>();
+        [LabelText("缓冲的"), SerializeReference] public OutputOperationBuffBuffer buffer;
         //[SerializeReference]
         //[LabelText("仅测试阶段")]public IKey TestKey;
         //public KeyString_BuffUse key => BuffKey;

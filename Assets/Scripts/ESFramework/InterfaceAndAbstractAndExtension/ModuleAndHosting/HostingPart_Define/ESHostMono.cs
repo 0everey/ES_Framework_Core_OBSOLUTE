@@ -149,11 +149,11 @@ namespace ES
         }
         protected virtual void OnDisable()
         {
-            Debug.Log(101);
+           
 #if UNITY_EDITOR
             if (EditorMaster.IsQuit) return;
 #endif
-            Debug.Log(102);
+           
             IsActiveAndEnable = false;
             DisableAsHosting();
         }
@@ -197,7 +197,7 @@ namespace ES
                 foreach (var i in NormalBeHosted)
                 {
                     i._TryActiveAndEnable();
-                    Debug.Log("开" + i.ToString());
+                    
                 }
             }
             base.EnableAsHosting();
@@ -209,7 +209,7 @@ namespace ES
                 foreach (var i in NormalBeHosted)
                 {
                     i._TryInActiveAndDisable();
-                    Debug.Log("关" + i.ToString());
+                    
                 }
             }
             base.DisableAsHosting();

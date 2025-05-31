@@ -83,16 +83,16 @@ namespace ES
                     else
                     {
                         Menu.SetChecked(_ConstString_MenuForMarkAssetBundle, true);
-                        if (EditorMaster.Instance.abMaskType== EditorMaster.ABMaskType.AsOrinal)
+                        if (ESResMaster.Instance.abMaskType== ESResMaster.ABMaskType.AsOrinal)
                         {
                             ai.assetBundleName = dir.Name.Replace(".", "_");
-                        }else if(EditorMaster.Instance.abMaskType == EditorMaster.ABMaskType.AsFolder)
+                        }else if(ESResMaster.Instance.abMaskType == ESResMaster.ABMaskType.AsFolder)
                         {
                             ai.assetBundleName = dir.Parent.Name.Replace(".", "_");
                         }
                         else
                         {
-                            ai.assetBundleName = EditorMaster.Instance.ABName.Replace(".", "_");
+                            ai.assetBundleName = ESResMaster.Instance.ABName.Replace(".", "_");
                         }
                        
                     }

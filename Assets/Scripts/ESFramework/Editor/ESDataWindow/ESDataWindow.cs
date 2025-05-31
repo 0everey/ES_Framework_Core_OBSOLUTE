@@ -11,6 +11,7 @@ using ES.EvPointer;
 using System.IO;
 using static ES.EvWindowDataAndTool;
 using UnityEngine.UIElements;
+using System.CodeDom.Compiler;
 
 namespace ES
 {
@@ -298,9 +299,48 @@ namespace ES
     //创建 数据工具 总页面
     public class PageRoot_DataTool
     {
-        [DisplayAsString(fontSize:30)]
-        public string readMe = "";
-        
+        [DisplayAsString(fontSize:30),HideLabel]
+        public string readMe = "数据层级分为DataInfo(单元),DataGroup(组),DataPack(包),现在开始填表来创建新的数据类型";
+        [LabelText("英文数据代码名(省略Info)")]
+        public string EnglishCodeName = "DataName";
+        [LabelText("中文数据显示名(省略数据单元)")]
+        public string ChineseDisplayName = "数据名";
+        [LabelText("数据父文件夹"), FolderPath]
+        public string folder = "Assets/Scripts/ESFramework/Data/DataToolScript";
+        [Button("生成")]
+        public void GenerateData()
+        {
+            if (AssetDatabase.IsValidFolder(folder)) {
+                string toInfo = folder + "/InfoType";
+                string toGroup = folder + "/GroupType";
+                string toPack = folder + "/PackType";
+                //查/创建文件夹↓
+                {
+                    if (!AssetDatabase.IsValidFolder(toInfo))
+                    {
+                        AssetDatabase.CreateFolder(folder, "InfoType");
+                    }
+                    if (!AssetDatabase.IsValidFolder(toGroup))
+                    {
+                        AssetDatabase.CreateFolder(folder, "GroupType");
+                    }
+                    if (!AssetDatabase.IsValidFolder(toPack))
+                    {
+                        AssetDatabase.CreateFolder(folder, "PackType");
+                    }
+                }
+                Debug.Log("完毕");
+                string infoName= EnglishCodeName + "DataInfo";
+                ESTool_ScriptMaker.Instance.CreateScript(toInfo, infoName, parent:": SoDataInfo");
+                ESTool_ScriptMaker.Instance.CreateScript(toGroup, EnglishCodeName+"DataGroup", parent: $": SoDataGroup<{infoName}>");
+                ESTool_ScriptMaker.Instance.CreateScript(toPack, EnglishCodeName+"DataPack", parent: $": SoDataPack<{infoName}>");
+                AssetDatabase.Refresh();
+            }
+            else
+            {
+                EditorUtility.DisplayDialog("请选择正确的文件夹", "建议使用【Assets/Scripts/ESFramework/Data/DataToolScript】作为生成总路径哦", "知道了");
+            }
+        }
     }
     //创建 数据配置 总页面
     public class Page_CreateNewDataConfiguration :ESWindowPageBase

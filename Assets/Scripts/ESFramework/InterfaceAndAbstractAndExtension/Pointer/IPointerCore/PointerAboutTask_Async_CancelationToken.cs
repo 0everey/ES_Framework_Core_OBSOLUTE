@@ -14,7 +14,7 @@ namespace ES.EvPointer
 {
     //核心 Ev针支持 关于 异步操作 取消源 部分
     #region 支持协程补间的取消源CancellationTokenSource
-    public interface IPointerForCancellationTokenSource<By, Yarn, On> : IPointer<CancellationTokenSource, By, Yarn, On>
+    public interface IPointerForCancellationTokenSource<On, From, With> : IPointer<CancellationTokenSource, On, From, With>
     {
 
     }
@@ -26,7 +26,7 @@ namespace ES.EvPointer
     public class PointerCancelTokenSourceApply : IPointerNone
     {
         [SerializeReference, LabelText("取消源")] public IPointerForCancellationTokenSource_Only cancelSource;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
 
             cancelSource?.Pick()?.Cancel();

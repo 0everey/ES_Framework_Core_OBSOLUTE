@@ -250,7 +250,7 @@ namespace ES
             if (handle.OnDesBirth != null && (handle.optionForDesBirth & why.options) > 0)
             {
                 Debug.Log(666);
-                GameCenterManager.Instance.Ins(handle.OnDesBirth, Core.transform.position, null);
+                ESSpawnMaster.Instance.Ins(handle.OnDesBirth, Core.transform.position, null);
             }
 
             if (handle.OnDesPlaySound != null && (handle.optionForPlaySound & why.options) > 0)

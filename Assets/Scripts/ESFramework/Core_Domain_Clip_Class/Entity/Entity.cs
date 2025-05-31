@@ -10,8 +10,6 @@ using UnityEngine;
 namespace ES
 {
     public class Entity : ESObject, IReceiveAnyLink, IWithSharedAndVariableData<ESEntitySharedData, ESEntityVariableData>
-
-
     {
 
         [FoldoutGroup("固有"), LabelText("原始动画器")] public Animator Anim;
@@ -26,7 +24,7 @@ namespace ES
         [FoldoutGroup("扩展域")][LabelText("标准状态机域")] public StateMachineDomainForEntity StateMachineDomain;
         [FoldoutGroup("扩展域")][LabelText("AI域")] public AIDomainForEntity AIDomain;
         [FoldoutGroup("扩展域")][LabelText("Buff域")] public BuffDomainForEntity BuffDomain;
-
+        
         [FoldoutGroup("属性")]
         [LabelText("实体共享数据(等待引用)")]
         public ActorDataInfo dataInfo;
@@ -58,13 +56,13 @@ namespace ES
         }
         public void Invoke_TryAttackEntityCalculate(Entity who, Damage damage)
         {
+            Debug.Log("尝试攻击");
             OnTryAttack?.Invoke(who, damage);
         }
         public void Invoke_BeAttackByEntityCalculate(Entity who, Damage damage)
         {
-            Debug.Log("共计");
             OnTryBeAttack?.Invoke(who, damage);
-            this.CharacterController.Move(Vector3.up * 0.25f);
+            this.YV= 0.25f;
 
         }
         public void Invoke_TrulyBeAttack(Entity who, Damage damage)

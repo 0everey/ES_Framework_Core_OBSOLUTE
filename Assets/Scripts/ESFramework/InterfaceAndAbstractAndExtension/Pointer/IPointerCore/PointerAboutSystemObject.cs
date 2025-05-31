@@ -14,7 +14,7 @@ namespace ES.EvPointer
     //核心 Ev针支持 关于System.Object 也就是object 万物之源部分
     #region System.Object部分
         #region System.Object 接口抽象和包
-    public interface IPointerForSystemObject<By, Yarn, On> : IPointer<object, By, Yarn, On>
+    public interface IPointerForSystemObject<On, From, With> : IPointer<object, On, From, With>
     {
 
     }
@@ -39,7 +39,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     public class PointerForSystemObjectReference_FromIPointer : IPointer, IPointerForSystemObject<object, object, object>
     {
         [LabelText("任意针引用"), SerializeReference] public IPointer aP;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
 
             return aP;
@@ -49,7 +49,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     public class PointerForSystemObjectReference_FromCompoent : IPointer, IPointerForSystemObject<object, object, object>
     {
         [LabelText("任意脚本引用")] public Component aCom;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return aCom;
         }
@@ -58,7 +58,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     public class PointerForSystemObjectReference_FromUnityObject : IPointer
     {
         [LabelText("任意Unity物体引用")] public UnityEngine.Object aOb;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return aOb;
         }
@@ -67,7 +67,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     public class PointerForSystemObjectReference_FromGameObject : IPointer
     {
         [LabelText("游戏物体引用")] public GameObject aOb;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
 
             return aOb;
@@ -78,7 +78,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     public class PointerForSystemObject_FromPlayer : IPointer
     {
         [LabelText("系统物体投射播放器")] public PointerPlayerSystemObjectCaster obCaster;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
 
             return (obCaster as IPointer)?.Pick() as object;
@@ -88,7 +88,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     public class PointerForSystemObjectValueFromUnityObject : IPointer
     {
         [LabelText("来源UnityObject"), SerializeReference] public IPointerForUnityObject_Only pointerForUO_;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return pointerForUO_?.Pick() ?? default;
         }
@@ -97,7 +97,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     public class PointerForSystemObjectValueFromGameObject : IPointer
     {
         [LabelText("来源游戏物体"), SerializeReference] public IPointerForGameObject_Only pointerGameO;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return pointerGameO?.Pick() ?? default;
         }
@@ -106,7 +106,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     public class PointerForSystemObjectValueFromIPointer : IPointer
     {
         [LabelText("来源针"), SerializeReference] public IPointerForIPointer_Only pointerForiPointer;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return pointerForiPointer?.Pick() ?? default;
         }
@@ -115,7 +115,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     public class PointerForSystemObjectValueFromFloat : IPointer
     {
         [LabelText("来源Float"), SerializeReference] public IPointerForFloat_Only pointerForFloat_;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return pointerForFloat_?.Pick() ?? 1;
         }
@@ -124,7 +124,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     public class PointerForSystemObjectValueFromInt : IPointer
     {
         [LabelText("来源Int"), SerializeReference] public IPointerForInt_Only pointerForInt_;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return pointerForInt_?.Pick() ?? 1;
         }
@@ -133,7 +133,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     public class PointerForSystemObjectValueFromVector3 : IPointer
     {
         [LabelText("来源Vector3"), SerializeReference] public IPointerForVector3_Only pointerForVector3_;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return pointerForVector3_?.Pick() ?? default;
         }
@@ -142,7 +142,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     public class PointerForSystemObjectValueFromVector2 : IPointer
     {
         [LabelText("来源Vector2"), SerializeReference] public IPointerForVector2_Only pointerForVector2_;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return pointerForVector2_?.Pick() ?? default;
         }
@@ -151,7 +151,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     public class PointerForSystemObjectValueFromBool : IPointer
     {
         [LabelText("来源bool"), SerializeReference] public IPointerForBool_Only pointerForbool_;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return pointerForbool_?.Pick() ?? default;
         }
@@ -160,7 +160,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     public class PointerForSystemObjectValueFromString : IPointer
     {
         [LabelText("来源字符串"), SerializeReference] public IPointerForString_Only pointerForString_;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return (pointerForString_?.Pick() ?? default).ToString();
         }
@@ -169,7 +169,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     public class PointerForSystemObjectValueFromTransform : IPointer
     {
         [LabelText("来源变换"), SerializeReference] public IPointerForTransform_Only pointerForTrans_;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return (pointerForTrans_?.Pick() ?? default);
         }
@@ -178,7 +178,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     public class PointerForSystemObjectValueFromQuaternion : IPointer
     {
         [LabelText("来源四元数"), SerializeReference] public IPointerForQuaternion_Only pointerForQuaternion_;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return (pointerForQuaternion_?.Pick() ?? default);
         }
@@ -187,7 +187,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     public class PointerForSystemObjectValueFromComponent : IPointer
     {
         [LabelText("来源脚本"), SerializeReference] public IPointerForComponent_Only pointerForCom_;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return (pointerForCom_?.Pick() ?? default);
         }
@@ -196,7 +196,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     public class PointerForSystemObjectValueFromType : IPointer
     {
         [LabelText("来源类型"), SerializeReference] public IPointerForType_Only pointerForType_;
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             return (pointerForType_?.Pick() ?? default);
         }
@@ -206,7 +206,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     {
         [SerializeReference, LabelText("源object")]
         public IPointer objectSource;
-        public IPointer Pick(object by = null, object yarn = null, object on = null)
+        public IPointer Pick(object on= null, object from = null, object with = null)
         {
             return objectSource?.Pick() as IPointer;
         }
@@ -217,7 +217,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     {
         [SerializeReference, LabelText("源object")]
         public IPointer objectSource;
-        public float Pick(object by = null, object yarn = null, object on = null)
+        public float Pick(object on= null, object from = null, object with = null)
         {
             return (Convert.ToSingle(objectSource?.Pick() ?? 1));
         }
@@ -227,7 +227,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     {
         [SerializeReference, LabelText("源object")]
         public IPointer objectSource;
-        public int Pick(object by = null, object yarn = null, object on = null)
+        public int Pick(object on= null, object from = null, object with = null)
         {
             return Convert.ToInt32(objectSource?.Pick() ?? 1);
         }
@@ -237,7 +237,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     {
         [SerializeReference, LabelText("源object")]
         public IPointer objectSource;
-        public Vector3 Pick(object by = null, object yarn = null, object on = null)
+        public Vector3 Pick(object on= null, object from = null, object with = null)
         {
             object oo = objectSource?.Pick() ?? default;
             if (oo is Vector2 v2)
@@ -256,7 +256,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     {
         [SerializeReference, LabelText("源object")]
         public IPointer objectSource;
-        public Vector2 Pick(object by = null, object yarn = null, object on = null)
+        public Vector2 Pick(object on= null, object from = null, object with = null)
         {
             object oo = objectSource?.Pick() ?? default;
             if (oo is Vector2 v2)
@@ -275,7 +275,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     {
         [SerializeReference, LabelText("源object")]
         public IPointer objectSource;
-        public bool Pick(object by = null, object yarn = null, object on = null)
+        public bool Pick(object on= null, object from = null, object with = null)
         {
             return (bool)(objectSource?.Pick() ?? false);
         }
@@ -285,7 +285,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     {
         [SerializeReference, LabelText("源object")]
         public IPointer objectSource;
-        public string Pick(object by = null, object yarn = null, object on = null)
+        public string Pick(object on= null, object from = null, object with = null)
         {
             return (objectSource?.Pick() ?? "").ToString();
         }
@@ -295,7 +295,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     {
         [SerializeReference, LabelText("源object")]
         public IPointer objectSource;
-        public UnityEngine.Object Pick(object by = null, object yarn = null, object on = null)
+        public UnityEngine.Object Pick(object on= null, object from = null, object with = null)
         {
             return (objectSource?.Pick() ?? null) as UnityEngine.Object;
         }
@@ -305,7 +305,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     {
         [SerializeReference, LabelText("源object")]
         public IPointer objectSource;
-        public GameObject Pick(object by = null, object yarn = null, object on = null)
+        public GameObject Pick(object on= null, object from = null, object with = null)
         {
             return (objectSource?.Pick() ?? null) as GameObject;
         }
@@ -315,7 +315,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     {
         [SerializeReference, LabelText("源object")]
         public IPointer objectSource;
-        public Transform Pick(object by = null, object yarn = null, object on = null)
+        public Transform Pick(object on= null, object from = null, object with = null)
         {
             return (objectSource?.Pick() ?? null) as Transform;
         }
@@ -325,7 +325,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     {
         [SerializeReference, LabelText("源object")]
         public IPointer objectSource;
-        public Quaternion Pick(object by = null, object yarn = null, object on = null)
+        public Quaternion Pick(object on= null, object from = null, object with = null)
         {
             object oo = objectSource?.Pick();
             if (oo is Quaternion q) { return q; }
@@ -337,7 +337,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     {
         [SerializeReference, LabelText("源object")]
         public IPointer objectSource;
-        public Component Pick(object by = null, object yarn = null, object on = null)
+        public Component Pick(object on= null, object from = null, object with = null)
         {
 
             return (objectSource?.Pick() ?? null) as Component;
@@ -349,7 +349,7 @@ public class PointerForSystemObject_PackerSelect : PointerPackerForOnlySelectBac
     {
         [SerializeReference, LabelText("源object")]
         public IPointer objectSource;
-        public Type Pick(object by = null, object yarn = null, object on = null)
+        public Type Pick(object on= null, object from = null, object with = null)
         {
             return (objectSource?.Pick() ?? null) as Type;
         }

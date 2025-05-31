@@ -23,7 +23,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>UNITY_2022_3_57;UNITY_2022_3;UNITY_2022;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_NAVIGATION_PACKAGE_DEBUG_VISUALIZATION;ENABLE_NAVIGATION_HEIGHTMESH_RUNTIME_SUPPORT;ENABLE_NAVIGATION_UI_REQUIRES_PACKAGE;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;UNITY_UGP_API;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_INITIALIZES_MEMORY_MANAGER_EXPLICITLY;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;TEXTCORE_FONT_ENGINE_1_6_OR_NEWER;DOTWEEN;ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;ODIN_INSPECTOR_3_2;ODIN_INSPECTOR_3_3;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;YOO_ASSET_2;YOO_ASSET_2_3;YOO_ASSET_2_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2022_3_57;UNITY_2022_3;UNITY_2022;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_NAVIGATION_PACKAGE_DEBUG_VISUALIZATION;ENABLE_NAVIGATION_HEIGHTMESH_RUNTIME_SUPPORT;ENABLE_NAVIGATION_UI_REQUIRES_PACKAGE;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;UNITY_UGP_API;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_INITIALIZES_MEMORY_MANAGER_EXPLICITLY;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;TEXTCORE_FONT_ENGINE_1_6_OR_NEWER;DOTWEEN;ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;ODIN_INSPECTOR_3_2;ODIN_INSPECTOR_3_3;FISHNET;FISHNET_V4;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;YOO_ASSET_2;YOO_ASSET_2_3;YOO_ASSET_2_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169;USG0001</NoWarn>
@@ -58,16 +58,21 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="D:\UnityEditorDir\2022.3.57f1c1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="D:\UnityEditorDir\2022.3.57f1c1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
+    <Analyzer Include="F:\aaProject\ES_Framework_Core\Assets\FishNet\Runtime\Plugins\CodeAnalysis\FishNet.CodeAnalysis.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Architecture\Architecture.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Ship\Attackable\AttackableAbout.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutGlobal.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Strategy\RunTime\BaseRunTimeStrategy.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Ship\State\BaseDefine\Abstract\BaseStateDefine.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Strategy\RunTime\ESResSolution\IResSource.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerForDotween\PointerForDotween.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\Settlement\Settlement.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Tool\GlobalControll\Tool_FollowIt.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutCasterAndCatcher.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutRubbish.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\GameCenterManager\RunTimeMaster\ESSpawnMaster.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerLoader.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Tool\GlobalControll\ES_PoolMaster.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\RoomGenerateDataPack.cs" />
@@ -80,11 +85,13 @@
     <Compile Include="Assets\Scripts\ESFramework\Tool\GlobalControll\LateFollow.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\RuneDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\ActorDataGroup.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Net\Test\NetTest_Spawn.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutBool.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutSystemObject.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\SharedAndVariableData\EntitySharedAndVariableData.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutAnimator.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerDontDestroy.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\OutPutOperation\IOutputOperation.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByGetAxis.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\BuffDomainForEntity.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerTimeWatch\PointerPlayerAsTimer.cs" />
@@ -94,25 +101,33 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerLink\PointerPlayerReceiveLink_StringNameEvent.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\ValueType.cs" />
     <Compile Include="Assets\Scripts\TestOnly\HostAndMonoAndListTest.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\GameCenterManager\RunTimeMaster\ESValueMaster.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Strategy\RunTime\ESResSource_Fail.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Domain\Domain.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\TypeDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerSupport\SupportPointerPlayerESMachine\ESMachinePlayerPointer.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\ValueBuffer\ValueBufferOperation.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\ItemDataPack.cs" />
+    <Compile Include="Assets\Resources\Rubbish\PackType\AccountAssetItemsDataPack.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Ship\SkillAndAddition\Releasable\SkillReleasable\ReleaseableSkillClip.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\Abstract\SoDataInfoConfiguration.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\RuneDataGroup.cs" />
     <Compile Include="Assets\Scripts\TestOnly\Run.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\RuneDataPack.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Strategy\RunTime\RunTimeStrategy.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Net\Connection\ESAuthenticator.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByInputAction.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithString_EValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Ship\State\BaseDefine\Interface\StateInterface.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Ship\BaseRunTimeLogic.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\OutPutOperation\OutputOperationSettle.cs" />
+    <Compile Include="Assets\Resources\Rubbish\GroupType\AccountAssetItemsDataGroup.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutUnityObject_Compo_GameObject.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\Abstract\SoDataGroup.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Tool\Splits\ScriptMaker.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Strategy\Static\KeyValueMatching.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Net\Connection\ESNetPlayer.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByCollider2D.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Net\Function\ESNetBehaviourCore.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\RoomGenerateDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Define\SharedAndVariable\IWithSharedAndVariableData.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerForParticle\PointerForParticle.cs" />
@@ -124,14 +139,21 @@
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Item\Item.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\GameCenterManager\GameCenterManager.cs" />
     <Compile Include="Assets\Scripts\TestOnly\testCopyTo.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\OutPutOperation\OutputOperationValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\StateDataPack.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\SingleNoTool\ESTypeSelecter.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutTask_Async_CancelationToken.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerWithLifeTime.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\OutPutOperation\OutputOperationDelegate.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\OutPutOperation\OutputOperationBuffer.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithVector2_EValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutTransform.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithBool_EValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutDelegate_Func_Action.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\ESNetWork\ESNetRemoteDomain.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\WithCoroutine\IWithEnumeratorTask.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\ESNetWork\ESNetManager.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\StateDataGroup.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Item\HurtableDomainForItem.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutType.cs" />
@@ -154,6 +176,7 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutPick_Invoke_Debug.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerNone.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByTrigger3D.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\TargetOperation\TargetOperation.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\SingleNoTool\ESLayerStringSO.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerTypesOfCompo\PointerSetRigidBody.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Item\HoldableDomainForItem.cs" />
@@ -167,17 +190,24 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithEValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithFloat_EValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\StateDataInfo.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\ESTag.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\GameEventMessageDataInfo.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\ESTag.cs" />
+    <Compile Include="Assets\FishNet\Upgrading\EdgegapMenu.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\GameCenterManager\RunTimeMaster\ESDebugMaster.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\ValueSupportEnum.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\Abstract\SoDataPack.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Net\Function\Function.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Net\Event\NetBroadCast.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Domain\Core.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutVector2And3.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\StateMachineDomainForEntity.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerTimeWatch\PointerPlayerAsStopWatch.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\Abstract\SoDataInfo.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Strategy\RunTime\ESResSolution\TypesOfResSource.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\SingleNoTool\ESObjectTypeSpawnHandle.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\SkillDataPack.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Strategy\RunTime\ESResSolution\ESResLoader.cs" />
+    <Compile Include="Assets\FishNet\Upgrading\UpgradeFromMirrorMenu.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByTrigger2D.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ModuleAndHosting\ModulePart_Define\IESModule.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\SingleNoTool\ModelSO.cs" />
@@ -191,19 +221,22 @@
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\SkillPointDataPack.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\BuffDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\RoomGenerateDataGroup.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutReflection.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\SkillPointDataGroup.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutReflection.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\SkillDataGroup.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\SkillPointDataInfo.cs" />
+    <Compile Include="Assets\Scripts\TestOnly\TestSettleMent.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\BuffDataGroup.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\BuffDataPack.cs" />
     <Compile Include="Assets\Scripts\ESFramework\HotFix\Fix_Project_Transition.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\ESNetWork\ESNetLocalDomain.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\GameEventMessageDataPack.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutIOC.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\ESValueContainer.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutFloatAndInt.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithVector3_EValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByInputGetKey.cs" />
+    <Compile Include="Assets\Resources\Rubbish\InfoType\AccountAssetItemsDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\BaseDomainForEntity.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\GameCenterManager\DomainForGameCenterManager.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Extension\ExtansionForString.cs" />
@@ -211,9 +244,13 @@
     <Compile Include="Assets\Scripts\ESFramework\Ship\State\BaseDefine\Abstract\BaseStateMachineDefine.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerBy\PointerByArchitectureKeyValuePoolTypeListIOC.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\ESReferValue.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\SingleNoTool\ESCampMaker.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Attribute\EditorHelper.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Ship\Attackable\Camp.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\ArchitectureDataGroup.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerSupport\SupportPointerPlayerEValue\PointerXXXEValueFromPointerPlayer.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Singleton\SingletonAsDomainCore.cs" />
+    <Compile Include="Assets\FishNet\Upgrading\MirrorUpgrade.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\ActorDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Ship\SkillAndAddition\SkillPointController\SkillPointSpritesReference.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Ship\SkillAndAddition\Releasable\NormalReleasable\IReleasablePointerOnlyByEntityYarnEntityOn.cs" />
@@ -225,6 +262,7 @@
     <Compile Include="Assets\Scripts\ESFramework\Tool\OnlyShow\ESReadMeESMono.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithSystemObject_EValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutRendererAndColorAndMaterial.cs" />
+    <Compile Include="Assets\Scripts\ESFramework\Strategy\RunTime\ESCampStrategy\ESCampStrategy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ScriptTemplates\12-ES脚本__空Mono脚本-NullMono.cs.txt" />
@@ -233,6 +271,7 @@
     <None Include="Assets\Scripts\ESFramework\演示场景总文件夹\案例合集\资源汇总\Space Shooter\GameRes\Shader\UnlitShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\ScriptTemplates\81-C# Script-NewBehaviourScript.cs.txt" />
+    <None Include="Assets\FishNet\LICENSE.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\ScriptTemplates\83-C# Script-NewTestScript.cs.txt" />
@@ -247,6 +286,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Assets\Scripts\ESFramework\演示场景总文件夹\案例合集\资源汇总\Space Shooter\GameRes\UIFont\LICENSE.txt" />
+    <None Include="Assets\FishNet\DOCUMENTATION.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
@@ -598,6 +638,10 @@
     </Reference>
     <Reference Include="Sirenix.Reflection.Editor">
       <HintPath>Assets\Plugins\Sirenix\Assemblies\Sirenix.Reflection.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FishNet.CodeAnalysis">
+      <HintPath>Assets\FishNet\Runtime\Plugins\CodeAnalysis\FishNet.CodeAnalysis.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Sirenix.Serialization">
@@ -1196,6 +1240,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="ParrelSync">
+      <HintPath>Library\ScriptAssemblies\ParrelSync.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.InputSystem">
       <HintPath>Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
       <Private>False</Private>
@@ -1278,13 +1326,29 @@
       <Project>{5CAC8FB7-9BBE-DB71-5A16-770A628BB791}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
+    <ProjectReference Include="GameKit.Dependencies.csproj">
+      <Project>{28D6E5F9-1EA5-F8A5-91F7-6BF17B521D6A}</Project>
+      <Name>GameKit.Dependencies</Name>
+    </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.Modules.UnityMathematics.csproj">
       <Project>{2760D5CA-2624-646D-C4A3-F38EEE596E44}</Project>
       <Name>Sirenix.OdinInspector.Modules.UnityMathematics</Name>
     </ProjectReference>
+    <ProjectReference Include="FishNet.Runtime.csproj">
+      <Project>{BD3EFA28-E40C-A826-070B-D4B7C9EBF8C8}</Project>
+      <Name>FishNet.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.Modules.Unity.Addressables.csproj">
       <Project>{AE5C9466-3476-88F5-C18B-F95EF81786FB}</Project>
       <Name>Sirenix.OdinInspector.Modules.Unity.Addressables</Name>
+    </ProjectReference>
+    <ProjectReference Include="FishNet.Codegen.Cecil.csproj">
+      <Project>{CF458A6C-5F78-D0E9-C800-81503F6AC632}</Project>
+      <Name>FishNet.Codegen.Cecil</Name>
+    </ProjectReference>
+    <ProjectReference Include="FishNet.Demos.csproj">
+      <Project>{C167F390-BFBB-AFC8-CDB6-390E6B0EE5F9}</Project>
+      <Name>FishNet.Demos</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

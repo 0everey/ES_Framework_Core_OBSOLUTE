@@ -32,11 +32,23 @@ MonoBehaviour:
       Data: 
   DataKey:
     str_direc: "\u66B4\u51FB\u5F3A\u5316"
+  dele: []
+  upd:
+    rid: -2
+  binding: {fileID: 0}
+  settle: []
+  buffer:
+    rid: -2
   defaultStatus:
     duration: 30
     level: 1
   icon: {fileID: 21300000, guid: 6962dd0800490f5459ee55208cddf20f, type: 3}
   buffGoodOrBad: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!114 &-4514424145210657978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,11 +75,23 @@ MonoBehaviour:
       Data: 
   DataKey:
     str_direc: "\u7ECF\u9A8C\u4FEE\u8865"
+  dele: []
+  upd:
+    rid: -2
+  binding: {fileID: 0}
+  settle: []
+  buffer:
+    rid: -2
   defaultStatus:
     duration: 0
     level: 0
   icon: {fileID: 0}
   buffGoodOrBad: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!114 &-426524585717365955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,11 +124,23 @@ MonoBehaviour:
       Data: 
   DataKey:
     str_direc: "\u5438\u8840\u5F3A\u5316"
+  dele: []
+  upd:
+    rid: -2
+  binding: {fileID: 0}
+  settle: []
+  buffer:
+    rid: -2
   defaultStatus:
     duration: 30
     level: 1
   icon: {fileID: 21300000, guid: c2e3b2e1a37a012499a23498f365807e, type: 3}
   buffGoodOrBad: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,11 +293,95 @@ MonoBehaviour:
       Data: 
   DataKey:
     str_direc: "\u4F24\u5BB3\u5F3A\u5316"
+  dele:
+  - rid: 165003306361946165
+  upd:
+    rid: 165003306361946112
+  binding: {fileID: 7354626929180494933, guid: 3c0c6df33be34c3419cc9b0bd4a0c1b7, type: 2}
+  settle:
+  - rid: 165003315989184553
+  buffer:
+    rid: 165003315989184583
   defaultStatus:
     duration: 30
     level: 1
   icon: {fileID: 21300000, guid: bff83904ff889a84680ea63b2403837f, type: 3}
   buffGoodOrBad: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 165003306361946112
+      type: {class: OutputOpeationBuffUpdate_Test_HelathSub, ns: ES, asm: Assembly-CSharp}
+      data:
+        selectType: 0
+        floor: 10
+        offsetPerLevel: 0
+    - rid: 165003306361946165
+      type: {class: OutputOpeationBuffDelegateAsExpand_WhenAttack, ns: ES, asm: Assembly-CSharp}
+      data:
+        AlwaysRemakeAction: 0
+        WhenHanppen:
+          rid: 165003306361946166
+        TriggerNum: 99
+    - rid: 165003306361946166
+      type: {class: OutputOpeationBuffUpdate_Test_HelathSub, ns: ES, asm: Assembly-CSharp}
+      data:
+        selectType: 0
+        floor: 1000
+        offsetPerLevel: 0
+    - rid: 165003315989184553
+      type: {class: OutputOpeationBuffSettle_Test_Attack, ns: ES, asm: Assembly-CSharp}
+      data:
+        ForceNormal: 0
+        settleType: 0
+        selfType: 0
+        Priority: 0
+        baseValue: 1
+        offsetPerLevel: 0.1
+    - rid: 165003315989184583
+      type: {class: OutputOperationBufferBuff_Target, ns: ES, asm: Assembly-CSharp}
+      data:
+        bufferData:
+          curve:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 1
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            - serializedVersion: 3
+              time: 0.49588704
+              value: 2
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0.33333334
+              outWeight: 0.33333334
+            - serializedVersion: 3
+              time: 1
+              value: 1.25
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          mutipler: 1
+          needTime: 1.5
+        target:
+          rid: 165003315989184584
+    - rid: 165003315989184584
+      type: {class: Target_Helath, ns: ES, asm: Assembly-CSharp}
+      data: 
 --- !u!114 &6236110529273746342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,11 +408,23 @@ MonoBehaviour:
       Data: 
   DataKey:
     str_direc: "\u9B54\u7075\u5F3A\u5316"
+  dele: []
+  upd:
+    rid: -2
+  binding: {fileID: 0}
+  settle: []
+  buffer:
+    rid: -2
   defaultStatus:
     duration: 0
     level: 0
   icon: {fileID: 0}
   buffGoodOrBad: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!114 &7943010202118617069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,8 +457,20 @@ MonoBehaviour:
       Data: 
   DataKey:
     str_direc: "\u653B\u901F\u5F3A\u5316"
+  dele: []
+  upd:
+    rid: -2
+  binding: {fileID: 0}
+  settle: []
+  buffer:
+    rid: -2
   defaultStatus:
     duration: 30
     level: 1
   icon: {fileID: 21300000, guid: e32bc47c78037934d8528d9385515982, type: 3}
   buffGoodOrBad: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

@@ -23,7 +23,7 @@ namespace ES.EvPointer
         [LabelText("使用音乐资源")]public AudioClip clip;
         [LabelText("音量(小于0用音源的)"),SerializeReference]public IPointerForFloat_Only volume = new PointerForFloat_Direct() { float_=1 };
 
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             GameCenterManager.Instance.AudioMaster.PlayDirect_BGM(clip, volume?.Pick() ?? -1);
             return null;
@@ -35,7 +35,7 @@ namespace ES.EvPointer
         [LabelText("使用音乐资源")] public AudioClip clip;
         [LabelText("音量(小于0用音源的)"), SerializeReference] public IPointerForFloat_Only volume = new PointerForFloat_Direct() { float_ = 1 };
 
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             GameCenterManager.Instance.AudioMaster.PlayDirect_Addition(clip, volume?.Pick() ?? -1);
             return null;
@@ -47,7 +47,7 @@ namespace ES.EvPointer
         [LabelText("使用音乐资源")] public AudioClip clip;
         [LabelText("音量(小于0用音源的)"), SerializeReference] public IPointerForFloat_Only volume = new PointerForFloat_Direct() { float_ = 1 };
 
-        public object Pick(object by = null, object yarn = null, object on = null)
+        public object Pick(object on= null, object from = null, object with = null)
         {
             GameCenterManager.Instance.AudioMaster.PlayDirect_Sound_OneShot(clip, volume?.Pick() ?? -1);
             return null;
