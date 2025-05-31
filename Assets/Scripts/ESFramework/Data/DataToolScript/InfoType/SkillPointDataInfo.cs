@@ -9,6 +9,7 @@ using UnityEngine.Rendering;
 
 namespace ES
 {
+    [ESDisplayNameKeyToType("数据单元", "技能点数据单元")]
     public class SkillPointDataInfo : SoDataInfo
     {
         [LabelText("等级列（Index就是等级）"), OdinSerialize, NonSerialized,InlineProperty(LabelWidth = 230)]

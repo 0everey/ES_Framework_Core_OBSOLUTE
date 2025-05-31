@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ES
 {
-    [Serializable]
+    [ESDisplayNameKeyToType("数据包", "符文数据包")]
     public class RuneDataPack  : SoDataPack<RuneDataInfo>
     {
        

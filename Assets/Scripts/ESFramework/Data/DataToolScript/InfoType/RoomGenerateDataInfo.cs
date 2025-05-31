@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ES
 {
-    
+    [ESDisplayNameKeyToType("数据单元", "房间生成数据单元")]
     public class RoomGenerateDataInfo : SoDataInfo
     {
         [Required][LabelText("预设数据")]public RoomPreset roomPreset;

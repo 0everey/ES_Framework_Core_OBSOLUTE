@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace ES
 {
+    [ESDisplayNameKeyToType("数据单元", "技能数据单元")]
     public class SkillDataInfo : SoDataInfo
     {
         [ DisplayAsString(fontSize: 25), HideLabel, GUIColor("@KeyValueMatchingUtility.ColorSelector.ColorForApply")]

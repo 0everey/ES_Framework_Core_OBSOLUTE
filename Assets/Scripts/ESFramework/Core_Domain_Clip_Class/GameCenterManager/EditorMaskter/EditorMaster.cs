@@ -24,7 +24,7 @@ namespace ES
         public static List<string> ESTags = new List<string>();
         public static List<string> BuffKeys = new List<string>();
 
-        #endregion
+        #endregion 
 
         #region 配置源
         [LabelText("配置的ESTags包")] public ESLayerStringSO ESTagsSO_;
@@ -162,10 +162,10 @@ namespace ES
 
         #region 可寻类型分组键
         [LabelText("可寻分组键")]
-        public DicIOCWithStringSelectStringKey_TypeValue sst = new DicIOCWithStringSelectStringKey_TypeValue();
+        public DicIOCWithStringSelectStringKey_TypeValue SearchDataTypeKey = new DicIOCWithStringSelectStringKey_TypeValue();
         private void LoadSST()
         {
-            sst = new DicIOCWithStringSelectStringKey_TypeValue();
+            SearchDataTypeKey = new DicIOCWithStringSelectStringKey_TypeValue();
              var assem= Assembly.GetExecutingAssembly();
             var types = assem.GetTypes();
              foreach(var i in types)
@@ -173,7 +173,7 @@ namespace ES
                 var at = i.GetCustomAttribute<ESDisplayNameKeyToTypeAttribute>();
                 if (at != null)
                 {
-                    sst.AddElement(at.TeamCollect,at.DisplayKeyName,i);
+                    SearchDataTypeKey.AddElement(at.TeamCollect,at.DisplayKeyName,i);
                 }
             }
         }

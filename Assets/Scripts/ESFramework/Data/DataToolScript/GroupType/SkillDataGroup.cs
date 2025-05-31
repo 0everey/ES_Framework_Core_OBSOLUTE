@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ES
 {
-    [Serializable]
+    [ESDisplayNameKeyToType("数据组", "技能数据组")]
     public class SkillDataGroup : SoDataGroup<SkillDataInfo>
     {
       

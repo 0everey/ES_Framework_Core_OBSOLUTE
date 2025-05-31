@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace ES
 {
+    [ESDisplayNameKeyToType("数据单元", "状态数据单元")]
     public class StateDataInfo : SoDataInfo
     {
         [InfoBox("如果是子状态(非第一层),不能勾选", InfoMessageType.Warning)]

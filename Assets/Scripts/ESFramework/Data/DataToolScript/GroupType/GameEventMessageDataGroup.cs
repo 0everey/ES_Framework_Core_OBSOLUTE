@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ES
 {
-    [Serializable]
+    [ESDisplayNameKeyToType("数据组", "游戏事件数据组")]
     public class GameEventMessageDataGroup : SoDataGroup<GameEventMessageDataInfo>
     {
       

@@ -6,8 +6,8 @@ using UnityEngine;
 
 namespace ES
 {
-    [Serializable]
-   /* [CreateAssetMenu(fileName = "BuffSoDataInfoGroup", menuName = "EvData/SoGroup/ForBuff")]*/
+    [ESDisplayNameKeyToType("数据组", "Buff数据组")]
+    /* [CreateAssetMenu(fileName = "BuffSoDataInfoGroup", menuName = "EvData/SoGroup/ForBuff")]*/
     public class BuffDataGroup : SoDataGroup<BuffSoInfo>
     {
       

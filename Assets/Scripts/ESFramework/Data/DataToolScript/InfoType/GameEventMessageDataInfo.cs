@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace ES
 {
+    [ESDisplayNameKeyToType("数据单元", "游戏事件数据单元")]
     public class GameEventMessageDataInfo : SoDataInfo
     {
     

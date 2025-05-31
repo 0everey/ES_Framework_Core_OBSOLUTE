@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\BuffDomainForEntity.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerTimeWatch\PointerPlayerAsTimer.cs" />
     <Compile Include="Assets\Scripts\TestOnly\StateTestMono.cs" />
+    <Compile Include="Assets\Resources\Rubbish\GroupType\TestOnlyDataGroup.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerSystemObjectCaster.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithUnityObject.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerLink\PointerPlayerReceiveLink_StringNameEvent.cs" />
@@ -108,7 +109,6 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerSupport\SupportPointerPlayerESMachine\ESMachinePlayerPointer.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\ValueBuffer\ValueBufferOperation.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\ItemDataPack.cs" />
-    <Compile Include="Assets\Resources\Rubbish\PackType\AccountAssetItemsDataPack.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Ship\SkillAndAddition\Releasable\SkillReleasable\ReleaseableSkillClip.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\Abstract\SoDataInfoConfiguration.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\RuneDataGroup.cs" />
@@ -120,11 +120,11 @@
     <Compile Include="Assets\Scripts\ESFramework\Ship\State\BaseDefine\Interface\StateInterface.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Ship\BaseRunTimeLogic.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\OutPutOperation\OutputOperationSettle.cs" />
-    <Compile Include="Assets\Resources\Rubbish\GroupType\AccountAssetItemsDataGroup.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutUnityObject_Compo_GameObject.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\Abstract\SoDataGroup.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Tool\Splits\ScriptMaker.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Strategy\Static\KeyValueMatching.cs" />
+    <Compile Include="Assets\Resources\Rubbish\PackType\TestOnlyDataPack.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Net\Connection\ESNetPlayer.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByCollider2D.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Net\Function\ESNetBehaviourCore.cs" />
@@ -179,6 +179,7 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\TargetOperation\TargetOperation.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\SingleNoTool\ESLayerStringSO.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerTypesOfCompo\PointerSetRigidBody.cs" />
+    <Compile Include="Assets\Resources\Rubbish\InfoType\TestOnlyDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Item\HoldableDomainForItem.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Ship\SkillAndAddition\SkillPointController\SkillRuneControllerApplier.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Extension\Extension.cs" />
@@ -187,9 +188,11 @@
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\SkillDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Special\ESObject.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\GameEventMessageDataGroup.cs" />
+    <Compile Include="Assets\Resources\Rubbish\InfoType\buildingDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithEValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithFloat_EValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\StateDataInfo.cs" />
+    <Compile Include="Assets\Resources\Rubbish\PackType\buildingDataPack.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\GameEventMessageDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\ESTag.cs" />
     <Compile Include="Assets\FishNet\Upgrading\EdgegapMenu.cs" />
@@ -214,6 +217,7 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithType_EValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerTypesOfCompo\PointerSetLight.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\AIDomainForEntity.cs" />
+    <Compile Include="Assets\Resources\Rubbish\GroupType\buildingDataGroup.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\GameCenterManager\EditorMaskter\EditorMaster.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\ActorDataPack.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerTypeCaster.cs" />
@@ -236,7 +240,6 @@
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutFloatAndInt.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithVector3_EValue.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByInputGetKey.cs" />
-    <Compile Include="Assets\Resources\Rubbish\InfoType\AccountAssetItemsDataInfo.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\BaseDomainForEntity.cs" />
     <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\GameCenterManager\DomainForGameCenterManager.cs" />
     <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Extension\ExtansionForString.cs" />

@@ -8,7 +8,8 @@ using UnityEngine;
 
 namespace ES
 {
-   /* [CreateAssetMenu(fileName = "BuffSoInfo", menuName = "EvData/BuffSoInfo")]*/
+    /* [CreateAssetMenu(fileName = "BuffSoInfo", menuName = "EvData/BuffSoInfo")]*/
+    [ESDisplayNameKeyToType("数据单元", "Buff数据单元")]
     public class BuffSoInfo : SoDataInfo
     {
         [LabelText("注册与注销"), SerializeReference] public List<OutputOpeationBuffDelegate> dele = new List<OutputOpeationBuffDelegate>();

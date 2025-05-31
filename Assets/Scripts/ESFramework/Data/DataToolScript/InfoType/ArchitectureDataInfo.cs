@@ -6,6 +6,7 @@ using UnityEngine;
 namespace ES
 {
     //不融入全局配置
+    [ESDisplayNameKeyToType("数据单元", "原型数据单元")]
     public class ArchitectureDataInfo : SoDataInfo, IArchitectureKeyValuePoolTypeValue
     {
         [SerializeReference,LabelText("携带参数")]

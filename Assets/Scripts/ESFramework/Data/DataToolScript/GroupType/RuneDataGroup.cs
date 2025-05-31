@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ES
 {
-    [Serializable]
+    [ESDisplayNameKeyToType("数据组", "符文数据组")]
     public class RuneDataGroup : SoDataGroup<RuneDataInfo>
     {
         

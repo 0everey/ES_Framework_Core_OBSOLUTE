@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace ES
 {
+    [ESDisplayNameKeyToType("数据单元", "物品数据单元")]
     public class ItemDataInfo : SoDataInfo, IWithSharedAndVariableData<ESItemSharedData, ESItemVariableData>
     {
         [SerializeReference]
