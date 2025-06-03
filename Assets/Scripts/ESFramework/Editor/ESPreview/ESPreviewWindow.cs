@@ -71,7 +71,6 @@ namespace ES
     [Serializable]
     public class Page_ShowSystemICON
     {
-        public TrueGridExample ssss;
         [ShowInInspector, HideLabel, InlineProperty,TableList(ShowIndexLabels = true, HideToolbar = false, AlwaysExpanded = true)]        
         public List<SystemICON> show {get=>ESPreviewWindow.icons;set { } }
         public Page_ShowSystemICON()

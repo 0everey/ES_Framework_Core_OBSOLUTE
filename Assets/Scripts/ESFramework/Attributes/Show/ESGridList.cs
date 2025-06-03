@@ -18,7 +18,7 @@ namespace ES
 
 
     // 1. 定义网格属性标记
-    public class TrueGridAttribute : Attribute
+/*    public class TrueGridAttribute : Attribute
     {
         public int Columns { get; set; } = 4;
         public float CellWidth { get; set; } = 100f;
@@ -152,5 +152,5 @@ namespace ES
                 Value = UnityEngine.Random.Range(0f, 100f)
             });
         }
-    }
+    }*/
 }
