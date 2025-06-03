@@ -46,7 +46,7 @@ namespace ES
             if (require == EnumCollect.AttackConditionRequire.MustTargetInRange)
             {
 
-                if (target == null || (target.transform.position - Who.transform.position).NoY().magnitude >= AttackRangeDis * 1.2f)
+                if (target == null || (target.transform.position - Who.transform.position).EX_NoY().magnitude >= AttackRangeDis * 1.2f)
                 {
                     return;
                 }

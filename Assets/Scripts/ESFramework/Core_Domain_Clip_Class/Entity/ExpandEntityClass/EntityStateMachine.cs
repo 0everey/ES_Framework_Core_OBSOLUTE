@@ -326,84 +326,79 @@ namespace ES
         #region 类型支持
         public class BufferContainer : BaseListIOC_Arch_KeyAndList<OutputOperationBuffBuffer, ValueBufferOperationFloat>
         {
-            public Queue<(OutputOperationBuffBuffer, ValueBufferOperationFloat)> ToDelete = new Queue<(OutputOperationBuffBuffer, ValueBufferOperationFloat)>();
+            public Queue<(OutputOperationBuffBuffer operation, ValueBufferOperationFloat buffer)> ToDelete = new Queue<(OutputOperationBuffBuffer, ValueBufferOperationFloat)>();
         }
 
         #endregion
-        public BuffSoInfo soInfo;
-        private List<SettlementFloat> floats = new List<SettlementFloat>();
-        private List<SettlementBool> bools = new List<SettlementBool>();
-        [NonSerialized]
+        [LabelText("Buff共享数据")]public ESBuffSharedData buffSharedData;
+        [LabelText("Buff变量数据")]public ESBuffVariableData buffVariableData=new ESBuffVariableData();
+        [NonSerialized]/*缓存-委托行为*/
         public Dictionary<OutputOpeationBuffDelegate,  (Delegate,int)> CacheActions = new Dictionary<OutputOpeationBuffDelegate, (Delegate, int)>();
-        [NonSerialized]
+        [NonSerialized]/*缓存-结算*/
         public Dictionary<OutputOpeationBuffSettle, SettleOperationFloat> CacheSettles = new  Dictionary<OutputOpeationBuffSettle, SettleOperationFloat>();
-        [NonSerialized]
+        [NonSerialized]/*缓存-缓冲变动*/
         public BufferContainer CacheBuffers =new BufferContainer();
-        /*[NonSerialized]
-        public Dictionary<>*/
-        public float Level => 1;
-        public void CreateSettleOperation(SettlementFloat settlement){
-            
-        }
+        public Entity from;
+        //这个Buff效果要用的
+        public float Level => buffVariableData.level;
         protected override void RunStateEnterLogic()
         {
-            base.RunStateEnterLogic();
-           /* foreach(var i in soInfo.dele)
+            triggerTimer = buffSharedData.triggerTimeStart;
+            if (buffVariableData.timeRemain < 0)
             {
-                if (i == null) continue;
-                i.TryOpeation(Entity,null,this);
+                buffVariableData.timeRemain = 10;
             }
-            foreach (var i in soInfo.settle)
+            if (buffSharedData.EnableOnOffTrigger)
             {
-                if (i == null) continue;
-                i.TryOpeation(Entity, null, this);
-            }*/
-           
+                buffSharedData.opeationForOnOff.TryOpeation(Entity, from, this);
+            }
+            base.RunStateEnterLogic();
         }
         protected override void RunStateExitLogic()
         {
-            base.RunStateExitLogic();
-           /* foreach (var i in soInfo.dele)
+            if (buffSharedData.EnableOnOffTrigger)
             {
-                if (i == null) continue;
-                i.TryCancel(Entity, null, this);
+                buffSharedData.opeationForOnOff.TryCancel(Entity, from, this);
             }
-            foreach (var i in soInfo.settle)
-            {
-                if (i == null) continue;
-                i.TryCancel(Entity, null, this);
-            }*/
-            
+            CacheActions.Clear();
+            CacheSettles.Clear();
+            CacheBuffers.IOC.Clear();
+            base.RunStateExitLogic();
         }
-        float timer = 1;
-        float timer2 = 3;
+        private float triggerTimer = 0;
+        
         protected override void RunStateUpdateLogic()
         {
-            timer -= Time.deltaTime;
-            timer2 -= Time.deltaTime;
-            /*if (timer < 0)
-            {
-                timer = 1;
-                soInfo?.upd.TryOpeation(Entity,null,this);
-            }*/
-            if (timer2 < 0)
-            {
-                timer2 = 3;
-                soInfo?.buffer.TryOpeation(Entity, null, this);
-            }
             base.RunStateUpdateLogic();
-            foreach(var i in CacheBuffers.ToDelete)
+            buffVariableData.timeRemain -= Time.deltaTime;
+            if (buffVariableData.timeRemain < 0)
             {
-                if (CacheBuffers.IOC.TryGetValue(i.Item1,out var list_))
+                OnStateExit();//退出状态 
+            }
+            if (buffSharedData.EnableTimeDisTrigger)
+            {
+                triggerTimer -= Time.deltaTime;
+                if (triggerTimer < 0)
                 {
-                    list_.Remove(i.Item2);
+                    triggerTimer = buffSharedData.triggerTimeDis;
+                    //执行
+                    buffSharedData.opeationForTimeDis.TryOpeation(Entity, from, this);
                 }
             }
-            foreach(var ii in CacheBuffers.IOC)
-            {
-                foreach(var iii in ii.Value)
+            if(buffSharedData.EnableBuffer){//缓冲更迭
+                foreach (var toDelete in CacheBuffers.ToDelete)
                 {
-                    ii.Key.TryUpdateTheBuffer(iii,Entity,null,this);
+                    if (CacheBuffers.IOC.TryGetValue(toDelete.operation, out var list_))
+                    {
+                        list_.Remove(toDelete.buffer);
+                    }
+                }
+                foreach (var thebuffers in CacheBuffers.IOC)
+                {
+                    foreach (var buffer in thebuffers.Value)
+                    {
+                        thebuffers.Key.TryUpdateTheBuffer(buffer, Entity, null, this);
+                    }
                 }
             }
         }

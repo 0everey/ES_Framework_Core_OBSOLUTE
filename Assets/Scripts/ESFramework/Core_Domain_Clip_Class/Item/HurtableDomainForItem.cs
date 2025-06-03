@@ -6,7 +6,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static ES.EnumCollect;
-using static Unity.Burst.Intrinsics.Arm;
 
 namespace ESFramework
 {
@@ -68,7 +67,7 @@ namespace ES
         [FoldoutGroup("关于附加效果与生命")]
         [InfoBox("在共享数据中配置碰撞实体时触发的效果")]
         [LabelText("是否是Trigger")] public bool asTrigger = true;
-        [LabelText("可损耗生命Layer")] public LayerMask TimesSubLayer = 2 << EditorMaster.LayerEntity + 2 << EditorMaster.LayerWall;
+        [LabelText("可损耗生命Layer")] public LayerMask TimesSubLayer = 2 << ESEditorRuntimePartMaster.LayerEntity + 2 << ESEditorRuntimePartMaster.LayerWall;
         private float lifeTimeHasGo = 10;
         private int canColTimes = 2;
         [FoldoutGroup("特殊功能"), LabelText("延迟时间")]

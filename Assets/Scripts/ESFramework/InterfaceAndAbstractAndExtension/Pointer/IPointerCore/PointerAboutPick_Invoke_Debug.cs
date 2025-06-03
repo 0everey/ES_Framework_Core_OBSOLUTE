@@ -331,7 +331,7 @@ namespace ES.EvPointer
 
         public override object Pick(object on= null, object from = null, object with = null)
         {
-            GameCenterManager.Instance.StartCoroutine(CoroutineMaker.DelayCoroutine(() => { dependPointer?.Pick(); }, delayTime?.Pick() ?? 1,
+            GameCenterManager.Instance.StartCoroutine(_CoroutineMaker_Obsolete.DelayCoroutine(() => { dependPointer?.Pick(); }, delayTime?.Pick() ?? 1,
                 applyCancellationSource ? cancelSourceToken = new CancellationTokenSource() : default));
             if (applyCancellationSource && usePlayerCaster)
             {
@@ -362,7 +362,7 @@ namespace ES.EvPointer
         }
         public override object Pick(object on= null, object from = null, object with = null)
         {
-            GameCenterManager.Instance.StartCoroutine(CoroutineMaker.RepeatConroutine(
+            GameCenterManager.Instance.StartCoroutine(_CoroutineMaker_Obsolete.RepeatConroutine(
                 () => { dependPointer?.Pick(); },
                 delayTime?.Pick() ?? 1,
                 intervalTime?.Pick() ?? 1,
@@ -396,7 +396,7 @@ namespace ES.EvPointer
 
         public override object Pick(object on= null, object from = null, object with = null)
         {
-            GameCenterManager.Instance.StartCoroutine(CoroutineMaker.RunningConroutine(
+            GameCenterManager.Instance.StartCoroutine(_CoroutineMaker_Obsolete.RunningConroutine(
 
                () => { dependPointer_start?.Pick(); },
                () => { dependPointer?.Pick(); },

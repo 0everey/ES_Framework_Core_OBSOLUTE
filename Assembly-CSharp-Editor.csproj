@@ -61,12 +61,8 @@
     <Analyzer Include="F:\aaProject\ES_Framework_Core\Assets\FishNet\Runtime\Plugins\CodeAnalysis\FishNet.CodeAnalysis.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\ESFramework\Editor\ESRes\ESResEditor.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Editor\ESDataWindow\ESDataWindow.cs" />
     <Compile Include="Assets\Editor\TemplateSelfTest.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Editor\ESRes\ESResWindow.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Editor\ESWindowBase_Abstract.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -1143,10 +1139,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{5CAC8FB7-9BBE-DB71-5A16-770A628BB791}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{6CEABA7C-DDE5-2B2B-DA61-BB93C96C91DE}</Project>
       <Name>Assembly-CSharp</Name>
@@ -1154,6 +1146,10 @@
     <ProjectReference Include="GameKit.Dependencies.csproj">
       <Project>{28D6E5F9-1EA5-F8A5-91F7-6BF17B521D6A}</Project>
       <Name>GameKit.Dependencies</Name>
+    </ProjectReference>
+    <ProjectReference Include="ESEditor.csproj">
+      <Project>{22939CC4-752D-E3CD-8EDB-649CE0DD4593}</Project>
+      <Name>ESEditor</Name>
     </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.Modules.UnityMathematics.csproj">
       <Project>{2760D5CA-2624-646D-C4A3-F38EEE596E44}</Project>
@@ -1170,6 +1166,14 @@
     <ProjectReference Include="FishNet.Codegen.Cecil.csproj">
       <Project>{CF458A6C-5F78-D0E9-C800-81503F6AC632}</Project>
       <Name>FishNet.Codegen.Cecil</Name>
+    </ProjectReference>
+    <ProjectReference Include="ES.csproj">
+      <Project>{BBE09070-06B2-900A-2328-6ADA8A42E408}</Project>
+      <Name>ES</Name>
+    </ProjectReference>
+    <ProjectReference Include="DOTween.Modules.csproj">
+      <Project>{A7C79A4F-5953-8F34-9377-ABB31C68C48C}</Project>
+      <Name>DOTween.Modules</Name>
     </ProjectReference>
     <ProjectReference Include="FishNet.Demos.csproj">
       <Project>{C167F390-BFBB-AFC8-CDB6-390E6B0EE5F9}</Project>

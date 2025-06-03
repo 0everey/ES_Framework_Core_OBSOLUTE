@@ -247,10 +247,11 @@ namespace ES
         {
             base.OnSubmitHosting(hosting);
             if (info == null) return;
-            var Create = KeyValueMatchingUtility.Creator.CreateStateRunTimeLogicComplete(info.binding);
+            var Create = KeyValueMatchingUtility.Creator.CreateStateRunTimeLogicComplete(info.bindingState);
             if (Create is EntityState_Buff buff)
             {
-                buff.soInfo = info;
+                buff.buffSharedData = info.SharedData;
+
                 Domain.StateMachine.RegisterNewState(info.key.str_direc, Create);
             }
             /*foreach (var i in skillDataInfos)

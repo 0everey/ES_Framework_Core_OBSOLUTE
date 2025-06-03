@@ -52,7 +52,7 @@ namespace ES
         {
             Vector3 center = (other.transform.position + transform.position) / 2;
             bool isEntity = false;
-            if (other.gameObject.layer == EditorMaster.LayerEntity)
+            if (other.gameObject.layer == ESEditorRuntimePartMaster.LayerEntity)
             {
               
                 var e = other.GetComponent<Entity>();
@@ -73,7 +73,7 @@ namespace ES
            
             bool isEntity = false;
             Vector3 pos = collision.contacts[0].point;
-            if (collision.gameObject.layer == EditorMaster.LayerEntity)
+            if (collision.gameObject.layer == ESEditorRuntimePartMaster.LayerEntity)
             {
                 var e = collision.gameObject.GetComponent<Entity>();
                 if (e != null)

@@ -501,7 +501,7 @@ namespace ES
 
             //origin.y += 
             dest.y = origin.y;
-            if (Physics.Linecast(origin, dest, EditorMaster.LayerMaskWall + EditorMaster.LayerMaskGround))
+            if (Physics.Linecast(origin, dest, ESEditorRuntimePartMaster.LayerMaskWall + ESEditorRuntimePartMaster.LayerMaskGround))
             {
                 return false;
             }
@@ -512,7 +512,7 @@ namespace ES
         public override void TrySee()
         {
             // Object in Range
-            objectCount = Physics.OverlapSphereNonAlloc(Domain.transform.position + Core.transform.forward * Core.entitySharedData.VisionRangeDis / 2, Core.entitySharedData.VisionRangeDis, CollidersList, EditorMaster.LayerMaskEntity, QueryTriggerInteraction.Collide);
+            objectCount = Physics.OverlapSphereNonAlloc(Domain.transform.position + Core.transform.forward * Core.entitySharedData.VisionRangeDis / 2, Core.entitySharedData.VisionRangeDis, CollidersList, ESEditorRuntimePartMaster.LayerMaskEntity, QueryTriggerInteraction.Collide);
             SeeESObjectList.Clear();
 
             for (int i = 0; i < objectCount; i++)

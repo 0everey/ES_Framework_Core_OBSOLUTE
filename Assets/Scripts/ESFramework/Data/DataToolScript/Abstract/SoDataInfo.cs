@@ -26,9 +26,17 @@ namespace ES
                 DataKey = new KeyString_Direct() { str_direc = s };
             }
         }
-
+#if UNITY_EDITOR
+        [ContextMenu("删除自己")]
+        public void DeleteThis()
+        {
+            Undo.DestroyObjectImmediate(this);
+            AssetDatabase.Refresh();
+            AssetDatabase.SaveAssets();
+        }
+#endif
     }
- 
+
 
     [Serializable]
     public abstract class BuffRunTimeLogic :BaseESModule<BuffHosting>

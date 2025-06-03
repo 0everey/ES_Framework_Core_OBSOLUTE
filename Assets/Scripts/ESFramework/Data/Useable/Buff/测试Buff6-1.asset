@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1395327674312123132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ff4bdd0ffdfaf48a79197abde84fd0, type: 3}
+  m_Name: "\u6570\u636E\u5355\u5143\u7B80\u77ED\u6263\u8840\u6D4B\u8BD5"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  DataKey:
+    str_direc: "\u7B80\u77ED\u6263\u8840\u6D4B\u8BD5"
+  bindingState: {fileID: 7354626929180494933, guid: 3c0c6df33be34c3419cc9b0bd4a0c1b7,
+    type: 2}
+  buffSharedData:
+    EnableBuffer: 1
+    EnableTimeDisTrigger: 1
+    triggerTimeStart: 1
+    triggerTimeDis: 3
+    opeationForTimeDis:
+      rid: 165003330237759524
+    EnableOnOffTrigger: 1
+    opeationForOnOff:
+      rid: -2
+    icon: {fileID: 0}
+    buffGoodOrBad: 0
+  defaultVariableData:
+    level: 1
+    timeRemain: 10
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 165003330237759524
+      type: {class: OutputOperationBufferBuff_Target, ns: ES, asm: Assembly-CSharp}
+      data:
+        bufferData:
+          curve:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 1
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            - serializedVersion: 3
+              time: 1
+              value: 2
+              inSlope: 0
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+          mutipler: 1
+          needTime: 1
+        target:
+          rid: 165003330237759525
+    - rid: 165003330237759525
+      type: {class: Target_Helath, ns: ES, asm: Assembly-CSharp}
+      data: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef589ecd90337542b96d746c46cbd23, type: 3}
+  m_Name: "\u6D4B\u8BD5Buff6-1"
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: -1395327674312123132}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: keyValues
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[ES.BuffSoInfo,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: "\u7B80\u77ED\u6263\u8840\u6D4B\u8BD5"
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  name__: "\u6570\u636E\u7EC4"

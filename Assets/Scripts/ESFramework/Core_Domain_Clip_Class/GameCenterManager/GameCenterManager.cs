@@ -19,7 +19,7 @@ namespace ES
         
 
         [LabelText("基本域")]public DomainForGameCenterManager BaseDomain;
-
+        
 
 
         [FoldoutGroup("事件委托")] public UnityEvent<Scene, LoadSceneMode> OnSceneLoaded;

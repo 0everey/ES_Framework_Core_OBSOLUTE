@@ -36,7 +36,7 @@ namespace ES
         public Color showColor = Color.white;
         private void SetString(string edit)
         {
-            ReadMe = edit;
+            ReadMe = readMe;
         }
     }
 }

@@ -61,217 +61,27 @@
     <Analyzer Include="F:\aaProject\ES_Framework_Core\Assets\FishNet\Runtime\Plugins\CodeAnalysis\FishNet.CodeAnalysis.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Architecture\Architecture.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\Attackable\AttackableAbout.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutGlobal.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Strategy\RunTime\BaseRunTimeStrategy.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\State\BaseDefine\Abstract\BaseStateDefine.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Strategy\RunTime\ESResSolution\IResSource.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerForDotween\PointerForDotween.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\Settlement\Settlement.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Tool\GlobalControll\Tool_FollowIt.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutCasterAndCatcher.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutRubbish.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\GameCenterManager\RunTimeMaster\ESSpawnMaster.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerLoader.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Tool\GlobalControll\ES_PoolMaster.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\RoomGenerateDataPack.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerLink\PointerPlayerXXXReceiveLink.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\SkillAndAddition\SkillPointController\SkillControllerSourceCore.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerTypesOfCompo\PointerSetUGUI.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerTypesOfCompo\PointerSetParticles.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutQuaternion.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Link\LinkTable.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Tool\GlobalControll\LateFollow.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\RuneDataInfo.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\ActorDataGroup.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Net\Test\NetTest_Spawn.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutBool.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutSystemObject.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\SharedAndVariableData\EntitySharedAndVariableData.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutAnimator.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerDontDestroy.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\OutPutOperation\IOutputOperation.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByGetAxis.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\BuffDomainForEntity.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerTimeWatch\PointerPlayerAsTimer.cs" />
     <Compile Include="Assets\Scripts\TestOnly\StateTestMono.cs" />
     <Compile Include="Assets\Resources\Rubbish\GroupType\TestOnlyDataGroup.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerSystemObjectCaster.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithUnityObject.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerLink\PointerPlayerReceiveLink_StringNameEvent.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\ValueType.cs" />
     <Compile Include="Assets\Scripts\TestOnly\HostAndMonoAndListTest.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\GameCenterManager\RunTimeMaster\ESValueMaster.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Strategy\RunTime\ESResSource_Fail.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Domain\Domain.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\TypeDataInfo.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerSupport\SupportPointerPlayerESMachine\ESMachinePlayerPointer.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\ValueBuffer\ValueBufferOperation.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\ItemDataPack.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\SkillAndAddition\Releasable\SkillReleasable\ReleaseableSkillClip.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\Abstract\SoDataInfoConfiguration.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\RuneDataGroup.cs" />
     <Compile Include="Assets\Scripts\TestOnly\Run.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\RuneDataPack.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Net\Connection\ESAuthenticator.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByInputAction.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithString_EValue.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\State\BaseDefine\Interface\StateInterface.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\BaseRunTimeLogic.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\OutPutOperation\OutputOperationSettle.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutUnityObject_Compo_GameObject.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\Abstract\SoDataGroup.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Tool\Splits\ScriptMaker.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Strategy\Static\KeyValueMatching.cs" />
     <Compile Include="Assets\Resources\Rubbish\PackType\TestOnlyDataPack.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Net\Connection\ESNetPlayer.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByCollider2D.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Net\Function\ESNetBehaviourCore.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\RoomGenerateDataInfo.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Define\SharedAndVariable\IWithSharedAndVariableData.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerForParticle\PointerForParticle.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\ArchitectureDataInfo.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Tool\GlobalControll\Tool_OnlyOneControl.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerTypesOfCompo\PointerSetAudio.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByCollider3D.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\Entity.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Item\Item.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\GameCenterManager\GameCenterManager.cs" />
     <Compile Include="Assets\Scripts\TestOnly\testCopyTo.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\OutPutOperation\OutputOperationValue.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\StateDataPack.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\SingleNoTool\ESTypeSelecter.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutTask_Async_CancelationToken.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerWithLifeTime.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\OutPutOperation\OutputOperationDelegate.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\OutPutOperation\OutputOperationBuffer.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithVector2_EValue.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutTransform.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithBool_EValue.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutDelegate_Func_Action.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\ESNetWork\ESNetRemoteDomain.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\WithCoroutine\IWithEnumeratorTask.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\ESNetWork\ESNetManager.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\StateDataGroup.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Item\HurtableDomainForItem.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutType.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ModuleAndHosting\HostingPart_Define\IESHosting.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\ArchitectureDataPack.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\ItemDataInfo.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\WithCoroutine\MonoBehaiviourWithCoroutine.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\Pointer.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Define\SharedAndVariable\InterfaceForSharedAndVariable.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByMouse.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ModuleAndHosting\HostingPart_Define\ESHostMono.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Link\LinkForEntity_StartCache.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\SkillAndAddition\Releasable\SkillReleasable\IReleasablePointerOnlyByEntityYarnEntityOn.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Domain\Clip.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Item\SharedAndVariableData\ItemSharedAndVariableData.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\GameCenterManager\RunTimeMaster\ESResMaster.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutTriggerOnly.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\ItemDataGroup.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\SkillAndAddition\SkillPointController\SkillPointRunTime.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutPick_Invoke_Debug.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerNone.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByTrigger3D.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\TargetOperation\TargetOperation.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\SingleNoTool\ESLayerStringSO.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerTypesOfCompo\PointerSetRigidBody.cs" />
     <Compile Include="Assets\Resources\Rubbish\InfoType\TestOnlyDataInfo.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Item\HoldableDomainForItem.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\SkillAndAddition\SkillPointController\SkillRuneControllerApplier.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Extension\Extension.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByGetButton.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutString.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\SkillDataInfo.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Special\ESObject.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\GameEventMessageDataGroup.cs" />
     <Compile Include="Assets\Resources\Rubbish\InfoType\buildingDataInfo.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithEValue.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithFloat_EValue.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\StateDataInfo.cs" />
     <Compile Include="Assets\Resources\Rubbish\PackType\buildingDataPack.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\GameEventMessageDataInfo.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\ESTag.cs" />
     <Compile Include="Assets\FishNet\Upgrading\EdgegapMenu.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\GameCenterManager\RunTimeMaster\ESDebugMaster.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\TypesValue\ValueSupportEnum.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\Abstract\SoDataPack.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Net\Function\Function.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Net\Event\NetBroadCast.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Domain\Core.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutVector2And3.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\StateMachineDomainForEntity.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerTimeWatch\PointerPlayerAsStopWatch.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\Abstract\SoDataInfo.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Strategy\RunTime\ESResSolution\TypesOfResSource.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\SingleNoTool\ESObjectTypeSpawnHandle.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\SkillDataPack.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Strategy\RunTime\ESResSolution\ESResLoader.cs" />
     <Compile Include="Assets\FishNet\Upgrading\UpgradeFromMirrorMenu.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByTrigger2D.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ModuleAndHosting\ModulePart_Define\IESModule.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\SingleNoTool\ModelSO.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithType_EValue.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerTypesOfCompo\PointerSetLight.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\AIDomainForEntity.cs" />
     <Compile Include="Assets\Resources\Rubbish\GroupType\buildingDataGroup.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\GameCenterManager\EditorMaskter\EditorMaster.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\ActorDataPack.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerTypeCaster.cs" />
     <Compile Include="Assets\Scripts\TestOnly\test501.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\SkillPointDataPack.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\BuffDataInfo.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\RoomGenerateDataGroup.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\SkillPointDataGroup.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutReflection.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\SkillDataGroup.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\SkillPointDataInfo.cs" />
     <Compile Include="Assets\Scripts\TestOnly\TestSettleMent.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\BuffDataGroup.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\BuffDataPack.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\HotFix\Fix_Project_Transition.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\ESNetWork\ESNetLocalDomain.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\PackType\GameEventMessageDataPack.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutIOC.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\ESValueContainer.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutFloatAndInt.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithVector3_EValue.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerByInputGetKey.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\BaseDomainForEntity.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\GameCenterManager\DomainForGameCenterManager.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Extension\ExtansionForString.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\State\BaseDefine\SharedAndVariableData_USE\SharedAndVariableDefine.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\State\BaseDefine\Abstract\BaseStateMachineDefine.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerBy\PointerByArchitectureKeyValuePoolTypeListIOC.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\ValueType\ESReferValue.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\SingleNoTool\ESCampMaker.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Attribute\EditorHelper.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\Attackable\Camp.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\GroupType\ArchitectureDataGroup.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerSupport\SupportPointerPlayerEValue\PointerXXXEValueFromPointerPlayer.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Singleton\SingletonAsDomainCore.cs" />
     <Compile Include="Assets\FishNet\Upgrading\MirrorUpgrade.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Data\DataToolScript\InfoType\ActorDataInfo.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\SkillAndAddition\SkillPointController\SkillPointSpritesReference.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Ship\SkillAndAddition\Releasable\NormalReleasable\IReleasablePointerOnlyByEntityYarnEntityOn.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\GameCenterManager\RunTimeMaster\ESAudioMaster.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithInt_EValue.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Core_Domain_Clip_Class\Entity\ExpandEntityClass\EntityStateMachine.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerCore\PointerPlayerWithTimer.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Strategy\RunTime\Factory.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Tool\OnlyShow\ESReadMeESMono.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\PointerPlayer\PointerPlayerEValue\PointerPlayerWithSystemObject_EValue.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\InterfaceAndAbstractAndExtension\Pointer\IPointerCore\PointerAboutRendererAndColorAndMaterial.cs" />
-    <Compile Include="Assets\Scripts\ESFramework\Strategy\RunTime\ESCampStrategy\ESCampStrategy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ScriptTemplates\12-ES脚本__空Mono脚本-NullMono.cs.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\Scripts\ESFramework\演示场景总文件夹\案例合集\资源汇总\Space Shooter\GameRes\Shader\UnlitShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\ScriptTemplates\81-C# Script-NewBehaviourScript.cs.txt" />
     <None Include="Assets\FishNet\LICENSE.txt" />
@@ -288,7 +98,6 @@
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\Scripts\ESFramework\演示场景总文件夹\案例合集\资源汇总\Space Shooter\GameRes\UIFont\LICENSE.txt" />
     <None Include="Assets\FishNet\DOCUMENTATION.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
@@ -1325,13 +1134,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{5CAC8FB7-9BBE-DB71-5A16-770A628BB791}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
     <ProjectReference Include="GameKit.Dependencies.csproj">
       <Project>{28D6E5F9-1EA5-F8A5-91F7-6BF17B521D6A}</Project>
       <Name>GameKit.Dependencies</Name>
+    </ProjectReference>
+    <ProjectReference Include="ESEditor.csproj">
+      <Project>{22939CC4-752D-E3CD-8EDB-649CE0DD4593}</Project>
+      <Name>ESEditor</Name>
     </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.Modules.UnityMathematics.csproj">
       <Project>{2760D5CA-2624-646D-C4A3-F38EEE596E44}</Project>
@@ -1348,6 +1157,14 @@
     <ProjectReference Include="FishNet.Codegen.Cecil.csproj">
       <Project>{CF458A6C-5F78-D0E9-C800-81503F6AC632}</Project>
       <Name>FishNet.Codegen.Cecil</Name>
+    </ProjectReference>
+    <ProjectReference Include="ES.csproj">
+      <Project>{BBE09070-06B2-900A-2328-6ADA8A42E408}</Project>
+      <Name>ES</Name>
+    </ProjectReference>
+    <ProjectReference Include="DOTween.Modules.csproj">
+      <Project>{A7C79A4F-5953-8F34-9377-ABB31C68C48C}</Project>
+      <Name>DOTween.Modules</Name>
     </ProjectReference>
     <ProjectReference Include="FishNet.Demos.csproj">
       <Project>{C167F390-BFBB-AFC8-CDB6-390E6B0EE5F9}</Project>

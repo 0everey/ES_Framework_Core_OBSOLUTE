@@ -1113,9 +1113,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="ESEditorMaster.csproj">
+      <Project>{37D94E7C-8CF2-3261-EE48-A5FB406FE166}</Project>
+      <Name>ESEditorMaster</Name>
+    </ProjectReference>
     <ProjectReference Include="GameKit.Dependencies.csproj">
       <Project>{28D6E5F9-1EA5-F8A5-91F7-6BF17B521D6A}</Project>
       <Name>GameKit.Dependencies</Name>
+    </ProjectReference>
+    <ProjectReference Include="ES.csproj">
+      <Project>{BBE09070-06B2-900A-2328-6ADA8A42E408}</Project>
+      <Name>ES</Name>
+    </ProjectReference>
+    <ProjectReference Include="ESEditor.csproj">
+      <Project>{22939CC4-752D-E3CD-8EDB-649CE0DD4593}</Project>
+      <Name>ESEditor</Name>
     </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.Modules.UnityMathematics.csproj">
       <Project>{2760D5CA-2624-646D-C4A3-F38EEE596E44}</Project>

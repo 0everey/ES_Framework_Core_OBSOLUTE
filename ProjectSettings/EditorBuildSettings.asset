@@ -11,6 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/ES\u542F\u52A8\u6A21\u677F_\u4E0D\u8981\u4FEE\u6539\u5B83\u800C\u662F\u590D\u5236\u7C98\u8D34.unity"
     guid: 7baa2cbf4cbce224b8978fadf18b50b0
+  - enabled: 1
+    path: Assets/FishNet/Demos/SceneManager/Additive Scenes/Scenes/AdditiveScenes_Start.unity
+    guid: afbcf8f41ca78ef4296672aeb824f605
+  - enabled: 1
+    path: Assets/FishNet/Demos/SceneManager/Additive Scenes/Scenes/AdditiveScenes_0.unity
+    guid: 7643cdc3eefb15f4f8608cc633c55f7e
+  - enabled: 1
+    path: Assets/FishNet/Demos/SceneManager (Old Examples)/Scenes/Additive/AdditiveConnection.unity
+    guid: cc489be8bb6ae444283f394c5e5fa8e2
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 670e3fb38bc32a544bc78695174e2883,
       type: 2}

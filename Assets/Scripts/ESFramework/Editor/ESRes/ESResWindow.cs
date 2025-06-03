@@ -9,8 +9,6 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-using static ES.EditorMaster;
-
 namespace ES
 {
 
@@ -19,13 +17,13 @@ namespace ES
     {
         #region 数据滞留
         public PartPageClass_AssetBundle Page_Assetbundle;
-
+        
 
         #endregion
         [MenuItem("Tools/ES工具/ES资源管理窗口")]
         public static void TryOpenWindow()
         {
-            if (EditorMaster.Instance != null)
+            if (ESEditorRuntimePartMaster.Instance != null)
                 OpenWindow();
             else Debug.LogError("确保场景中有EditorMaster");
         }

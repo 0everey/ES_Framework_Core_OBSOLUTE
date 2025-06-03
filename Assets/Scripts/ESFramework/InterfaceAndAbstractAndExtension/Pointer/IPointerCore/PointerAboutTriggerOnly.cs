@@ -306,7 +306,7 @@ namespace ES.EvPointer
             {
                 GameObject g = pointerFor?.Pick();
 
-                GameCenterManager.Instance.StartCoroutine(CoroutineMaker.DelayCoroutine(() =>
+                GameCenterManager.Instance.StartCoroutine(_CoroutineMaker_Obsolete.DelayCoroutine(() =>
                 {
                     if (g != null)
                     {

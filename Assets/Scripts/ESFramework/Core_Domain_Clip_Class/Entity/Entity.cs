@@ -91,7 +91,7 @@ namespace ES
             }
             if (YV <= 0)
             {
-                var back = Physics.Raycast(t.position + Vector3.up * 0.25f, Vector3.down, 0.5f, EditorMaster.LayerMaskGround);
+                var back = Physics.Raycast(t.position + Vector3.up * 0.25f, Vector3.down, 0.5f, ESEditorRuntimePartMaster.LayerMaskGround);
                
                 if (back)
                 {

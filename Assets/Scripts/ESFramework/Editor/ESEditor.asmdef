@@ -1,0 +1,20 @@
+{
+    "name": "ESEditor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:89c22bb50d9f24946ae9754c437fb3da",
+        "GUID:e34a5702dd353724aa315fb8011f08c3",
+        "GUID:4d1926c9df5b052469a1c63448b7609a",
+        "GUID:eb8b9bc1d86e8b347803d36b834e8d1d",
+        "GUID:0acc523941302664db1f4e527237feb3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -15,7 +15,7 @@ namespace ES
         private void Start()
         {
             SkillControllerKeyValueArchitecture.Init();
-            StartCoroutine(CoroutineMaker.DelayOneFrameCoroutine(RefreshAll));
+            StartCoroutine(_CoroutineMaker_Obsolete.DelayOneFrameCoroutine(RefreshAll));
         }
         // Start is called before the first frame update
         [Button("刷新测试")]

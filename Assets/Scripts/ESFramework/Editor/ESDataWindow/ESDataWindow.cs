@@ -63,7 +63,7 @@ namespace ES
             GameCenterManager.Instance.ArchutectureIOC.OnChange += () =>
             {
 
-                GameCenterManager.Instance.StartCoroutine(CoroutineMaker.DelayOneFrameCoroutine(() => { if (this != null) ESWindow_RefreshWindow(); }));
+                GameCenterManager.Instance.StartCoroutine(_CoroutineMaker_Obsolete.DelayOneFrameCoroutine(() => { if (this != null) ESWindow_RefreshWindow(); }));
             };
         }
 
@@ -338,9 +338,9 @@ namespace ES
                 /*
                   ESTool_ScriptMaker.Instance.CreateScript(文件夹路径,Class名,继承/实现,特性,命名空间=ES);
                  */
-                ESTool_ScriptMaker.Instance.CreateScript(toInfo, infoName, Attribute: $"[ESDisplayNameKeyToType(\"数据单元\", \"{ChineseDisplayName}数据单元\")]", parent: ": SoDataInfo");
-                ESTool_ScriptMaker.Instance.CreateScript(toGroup, EnglishCodeName + "DataGroup", Attribute: $"[ESDisplayNameKeyToType(\"数据组\", \"{ChineseDisplayName}数据组\")]", parent: $": SoDataGroup<{infoName}>");
-                ESTool_ScriptMaker.Instance.CreateScript(toPack, EnglishCodeName + "DataPack", Attribute: $"[ESDisplayNameKeyToType(\"数据包\", \"{ChineseDisplayName}数据包\")]", parent: $": SoDataPack<{infoName}>");
+                KeyValueMatchingUtility.ScriptMaker.CreateScript(toInfo, infoName, Attribute: $"[ESDisplayNameKeyToType(\"数据单元\", \"{ChineseDisplayName}数据单元\")]", parent: ": SoDataInfo");
+                KeyValueMatchingUtility.ScriptMaker.CreateScript(toGroup, EnglishCodeName + "DataGroup", Attribute: $"[ESDisplayNameKeyToType(\"数据组\", \"{ChineseDisplayName}数据组\")]", parent: $": SoDataGroup<{infoName}>");
+                KeyValueMatchingUtility.ScriptMaker.CreateScript(toPack, EnglishCodeName + "DataPack", Attribute: $"[ESDisplayNameKeyToType(\"数据包\", \"{ChineseDisplayName}数据包\")]", parent: $": SoDataPack<{infoName}>");
                 AssetDatabase.Refresh();
             }
             else
@@ -1248,27 +1248,27 @@ namespace ES
     {
         public static string[] GetInfoNames()
         {
-            return EditorMaster.Instance.SearchDataTypeKey.FindDic("数据单元").Keys.ToArray();
+            return ESEditorRuntimePartMaster.Instance.SearchDataTypeKey.FindDic("数据单元").Keys.ToArray();
         }
         public static string[] GetGroupNames()
         {
-            return EditorMaster.Instance.SearchDataTypeKey.FindDic("数据组").Keys.ToArray();
+            return ESEditorRuntimePartMaster.Instance.SearchDataTypeKey.FindDic("数据组").Keys.ToArray();
         }
         public static string[] GetPackNames()
         {
-            return EditorMaster.Instance.SearchDataTypeKey.FindDic("数据包").Keys.ToArray();
+            return ESEditorRuntimePartMaster.Instance.SearchDataTypeKey.FindDic("数据包").Keys.ToArray();
         }
         public static Type GetInfoType(string name)
         {
-            return EditorMaster.Instance.SearchDataTypeKey.Find("数据单元", name);
+            return ESEditorRuntimePartMaster.Instance.SearchDataTypeKey.Find("数据单元", name);
         }
         public static Type GetGroupType(string name)
         {
-            return EditorMaster.Instance.SearchDataTypeKey.Find("数据组", name);
+            return ESEditorRuntimePartMaster.Instance.SearchDataTypeKey.Find("数据组", name);
         }
         public static Type GetPackType(string name)
         {
-            return EditorMaster.Instance.SearchDataTypeKey.Find("数据包", name);
+            return ESEditorRuntimePartMaster.Instance.SearchDataTypeKey.Find("数据包", name);
         }
         /*public enum DataType
         {

@@ -151,7 +151,7 @@ namespace ES
         {
            
 #if UNITY_EDITOR
-            if (EditorMaster.IsQuit) return;
+            if (ESEditorRuntimePartMaster.IsQuit) return;
 #endif
            
             IsActiveAndEnable = false;
